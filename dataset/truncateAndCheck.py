@@ -15,12 +15,17 @@ def main():
 
     for file in os.listdir(full_seq_dir):
 
+        """
         #check if already processed, else skip
         if os.path.exists(f"{trunc_dir}/{file}_truncated"):
             continue
+        """
 
         print(f"Truncatting and checking sequences for file: {file}...")
         df = pd.read_csv(f"{full_seq_dir}/{file}", delimiter=",")
+
+        print(df.UniProtSequence.str.len().max())
+        continue
         df = df.apply(TruncateSequence, axis=1, result_type='expand')
 
         df = df.drop(columns = ["UniProtSequence"])
@@ -64,7 +69,7 @@ def createTruncatedSequence(UniProtSequence, PTM_location, n=10):
     pre_dashes = discarded_lower * "-"
     post_dashes = discarded_upper * "-"
     truncatedSequence = "".join([pre_dashes, truncated_seq, post_dashes])
-    return truncated_seq
+    return truncatedSequence
 
 
 def calculateRange(index, seq_length, n=10):
