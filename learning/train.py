@@ -28,8 +28,14 @@ if __name__ == "__main__":
     learning_rate = 0.003
     redundancyPercentage = 70
     # aminoAcid = "Phosphorylation-['S', 'T']"
-    aminoAcid = "Hydroxylation-K"
+    # aminoAcid = "Hydroxylation-K"
+    aminoAcid = "Phosphorylation-Y"
     test_data_ratio = 0.1
+
+    data_sample_mode = "balanced"
+    data_sample_mode = "weighted"
+    data_sample_mode = "undersample"
+    data_sample_mode = "oversample"
 
     model = FC_Net
     criterion = nn.BCELoss()
@@ -37,10 +43,13 @@ if __name__ == "__main__":
 
     ### Load training and test data
     folder = get_folder_name(aminoAcid, redundancyPercentage)
-    X, y = np.load(f"{folder}/X_train.npy"), np.load(f"{folder}/y_train.npy")
-    n = len(y)
+    X_neg, y_neg = np.load(f"{folder}/X_train_neg.npy"), np.load(f"{folder}/y_train_neg.npy")
+    X_pos, y_pos = np.load(f"{folder}/X_train_pos.npy"), np.load(f"{folder}/y_train_pos.npy")
+
+    n = len(y_neg) + len(y_pos)
     if model == FC_Net:
-        X = indexListToOneHot(X)
+        X_neg = indexListToOneHot(X_neg)
+        X_pos = indexListToOneHot(X_pos)
 
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     print(f"Running on {device}")
@@ -48,7 +57,14 @@ if __name__ == "__main__":
     net = model(peptide_size=31)
     net.to(device)
 
-    X_train, y_train, X_val, y_val = split_training_test_data(X,y, test_data_ratio=test_data_ratio)
+    X_train_neg, y_train_neg, X_val_neg, y_val_neg = split_training_test_data(X_neg,y_neg, test_data_ratio=test_data_ratio)
+    X_train_neg, y_train_neg, X_val_neg, y_val_neg = split_training_test_data(X_neg,y_neg, test_data_ratio=test_data_ratio)
+
+    print(X_train_neg.shape)
+    print(X_train_pos.weight)
+    exit()
+    negative_sample_weight = len()
+
 
     if isinstance(net, FC_Net):
         X_val = torch.tensor(X_val, dtype=torch.float)
@@ -67,7 +83,7 @@ if __name__ == "__main__":
     trainloader = DataLoader(trainset, batch_size=batch_size, shuffle=True)
     testloader = DataLoader(testset, batch_size=batch_size, shuffle=False)
 
-    weight_decay = 0.001
+    weight_decay = 0.01
     optimizer = optimizer(net.parameters(), lr=learning_rate, weight_decay=weight_decay)
 
     if model == EmbFC_Net:
@@ -81,6 +97,7 @@ if __name__ == "__main__":
 
     # The training loop
     for epoch in range(epochs): 
+        exit()
         
         # Evaluate validation performance
         if epoch % 1 == 0:
