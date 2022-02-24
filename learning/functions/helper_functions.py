@@ -39,19 +39,29 @@ def get_folder_name(AA, redundancy):
     return folder_name
 
 
-def split_training_test_data(X, y, test_data_ratio=0.1):
+def split_training_test_data(X, y, test_data_ratio=0.1, tensor_dtype=torch.float):
     """ Splits the training and test data into fractions NOTE: NO SHUFFLING, ALREADY DID THAT"""
+    
     n = len(y)
     X_val = X[:int(n*test_data_ratio),:]
+    X_val = torch.tensor(X_val, dtype=tensor_dtype)
+
     y_val = y[:int(n*test_data_ratio)]
+    y_val = torch.tensor(y_val, dtype=torch.float)
+
     X_train = X[int(n*test_data_ratio):,:]
+    X_train = torch.tensor(X_train, dtype=tensor_dtype)
+
     y_train = y[int(n*test_data_ratio):]
+    y_train = torch.tensor(y_train, dtype=torch.float)
+
     return X_train, y_train, X_val, y_val
 
 
 def get_evaluation_metrics( y_true, y_output, y_pred):
     """ Calculates all evaluation metrics and returns them as a dict"""
     tn, fp, fn, tp = confusion_matrix(y_true, y_pred).ravel()
+
     accuracy = (tp+tn)/(fn+fp+tp+tn)
     sensitivity = tp/(tp+fn)
     specificity = tn/(tn+fp)

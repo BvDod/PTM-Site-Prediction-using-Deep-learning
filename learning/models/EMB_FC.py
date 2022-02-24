@@ -8,7 +8,7 @@ import torch.nn.functional as F
 class EmbFC_Net(nn.Module):
     """Neural net which using a single simple embedding layer with a FC NN attached, uses categorical index as input"""
 
-    def __init__(self, peptide_size, FC_layer_sizes = [1,], embedding_size = 3):
+    def __init__(self, peptide_size, FC_layer_sizes = [5,1], embedding_size = 3):
         super().__init__()
         self.embeddingSize = embedding_size
         self.embedding = torch.nn.Embedding(27, self.embeddingSize)

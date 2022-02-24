@@ -67,6 +67,9 @@ def main():
 
         else:
             df_neg["TruncatedUniProtSequence"] = df_neg.dbPTMSequence
+            df_neg = df_neg.sample(frac=1)
+            df_pos = df_pos.sample(frac=1)
+
             df_neg = df_neg.reset_index(drop=True)
             df_pos = df_pos.reset_index(drop=True)
 
