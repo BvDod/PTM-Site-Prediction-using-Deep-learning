@@ -1,0 +1,150 @@
+
+from tkinter import E
+import torch
+import numpy as np
+from torch.utils.data import TensorDataset, DataLoader
+from sklearn.model_selection import KFold
+
+
+def indexListToOneHot(input_array):
+    """This function converts an array of categorical features to an array of one-hot represented features"""
+
+    OneHotVariables = 27
+    samples, columns = input_array.shape
+
+    output_array = np.zeros((samples, OneHotVariables*columns))
+    for i in range(samples):
+        for j in range(columns):
+            output_array[i, (j*OneHotVariables) + input_array[i,j]] = 1
+    return output_array
+
+
+def get_folder_name(AA, redundancy, embeddingType):
+    """Get folder name of AA of particular redundancy level"""
+
+    embeddingToFolder = {
+        "oneHot":  "onehot",
+        "embeddingLayer": "indices",
+        "adaptiveEmbedding": "indices",
+        "protBert": "input_ids",
+    }
+
+    type_folder = embeddingToFolder[embeddingType]
+
+    data_dir = "dataset/data/learningData/balanced/"
+    folder_name = f"{data_dir}oneHot_{str(redundancy)}/{AA}/{type_folder}"
+    return folder_name
+
+
+def split_training_test_data(X, y, parameters, tensor_dtype=torch.float):
+    """ Splits the training and test data into fractions NOTE: NO SHUFFLING, ALREADY DID THAT"""
+    
+    CV = parameters["crossValidation"]
+    test_data_ratio = parameters["test_data_ratio"]
+    k = 5
+
+
+    if CV:
+        kfold = KFold(shuffle=True)
+        test_ids = [ids for _, ids in kfold.split(X)]
+        print(test_ids)
+
+    else:
+        n = len(y)
+        X_val = X[:int(n*test_data_ratio),:]
+        X_val = torch.tensor(X_val, dtype=tensor_dtype)
+
+        y_val = y[:int(n*test_data_ratio)]
+        y_val = torch.tensor(y_val, dtype=torch.float)
+
+        X_train = X[int(n*test_data_ratio):,:]
+        X_train = torch.tensor(X_train, dtype=tensor_dtype)
+
+        y_train = y[int(n*test_data_ratio):]
+        y_train = torch.tensor(y_train, dtype=torch.float)
+
+        return [[X_train, y_train, X_val, y_val],]
+
+
+def loadData(parameters):
+    """Function used to load correct dataset based on parameters used"""
+
+    asOneHot = parameters["embeddingType"] == "oneHot"
+    tensor_dtype = torch.float if (parameters["embeddingType"] == "oneHot") else torch.int
+
+    folder = get_folder_name(parameters["aminoAcid"], parameters["redundancyPercentage"], parameters["embeddingType"])
+    X_neg, y_neg = np.load(f"{folder}/X_train_neg.npy"), np.load(f"{folder}/y_train_neg.npy")
+    X_pos, y_pos = np.load(f"{folder}/X_train_pos.npy"), np.load(f"{folder}/y_train_pos.npy")
+
+    if asOneHot:
+        X_pos = X_pos[:,27:-27]
+    elif parameters["embeddingType"] == "protBert":
+        pass
+    else:
+        X_pos = X_pos[:,1:-1]
+
+    print(X_pos.shape)
+    print(X_neg.shape)
+    
+    n = len(y_neg) + len(y_pos)
+
+    print(f"Loaded folder {folder} ({n} samples)")
+    return X_neg, y_neg, X_pos, y_pos, n, tensor_dtype
+
+
+def createDatasets(X_train_neg, y_train_neg, X_val_neg, y_val_neg, X_train_pos, y_train_pos, X_val_pos, y_val_pos, parameters):
+    """Function used to create datasets"""
+
+    reduceNegativeSamples = (parameters["data_sample_mode"] == "balanced")
+
+    n_train_neg, n_train_pos = X_train_neg.shape[0], X_train_pos.shape[0]
+    n_val_neg, n_val_pos = X_val_neg.shape[0], X_val_pos.shape[0]
+
+    train_ratio, val_ratio = n_train_neg/n_train_pos, n_val_neg/n_val_pos
+
+    train_weight = torch.tensor(np.concatenate([np.full(n_train_pos, 1), np.full(n_train_neg, 1./train_ratio)]))
+    val_weight = torch.tensor(np.concatenate([np.full(n_val_pos, 1), np.full(n_val_neg, 1./val_ratio)]))
+
+    if reduceNegativeSamples == True:
+        X_train_neg = X_train_neg[:n_train_pos,:]
+        y_train_neg = y_train_neg[:n_train_pos]
+    
+    X_val_neg = X_val_neg[:n_val_pos,:]
+    y_val_neg = y_val_neg[:n_val_pos]
+    
+
+    X_train = torch.cat([X_train_pos, X_train_neg],dim=0)
+    y_train = torch.cat([y_train_pos, y_train_neg],dim=0)
+    X_val = torch.cat([X_val_pos, X_val_neg],dim=0)
+    y_val = torch.cat([y_val_pos, y_val_neg],dim=0)
+
+    trainset = TensorDataset(X_train, y_train)
+    testset = TensorDataset(X_val, y_val) 
+    return trainset, testset, train_weight, val_weight, n_train_pos, n_train_neg, train_ratio, val_ratio
+
+
+def CreateDataloaders(trainset, testset, n_train_pos, n_train_neg, parameters, train_weight):
+    """ Create dataloaders off training and test-set based on type of sampling technique used """
+
+    data_sample_mode = parameters["data_sample_mode"]
+    batch_size = parameters["batch_size"]
+
+    if not data_sample_mode in ["undersample", "oversample", "weighted", "balanced", "unbalanced", "focalLoss"]:
+        print("Error: invalid sampling method ")
+        exit()
+
+    if (data_sample_mode == "undersample") or (data_sample_mode == "oversample"):
+        if data_sample_mode == "undersample":
+            sampler_train = torch.utils.data.sampler.WeightedRandomSampler(train_weight, n_train_pos*2)
+            
+        elif data_sample_mode == "oversample":
+            sampler_train = torch.utils.data.sampler.WeightedRandomSampler(train_weight,n_train_neg*2, replacement=True)
+        
+        trainloader = DataLoader(trainset, batch_size=batch_size, shuffle=False, sampler=sampler_train, pin_memory=False)
+
+    else:
+        trainloader = DataLoader(trainset, batch_size=batch_size, shuffle=True, pin_memory=False)
+
+    testloader = DataLoader(testset, batch_size=batch_size, shuffle=False, pin_memory=False)
+
+    return trainloader, testloader

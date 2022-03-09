@@ -1,0 +1,109 @@
+C:\Users\bdode\Documents\msc-thesis\Thesis>python dataset/getUniProtSequences.py
+Getting Uniprot sequences for file: Acetylation...
+0/138169
+50000/138169
+100000/138169
+Removing 1165 PTM's because of missing Uniprot sequences
+Removing 160 PTM's because of missing dbPTM sequences
+Retrieved 136844 sequences from UniProt
+
+
+C:\Users\bdode\Documents\msc-thesis\Thesis>python dataset/truncateAndCheck.py 
+Truncatting and checking sequences for file: Acetylation_uniprot_sequence...
+0    134187
+1      2243
+2       414
+
+
+Creating negative samples for file: Acetylation_uniprot_sequence...
+Positive samples: 135873
+Negative samples: 1555960
+
+
+
+
+Truncatting and checking sequences for file: Acetylation_uniprot_sequence...
+0    134187
+1      2243
+2       414
+Name: truncateStatus, dtype: int64
+Truncatting and checking sequences for file: Hydroxylation-K_uniprot_sequence...
+0    229
+Name: truncateStatus, dtype: int64
+Truncatting and checking sequences for file: Hydroxylation-P_uniprot_sequence...
+0    1772
+2      15
+1       4
+Name: truncateStatus, dtype: int64
+Truncatting and checking sequences for file: Methylation-K_uniprot_sequence...
+0    6999
+1      34
+2      10
+Name: truncateStatus, dtype: int64
+Truncatting and checking sequences for file: Methylation-R_uniprot_sequence...
+0    8331
+1     188
+2      28
+Name: truncateStatus, dtype: int64
+Truncatting and checking sequences for file: N-linked Glycosylation_uniprot_sequence...
+0    26966
+1      274
+2      105
+Name: truncateStatus, dtype: int64
+Truncatting and checking sequences for file: O-linked Glycosylation_uniprot_sequence...
+0    16531
+1      140
+2       14
+Name: truncateStatus, dtype: int64
+Truncatting and checking sequences for file: Phosphorylation-Y_uniprot_sequence...
+0    114958
+1      2711
+2      2028
+Name: truncateStatus, dtype: int64
+Truncatting and checking sequences for file: Phosphorylation-['S', 'T']_uniprot_sequence...
+0    1334604
+1      44255
+2      28584
+Name: truncateStatus, dtype: int64
+Truncatting and checking sequences for file: Pyrrolidone carboxylic acid_uniprot_sequence...
+0    963
+2      2
+Name: truncateStatus, dtype: int64
+Truncatting and checking sequences for file: S-palmitoylation-C_uniprot_sequence...
+0    6354
+1       3
+2       1
+Name: truncateStatus, dtype: int64
+Truncatting and checking sequences for file: Sumoylation_uniprot_sequence...
+0    5801
+1      54
+2      34
+Name: truncateStatus, dtype: int64
+Truncatting and checking sequences for file: Ubiquitination_uniprot_sequence...
+0    179058
+1    124494
+2     39567
+Name: truncateStatus, dtype: int6
+
+
+C:\Users\bdode\Documents\msc-thesis\Thesis>python dataset/createNegativeSamples.py
+Creating negative samples for file: Phosphorylation-['S', 'T']_uniprot_sequence...
+Positive samples: 1367187
+Negative samples: 12537596
+
+Creating negative samples for file: Pyrrolidone carboxylic acid_uniprot_sequence...
+Positive samples: 965
+Negative samples: 5401
+
+Creating negative samples for file: S-palmitoylation-C_uniprot_sequence...
+Positive samples: 6355
+Negative samples: 37726
+
+Creating negative samples for file: Sumoylation_uniprot_sequence...
+Positive samples: 5828
+Negative samples: 85472
+
+Creating negative samples for file: Ubiquitination_uniprot_sequence...
+Positive samples: 295625
+Negative samples: 901260
+
