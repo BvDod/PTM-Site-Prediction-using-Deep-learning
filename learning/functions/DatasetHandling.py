@@ -1,9 +1,10 @@
-
-from tkinter import E
+import comet_ml
 import torch
 import numpy as np
 from torch.utils.data import TensorDataset, DataLoader
+
 from sklearn.model_selection import KFold
+from sklearn.model_selection import train_test_split
 
 
 def indexListToOneHot(input_array):
@@ -32,38 +33,32 @@ def get_folder_name(AA, redundancy, embeddingType):
     type_folder = embeddingToFolder[embeddingType]
 
     data_dir = "dataset/data/learningData/balanced/"
-    folder_name = f"{data_dir}oneHot_{str(redundancy)}/{AA}/{type_folder}"
+    folder_name = f"{data_dir}train/{AA}/{type_folder}"
     return folder_name
 
 
-def split_training_test_data(X, y, parameters, tensor_dtype=torch.float):
+def split_training_test_data(X, y, parameters, fold, tensor_dtype=torch.float):
     """ Splits the training and test data into fractions NOTE: NO SHUFFLING, ALREADY DID THAT"""
     
     CV = parameters["crossValidation"]
     test_data_ratio = parameters["test_data_ratio"]
-    k = 5
-
+    k = parameters["folds"]
 
     if CV:
-        kfold = KFold(shuffle=True)
-        test_ids = [ids for _, ids in kfold.split(X)]
-        print(test_ids)
+        kfold = KFold(n_splits=k, shuffle=True, random_state=parameters["random_state"])
+        train_ids, val_ids = list(kfold.split(X))[fold]
+        X_train, y_train = X[train_ids, :], y[train_ids]
+        X_val, y_val = X[val_ids, :], y[val_ids]
 
     else:
-        n = len(y)
-        X_val = X[:int(n*test_data_ratio),:]
-        X_val = torch.tensor(X_val, dtype=tensor_dtype)
+        X_train, X_val, y_train, y_val = train_test_split(X,y, test_size=test_data_ratio, random_state=parameters["random_state"])
 
-        y_val = y[:int(n*test_data_ratio)]
-        y_val = torch.tensor(y_val, dtype=torch.float)
+    X_val = torch.tensor(X_val, dtype=tensor_dtype)
+    y_val = torch.tensor(y_val, dtype=torch.float)
+    X_train = torch.tensor(X_train, dtype=tensor_dtype)
+    y_train = torch.tensor(y_train, dtype=torch.float)
 
-        X_train = X[int(n*test_data_ratio):,:]
-        X_train = torch.tensor(X_train, dtype=tensor_dtype)
-
-        y_train = y[int(n*test_data_ratio):]
-        y_train = torch.tensor(y_train, dtype=torch.float)
-
-        return [[X_train, y_train, X_val, y_val],]
+    return X_train, y_train, X_val, y_val
 
 
 def loadData(parameters):
@@ -75,13 +70,6 @@ def loadData(parameters):
     folder = get_folder_name(parameters["aminoAcid"], parameters["redundancyPercentage"], parameters["embeddingType"])
     X_neg, y_neg = np.load(f"{folder}/X_train_neg.npy"), np.load(f"{folder}/y_train_neg.npy")
     X_pos, y_pos = np.load(f"{folder}/X_train_pos.npy"), np.load(f"{folder}/y_train_pos.npy")
-
-    if asOneHot:
-        X_pos = X_pos[:,27:-27]
-    elif parameters["embeddingType"] == "protBert":
-        pass
-    else:
-        X_pos = X_pos[:,1:-1]
 
     print(X_pos.shape)
     print(X_neg.shape)

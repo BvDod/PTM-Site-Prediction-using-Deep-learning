@@ -7,8 +7,8 @@ def main():
     source_dir = "dataset/data/processed/truncated/"
     source_dir2 = "dataset/data/processed/negative_samples/"
 
-    output_dir = "dataset/data/processed/fasta_post_70/"
-    output_non_redundant = "dataset/data/processed/non_redundant_70/"
+    output_dir = "dataset/data/processed/fasta_post_50/"
+    output_non_redundant = "dataset/data/processed/non_redundant_50/"
 
     
     for file in os.listdir(output_dir):

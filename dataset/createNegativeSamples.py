@@ -19,7 +19,7 @@ def main():
     for file in os.listdir(source_dir):
 
         # Check if already processed, else skip
-        if os.path.exists(f"{dest_dir}/{file}_negative_samples"):
+        if os.path.exists(f"{dest_dir}/{file}_truncated_negative"):
             continue
 
         print(f"Creating negative samples for file: {file}...")
@@ -27,7 +27,7 @@ def main():
 
         # Remove invalid sequences
         df_truncated_cleaned = pd.read_csv(f"{cleaned_dir}/{file}_truncated", delimiter=",")
-        df = df[df.UniprotAC.isin(df_truncated_cleaned[df_truncated_cleaned["truncateStatus"]==1]["UniprotAC"]) | df.UniprotAC.isin(df_truncated_cleaned[df_truncated_cleaned["truncateStatus"]==0]["UniprotAC"])]
+        df = df[df.UniprotAC.isin(df_truncated_cleaned[df_truncated_cleaned["truncateStatus"]==0]["UniprotAC"])]
 
 
         unique_df = df.drop_duplicates(subset=["UniProtSequence", "ModifiedAA"])
@@ -49,7 +49,7 @@ def main():
 
             for PTM_location in negative_samples:
                 i += 1
-                truncatedSequence = createTruncatedSequence(uniProtSeq, PTM_location, n=15)
+                truncatedSequence = createTruncatedSequence(uniProtSeq, PTM_location, n=16)
                 negativeSamplesDicts.append({'UniprotID': series.UniprotID, 'UniprotAC': AC, 'PTM_location': PTM_location,
                                              'PTM_type':series.PTM_type, 'number??': series["number??"],
                                              'dbPTMSequence': truncatedSequence, 'ModifiedAA': AA})

@@ -35,13 +35,13 @@ def main():
     
 
     # For all retrieved full UniProt sequences, now truncate them
-    input_dir = "dataset/data/processed/non_redundant_70"
-    output_dir = "dataset/data/learningData/balanced/oneHot_70/"
+    input_dir = "dataset/data/processed/final_split/train"
+    output_dir = "dataset/data/learningData/balanced/train/"
 
     balance_dataset = False
 
     for file in os.listdir(input_dir):
-        if not file.split("_")[-1] == "pos":
+        if not file.split("_")[-4] == "pos":
             continue
 
         # check if already processed, else skip
@@ -53,8 +53,8 @@ def main():
         
  
         df_pos = pd.read_csv(f"{input_dir}/{file}", delimiter=",")
-        non_pos_file = file.rsplit(sep="_", maxsplit=1)[0]
-        df_neg = pd.read_csv(f"{input_dir}/{non_pos_file}_neg", delimiter=",")
+        file_neg = file.replace('pos', 'neg')
+        df_neg = pd.read_csv(f"{input_dir}/{file_neg}", delimiter=",")
         
         df_pos["y"] = 1
         df_neg["y"] = 0
@@ -81,7 +81,7 @@ def main():
         sequences = df_neg.TruncatedUniProtSequence.tolist()
         sequences = [" ".join(seq) for seq in sequences]
         sequences= [re.sub(r"[UZOB]", "X", sequence) for sequence in sequences]
-        ids = tokenizer.batch_encode_plus(sequences, add_special_tokens=True, padding=True, max_length=31, truncation=True)
+        ids = tokenizer.batch_encode_plus(sequences, add_special_tokens=True, padding=True, max_length=33, truncation=True)
         input_ids_neg = np.array(ids['input_ids'])
     
         
@@ -97,7 +97,7 @@ def main():
         sequences = df_pos.TruncatedUniProtSequence.tolist()
         sequences = [" ".join(seq) for seq in sequences]
         sequences= [re.sub(r"[UZOB]", "X", sequence) for sequence in sequences]
-        ids = tokenizer.batch_encode_plus(sequences, add_special_tokens=True, padding=True, max_length=31, truncation=True)
+        ids = tokenizer.batch_encode_plus(sequences, add_special_tokens=True, padding=True, max_length=33, truncation=True)
         input_ids_pos = np.array(ids['input_ids'])
 
         filename = file.split("_")[0]

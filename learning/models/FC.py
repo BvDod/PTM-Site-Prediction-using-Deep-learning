@@ -2,27 +2,34 @@ import torch
 
 import torch.nn as nn
 import torch.nn.functional as F
+from .firstLayer import firstLayer
+
+from .layerClasses import FC_Layer, CNN_Layer, LSTM_Layer
 
 
 
-class FC_Net(nn.Module):
+class FCNet(nn.Module):
     """Neural net which only uses fully connected layers, uses one-hot encoded features as input"""
 
-    def __init__(self, peptide_size, FC_layer_sizes = [10,1]):
+    def __init__(self, device, peptide_size, embeddingType, FC_layer_sizes = [256,32,1]):
         super().__init__()
+        self.embeddingType = embeddingType
+        self.device = device
         self.model_name = "FC"
-        self.FClayers = nn.ModuleList()
+        self.FC_layer_sizes = FC_layer_sizes
 
         # Create all fully connected layers
-        self.FC_layer_sizes = [27*peptide_size] + FC_layer_sizes
-        for i, size in enumerate(self.FC_layer_sizes[:-1]):
-            self.FClayers.append(nn.Linear(size, self.FC_layer_sizes[i+1]))
+        self.layers = nn.ModuleList()
+        self.layers.append(firstLayer(device, embeddingType=embeddingType))
+        self.layers.append(CNN_Layer(self.layers[-1]))
+        self.layers.append(LSTM_Layer(self.layers[-1]))
+        for size in FC_layer_sizes[:-1]:
+            self.layers.append(FC_Layer(self.layers[-1], size))
+        self.layers.append(FC_Layer(self.layers[-1], FC_layer_sizes[-1], useActivation=False))
 
-        self.sig = nn.Sigmoid()
 
 
     def forward(self, x):
-        for layer in self.FClayers[:-1]:
-            x = F.relu(layer(x))
-        x = self.sig(self.FClayers[-1](x))
+        for layer in self.layers:
+            x = layer(x)
         return x

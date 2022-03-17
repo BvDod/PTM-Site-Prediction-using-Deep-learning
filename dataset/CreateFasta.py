@@ -19,12 +19,14 @@ def main():
 
             # Positve samples
             df = pd.read_csv(f"{source_dir}/{file}", delimiter=",")
-            df = df[df["truncateStatus"] != 2]
+            df = df[df["truncateStatus"] == 0]
+
             names, sequences = df.index.tolist(), df["TruncatedUniProtSequence"].tolist()
             names = [f"positive_{name}" for name in names]
 
             # Negative samples
             df = pd.read_csv(f"{source_dir2}/{file}_negative", delimiter=",")
+            
             print(len(df))
             names2, sequences2 = df.index.tolist(), df["dbPTMSequence"].tolist()
             names2 = [f"negative_{name}" for name in names2]

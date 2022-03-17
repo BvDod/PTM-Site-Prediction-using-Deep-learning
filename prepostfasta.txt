@@ -1,0 +1,48 @@
+Processing post-fasta file for: Hydroxylation-K_uniprot_sequence_truncated_pre.fasta...
+Positive samples: 229 > 62
+Negative samples: 1602 > 344
+
+Processing post-fasta file for: Hydroxylation-P_uniprot_sequence_truncated_pre.fasta...
+Positive samples: 1776 > 217
+Negative samples: 7058 > 968
+
+Processing post-fasta file for: Methylation-K_uniprot_sequence_truncated_pre.fasta...
+Positive samples: 7033 > 4811
+Negative samples: 130366 > 48332
+
+Processing post-fasta file for: Methylation-R_uniprot_sequence_truncated_pre.fasta...
+Positive samples: 8519 > 4718
+Negative samples: 177766 > 59544
+
+Processing post-fasta file for: N-linked Glycosylation_uniprot_sequence_truncated_pre.fasta...
+Positive samples: 27240 > 13891
+Negative samples: 168609 > 50869
+
+Processing post-fasta file for: O-linked Glycosylation_uniprot_sequence_truncated_pre.fasta...
+Positive samples: 16671 > 7303
+Negative samples: 427049 > 105747
+
+Processing post-fasta file for: Phosphorylation-Y_uniprot_sequence_truncated_pre.fasta...
+Positive samples: 117669 > 61123
+Negative samples: 856810 > 268803
+
+Processing post-fasta file for: Phosphorylation-['S', 'T']_uniprot_sequence_truncated_pre.fasta...
+sys:1: DtypeWarning: Columns (4) have mixed types.Specify dtype option on import or set low_memory=False.
+Positive samples: 1378859 > 347522
+Negative samples: 12842802 > 1837081
+
+Processing post-fasta file for: Pyrrolidone carboxylic acid_uniprot_sequence_truncated_pre.fasta...
+Positive samples: 963 > 274
+Negative samples: 5401 > 1833
+
+Processing post-fasta file for: S-palmitoylation-C_uniprot_sequence_truncated_pre.fasta...
+Positive samples: 6357 > 3168
+Negative samples: 37734 > 13899
+
+Processing post-fasta file for: Sumoylation_uniprot_sequence_truncated_pre.fasta...
+Positive samples: 5855 > 4118
+Negative samples: 86630 > 28355
+
+Processing post-fasta file for: Ubiquitination_uniprot_sequence_truncated_pre.fasta...
+Positive samples: 303552 > 86148
+Negative samples: 1005171 > 163529

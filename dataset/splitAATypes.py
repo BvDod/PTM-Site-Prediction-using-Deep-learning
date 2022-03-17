@@ -18,7 +18,6 @@ def main():
         "Methylation": ["K", "R"],
         "Phosphorylation": [["S", "T"], "Y"]
     }
-cc
 
     for PTMType, AAs in PTM_AA_to_split.items():
         if not os.path.exists(f"{full_seq_dir}/{PTMType}_uniprot_sequence"):

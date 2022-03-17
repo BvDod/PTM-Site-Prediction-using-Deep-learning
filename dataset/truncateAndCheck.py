@@ -24,8 +24,6 @@ def main():
         print(f"Truncatting and checking sequences for file: {file}...")
         df = pd.read_csv(f"{full_seq_dir}/{file}", delimiter=",")
 
-        print(df.UniProtSequence.str.len().max())
-        continue
         df = df.apply(TruncateSequence, axis=1, result_type='expand')
 
         df = df.drop(columns = ["UniProtSequence"])
@@ -58,7 +56,7 @@ def TruncateSequence(df):
     else:
         df["truncateStatus"] = 0
 
-    df["TruncatedUniProtSequence"] = createTruncatedSequence(sequence, df.PTM_location, n=15)
+    df["TruncatedUniProtSequence"] = createTruncatedSequence(sequence, df.PTM_location, n=16)
     return df
 
 def createTruncatedSequence(UniProtSequence, PTM_location, n=10):
