@@ -1,0 +1,64 @@
+Hydroxylation-K 
+2007-01-23 
+Train: 48/190
+Test: 8/147
+
+Hydroxylation-P
+2012-01-25
+Train: 176/819
+Test: 39/115
+
+Acetylation
+2010-04-20
+Train: 49995/270723
+Test: 12080/91094
+
+Methylation-K
+2011-05-03
+Train: 4634/42729
+Test: 93/3458
+
+Methylation-R
+2008-11-25
+Train: 3769/40750
+Test: 872/16597
+
+N-linked Glycosylation
+2009-11-24
+Train: 10950/39212
+Test: 2706/10122
+
+O-linked Glycosylation
+2010-05-18
+Train: 5875/77158
+Test: 1250/24161
+
+Phosphorylation-Y
+2010-10-05
+Train: 47915/194382
+Test: 11640/67484
+
+Phosphorylation-ST
+2011-12-14
+Train: 269888/1203323
+Test: 64800/551803
+
+Pyrrolidone carboxylic acid
+2008-09-02
+Train: 237/1306
+Test: 58/462
+
+S-palmitoylation-C
+2010-04-20
+Train: 2525/10073
+Test: 627/3630
+
+Sumoylation
+2008-11-25
+Train: 3241/20251
+Test: 772/6876
+
+Ubiquitination 
+2010-07-13
+Train: 47426/131804
+Test: 11757/36976
