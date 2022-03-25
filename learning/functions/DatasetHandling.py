@@ -20,7 +20,7 @@ def indexListToOneHot(input_array):
     return output_array
 
 
-def get_folder_name(AA, redundancy, embeddingType):
+def get_folder_name(AA, embeddingType):
     """Get folder name of AA of particular redundancy level"""
 
     embeddingToFolder = {
@@ -67,7 +67,7 @@ def loadData(parameters):
     asOneHot = parameters["embeddingType"] == "oneHot"
     tensor_dtype = torch.float if (parameters["embeddingType"] == "oneHot") else torch.int
 
-    folder = get_folder_name(parameters["aminoAcid"], parameters["redundancyPercentage"], parameters["embeddingType"])
+    folder = get_folder_name(parameters["aminoAcid"], parameters["embeddingType"])
     X_neg, y_neg = np.load(f"{folder}/X_train_neg.npy"), np.load(f"{folder}/y_train_neg.npy")
     X_pos, y_pos = np.load(f"{folder}/X_train_pos.npy"), np.load(f"{folder}/y_train_pos.npy")
 

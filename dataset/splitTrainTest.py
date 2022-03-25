@@ -10,7 +10,7 @@ def main():
     pd.set_option('display.max_rows', 10)
 
     source_dir = "dataset/data/processed/yearsAdded/"
-    output_dir = "dataset/data/processed/final_split/"
+    output_dir = "dataset/data/processed/final_split_if_2010"
 
 
     # Get all full UniProt sequences for all dbPTM source files
@@ -34,7 +34,7 @@ def main():
         df_pos = df_pos.sort_values(column)
 
         split_i = int(len(df_pos) * 0.8)
-        split_date = df_pos.iloc[split_i][column]
+        split_date = "2010"
 
         print(f"{file}: {split_date}")
 

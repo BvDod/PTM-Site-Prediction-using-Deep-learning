@@ -1,4 +1,6 @@
+from re import L
 import numpy as np
+from pytest import param
 
 import comet_ml
 import torch
@@ -8,7 +10,8 @@ import torch.optim as optim
 import time
 import math
 import pprint
-
+import optuna
+from statistics import mean, stdev
 
 from models.FC import FCNet
 from torch.utils.tensorboard import SummaryWriter
@@ -20,37 +23,74 @@ import random
 
 from torch.cuda.amp import autocast
 from torch.cuda.amp import GradScaler
+import matplotlib.pyplot as plt
 
+class dummy_context_mgr():
+    def __enter__(self):
+        return None
+    def __exit__(self, exc_type, exc_value, traceback):
+        return False
 
-
-
-
-
-def testModel(parameters):
-    parameters["random_state"] = random.randint(0,(2**32)-1)
+def testModel(parameters, trial=None, logToComet=True, returnEvalMetrics=False, hyperparameterSeed=False):
+    if hyperparameterSeed:
+        parameters["random_state"] = 1 # Use static random state for assigning folds
+    else:
+        parameters["random_state"] = random.randint(0,((2**32)-parameters["CV_Repeats"]))
+    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     pprint.pprint(parameters)
 
-    model = parameters["model"]
-    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-
     results = []
-    for fold in range(parameters["folds"]):
-        model = parameters["model"]
-        net = model(device, peptide_size=33, embeddingType=parameters["embeddingType"])
-        optimizer = parameters["optimizer"](net.parameters(), lr=parameters["learning_rate"], weight_decay=parameters["weight_decay"])
-        net.to(device)
-        
-        trainloader, testloader, val_ratio, train_ratio = loadDataLoaders(parameters, fold)
-        best_metrics, best_figures = trainModel(trainloader, testloader, net, optimizer, device, parameters, val_ratio, train_ratio)
-        results.append([best_metrics, best_figures])
-        if not parameters["crossValidation"]:
-            break
+    for i in range(parameters["CV_Repeats"]):
+        parameters["current_CV_Repeat"] = i + 1
+    # Loop over the different folds for CV
+        for fold in range(parameters["folds"]):
+            model = FCNet
+            net = model(device, parameters=parameters)
+            optimizer = parameters["optimizer"](net.parameters(), lr=parameters["learning_rate"], weight_decay=parameters["weight_decay"])
+            net.to(device)
+            
+            trainloader, testloader, val_ratio, train_ratio = loadDataLoaders(parameters, fold)
+            parameters["currentFold"] = fold
+            best_metrics, best_figures = trainModel(trainloader, testloader, net, optimizer, device, parameters, val_ratio, train_ratio, trial=trial, logToComet=logToComet)
+            
+            results.append([best_metrics, best_figures])
+            if not parameters["crossValidation"]:
+                break
+            parameters["random_state"] += 1
     
-    kFoldExperiment = CreatekFoldLogger(parameters)
-    for fold, (best_metrics, best_figures) in enumerate(results):
-        log_evaluation_metrics_kFold(kFoldExperiment, fold, best_metrics, best_figures)
-    log_kFold_average(kFoldExperiment, results)
+    metrics = [metric for metric, _ in results]
+    average_dict = {}
+    std_dict = {}
+    for name in metrics[0].keys():
+        average_dict[name] = mean([metric_dict[name] for metric_dict in metrics])
+        if parameters["crossValidation"]:
+            std_dict[name] = stdev([metric_dict[name] for metric_dict in metrics])
+        else:
+            std_dict[name] = 0
 
+    
+
+    # Log CV stats
+    if logToComet:
+        kFoldExperiment = CreatekFoldLogger(parameters)
+        for fold, (best_metrics, best_figures) in enumerate(results):
+            log_evaluation_metrics_kFold(kFoldExperiment, fold, best_metrics, best_figures)
+            for name, figure in best_figures.items():
+                figure.clf()
+        avg_dict, std_dict = log_kFold_average(kFoldExperiment, average_dict, std_dict)
+        
+        if returnEvalMetrics:
+            return average_dict, std_dict
+        return avg_dict[parameters["ValidationMetric"]]
+    
+    for metric_dict, figure_dict in results:
+        for name, figure in figure_dict.items():
+            figure.clf()
+    
+    if returnEvalMetrics:
+        return average_dict, std_dict
+    print(average_dict)
+    return average_dict[parameters["ValidationMetric"]]
 
 
 def loadDataLoaders(parameters, fold):
@@ -71,40 +111,60 @@ def loadDataLoaders(parameters, fold):
     return trainloader, testloader, val_ratio, train_ratio
 
 
-
-
-
-def trainModel(trainloader, testloader, net, optimizer, device, parameters, val_ratio, train_ratio):
-
+def trainModel(trainloader, testloader, net, optimizer, device, parameters, val_ratio, train_ratio, trial=None, logToComet=True):
     # Enable tensorbard logging
-    tb, experiment = CreateLoggers(parameters, net)
+    if logToComet:
+        experiment = CreateLoggers(parameters, net)
+    else:
+        experiment = None
 
     ###### The training loop
     t0 = time.time()
     max_batch = 0
 
-
-    best_eval_score, best_eval_epoch = 0, 0
+    best_eval_score, best_eval_epoch = 100000, 0
     best_eval_metrics, best_eval_figures = None, None
     for epoch in range(parameters["epochs"]): 
 
         # Evaluate validation performance
-        metrics, figures = evalValidation(testloader, net, device, val_ratio, tb, experiment, epoch, parameters)
+        metrics, figures = evalValidation(testloader, net, device, val_ratio, experiment, epoch, parameters)
 
-        if metrics[parameters["earlyStoppingMetric"]] > best_eval_score:
-                best_eval_score = metrics[parameters["earlyStoppingMetric"]]
+        if trial: 
+            if (parameters["currentFold"] == 0) and (parameters["current_CV_Repeat"] == 1):
+                trial.report(metrics[parameters["ValidationMetric"]], epoch)
+                if (epoch >= 2) & trial.should_prune():
+                    raise optuna.exceptions.TrialPruned()
+
+        if metrics[parameters["ValidationMetric"]] < best_eval_score:
+                best_eval_score = metrics[parameters["ValidationMetric"]]
                 best_eval_epoch = epoch
+                if not best_eval_metrics is None:
+                    for name, figure in best_eval_figures.items():
+                        figure.clf()
                 best_eval_metrics = metrics
                 best_eval_figures = figures
+        else:
+            for name, figure in figures.items():
+                figure.clf()
+
+
 
         if parameters["earlyStopping"]:
             if epoch - best_eval_epoch >= parameters["earlyStoppingPatience"]:
                 print(f"Early stopping applied (best metric={best_eval_score})")
                 break
+        
+        if metrics["Validation Loss"] > 10000:
+            print(f"Exploding loss, terminate run (best metric={best_eval_score})")
+            break
 
+        if logToComet:
+            context = experiment.train
+        else:
+            context = dummy_context_mgr
 
         # Actual training happens here
-        with experiment.train():
+        with context():
             net.train()
             running_loss = 0.0
             for i, data in enumerate(trainloader, 0):
@@ -121,36 +181,37 @@ def trainModel(trainloader, testloader, net, optimizer, device, parameters, val_
 
                 # forward + backward + optimize
                 optimizer.zero_grad()
-
-               
                 outputs = net(inputs)
                 loss = criterion(outputs, labels)
 
                 loss.backward()
-         
                 optimizer.step()
 
                 # Log average loss of epoch at last mini-batch of that epoch
                 running_loss += loss.item()
                 if i == max_batch:  
                     print('[%d, %5d] loss: %.3f' % (epoch + 1, i + 1, running_loss/(max_batch+1)))
-                    tb.add_scalar("Training Loss", running_loss/(max_batch+1), epoch)
                     running_loss = 0.0
             max_batch = i
 
     print('Finished Training')
     t1 = time.time()
-    save_model(net)
+    # save_model(net)
     
     print(f"Total time taken: {t1 - t0}")
     return best_eval_metrics, best_eval_figures
 
 
-
-def evalValidation(testloader, net, device, val_ratio, tb, experiment, epoch, parameters):
+def evalValidation(testloader, net, device, val_ratio, experiment, epoch, parameters):
     """Perform evaluation on validation set and log using tensorboard"""
     net.eval()
-    with experiment.validate():
+
+    if experiment:
+        context = experiment.validate
+    else:
+        context = dummy_context_mgr
+
+    with context():
         with torch.no_grad():
             y_pred, y_output, y_true = None, None, None
             weights_all_batches = None
@@ -184,19 +245,20 @@ def evalValidation(testloader, net, device, val_ratio, tb, experiment, epoch, pa
                 criterion = parameters["loss_function"]()
 
             loss = criterion(y_output, y_true)
-            y_true, y_pred, y_output = y_true.cpu().numpy(), y_pred.cpu().numpy(), y_output.cpu().numpy()
 
-            eval_metrics, eval_figures = get_evaluation_metrics(y_true, y_output, y_pred)
+            eval_metrics, eval_figures = get_evaluation_metrics(y_true.detach().cpu().numpy(), y_output.detach().cpu().numpy(), y_pred.detach().cpu().numpy())
             eval_metrics["Validation Loss"] = loss.detach().item()
-            log_evaluation_metrics(tb, experiment, epoch, eval_metrics, eval_figures)
+            if experiment:
+                log_evaluation_metrics(experiment, epoch, eval_metrics, eval_figures)
 
             return eval_metrics, eval_figures
 
 
 def save_model(net):
-    if net.embeddingType == "protBert":
-        net.firstLayer = None
+    if net.model_parameters["embeddingType"] == "protBert":
+        net.layers.pop(0)
     torch.save(net.state_dict(), "model.txt")
+
 
 def load_model(filestring):
     net = torch.save(filestring)
@@ -208,17 +270,14 @@ def load_model(filestring):
 if __name__ == "__main__":
 
     parameters = { 
+        # Training parameters
         "gpu_mode": True,
         "epochs": 100,
         "batch_size": 2048,
         "learning_rate": 0.003,
-        "redundancyPercentage": 50,
-        "aminoAcid": "Hydroxylation-K",
-        "embeddingType": "embeddingLayer",
+        "aminoAcid": "Sumoylation",
         "test_data_ratio": 0.1,
-        "data_sample_mode": "oversample",
-        "weight_decay": 1,
-        "model": FCNet,
+        "data_sample_mode": "undersample",
         "loss_function": nn.BCEWithLogitsLoss,
         "optimizer": optim.AdamW,
         "crossValidation": True,
@@ -226,10 +285,24 @@ if __name__ == "__main__":
         "earlyStopping": True,
         "earlyStoppingMetric": "AUC ROC",
         "earlyStoppingPatience": 10,
-        }                             
+        
+        # Model parameters
+        "weight_decay": 10,
+        "embeddingType": "adaptiveEmbedding",
+        "embeddingSize": 64,
+        "CNN_layers": 2,
+        "CNN_filters": 32,
+        "CNN_dropout": 0.2,
+        "LSTM_layers": 2,
+        "LSTM_hidden_size": 32,
+        "LSTM_dropout": 0.2,
+        "FC_layers": 2,
+        "FC_layer_size": 64,
+        "FC_dropout": 0.65, 
+        } 
+                      
 
     testModel(parameters)
-    exit()
     AAs = ["Acetylation", "Hydroxylation-K", "Hydroxylation-P", "Methylation-K", "Methylation-R", "N-linked Glycosylation", "O-linked Glycosylation", "Phosphorylation-['S', 'T']", "Phosphorylation-Y", "Pyrrolidone carboxylic acid", "S-palmitoylation-C", "Sumoylation", "Ubiquitination"]
     for aa in AAs:
         parameters["aminoAcid"] = aa

@@ -5,7 +5,7 @@ from transformers import BertModel
 class firstLayer(nn.Module):
     """ Used as the first layer of other neural networks, can use different types of representation (one-hot, embedding, adaptive-embedding, bertEmbeddings) """
 
-    def __init__(self, device, embeddingType, embeddingSize=25, peptideSize=33):
+    def __init__(self, device, embeddingType, embeddingSize=25, peptideSize=33, embeddingDropout=0):
         super().__init__()
         self.device =  device
         self.embeddingType = embeddingType
@@ -22,15 +22,18 @@ class firstLayer(nn.Module):
             
         elif embeddingType == "embeddingLayer":
             self.layers.append(nn.Embedding(27, self.embeddingSize))
+            self.layers.append(nn.Dropout(embeddingDropout))
             self.outputDimensions = embeddingSize
         
         elif embeddingType == "adaptiveEmbedding":
             self.layers.append(adaptiveEmbedding(device, embeddingSize=self.embeddingSize))
+            self.layers.append(nn.Dropout(embeddingDropout))
             self.outputDimensions = embeddingSize
         
 
         elif embeddingType == "protBert":
             self.layers.append(protBertEmbedding(device))
+            self.layers.append(nn.Dropout(embeddingDropout))
             self.outputDimensions = 1024
 
         else:

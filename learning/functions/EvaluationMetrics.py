@@ -11,7 +11,15 @@ from sklearn.metrics import matthews_corrcoef
 from sklearn.metrics import f1_score
 import torch
 import comet_ml
-from statistics import mean, stdev
+
+
+from optuna.visualization import plot_contour
+from optuna.visualization import plot_edf
+from optuna.visualization import plot_intermediate_values
+from optuna.visualization import plot_optimization_history
+from optuna.visualization import plot_parallel_coordinate
+from optuna.visualization import plot_param_importances
+from optuna.visualization import plot_slice
 
 from torch.utils.tensorboard import SummaryWriter
 
@@ -87,59 +95,59 @@ def get_evaluation_metrics(y_true, y_output, y_pred):
 
     return eval_metrics, eval_figures
 
+def logHpStudy(study, experiment, bestEvalMetricsAvg, bestEvalMetricsSTD):
+    log_dict = {}
+    best_trial = study.best_trial
+    log_dict["EvalMetric (loss)"] = best_trial.value
+    
+    
+    experiment.log_metrics(log_dict)
+    experiment.log_metrics(best_trial.params, epoch=1)
+    experiment.log_metrics(bestEvalMetricsAvg, epoch=1, prefix="avg")
+    experiment.log_metrics(bestEvalMetricsSTD, epoch=1, prefix="std")
 
-def log_evaluation_metrics(tb, experiment, epoch, metrics, figures):
+    plot_functions = [plot_edf, plot_intermediate_values, plot_optimization_history, plot_parallel_coordinate, plot_param_importances, plot_slice]
+    figures = []
+    for function in plot_functions:
+        figure = function(study)
+        experiment.log_figure(figure_name=f"{function.__name__}", figure=figure)
+        # plt.close(figure)
+
+
+
+
+def log_evaluation_metrics(experiment, epoch, metrics, figures):
     """Log metrics using tensorboard"""
 
     experiment.log_metrics(metrics, epoch=epoch)
-    for name, metric in metrics.items():
-        tb.add_scalar(name, metric, epoch)
     for name, figure in figures.items():
-        tb.add_figure(name, figure, epoch)
         experiment.log_figure(figure_name=name, figure=figure, step=epoch)
+        plt.close(figure)
 
 def log_evaluation_metrics_kFold(experiment, fold, metrics, figures):
     """Log metrics using tensorboard"""
     experiment.log_metrics(metrics, prefix=str(fold))
     for name, figure in figures.items():
         experiment.log_figure(figure_name=f"{name}_{fold}", figure=figure)
+        plt.close(figure)
 
-def log_kFold_average(kFoldExperiment, results):
-    metrics = [metric for metric, _ in results]
-    average_dict = {}
-    std_dict = {}
+def log_kFold_average(experiment, average_dict, std_dict):
 
-    for name,item in metrics[0].items():
-        print(name, type(item))
-    for name in metrics[0].keys():
-        average_dict[name] = mean([metric_dict[name] for metric_dict in metrics])
-        std_dict[name] = stdev([metric_dict[name] for metric_dict in metrics])
-    kFoldExperiment.log_metrics(average_dict, prefix="avg")
-    kFoldExperiment.log_metrics(std_dict, prefix="std")    
-
-
-
+    experiment.log_metrics(average_dict, prefix="avg")
+    experiment.log_metrics(std_dict, prefix="std")    
+    return average_dict, std_dict
 
 
 def CreateLoggers(parameters, net):
     """ Create a tensorboard logger instance which logs to the correct directory based on the parameters used"""
 
-    aminoAcid, redundancyPercentage, = parameters["aminoAcid"], parameters["redundancyPercentage"]
+    aminoAcid = parameters["aminoAcid"]
     data_sample_mode, weight_decay = parameters["data_sample_mode"], parameters["weight_decay"]
-    if parameters["embeddingType"] == "embeddingLayer":
-        log_dir = f"runs/{aminoAcid}/{net.model_name}/red_{redundancyPercentage}/{net.layers[0].embeddingSize}/{net.FC_layer_sizes}/{data_sample_mode}/{weight_decay}/"
-    else:
-        log_dir = f"runs/{aminoAcid}/{net.model_name}/red_{redundancyPercentage}/{net.FC_layer_sizes}/{data_sample_mode}/{weight_decay}/"
-    i = 1
-    while os.path.exists(f"{log_dir}{i}/"):
-        i += 1
-    log_dir = f"{log_dir}{i}/"
-    tb = SummaryWriter(log_dir=log_dir)
 
     experiment = comet_ml.Experiment("1qqDK4gIHRXerCMtLeWAdGEdk", project_name="PTM-prediction")
     experiment.log_parameters(parameters)
 
-    return tb, experiment
+    return experiment
 
 
 def CreatekFoldLogger(parameters):
@@ -148,6 +156,14 @@ def CreatekFoldLogger(parameters):
     experiment.log_parameters(parameters)
 
     return experiment
+
+
+def createHpTuningLogger(tuning_settings, parameters):
+    experiment = comet_ml.Experiment("1qqDK4gIHRXerCMtLeWAdGEdk", project_name="PTM-prediction hyperparameter tuning")
+    experiment.log_parameters(tuning_settings, prefix="tuning_")
+    experiment.log_parameters(parameters, prefix="parameters_")
+    return experiment
+
 
 
 
