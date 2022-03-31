@@ -1,3 +1,4 @@
+from lib2to3.pygram import python_grammar_no_print_statement
 from train import testModel
 import torch.nn as nn
 import torch.optim as optim
@@ -32,73 +33,22 @@ def evaluateBestTrial(best_params, tuning_settings, parameters):
     return avg_dict, std_dict
 
     
-
-    
-if __name__ == "__main__":
-
-    parameters = { 
-        # Training parameters
-        "gpu_mode": True,
-        "epochs": 100,
-        "batch_size": 4096,
-        "learning_rate": None,
-        "test_data_ratio": 0.1,
-        "data_sample_mode": "undersample",
-        "loss_function": nn.BCEWithLogitsLoss,
-        "optimizer": optim.AdamW,
-        "crossValidation": False,
-        "folds": 5,
-        "earlyStopping": True,
-        "ValidationMetric": "Validation Loss",
-        "earlyStoppingPatience": 10,
-        "CV_Repeats": 1,
-        
-        # Model parameters
-        "weight_decay": None,
-        "embeddingType": "adaptiveEmbedding",
-        "embeddingSize": 200,
-        "CNN_layers": 2,
-        "CNN_filters": 200,
-        "CNN_dropout": 0,
-        "LSTM_layers": 1,
-        "LSTM_hidden_size": 128,
-        "LSTM_dropout": 0,
-        "FC_layers": 2,
-        "FC_layer_size": 256,
-        "FC_dropout": 0.5, 
-        "embeddingDropout": 0,
-        }
-
-    tuning_settings = {
-        "n_trials": 250,
-        "aminoAcid": "Phosphorylation-ST",
-        "FloatsToTune" : {
-            "learning_rate": [0.00001, 0.01],
-            "weight_decay": [0, 100],
-            "FC_dropout": [0.4, 0.75],
-            "CNN_dropout": [0, 0.5],
-            "embeddingDropout": [0,0.5]
-        },
-        "IntsToTune" : {
-        }
-    }
+def performTuningExperiment(parameters, tuning_settings):
 
     """
     trial_params = {
-        "CNN_dropout": 	0.20755,
-        "CNN_layers": 1,
-        "FC_dropout": 0.69120,
-        "learning_rate": 0.003885,
-        "weight_decay": 5.53029,
-        "embeddingSize": 178,
-        "embeddingDropout": 0.449
+        "learning_rate": 0.00196,
+        "weight_decay": 3,
+        "embeddingDropout": 0,
+        "FC_dropout": 0.5,
+        "CNN_dropout": 0.75,
     }
 
     bestEvalMetricsAvg, bestEvalMetricsSTD = evaluateBestTrial(trial_params, tuning_settings, parameters)
     print(bestEvalMetricsAvg)
     exit()
     """
-
+    
     optunaObjective = lambda trial: objective(trial, tuning_settings, parameters)      
     study = optuna.create_study(direction="minimize", pruner=optuna.pruners.HyperbandPruner(), sampler=optuna.samplers.TPESampler(multivariate=True,))
     study.optimize(optunaObjective, n_trials=tuning_settings["n_trials"], gc_after_trial=True)
@@ -106,5 +56,76 @@ if __name__ == "__main__":
     bestEvalMetricsAvg, bestEvalMetricsSTD = evaluateBestTrial(study.best_trial.params, tuning_settings, parameters)
     experiment = createHpTuningLogger(tuning_settings, parameters)
     logHpStudy(study, experiment, bestEvalMetricsAvg, bestEvalMetricsSTD)
+
+    
+if __name__ == "__main__":
+
+    parameters = { 
+        # Training parameters
+        "gpu_mode": True,
+        "epochs": 200,
+        "batch_size": 512,
+        "learning_rate": None,
+        "test_data_ratio": 0.2,
+        "data_sample_mode": "oversample",
+        "crossValidation": True,
+        "loss_function": nn.BCEWithLogitsLoss,
+        "optimizer": optim.AdamW,
+        "folds": 5,
+        "earlyStopping": True,
+        "ValidationMetric": "Validation Loss",
+        "earlyStoppingPatience": 50,
+        "CV_Repeats": 1,
+        "Experiment Name": "Model architecture",
+        # Model parameters
+        "weight_decay": None,
+        "embeddingType": "adaptiveEmbedding",
+        "LSTM_layers": 1,
+        "LSTM_hidden_size": 32,
+        "LSTM_dropout": 0,
+        }
+
+    tuning_settings = {
+        "n_trials": 250,
+        "aminoAcid": "O-linked Glycosylation",
+        "FloatsToTune" : {
+            "learning_rate": [0.00001, 0.001],
+            "weight_decay": [0, 15],
+        },
+        "IntsToTune" : {   
+        }
+    }
+
+    aminoAcids = {
+        "Hydroxylation-P": {
+            "data_sample_mode": "balanced",
+            "earlyStoppingPatience": 50,
+            "CV_Repeats": 3,
+            "crossValidation": True },
+        "O-linked Glycosylation": {
+            "data_sample_mode": "balanced",
+            "earlyStoppingPatience": 25,
+            "CV_Repeats": 1,
+            "crossValidation": True },
+        "Phosphorylation-Y": {
+            "data_sample_mode": "balanced",
+            "earlyStoppingPatience": 10,
+            "CV_Repeats":1,
+            "crossValidation": False}
+    }
+    
+    for CNNType in ["Adapt", "Musite"]:
+        for FCType in ["Adapt", "Musite"]:
+            if CNNType == "Adapt" and FCType == "Adapt":
+                continue
+            for amino_acid, aa_parameters in aminoAcids.items():
+                parameters["CNNType"] = CNNType
+                parameters["FCType"] = FCType
+                tuning_settings["aminoAcid"] = amino_acid
+                for key, value in aa_parameters.items():
+                    parameters[key] = value
+                performTuningExperiment(parameters, tuning_settings)
+
+
 
 

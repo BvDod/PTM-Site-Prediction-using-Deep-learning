@@ -18,23 +18,47 @@ class FCNet(nn.Module):
 
         # Create the different layers
         self.layers = nn.ModuleList()
-        self.layers.append(firstLayer(device, embeddingType=parameters["embeddingType"], embeddingSize=parameters["embeddingSize"], embeddingDropout=parameters["embeddingDropout"]))
+       
 
-        for i in range(parameters["CNN_layers"]):
-            self.layers.append(CNN_Layer(self.layers[-1], parameters))
+        if parameters["CNNType"] == "Musite":
+            if parameters["embeddingType"] == "oneHot":
+                self.layers.append(firstLayer(device, embeddingType=parameters["embeddingType"], embeddingSize=None, embeddingDropout=0))
+                self.layers.append(CNN_Layer(self.layers[-1], parameters, dropoutPercentage=0.75, filters=200, kernel_size=1))
+            else:
+                self.layers.append(firstLayer(device, embeddingType=parameters["embeddingType"], embeddingSize=200, embeddingDropout=0.75, layerNorm=False))
+            self.layers.append(CNN_Layer(self.layers[-1], parameters, dropoutPercentage=0.75, filters=150, kernel_size=9))
+            self.layers.append(CNN_Layer(self.layers[-1], parameters,dropoutPercentage= 0.75, filters=200, kernel_size=10))
+
+        elif parameters["CNNType"] == "Adapt":
+            self.layers.append(firstLayer(device, embeddingType=parameters["embeddingType"], embeddingSize=32, embeddingDropout=0))
+            self.layers.append(CNN_Layer(self.layers[-1], parameters, dropoutPercentage=0, filters=256, kernel_size=10,batchNorm=True))
+
+        
+        else:
+            print("Error: invalid CNN-type string")
+            exit()
+
         
         if parameters["LSTM_layers"] > 0:
             self.layers.append(LSTM_Layer(self.layers[-1], parameters))
-
         self.layers.append(BahdanauAttention(self.layers[-1], in_features=self.layers[-1].outputDimensions, hidden_units=10,num_task=1))
 
+        """
         layer_size = parameters["FC_layer_size"]
         for i in range(parameters["FC_layers"]):
             self.layers.append(FC_Layer(self.layers[-1], layer_size, dropoutPercentage=parameters["FC_dropout"]))
             layer_size = 32
             parameters["FC_dropout"] = 0
+        """
 
-        self.layers.append(FC_Layer(self.layers[-1], 1, useActivation=False, dropoutPercentage=0))
+        if parameters["FCType"] == "Adapt":
+            self.layers.append(FC_Layer(self.layers[-1], 32, dropoutPercentage=0.5))
+            self.layers.append(FC_Layer(self.layers[-1], 1, useActivation=False, dropoutPercentage=0))
+        
+        if parameters["FCType"] == "Musite":
+            self.layers.append(FC_Layer(self.layers[-1], 149, dropoutPercentage=0.2982))
+            self.layers.append(FC_Layer(self.layers[-1], 8, dropoutPercentage=0))
+            self.layers.append(FC_Layer(self.layers[-1], 1, useActivation=False, dropoutPercentage=0))
 
 
 

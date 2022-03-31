@@ -159,7 +159,8 @@ def CreatekFoldLogger(parameters):
 
 
 def createHpTuningLogger(tuning_settings, parameters):
-    experiment = comet_ml.Experiment("1qqDK4gIHRXerCMtLeWAdGEdk", project_name="PTM-prediction hyperparameter tuning")
+    name = parameters["Experiment Name"]
+    experiment = comet_ml.Experiment("1qqDK4gIHRXerCMtLeWAdGEdk", project_name=f"HP-tuning: {name}")
     experiment.log_parameters(tuning_settings, prefix="tuning_")
     experiment.log_parameters(parameters, prefix="parameters_")
     return experiment

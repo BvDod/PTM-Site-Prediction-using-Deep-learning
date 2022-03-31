@@ -97,10 +97,7 @@ def createDatasets(X_train_neg, y_train_neg, X_val_neg, y_val_neg, X_train_pos, 
         X_train_neg = X_train_neg[:n_train_pos,:]
         y_train_neg = y_train_neg[:n_train_pos]
     
-    X_val_neg = X_val_neg[:n_val_pos,:]
-    y_val_neg = y_val_neg[:n_val_pos]
     
-
     X_train = torch.cat([X_train_pos, X_train_neg],dim=0)
     y_train = torch.cat([y_train_pos, y_train_neg],dim=0)
     X_val = torch.cat([X_val_pos, X_val_neg],dim=0)

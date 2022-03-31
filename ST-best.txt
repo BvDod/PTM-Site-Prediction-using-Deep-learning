@@ -1,0 +1,4 @@
+Total time taken: 738.9395582675934
+{'Validation Accuracy': 0.7208677609396421, 'Validation Sensitivity': 0.5903886768683537, 'Validation Specificity': 0.8513468450109304, 'Validation Precision': 0.7988569136669006, 'AUC ROC': 0.8127748688976215, 'AUC PR': 0.8127008879497692, 'MCC': 0.45759099978085377, 'F1': 0.678981570256738, 'Validation Loss': 0.5265334844589233}
+[I 2022-03-25 19:04:58,580] Trial 123 finished with value: 0.5265334844589233 and parameters: {'learning_rate': 0.0005226769642757033, 'weight_decay': 2.1751666111220693, 'FC_dropout': 0.4578942896726819, 
+'CNN_dropout': 0.45275815082629123, 'embeddingDropout': 0.22236602431517524}. Best is trial 123 with value: 0.5265334844589233.

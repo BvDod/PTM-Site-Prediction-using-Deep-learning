@@ -5,7 +5,7 @@ from transformers import BertModel
 class firstLayer(nn.Module):
     """ Used as the first layer of other neural networks, can use different types of representation (one-hot, embedding, adaptive-embedding, bertEmbeddings) """
 
-    def __init__(self, device, embeddingType, embeddingSize=25, peptideSize=33, embeddingDropout=0):
+    def __init__(self, device, embeddingType, embeddingSize=25, peptideSize=33, embeddingDropout=0, layerNorm=True):
         super().__init__()
         self.device =  device
         self.embeddingType = embeddingType
@@ -26,7 +26,7 @@ class firstLayer(nn.Module):
             self.outputDimensions = embeddingSize
         
         elif embeddingType == "adaptiveEmbedding":
-            self.layers.append(adaptiveEmbedding(device, embeddingSize=self.embeddingSize))
+            self.layers.append(adaptiveEmbedding(device, embeddingSize=self.embeddingSize, layerNorm=layerNorm))
             self.layers.append(nn.Dropout(embeddingDropout))
             self.outputDimensions = embeddingSize
         
@@ -49,17 +49,19 @@ class firstLayer(nn.Module):
 
 class adaptiveEmbedding(nn.Module):
     """ Adaptive embedding layer """
-    def __init__(self, device, embeddingSize=5, peptideSize=33):
+    def __init__(self, device, embeddingSize=5, peptideSize=33, layerNorm=True):
         super().__init__()
         self.device = device
         
         self.AAEmbedding = nn.Embedding(27, embeddingSize)
         self.positionEmbedding = nn.Embedding(peptideSize, embeddingSize)
+        self.norm = nn.LayerNorm(embeddingSize)
 
     def forward(self, x):
         positionIndex = torch.arange(33, device=self.device, dtype=torch.long)
         positionIndex = positionIndex.unsqueeze(0).expand_as(x)
         embedding = self.AAEmbedding(x) + self.positionEmbedding(positionIndex)
+        embedding = self.norm(embedding)
         return embedding
 
 

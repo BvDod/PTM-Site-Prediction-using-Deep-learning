@@ -46,7 +46,7 @@ def testModel(parameters, trial=None, logToComet=True, returnEvalMetrics=False, 
         for fold in range(parameters["folds"]):
             model = FCNet
             net = model(device, parameters=parameters)
-            optimizer = parameters["optimizer"](net.parameters(), lr=parameters["learning_rate"], weight_decay=parameters["weight_decay"])
+            optimizer = parameters["optimizer"](net.parameters(), lr=parameters["learning_rate"], weight_decay=parameters["weight_decay"], eps=1e-6)
             net.to(device)
             
             trainloader, testloader, val_ratio, train_ratio = loadDataLoaders(parameters, fold)
@@ -222,6 +222,7 @@ def evalValidation(testloader, net, device, val_ratio, experiment, epoch, parame
                 y_pred_batch = (y_output_batch > 0.5).int()
 
                 useSampleWeighting = (parameters["data_sample_mode"] == "weighted")
+                useSampleWeightingv = True
 
                 if useSampleWeighting:
                     batch_weights = torch.ones(labels.shape, device=device)
@@ -273,13 +274,13 @@ if __name__ == "__main__":
         # Training parameters
         "gpu_mode": True,
         "epochs": 100,
-        "batch_size": 2048,
+        "batch_size": 512,
         "learning_rate": 0.003,
         "aminoAcid": "Sumoylation",
         "test_data_ratio": 0.1,
         "data_sample_mode": "undersample",
         "loss_function": nn.BCEWithLogitsLoss,
-        "optimizer": optim.AdamW,
+        "optimizer": optim.Adam,
         "crossValidation": True,
         "folds": 5,
         "earlyStopping": True,
@@ -289,7 +290,7 @@ if __name__ == "__main__":
         # Model parameters
         "weight_decay": 10,
         "embeddingType": "adaptiveEmbedding",
-        "embeddingSize": 64,
+        "embeddingSize": 2,
         "CNN_layers": 2,
         "CNN_filters": 32,
         "CNN_dropout": 0.2,
