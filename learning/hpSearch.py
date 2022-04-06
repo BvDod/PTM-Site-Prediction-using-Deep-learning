@@ -28,6 +28,7 @@ def evaluateBestTrial(best_params, tuning_settings, parameters):
     parameters["aminoAcid"] = tuning_settings["aminoAcid"]
     for parameter, value in best_params.items():
         parameters[parameter] = value
+    parameters["CV_Repeats"] = 5
     
     avg_dict, std_dict = testModel(parameters, logToComet=True, returnEvalMetrics=True)
     return avg_dict, std_dict
@@ -69,59 +70,54 @@ if __name__ == "__main__":
         "test_data_ratio": 0.2,
         "data_sample_mode": "oversample",
         "crossValidation": True,
-        "loss_function": nn.BCEWithLogitsLoss,
+        "loss_function": nn.BCELoss,
         "optimizer": optim.AdamW,
         "folds": 5,
         "earlyStopping": True,
-        "ValidationMetric": "Validation Loss",
+        "ValidationMetric": "Validation Loss (total)",
         "earlyStoppingPatience": 50,
         "CV_Repeats": 1,
-        "Experiment Name": "Model architecture",
+        "Experiment Name": "Model architecture - added max, ranges, bceloss",
         # Model parameters
         "weight_decay": None,
         "embeddingType": "adaptiveEmbedding",
         "LSTM_layers": 1,
         "LSTM_hidden_size": 32,
         "LSTM_dropout": 0,
+        "UseUncertaintyBasedLoss": False,
         }
 
     tuning_settings = {
         "n_trials": 250,
         "aminoAcid": "O-linked Glycosylation",
         "FloatsToTune" : {
-            "learning_rate": [0.00001, 0.001],
-            "weight_decay": [0, 15],
+            "learning_rate": [0.00001, 0.01],
+            "weight_decay": [0, 25],
         },
         "IntsToTune" : {   
         }
     }
 
     aminoAcids = {
-        "Hydroxylation-P": {
-            "data_sample_mode": "balanced",
-            "earlyStoppingPatience": 50,
-            "CV_Repeats": 3,
-            "crossValidation": True },
         "O-linked Glycosylation": {
-            "data_sample_mode": "balanced",
+            "data_sample_mode": ["balanced",],
             "earlyStoppingPatience": 25,
             "CV_Repeats": 1,
             "crossValidation": True },
         "Phosphorylation-Y": {
-            "data_sample_mode": "balanced",
-            "earlyStoppingPatience": 10,
+            "data_sample_mode": ["balanced",],
+            "earlyStoppingPatience": 20,
             "CV_Repeats":1,
             "crossValidation": False}
     }
+
     
-    for CNNType in ["Adapt", "Musite"]:
-        for FCType in ["Adapt", "Musite"]:
-            if CNNType == "Adapt" and FCType == "Adapt":
-                continue
+    for CNNType in ["Musite"]:
+        for FCType in ["Musite"]:
             for amino_acid, aa_parameters in aminoAcids.items():
                 parameters["CNNType"] = CNNType
                 parameters["FCType"] = FCType
-                tuning_settings["aminoAcid"] = amino_acid
+                tuning_settings["aminoAcid"] = [amino_acid,]
                 for key, value in aa_parameters.items():
                     parameters[key] = value
                 performTuningExperiment(parameters, tuning_settings)

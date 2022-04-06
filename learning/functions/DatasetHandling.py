@@ -61,13 +61,13 @@ def split_training_test_data(X, y, parameters, fold, tensor_dtype=torch.float):
     return X_train, y_train, X_val, y_val
 
 
-def loadData(parameters):
+def loadData(parameters, aminoAcid):
     """Function used to load correct dataset based on parameters used"""
 
     asOneHot = parameters["embeddingType"] == "oneHot"
     tensor_dtype = torch.float if (parameters["embeddingType"] == "oneHot") else torch.int
 
-    folder = get_folder_name(parameters["aminoAcid"], parameters["embeddingType"])
+    folder = get_folder_name(aminoAcid, parameters["embeddingType"])
     X_neg, y_neg = np.load(f"{folder}/X_train_neg.npy"), np.load(f"{folder}/y_train_neg.npy")
     X_pos, y_pos = np.load(f"{folder}/X_train_pos.npy"), np.load(f"{folder}/y_train_pos.npy")
 
@@ -80,10 +80,8 @@ def loadData(parameters):
     return X_neg, y_neg, X_pos, y_pos, n, tensor_dtype
 
 
-def createDatasets(X_train_neg, y_train_neg, X_val_neg, y_val_neg, X_train_pos, y_train_pos, X_val_pos, y_val_pos, parameters):
+def createDatasets(X_train_neg, y_train_neg, X_val_neg, y_val_neg, X_train_pos, y_train_pos, X_val_pos, y_val_pos, reduceNegativeSamples=False):
     """Function used to create datasets"""
-
-    reduceNegativeSamples = (parameters["data_sample_mode"] == "balanced")
 
     n_train_neg, n_train_pos = X_train_neg.shape[0], X_train_pos.shape[0]
     n_val_neg, n_val_pos = X_val_neg.shape[0], X_val_pos.shape[0]
@@ -108,27 +106,32 @@ def createDatasets(X_train_neg, y_train_neg, X_val_neg, y_val_neg, X_train_pos, 
     return trainset, testset, train_weight, val_weight, n_train_pos, n_train_neg, train_ratio, val_ratio
 
 
-def CreateDataloaders(trainset, testset, n_train_pos, n_train_neg, parameters, train_weight):
+def CreateDataloaders(trainset, testset, n_train_pos, n_train_neg, parameters, train_weight, data_sample_mode, dataloader_samples):
     """ Create dataloaders off training and test-set based on type of sampling technique used """
 
-    data_sample_mode = parameters["data_sample_mode"]
-    batch_size = parameters["batch_size"]
+    batch_size = parameters["batch_size"]//len(parameters["aminoAcid"])
 
     if not data_sample_mode in ["undersample", "oversample", "weighted", "balanced", "unbalanced", "focalLoss"]:
         print("Error: invalid sampling method ")
         exit()
 
     if (data_sample_mode == "undersample") or (data_sample_mode == "oversample"):
+
         if data_sample_mode == "undersample":
-            sampler_train = torch.utils.data.sampler.WeightedRandomSampler(train_weight, n_train_pos*2)
+            sampler_train = torch.utils.data.sampler.WeightedRandomSampler(train_weight,dataloader_samples, replacement= (len(parameters["aminoAcid"]) > 1))
             
         elif data_sample_mode == "oversample":
-            sampler_train = torch.utils.data.sampler.WeightedRandomSampler(train_weight,n_train_neg*2, replacement=True)
-        
+            sampler_train = torch.utils.data.sampler.WeightedRandomSampler(train_weight,dataloader_samples, replacement=True)
         trainloader = DataLoader(trainset, batch_size=batch_size, shuffle=False, sampler=sampler_train, pin_memory=False)
 
     else:
-        trainloader = DataLoader(trainset, batch_size=batch_size, shuffle=True, pin_memory=False)
+        if len(parameters["aminoAcid"]) > 1:
+            sampler = torch.utils.data.sampler.RandomSampler(trainset, num_samples = dataloader_samples, replacement=True)
+            shuffle = False
+        else:
+            sampler = None
+            shuffle = True
+        trainloader = DataLoader(trainset, batch_size=batch_size, shuffle=shuffle, pin_memory=False, sampler=sampler)
 
     testloader = DataLoader(testset, batch_size=batch_size, shuffle=False, pin_memory=False)
 

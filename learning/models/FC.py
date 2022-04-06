@@ -18,7 +18,7 @@ class FCNet(nn.Module):
 
         # Create the different layers
         self.layers = nn.ModuleList()
-       
+        self.heads = nn.ModuleList()
 
         if parameters["CNNType"] == "Musite":
             if parameters["embeddingType"] == "oneHot":
@@ -27,13 +27,12 @@ class FCNet(nn.Module):
             else:
                 self.layers.append(firstLayer(device, embeddingType=parameters["embeddingType"], embeddingSize=200, embeddingDropout=0.75, layerNorm=False))
             self.layers.append(CNN_Layer(self.layers[-1], parameters, dropoutPercentage=0.75, filters=150, kernel_size=9))
-            self.layers.append(CNN_Layer(self.layers[-1], parameters,dropoutPercentage= 0.75, filters=200, kernel_size=10))
+            self.layers.append(CNN_Layer(self.layers[-1], parameters,dropoutPercentage= 0.75, filters=200, kernel_size=10, maxPool=False))
 
         elif parameters["CNNType"] == "Adapt":
             self.layers.append(firstLayer(device, embeddingType=parameters["embeddingType"], embeddingSize=32, embeddingDropout=0))
-            self.layers.append(CNN_Layer(self.layers[-1], parameters, dropoutPercentage=0, filters=256, kernel_size=10,batchNorm=True))
+            self.layers.append(CNN_Layer(self.layers[-1], parameters, dropoutPercentage=0, filters=256, kernel_size=10,batchNorm=True, maxPool=True))
 
-        
         else:
             print("Error: invalid CNN-type string")
             exit()
@@ -51,18 +50,31 @@ class FCNet(nn.Module):
             parameters["FC_dropout"] = 0
         """
 
-        if parameters["FCType"] == "Adapt":
-            self.layers.append(FC_Layer(self.layers[-1], 32, dropoutPercentage=0.5))
-            self.layers.append(FC_Layer(self.layers[-1], 1, useActivation=False, dropoutPercentage=0))
-        
-        if parameters["FCType"] == "Musite":
-            self.layers.append(FC_Layer(self.layers[-1], 149, dropoutPercentage=0.2982))
-            self.layers.append(FC_Layer(self.layers[-1], 8, dropoutPercentage=0))
-            self.layers.append(FC_Layer(self.layers[-1], 1, useActivation=False, dropoutPercentage=0))
+        for task in range(len(parameters["aminoAcid"])):
+            headLayers = nn.ModuleList()
+            if parameters["FCType"] == "Adapt":
+                headLayers.append(FC_Layer(self.layers[-1], 32, dropoutPercentage=0.5))
+                headLayers.append(FC_Layer(headLayers[-1], 1, useActivation=False, dropoutPercentage=0))
+            
+            if parameters["FCType"] == "Musite":
+                headLayers.append(FC_Layer(self.layers[-1], 149, dropoutPercentage=0.2982))
+                headLayers.append(FC_Layer(headLayers[-1], 8, dropoutPercentage=0))
+                headLayers.append(FC_Layer(headLayers[-1], 1, useActivation=False, dropoutPercentage=0))
+
+            headLayers.append(nn.Sigmoid())
+            self.heads.append(headLayers)
 
 
-
-    def forward(self, x):
+    def forward(self, x, tasks):
         for layer in self.layers:
             x = layer(x)
-        return x
+
+        output = torch.zeros((x.shape[0],1),device=self.device)
+        
+        for task in torch.unique(tasks):
+            task = int(task)
+            x_head = x[torch.squeeze(tasks == task), :]
+            for layer in self.heads[int(task)]:
+                x_head = layer(x_head)
+            output[torch.squeeze(tasks == task), :] = x_head
+        return output

@@ -63,7 +63,7 @@ def auc_pr_score(y_true, y_pred):
     return auc_pr
 
 
-def get_evaluation_metrics(y_true, y_output, y_pred):
+def get_evaluation_metrics(AA, y_true, y_output, y_pred):
     """ Calculates all evaluation metrics and returns them as a dict"""
     tn, fp, fn, tp = confusion_matrix(y_true, y_pred).ravel()
     accuracy = (tp+tn)/(fn+fp+tp+tn)
@@ -78,19 +78,19 @@ def get_evaluation_metrics(y_true, y_output, y_pred):
     f1 = f1_score(y_true, y_pred)
 
     eval_metrics = {
-        "Validation Accuracy": accuracy,
-        "Validation Sensitivity": sensitivity,
-        "Validation Specificity": specificity,
-        "Validation Precision": precision,
-        "AUC ROC": auc_roc,
-        "AUC PR": auc_pr,
-        "MCC": MCC,
-        "F1": f1
+        f"{AA} Validation Accuracy": accuracy,
+        f"{AA} Validation Sensitivity": sensitivity,
+        f"{AA} Validation Specificity": specificity,
+        f"{AA} Validation Precision": precision,
+        f"{AA} AUC ROC": auc_roc,
+        f"{AA} AUC PR": auc_pr,
+        f"{AA} MCC": MCC,
+        f"{AA} F1": f1
     }
 
     eval_figures = {
-        "ROC": roc_plot,
-        "PR": pr_plot
+        f"{AA} ROC": roc_plot,
+        f"{AA} PR": pr_plot
     }
 
     return eval_metrics, eval_figures

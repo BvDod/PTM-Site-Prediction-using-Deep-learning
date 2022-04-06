@@ -4,7 +4,8 @@ from random import sample
 from cv2 import transform
 import pandas as pd
 import string
-from transformers import BertTokenizer
+from transformers import T5EncoderModel, T5Tokenizer
+import gc
 import re
 
 import sys
@@ -14,7 +15,6 @@ os.chdir("C:\\Users\\bdode\\Documents\\msc-thesis\\Thesis\\")
 import matplotlib.pyplot as plt
 import numpy as np
 
-from learning.models.firstLayer import protBertEmbedding
 import torch
 
 from sklearn.decomposition import PCA
@@ -22,9 +22,13 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import Pipeline
 from sklearn.manifold import TSNE
 
-tokenizer = BertTokenizer.from_pretrained('Rostlab/prot_bert_bfd', do_lower_case=False)
+
+tokenizer = T5Tokenizer.from_pretrained("Rostlab/prot_t5_xl_uniref50", do_lower_case=False )
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-model = protBertEmbedding(device)
+model = T5EncoderModel.from_pretrained("models/prot_t5_xl_uniref50").half()
+model = model.to(device)
+model = model.eval()
+gc.collect()
 
 source_dir = "dataset/data/processed/yearsAdded/"
 outdir = "dataset/data/motifs/"
@@ -75,8 +79,8 @@ for file in os.listdir(source_dir):
         dfs["S - negative"] = df_neg[df_neg["ModifiedAA"] == "S"]
         dfs["T - positive"] = df_pos[df_pos["ModifiedAA"] == "T"]
         dfs["T - negative"] = df_neg[df_neg["ModifiedAA"] == "T"]
+  
     """
-    
     df_human_pos = df_pos[df_pos['UniprotID'].str.split('_').str[-1] == "HUMAN"]
     df_human_neg = df_neg[df_neg['UniprotID'].str.split('_').str[-1] == "HUMAN"]
     dfs["Human - Pos."] = df_human_pos
@@ -91,24 +95,45 @@ for file in os.listdir(source_dir):
     df_non_animals_neg = df_neg[~df_neg['UniprotID'].str.split('_').str[-1].isin(df_uniprot_animals["Mnemonic"])]
     dfs["Non-Animals - Pos."] = df_non_animals_pos
     dfs["Non-Animals - Neg."] = df_non_animals_neg
-       
+    
+ 
     sample_array = None
     labels = []
     for i, (label, df) in enumerate(dfs.items()):
         n = 2500//len(dfs)
         if len(df) < n:
             n = len(df)
+
         seqs = df["TruncatedUniProtSequence"].sample(n).tolist()
         seqs = [" ".join(seq) for seq in seqs]
         seqs = [re.sub(r"[UZOB]", "X", sequence) for sequence in seqs]
         ids = tokenizer.batch_encode_plus(seqs, add_special_tokens=True, padding=True, max_length=33, truncation=True)
-        ids = torch.tensor(np.array(ids['input_ids']), device=device)
-        embeddings = model(ids)
+        input_ids = torch.tensor(np.array(ids['input_ids']), device=device)
+        attention_mask = torch.tensor(ids['attention_mask']).to(device)
+
         
+        with torch.no_grad():
+            embeddings = model(input_ids=input_ids[:n//2],attention_mask=attention_mask[:n//2])
+        embeddings1 = embeddings.last_hidden_state.cpu().numpy()
+        with torch.no_grad():
+            embeddings = model(input_ids=input_ids[n//2:],attention_mask=attention_mask[n//2:])
+        embeddings2 = embeddings.last_hidden_state.cpu().numpy()
+        embeddings = np.concatenate([embeddings1, embeddings2], axis=0)
+        
+       
+        features = [] 
+        for seq_num in range(len(embeddings)):
+            seq_len = (attention_mask[seq_num] == 1).sum()
+            seq_emd = embeddings[seq_num][:seq_len-1]
+            features.append(seq_emd)
+        features = np.stack(features, axis=0)
+        print(features[0].dtype)
+
+
         if sample_array is None:
-            sample_array = embeddings.cpu().numpy()
+            sample_array = embeddings
         else:
-            sample_array = np.concatenate([sample_array, embeddings.cpu().numpy()], axis=0)
+            sample_array = np.concatenate([sample_array, embeddings], axis=0)
         labels = labels + [i]*n
     
 
@@ -120,30 +145,10 @@ for file in os.listdir(source_dir):
         pca = PCA(n_components=2)
         tsne = TSNE(n_components=2)
         pipe = Pipeline([('scaler', StandardScaler()), ('pca', pca)])
-        X = pca.fit_transform(sample_array_transformed)
+        X = tsne.fit_transform(sample_array_transformed)
 
         ax = axes[trans_j]
         plot = ax.scatter(X[:,0], X[:,1], c=labels, s=10, alpha=1)
         ax.legend(handles=plot.legend_elements()[0], labels=list([key for key in dfs.keys()]))
         ax.set_title(name)
-plt.savefig(f"dataset/data/pca_species_more.PNG", dpi=500, bbox_inches='tight')
-
-# %%
-
-
-
-# %%
-        exit()
-
-        
-        ax[i].get_xaxis().set_visible(False)
-        ax[i].get_yaxis().set_visible(False)
-        ax[i].set_title(label, fontsize=7)
-        ax[i].axis('off')
-        ax[i].set_xticklabels([])
-        ax[i].set_yticklabels([])
-    plt.subplots_adjust(wspace=0, hspace=0)
-    plt.savefig(f"dataset/data/motifs/{file.split('_')[0]}.PNG", dpi=500)
-    
-        
-    
+plt.savefig(f"dataset/data/tsne_more_t5.PNG", dpi=500, bbox_inches='tight')
