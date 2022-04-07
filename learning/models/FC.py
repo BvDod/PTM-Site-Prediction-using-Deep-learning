@@ -27,7 +27,7 @@ class FCNet(nn.Module):
             else:
                 self.layers.append(firstLayer(device, embeddingType=parameters["embeddingType"], embeddingSize=200, embeddingDropout=0.75, layerNorm=False))
             self.layers.append(CNN_Layer(self.layers[-1], parameters, dropoutPercentage=0.75, filters=150, kernel_size=9))
-            self.layers.append(CNN_Layer(self.layers[-1], parameters,dropoutPercentage= 0.75, filters=200, kernel_size=10, maxPool=False))
+            self.layers.append(CNN_Layer(self.layers[-1], parameters,dropoutPercentage= 0.75, filters=200, kernel_size=10, maxPool=True))
 
         elif parameters["CNNType"] == "Adapt":
             self.layers.append(firstLayer(device, embeddingType=parameters["embeddingType"], embeddingSize=32, embeddingDropout=0))

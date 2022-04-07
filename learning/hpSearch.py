@@ -88,22 +88,24 @@ if __name__ == "__main__":
         }
 
     tuning_settings = {
-        "n_trials": 250,
+        "n_trials": 3,
         "aminoAcid": "O-linked Glycosylation",
         "FloatsToTune" : {
-            "learning_rate": [0.00001, 0.01],
-            "weight_decay": [0, 25],
+            "learning_rate": [0.0022, 0.0022],
+            "weight_decay": [12.8, 12.8],
         },
         "IntsToTune" : {   
         }
     }
 
+ 
     aminoAcids = {
-        "O-linked Glycosylation": {
+        "Hydroxylation-P": {
             "data_sample_mode": ["balanced",],
-            "earlyStoppingPatience": 25,
-            "CV_Repeats": 1,
-            "crossValidation": True },
+            "earlyStoppingPatience": 20,
+            "CV_Repeats":3,
+            "crossValidation": True},
+
         "Phosphorylation-Y": {
             "data_sample_mode": ["balanced",],
             "earlyStoppingPatience": 20,
@@ -112,8 +114,8 @@ if __name__ == "__main__":
     }
 
     
-    for CNNType in ["Musite"]:
-        for FCType in ["Musite"]:
+    for CNNType in ["Adapt"]:
+        for FCType in ["Adapt"]:
             for amino_acid, aa_parameters in aminoAcids.items():
                 parameters["CNNType"] = CNNType
                 parameters["FCType"] = FCType
