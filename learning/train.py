@@ -32,12 +32,12 @@ class dummy_context_mgr():
     def __exit__(self, exc_type, exc_value, traceback):
         return False
 
-def testModel(parameters, trial=None, logToComet=True, returnEvalMetrics=False, hyperparameterSeed=False):
+def testModel(parameters, trial=None, logToComet=True, returnEvalMetrics=False, hyperparameterSeed=False,device_id=0):
     if hyperparameterSeed:
         parameters["random_state"] = 1 # Use static random state for assigning folds
     else:
         parameters["random_state"] = random.randint(0,((2**32)-parameters["CV_Repeats"]))
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    device = torch.device(f"cuda:{device_id}" if torch.cuda.is_available() else "cpu")
     pprint.pprint(parameters)
 
     results = []
