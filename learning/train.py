@@ -48,7 +48,7 @@ def testModel(parameters, trial=None, logToComet=True, returnEvalMetrics=False, 
             model = FCNet
 
             
-            net = torch.nn.DataParallel(model(device, parameters=parameters))
+            net = model(device, parameters=parameters)
   
             optimizer = parameters["optimizer"](net.parameters(), lr=parameters["learning_rate"], weight_decay=parameters["weight_decay"], eps=1e-6)
             net.to(device)
