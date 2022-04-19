@@ -70,18 +70,9 @@ class protBertEmbedding(nn.Module):
         super().__init__()
         self.device = device
         self.peptideSize = peptideSize
-
-        self.model = BertModel.from_pretrained("Rostlab/prot_bert_bfd").half()
-        self.model = self.model.to(device)
-        self.model = self.model.eval()
-
-        for param in self.model.parameters():
-            param.requires_grad = False
     
     def forward(self, x):
-        with torch.no_grad():
-            embedding = self.model(input_ids=x, attention_mask=torch.ones_like(x)).last_hidden_state
-        return embedding.float()
+        return x
 
 class oneHot(nn.Module):
     def __init__(self, peptideSize=33):

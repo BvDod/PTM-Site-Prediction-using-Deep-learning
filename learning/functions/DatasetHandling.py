@@ -27,7 +27,7 @@ def get_folder_name(AA, embeddingType):
         "oneHot":  "onehot",
         "embeddingLayer": "indices",
         "adaptiveEmbedding": "indices",
-        "protBert": "input_ids",
+        "protBert": "embeddings",
     }
 
     type_folder = embeddingToFolder[embeddingType]
@@ -65,7 +65,7 @@ def loadData(parameters, aminoAcid):
     """Function used to load correct dataset based on parameters used"""
 
     asOneHot = parameters["embeddingType"] == "oneHot"
-    tensor_dtype = torch.float if (parameters["embeddingType"] == "oneHot") else torch.int
+    tensor_dtype = torch.float if ((parameters["embeddingType"] == "oneHot") or (parameters["embeddingType"] == "protBert")) else torch.int
 
     folder = get_folder_name(aminoAcid, parameters["embeddingType"])
     X_neg, y_neg = np.load(f"{folder}/X_train_neg.npy"), np.load(f"{folder}/y_train_neg.npy")
