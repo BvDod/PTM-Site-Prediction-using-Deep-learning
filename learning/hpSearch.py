@@ -77,7 +77,7 @@ if __name__ == "__main__":
         "ValidationMetric": "Validation Loss (total)",
         "earlyStoppingPatience": 50,
         "CV_Repeats": 1,
-        "Experiment Name": "Model architecture - added max, ranges, bceloss",
+        "Experiment Name": "Model architecture - embeddings: ",
         # Model parameters
         "weight_decay": None,
         "embeddingType": "adaptiveEmbedding",
@@ -88,34 +88,38 @@ if __name__ == "__main__":
         }
 
     tuning_settings = {
-        "n_trials": 3,
+        "n_trials": 250,
         "aminoAcid": "O-linked Glycosylation",
         "FloatsToTune" : {
-            "learning_rate": [0.0022, 0.0022],
-            "weight_decay": [12.8, 12.8],
+            "learning_rate": [0.00001, 0.01],
+            "weight_decay": [0, 25],
         },
         "IntsToTune" : {   
         }
     }
 
- 
     aminoAcids = {
-        "Hydroxylation-P": {
-            "data_sample_mode": ["balanced",],
-            "earlyStoppingPatience": 20,
-            "CV_Repeats":3,
-            "crossValidation": True},
-
         "Phosphorylation-Y": {
             "data_sample_mode": ["balanced",],
             "earlyStoppingPatience": 20,
             "CV_Repeats":1,
-            "crossValidation": False}
+            "crossValidation": False},
+        "Hydroxylation-P": {
+            "data_sample_mode": ["balanced",],
+            "earlyStoppingPatience": 50,
+            "CV_Repeats":5,
+            "crossValidation": True},
+        "O-linked Glycosylation": {
+            "data_sample_mode": ["balanced",],
+            "earlyStoppingPatience": 25,
+            "CV_Repeats":1,
+            "crossValidation": True}
+
     }
 
     
-    for CNNType in ["Adapt"]:
-        for FCType in ["Adapt"]:
+    for CNNType in ["Musite", "Adapt"]:
+        for FCType in ["Musite", "Adapt"]:
             for amino_acid, aa_parameters in aminoAcids.items():
                 parameters["CNNType"] = CNNType
                 parameters["FCType"] = FCType
