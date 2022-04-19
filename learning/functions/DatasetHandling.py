@@ -32,7 +32,7 @@ def get_folder_name(AA, embeddingType):
 
     type_folder = embeddingToFolder[embeddingType]
 
-    data_dir = "dataset/data/learningData/balanced/"
+    data_dir = "code/Thesis/dataset/"
     folder_name = f"{data_dir}train/{AA}/{type_folder}"
     return folder_name
 

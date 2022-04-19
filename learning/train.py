@@ -46,7 +46,10 @@ def testModel(parameters, trial=None, logToComet=True, returnEvalMetrics=False, 
     # Loop over the different folds for CV
         for fold in range(parameters["folds"]):
             model = FCNet
-            net = model(device, parameters=parameters)
+
+            
+            net = torch.nn.DataParallel(model(device, parameters=parameters))
+  
             optimizer = parameters["optimizer"](net.parameters(), lr=parameters["learning_rate"], weight_decay=parameters["weight_decay"], eps=1e-6)
             net.to(device)
             
@@ -236,8 +239,8 @@ def trainModel(trainloader, testloaders, net, optimizer, device, parameters, val
                     task = int(task)
                     if useSampleWeighting:     
                         task_weights = torch.ones(labels[tasks==task].shape, device=device)
-                        task_weights[labels[tasks==task] == 0] = 1./train_ratio[task]
-                        task_weights[labels[tasks==task] == 1] = train_ratio[task]
+                        task_weights[labels[tasks==task] == 0] = 1./(train_ratio[task]/2)
+                        task_weights[labels[tasks==task] == 1] = (train_ratio[task]/2)
                         criterion = parameters["loss_function"](weight=task_weights)
                     else:
                         criterion = parameters["loss_function"]()
@@ -309,8 +312,8 @@ def evalValidation(testloaders, net, device, val_ratio, experiment, epoch, param
                 AA = parameters['aminoAcid'][task]
                 if useSampleWeighting:     
                     task_weights = torch.ones(y_true[tasks==task].shape, device=device)
-                    task_weights[y_true[tasks==task] == 0] = 1./val_ratio[task]
-                    task_weights[y_true[tasks==task] == 1] = val_ratio[task]
+                    task_weights[y_true[tasks==task] == 0] = 1./(val_ratio[task]/2)
+                    task_weights[y_true[tasks==task] == 1] = (val_ratio[task]/2)
 
                     criterion = parameters["loss_function"](weight=task_weights)
                 else:
@@ -353,7 +356,7 @@ if __name__ == "__main__":
         "gpu_mode": True,
         "epochs": 500,
         "batch_size": 2048,
-        "learning_rate": 0.0025,
+        "learning_rate": 0.002,
         "test_data_ratio": 0.2,
         "data_sample_mode": "oversample",
         "crossValidation": True,
@@ -368,21 +371,21 @@ if __name__ == "__main__":
 
 
         # Model parameters
-        "weight_decay": 2.5,
-        "embeddingType": "adaptiveEmbedding",
+        "weight_decay": 1,
+        "embeddingType": "protBert",
         "LSTM_layers": 1,
-        "LSTM_hidden_size": 64,
+        "LSTM_hidden_size": 32,
         "LSTM_dropout": 0,
         "MultiTask": True,
 
         "MultiTask_sample_method": "oversample",
         "UseUncertaintyBasedLoss": False,
 
-        "CNNType": "Musite",
-        "FCType": "Musite",
+        "CNNType": "Adapt",
+        "FCType": "Adapt",
         }
                       
 
-    parameters["aminoAcid"] = ["Hydroxylation-P", "Hydroxylation-K", "S-palmitoylation-C", "Sumoylation", "Methylation-K", "Methylation-R", "Pyrrolidone carboxylic acid"]
-    parameters["data_sample_mode"] = ["oversample"] * 13
+    parameters["aminoAcid"] = ["Hydroxylation-P", "Hydroxylation-K", ]
+    parameters["data_sample_mode"] = ["oversample"] * 2
     testModel(parameters)
