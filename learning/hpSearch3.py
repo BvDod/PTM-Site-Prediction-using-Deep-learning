@@ -21,7 +21,7 @@ def defineHyperparameters(trial, tuning_settings, parameters):
 
 def objective(trial, tuning_settings, parameters):
     parameters = defineHyperparameters(trial, tuning_settings, parameters)
-    metric = testModel(parameters, trial=trial, logToComet=False, device_id=3)
+    metric = testModel(parameters, trial=trial, logToComet=False, device_id=2)
     return metric
 
 def evaluateBestTrial(best_params, tuning_settings, parameters):
