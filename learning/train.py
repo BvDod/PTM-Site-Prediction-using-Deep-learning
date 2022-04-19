@@ -37,7 +37,7 @@ def testModel(parameters, trial=None, logToComet=True, returnEvalMetrics=False, 
         parameters["random_state"] = 1 # Use static random state for assigning folds
     else:
         parameters["random_state"] = random.randint(0,((2**32)-parameters["CV_Repeats"]))
-    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     pprint.pprint(parameters)
 
     results = []
