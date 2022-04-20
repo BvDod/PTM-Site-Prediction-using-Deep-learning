@@ -65,16 +65,15 @@ class FCNet(nn.Module):
             self.heads.append(headLayers)
 
 
-    def forward(self, x, tasks):
+    def forward(self, x, task_indexes):
         for layer in self.layers:
             x = layer(x)
 
-        output = torch.zeros((x.shape[0],1),device=self.device)
-        
-        for task in torch.unique(tasks):
-            task = int(task)
-            x_head = x[torch.squeeze(tasks == task), :]
-            for layer in self.heads[int(task)]:
+        output = []
+        for i in range(len(task_indexes[:-1])):
+            x_head = x[task_indexes[i]:task_indexes[i+1],:]
+            for layer in self.heads[i]:
                 x_head = layer(x_head)
-            output[torch.squeeze(tasks == task), :] = x_head
+            output.append(x_head)
+        output = torch.cat(output, axis=0)
         return output
