@@ -38,6 +38,7 @@ def testModel(parameters, trial=None, logToComet=True, returnEvalMetrics=False, 
     else:
         parameters["random_state"] = random.randint(0,((2**32)-parameters["CV_Repeats"]))
     device = torch.device(f"cuda:{device_id}" if torch.cuda.is_available() else "cpu")
+    print(device)
     pprint.pprint(parameters)
 
     results = []
