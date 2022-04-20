@@ -97,20 +97,25 @@ def createDatasets(X_train_neg, y_train_neg, X_val_neg, y_val_neg, X_train_pos, 
     
     
     X_train = torch.cat([X_train_pos, X_train_neg],dim=0)
+    del X_train_pos
+    del X_train_neg
     y_train = torch.cat([y_train_pos, y_train_neg],dim=0)
+    del y_train_pos
+    del y_train_neg
     X_val = torch.cat([X_val_pos, X_val_neg],dim=0)
+    del X_val_pos
+    del X_val_neg
     y_val = torch.cat([y_val_pos, y_val_neg],dim=0)
+    del y_val_pos
+    del y_val_neg
 
     trainset = TensorDataset(X_train, y_train)
     testset = TensorDataset(X_val, y_val) 
     return trainset, testset, train_weight, val_weight, n_train_pos, n_train_neg, train_ratio, val_ratio
 
 
-def CreateDataloaders(trainset, testset, n_train_pos, n_train_neg, parameters, train_weight, data_sample_mode, dataloader_samples):
+def CreateDataloaders(trainset, testset, n_train_pos, n_train_neg, parameters, train_weight, data_sample_mode, dataloader_samples, batch_size):
     """ Create dataloaders off training and test-set based on type of sampling technique used """
-
-    batch_size = parameters["batch_size"]//len(parameters["aminoAcid"])
-
     if not data_sample_mode in ["undersample", "oversample", "weighted", "balanced", "unbalanced", "focalLoss"]:
         print("Error: invalid sampling method ")
         exit()

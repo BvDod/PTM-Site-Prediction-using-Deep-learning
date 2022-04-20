@@ -16,8 +16,6 @@ class MyIter(object):
         # The `StopIteration` raised inside that shortest loader's `__next__`
         # method will in turn gets out of this `__next__` method.
         batches = [loader_iter.next() for loader_iter in self.loader_iters]
-        for i in range(len(batches)):
-            batches[i].append(torch.full_like(batches[i][1], i))
         return self.my_loader.combine_batch(batches)
 
     def __len__(self):
@@ -43,10 +41,13 @@ class MultiTaskLoader(object):
 
     # Customize the behavior of combining batches here.
     def combine_batch(self, batches):
+        task_indexes = [sum(x[0].shape[0] for x in batches[:i+1]) for i in range(len(batches))]
+        task_indexes = [0,] + task_indexes
+
         features = torch.cat([batch[0] for batch in batches], dim=0)
         labels = torch.cat([batch[1] for batch in batches])
-        tasks = torch.cat([batch[2] for batch in batches])
-        return [features, labels, tasks]
+
+        return [features, labels, task_indexes]
 
 
 class MultiTaskLossWrapper(nn.Module):

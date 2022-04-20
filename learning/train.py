@@ -12,6 +12,7 @@ import math
 import pprint
 import optuna
 from statistics import mean, stdev
+import gc
 
 from models.FC import FCNet
 from torch.utils.tensorboard import SummaryWriter
@@ -26,11 +27,13 @@ from torch.cuda.amp import autocast
 from torch.cuda.amp import GradScaler
 import matplotlib.pyplot as plt
 
+
 class dummy_context_mgr():
     def __enter__(self):
         return None
     def __exit__(self, exc_type, exc_value, traceback):
         return False
+
 
 def testModel(parameters, trial=None, logToComet=True, returnEvalMetrics=False, hyperparameterSeed=False,device_id=0):
     if hyperparameterSeed:
@@ -110,11 +113,17 @@ def loadDataLoaders(parameters, fold):
 
     biggest_dataset_amount = None
     smallest_dataset_amount = None
-
+    
+    sample_sizes = []
     for i, aminoAcid in enumerate(parameters["aminoAcid"]):
         X_neg, y_neg, X_pos, y_pos, n, tensor_dtype = loadData(parameters, aminoAcid)
         X_train_neg, y_train_neg, X_val_neg, y_val_neg = split_training_test_data(X_neg, y_neg, parameters, fold, tensor_dtype=tensor_dtype)
         X_train_pos, y_train_pos, X_val_pos, y_val_pos = split_training_test_data(X_pos, y_pos, parameters, fold, tensor_dtype=tensor_dtype)
+        
+        del X_neg
+        del y_neg
+        del X_pos
+        del y_pos
         
         loaded_data_neg.append([X_train_neg, y_train_neg, X_val_neg, y_val_neg])
         loaded_data_pos.append([X_train_pos, y_train_pos, X_val_pos, y_val_pos])
@@ -125,7 +134,8 @@ def loadDataLoaders(parameters, fold):
             samples = len(y_train_neg) * 2
         if parameters["data_sample_mode"][i] == "weighted":
             samples = len(y_train_pos) + len(y_train_pos)
-
+        
+        sample_sizes.append(samples)
         if biggest_dataset_amount is None or biggest_dataset_amount < samples:
             biggest_dataset_amount = samples
         if smallest_dataset_amount is None or smallest_dataset_amount > samples:
@@ -140,6 +150,9 @@ def loadDataLoaders(parameters, fold):
         
         elif type(parameters["MultiTask_sample_method"]) == int:
             dataloader_samples = parameters["MultiTask_sample_method"]
+        
+        elif parameters["MultiTask_sample_method"] == "balanced":
+            pass
     else:
         dataloader_samples = biggest_dataset_amount
 
@@ -154,8 +167,28 @@ def loadDataLoaders(parameters, fold):
                                                                     X_train_neg, y_train_neg, X_val_neg, y_val_neg,
                                                                     X_train_pos, y_train_pos, X_val_pos, y_val_pos,
                                                                     reduceNegativeSamples=(parameters["data_sample_mode"][i] == "balanced"))
+        del X_train_neg
+        del y_train_neg
+        del X_val_neg
+        del y_val_neg
+        del X_train_pos
+        del y_train_pos
+        del X_val_pos
+        del y_val_pos
 
-        trainloader, testloader = CreateDataloaders(trainset, testset, n_train_pos, n_train_neg, parameters, train_weight, parameters["data_sample_mode"][i], dataloader_samples)
+
+
+
+        if ("MultiTask_sample_method" in parameters) and parameters["MultiTask_sample_method"] == "balanced":
+            samples_per_batch = math.ceil((sample_sizes[i] / sum(sample_sizes)) * parameters["batch_size"])
+            if samples_per_batch < 1:
+                samples_per_batch = 1
+            dataloader_samples = int((sum(sample_sizes) / parameters["batch_size"]) * samples_per_batch)
+            batch_size = samples_per_batch
+            print(batch_size, dataloader_samples)
+        else:
+            batch_size = parameters["batch_size"]//len(parameters["aminoAcid"])
+        trainloader, testloader = CreateDataloaders(trainset, testset, n_train_pos, n_train_neg, parameters, train_weight, parameters["data_sample_mode"][i], dataloader_samples, batch_size)
         
         trainloaders.append(trainloader)
         testloaders.append(testloader)
@@ -185,6 +218,7 @@ def trainModel(trainloader, testloaders, net, optimizer, device, parameters, val
         uncertaintyWrapper = MultiTaskLossWrapper(len(parameters["aminoAcid"]))
 
     for epoch in range(parameters["epochs"]): 
+        gc.collect()
 
         # Evaluate validation performance
         if not epoch == 0:
@@ -227,26 +261,27 @@ def trainModel(trainloader, testloaders, net, optimizer, device, parameters, val
             net.train()
             running_loss = 0.0
             for i, data in enumerate(trainloader, 0):
-                inputs, labels, tasks = data[0].to(device), data[1].reshape((-1,1)).to(device), data[2].reshape((-1,1)).to(device)
+                inputs, labels, task_indexes = data[0].to(device), data[1].reshape((-1,1)).to(device), data[2]
                 
                 useSampleWeighting = (parameters["data_sample_mode"] == "weighted")
 
                 # forward + backward + optimize
                 optimizer.zero_grad()
-                outputs = net(inputs, tasks)
+                outputs = net(inputs, task_indexes)
 
                 losses = []
-                for task in torch.unique(tasks):
-                    task = int(task)
+                for task in range(len(task_indexes[:-1])):
+                    outputs_task = outputs[task_indexes[task]: task_indexes[task+1]]
+                    labels_task = labels[task_indexes[task]: task_indexes[task+1]]
                     if useSampleWeighting:     
-                        task_weights = torch.ones(labels[tasks==task].shape, device=device)
-                        task_weights[labels[tasks==task] == 0] = 1./(train_ratio[task]/2)
-                        task_weights[labels[tasks==task] == 1] = (train_ratio[task]/2)
+                        task_weights = torch.ones(outputs_task.shape, device=device)
+                        task_weights[labels_task == 0] = 1./(train_ratio[task]/2)
+                        task_weights[labels_task == 1] = (train_ratio[task]/2)
                         criterion = parameters["loss_function"](weight=task_weights)
                     else:
                         criterion = parameters["loss_function"]()
 
-                    loss = criterion(outputs[tasks == task], labels[tasks == task])
+                    loss = criterion(outputs_task, labels_task)
                     losses.append(loss)
 
                 if parameters["UseUncertaintyBasedLoss"]:
@@ -262,6 +297,7 @@ def trainModel(trainloader, testloaders, net, optimizer, device, parameters, val
                     print('[%d, %5d] loss: %.3f' % (epoch + 1, i + 1, running_loss/(max_batch+1)))
                     running_loss = 0.0
             max_batch = i
+        
 
     print('Finished Training')
     t1 = time.time()
@@ -282,49 +318,47 @@ def evalValidation(testloaders, net, device, val_ratio, experiment, epoch, param
 
     with context():
         with torch.no_grad():
-            y_pred, y_output, y_true, tasks = None, None, None, None
+            y_pred, y_output, y_true = [], [], []
+
             for i, testloader in enumerate(testloaders):
+                y_pred_task, y_output_task, y_true_task = [], [], []
                 for data in testloader:
                     features, labels = data[0].to(device), data[1].reshape((-1,1)).to(device)
-                    tasks_batch = torch.full_like(labels, i)
+                    task_indexes = [0, len(labels)]
                     
-                    y_output_batch = net(features, tasks_batch)
+                    y_output_batch = net(features, task_indexes)
                     y_pred_batch = (y_output_batch > 0.5).int()
 
                     useSampleWeighting = (parameters["data_sample_mode"] == "weighted")
                     useSampleWeighting = True
     
-                    if y_pred is None:
-                        y_pred, y_output = y_pred_batch, y_output_batch
-                        y_true = labels
-                        tasks = tasks_batch
-                    
-                    else:
-                        y_pred = torch.cat((y_pred, y_pred_batch), axis=0)
-                        y_output = torch.cat((y_output, y_output_batch), axis=0)
-                        y_true = torch.cat((y_true, labels), axis=0)  
-                        tasks = torch.cat((tasks, tasks_batch), axis=0)  
+                    y_pred_task.append(y_pred_batch)
+                    y_output_task.append(y_output_batch)
+                    y_true_task.append(labels)
+                y_pred.append(torch.cat(y_pred_task))
+                y_output.append(torch.cat(y_output_task))
+                y_true.append(torch.cat(y_true_task))
+            
+                        
 
             losses = []
             eval_metrics_total = {}
             eval_figures_total = {}
-            for task in torch.unique(tasks):
-                task = int(task)
+            for task in range(len(testloaders)):
                 AA = parameters['aminoAcid'][task]
                 if useSampleWeighting:     
-                    task_weights = torch.ones(y_true[tasks==task].shape, device=device)
-                    task_weights[y_true[tasks==task] == 0] = 1./(val_ratio[task]/2)
-                    task_weights[y_true[tasks==task] == 1] = (val_ratio[task]/2)
+                    task_weights = torch.ones(y_true[task].shape, device=device)
+                    task_weights[y_true[task] == 0] = 1./(val_ratio[task]/2)
+                    task_weights[y_true[task] == 1] = (val_ratio[task]/2)
 
                     criterion = parameters["loss_function"](weight=task_weights)
                 else:
                     criterion = parameters["loss_function"]()
 
-                loss = criterion(y_output[tasks == task], y_true[tasks == task])
+                loss = criterion(y_output[task], y_true[task])
                 losses.append(loss)
-                mask = (tasks == task)
 
-                eval_metrics, eval_figures = get_evaluation_metrics(AA, y_true[mask].detach().cpu().numpy(), y_output[mask].detach().cpu().numpy(), y_pred[mask].detach().cpu().numpy())
+                eval_metrics, eval_figures = get_evaluation_metrics(AA, y_true[task].detach().cpu().numpy(), y_output[task].detach().cpu().numpy(), y_pred[task].detach().cpu().numpy())
                 eval_metrics[f"Validation Loss ({AA})"] = loss.detach().item()
                 eval_metrics_total.update(eval_metrics)
                 eval_figures_total.update(eval_figures)
@@ -355,12 +389,12 @@ if __name__ == "__main__":
     parameters = { 
         # Training parameters
         "gpu_mode": True,
-        "epochs": 500,
-        "batch_size": 2048,
+        "epochs": 3,
+        "batch_size": 512,
         "learning_rate": 0.002,
         "test_data_ratio": 0.2,
         "data_sample_mode": "oversample",
-        "crossValidation": True,
+        "crossValidation": False,
         "loss_function": nn.BCELoss,
         "optimizer": optim.AdamW,
         "folds": 5,
@@ -379,7 +413,7 @@ if __name__ == "__main__":
         "LSTM_dropout": 0,
         "MultiTask": True,
 
-        "MultiTask_sample_method": "oversample",
+        "MultiTask_sample_method": "balanced",
         "UseUncertaintyBasedLoss": False,
 
         "CNNType": "Adapt",
@@ -387,6 +421,6 @@ if __name__ == "__main__":
         }
                       
 
-    parameters["aminoAcid"] = ["Hydroxylation-P", "Hydroxylation-K", ]
-    parameters["data_sample_mode"] = ["oversample"] * 2
+    parameters["aminoAcid"] = ["Phosphorylation-Y", "Hydroxylation-K",]
+    parameters["data_sample_mode"] = ["balanced"] * 3
     testModel(parameters)
