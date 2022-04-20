@@ -35,12 +35,16 @@ class dummy_context_mgr():
         return False
 
 
-def testModel(parameters, trial=None, logToComet=True, returnEvalMetrics=False, hyperparameterSeed=False,device_id=0):
+def testModel(parameters, trial=None, logToComet=True, returnEvalMetrics=False, hyperparameterSeed=False,device_id="all"):
     if hyperparameterSeed:
         parameters["random_state"] = 1 # Use static random state for assigning folds
     else:
         parameters["random_state"] = random.randint(0,((2**32)-parameters["CV_Repeats"]))
-    device = torch.device(f"cuda:{device_id}" if torch.cuda.is_available() else "cpu")
+    if device_id == "all":
+        device = torch.device(f"cuda" if torch.cuda.is_available() else "cpu")
+    else:
+        device = torch.device(f"cuda:{device_id}" if torch.cuda.is_available() else "cpu")
+
     pprint.pprint(parameters)
 
     results = []
@@ -52,6 +56,8 @@ def testModel(parameters, trial=None, logToComet=True, returnEvalMetrics=False, 
 
             
             net = model(device, parameters=parameters)
+            if device_id == "all" and (torch.cuda.device_count() > 1):
+                model = nn.DataParallel(model)
   
             optimizer = parameters["optimizer"](net.parameters(), lr=parameters["learning_rate"], weight_decay=parameters["weight_decay"], eps=1e-6)
             net.to(device)
