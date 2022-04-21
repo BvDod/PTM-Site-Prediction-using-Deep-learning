@@ -58,8 +58,15 @@ def testModel(parameters, trial=None, logToComet=True, returnEvalMetrics=False, 
             net = model(device, parameters=parameters)
             if device_id == "all" and (torch.cuda.device_count() > 1):
                 model = nn.DataParallel(model)
-  
-            optimizer = parameters["optimizer"](net.parameters(), lr=parameters["learning_rate"], weight_decay=parameters["weight_decay"], eps=1e-6)
+            parameter_dicts = [
+                {'params': net.layers.parameters()}
+            ]
+            if (len(parameters["aminoAcid"]) > 1) and "TaskWeightDecay" in parameters:
+                parameter_dicts = parameter_dicts + [{'params': net.heads[i].parameters(), "weight_decay": parameters["TaskWeightDecay"][i]} for i in range(len(parameters["TaskWeightDecay"]))]
+            else:
+                parameter_dicts.append({'params': net.heads.parameters()})
+
+            optimizer = parameters["optimizer"](parameter_dicts, lr=parameters["learning_rate"], weight_decay=parameters["weight_decay"], eps=1e-6)
             net.to(device)
             
             trainloader, testloader, val_ratios, train_ratios = loadDataLoaders(parameters, fold)
@@ -161,6 +168,7 @@ def loadDataLoaders(parameters, fold):
     else:
         dataloader_samples = biggest_dataset_amount
 
+    sample_weights = []
     for i, aminoAcid in enumerate(parameters["aminoAcid"]):
         
         # Split dataset into trainig and test set
@@ -181,9 +189,6 @@ def loadDataLoaders(parameters, fold):
         del X_val_pos
         del y_val_pos
 
-
-
-
         if ("MultiTask_sample_method" in parameters) and parameters["MultiTask_sample_method"] == "balanced":
             samples_per_batch = math.ceil((sample_sizes[i] / sum(sample_sizes)) * parameters["batch_size"])
             if samples_per_batch < 1:
@@ -191,8 +196,11 @@ def loadDataLoaders(parameters, fold):
             dataloader_samples = int((sum(sample_sizes) / parameters["batch_size"]) * samples_per_batch)
             batch_size = samples_per_batch
             print(batch_size, dataloader_samples)
+            
         else:
             batch_size = parameters["batch_size"]//len(parameters["aminoAcid"])
+        
+        sample_weights.append(sample_sizes[i]/max(sample_sizes))    
         trainloader, testloader = CreateDataloaders(trainset, testset, n_train_pos, n_train_neg, parameters, train_weight, parameters["data_sample_mode"][i], dataloader_samples, batch_size)
         
         trainloaders.append(trainloader)
@@ -202,6 +210,7 @@ def loadDataLoaders(parameters, fold):
         train_ratios.append(train_ratio)
     
     trainloader = MultiTaskLoader(trainloaders)
+    parameters["sample_weights"] = sample_weights
     return trainloader, testloaders, val_ratios, train_ratios
 
 
@@ -287,7 +296,14 @@ def trainModel(trainloader, testloaders, net, optimizer, device, parameters, val
                         criterion = parameters["loss_function"]()
 
                     loss = criterion(outputs_task, labels_task)
-                    losses.append(loss)
+                    if parameters["useLrWeight"]:
+                        if parameters["MultiTask_sample_method"] == "balanced":
+                            weight = (task_indexes[task+1] - task_indexes[task]) / parameters["batch_size"]
+                        else:
+                            weight = parameters["sample_weights"][task]
+                    else:
+                        weight = 1
+                    losses.append(weight * loss)
 
                 if parameters["UseUncertaintyBasedLoss"]:
                     loss = uncertaintyWrapper(losses)
@@ -394,9 +410,9 @@ if __name__ == "__main__":
     parameters = { 
         # Training parameters
         "gpu_mode": True,
-        "epochs": 3,
-        "batch_size": 512,
-        "learning_rate": 0.002,
+        "epochs": 200,
+        "batch_size": 2048,
+        "learning_rate": 0.0005,
         "test_data_ratio": 0.2,
         "data_sample_mode": "oversample",
         "crossValidation": False,
@@ -411,21 +427,25 @@ if __name__ == "__main__":
 
 
         # Model parameters
-        "weight_decay": 1,
-        "embeddingType": "protBert",
+        "weight_decay": 2.5,
+        "embeddingType": "adaptiveEmbedding",
         "LSTM_layers": 1,
         "LSTM_hidden_size": 32,
         "LSTM_dropout": 0,
         "MultiTask": True,
 
-        "MultiTask_sample_method": "balanced",
+        "MultiTask_sample_method": "oversample",
         "UseUncertaintyBasedLoss": False,
+        "useLrWeight": True,
 
         "CNNType": "Adapt",
-        "FCType": "Adapt",
+        "FCType": "Musite",
+
+        "layerToSplitOn": "FC"
         }
                       
 
-    parameters["aminoAcid"] = ["Phosphorylation-Y", "Hydroxylation-K",]
-    parameters["data_sample_mode"] = ["balanced"] * 3
+    parameters["aminoAcid"] = ["Hydroxylation-K", "Hydroxylation-P",]
+    parameters["data_sample_mode"] = ["oversample"] * 13
+    parameters["TaskWeightDecay"] = [0.1] * 2
     testModel(parameters)
