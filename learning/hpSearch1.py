@@ -80,7 +80,7 @@ if __name__ == "__main__":
         "Experiment Name": "Model architecture - embeddings: ",
         # Model parameters
         "weight_decay": None,
-        "embeddingType": "adaptiveEmbedding",
+        "embeddingType": "protBert",
         "LSTM_layers": 1,
         "LSTM_hidden_size": 32,
         "LSTM_dropout": 0,
@@ -104,21 +104,21 @@ if __name__ == "__main__":
             "earlyStoppingPatience": 20,
             "CV_Repeats":1,
             "crossValidation": False},
+        "O-linked Glycosylation": {
+            "data_sample_mode": ["balanced",],
+            "earlyStoppingPatience": 25,
+            "CV_Repeats":1,
+            "crossValidation": True},
         "Hydroxylation-P": {
             "data_sample_mode": ["balanced",],
             "earlyStoppingPatience": 50,
             "CV_Repeats":5,
             "crossValidation": True},
-        "O-linked Glycosylation": {
-            "data_sample_mode": ["balanced",],
-            "earlyStoppingPatience": 25,
-            "CV_Repeats":1,
-            "crossValidation": True}
 
     }
 
     
-    for CNNType in ["Musite"]:
+    for CNNType in ["Adapt"]:
         for FCType in ["Musite"]:
             for amino_acid, aa_parameters in aminoAcids.items():
                 parameters["CNNType"] = CNNType

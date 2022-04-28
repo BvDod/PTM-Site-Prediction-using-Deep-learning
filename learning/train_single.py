@@ -415,10 +415,10 @@ if __name__ == "__main__":
         "learning_rate": 0.0005,
         "test_data_ratio": 0.2,
         "data_sample_mode": "oversample",
-        "crossValidation": False,
+        "crossValidation": True,
         "loss_function": nn.BCELoss,
         "optimizer": optim.AdamW,
-        "folds": 5,
+        "folds": 1,
         "earlyStopping": True,
         "ValidationMetric": "Validation Loss (total)",
         "earlyStoppingPatience": 50,
@@ -432,20 +432,20 @@ if __name__ == "__main__":
         "LSTM_layers": 1,
         "LSTM_hidden_size": 32,
         "LSTM_dropout": 0,
-        "MultiTask": True,
+        "MultiTask": False,
 
         "MultiTask_sample_method": "balanced",
         "UseUncertaintyBasedLoss": False,
         "useLrWeight": False,
 
         "CNNType": "Adapt",
-        "FCType": "Musite",
+        "FCType": "Adapt",
 
         "layerToSplitOn": "FC"
         }
                       
 
-    parameters["aminoAcid"] = ["Hydroxylation-K", "Hydroxylation-P", "Pyrrolidone carboxylic acid", "S-palmitoylation-C", "Sumoylation"]
-    parameters["data_sample_mode"] = ["oversample"] * 13
+    parameters["aminoAcid"] = ["Hydroxylation-P"]
+    parameters["data_sample_mode"] = ["balanced"] * 13
     # parameters["TaskWeightDecay"] = [0.1] * 2
     testModel(parameters)

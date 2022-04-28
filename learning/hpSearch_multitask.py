@@ -49,7 +49,9 @@ def performTuningExperiment(parameters, tuning_settings):
     print(bestEvalMetricsAvg)
     exit()
     """
-    
+    for param, value in tuning_settings.items():
+        parameters[param] = value
+
     optunaObjective = lambda trial: objective(trial, tuning_settings, parameters)      
     study = optuna.create_study(direction="minimize", pruner=optuna.pruners.HyperbandPruner(), sampler=optuna.samplers.TPESampler(multivariate=True,))
     study.optimize(optunaObjective, n_trials=tuning_settings["n_trials"], gc_after_trial=True)
@@ -65,11 +67,11 @@ if __name__ == "__main__":
         # Training parameters
         "gpu_mode": True,
         "epochs": 200,
-        "batch_size": 512,
-        "learning_rate": None,
+        "batch_size": 2048,
+        "learning_rate": 0.0005,
         "test_data_ratio": 0.2,
         "data_sample_mode": "oversample",
-        "crossValidation": True,
+        "crossValidation": False,
         "loss_function": nn.BCELoss,
         "optimizer": optim.AdamW,
         "folds": 5,
@@ -77,62 +79,46 @@ if __name__ == "__main__":
         "ValidationMetric": "Validation Loss (total)",
         "earlyStoppingPatience": 50,
         "CV_Repeats": 1,
-        "Experiment Name": "Model architecture - sampling method - local: ",
+        "Experiment Name": "Model architecture - added max, ranges, bceloss",
+
+
         # Model parameters
-        "weight_decay": None,
-        "embeddingType": "protBert",
+        "weight_decay": 2.5,
+        "embeddingType": "adaptiveEmbedding",
         "LSTM_layers": 1,
         "LSTM_hidden_size": 32,
         "LSTM_dropout": 0,
+        "MultiTask": True,
+
+        "MultiTask_sample_method": "oversample",
         "UseUncertaintyBasedLoss": False,
-        "useLrWeight": False
+        "useLrWeight": False,
+
+        "CNNType": "Adapt",
+        "FCType": "Musite",
+
+        "layerToSplitOn": "FC"
         }
+                      
+
+    parameters["data_sample_mode"] = ["oversample"] * 13
 
     tuning_settings = {
+        "aminoAcid" : ["Hydroxylation-K", "Hydroxylation-P", "Pyrrolidone carboxylic acid", "S-palmitoylation-C", "Sumoylation"],
         "n_trials": 250,
-        "aminoAcid": "O-linked Glycosylation",
         "FloatsToTune" : {
             "learning_rate": [0.00001, 0.01],
             "weight_decay": [0, 25],
         },
         "IntsToTune" : {   
-        }
+        },
+        "crossValidation": True,
+        "earlyStoppingPatience": 20,
+        "CV_Repeats":1,
+
     }
 
-
-    aminoAcids = {
-        "Hydroxylation-K": {
-            "data_sample_mode": ["balanced",],
-            "earlyStoppingPatience": 50,
-            "CV_Repeats":5,
-            "crossValidation": True},
-        "Hydroxylation-P": {
-            "data_sample_mode": ["balanced",],
-            "earlyStoppingPatience": 50,
-            "CV_Repeats":5,
-            "crossValidation": True},
-        "Pyrrolidone carboxylic acid": {
-            "data_sample_mode": ["balanced",],
-            "earlyStoppingPatience": 50,
-            "CV_Repeats":5,
-            "crossValidation": False},   
-        "S-palmitoylation-C": {
-            "data_sample_mode": ["balanced",],
-            "earlyStoppingPatience": 50,
-            "CV_Repeats":1,
-            "crossValidation": False},  
-    }
-
-    
-    for CNNType in ["Adapt"]:
-        for FCType in ["Musite"]:
-            for amino_acid, aa_parameters in aminoAcids.items():
-                parameters["CNNType"] = CNNType
-                parameters["FCType"] = FCType
-                tuning_settings["aminoAcid"] = [amino_acid,]
-                for key, value in aa_parameters.items():
-                    parameters[key] = value
-                performTuningExperiment(parameters, tuning_settings)
+    performTuningExperiment(parameters, tuning_settings)
 
 
 

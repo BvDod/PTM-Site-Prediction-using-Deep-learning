@@ -152,7 +152,8 @@ def CreateLoggers(parameters, net):
 
 def CreatekFoldLogger(parameters):
     """ Create a tensorboard logger instance which logs to the correct directory based on the parameters used"""
-    experiment = comet_ml.Experiment("1qqDK4gIHRXerCMtLeWAdGEdk", project_name="PTM-prediction K-fold experiments")
+    name = parameters["Experiment Name"]
+    experiment = comet_ml.Experiment("1qqDK4gIHRXerCMtLeWAdGEdk", project_name=f"Evaluation: {name}")
     experiment.log_parameters(parameters)
 
     return experiment

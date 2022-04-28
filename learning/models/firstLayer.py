@@ -1,6 +1,5 @@
 import torch.nn as nn
 import torch 
-from transformers import BertModel
 
 class firstLayer(nn.Module):
     """ Used as the first layer of other neural networks, can use different types of representation (one-hot, embedding, adaptive-embedding, bertEmbeddings) """
