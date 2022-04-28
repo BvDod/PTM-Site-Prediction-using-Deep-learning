@@ -28,7 +28,7 @@ def evaluateBestTrial(parameters):
     parameters["CV_Repeats"] = 5
     parameters["crossValidation"] = True
     
-    avg_dict, std_dict = testModel(parameters, logToComet=True, returnEvalMetrics=True, device_id=1)
+    avg_dict, std_dict = testModel(parameters, logToComet=True, returnEvalMetrics=True, device_id=2)
     return avg_dict, std_dict
 
     
@@ -66,7 +66,7 @@ if __name__ == "__main__":
         "batch_size": 512,
         "learning_rate": None,
         "test_data_ratio": 0.2,
-        "data_sample_mode": "oversample",
+        "data_sample_mode": ["balanced",],
         "crossValidation": True,
         "loss_function": nn.BCELoss,
         "optimizer": optim.AdamW,
@@ -75,7 +75,7 @@ if __name__ == "__main__":
         "ValidationMetric": "Validation Loss (total)",
         "earlyStoppingPatience": 50,
         "CV_Repeats": 1,
-        "Experiment Name": "Model architecture - sampling method - eval: ",
+        "Experiment Name": "Model architecture - firstLayer - eval: ",
         # Model parameters
         "weight_decay": None,
         "embeddingType": "adaptiveEmbedding",
@@ -91,22 +91,22 @@ if __name__ == "__main__":
 
     aminoAcids = {
         "Hydroxylation-P": {
-            "data_sample_mode": ["undersample",],
+            "embeddingType": "oneHot",
             "earlyStoppingPatience": 50,
-            "weight_decay": 8.544,
-            "learning_rate": 0.003 
+            "weight_decay": 7.125,
+            "learning_rate": 0.00904 
         },
         "O-linked Glycosylation": {
-            "data_sample_mode": ["undersample",],
+            "embeddingType": "oneHot",
             "earlyStoppingPatience": 25,
-            "weight_decay": 3.113,
-            "learning_rate": 0.00617
+            "weight_decay": 5.189,
+            "learning_rate": 0.00754
         },
         "Phosphorylation-Y": {
-            "data_sample_mode": ["undersample",],
+            "embeddingType": "oneHot",
             "earlyStoppingPatience": 20,
-            "weight_decay": 1.297,
-            "learning_rate": 0.00849        },                
+            "weight_decay": 0.849,
+            "learning_rate": 0.00489        },                
     }
 
     for amino_acid, aa_parameters in aminoAcids.items():
@@ -115,6 +115,3 @@ if __name__ == "__main__":
         parameters["aminoAcid"] = [amino_acid,]
         avg_dict, std_dict = evaluateBestTrial(parameters)
         print(avg_dict, std_dict)
-
-
-

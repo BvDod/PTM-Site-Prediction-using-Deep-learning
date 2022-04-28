@@ -134,7 +134,9 @@ def log_evaluation_metrics_kFold(experiment, fold, metrics, figures):
 def log_kFold_average(experiment, average_dict, std_dict):
 
     experiment.log_metrics(average_dict, prefix="avg")
-    experiment.log_metrics(std_dict, prefix="std")    
+    experiment.log_metrics(std_dict, prefix="std")
+    print(average_dict)
+    print(std_dict)    
     return average_dict, std_dict
 
 
@@ -155,9 +157,9 @@ def CreatekFoldLogger(parameters):
     name = parameters["Experiment Name"]
     experiment = comet_ml.Experiment("1qqDK4gIHRXerCMtLeWAdGEdk", project_name=f"Evaluation: {name}")
     experiment.log_parameters(parameters)
-
+    print("results!")
+    print(parameters)
     return experiment
-
 
 def createHpTuningLogger(tuning_settings, parameters):
     name = parameters["Experiment Name"]

@@ -57,7 +57,8 @@ def testModel(parameters, trial=None, logToComet=True, returnEvalMetrics=False, 
             
             net = model(device, parameters=parameters)
             if device_id == "all" and (torch.cuda.device_count() > 1):
-                model = nn.DataParallel(model)
+                net = nn.DataParallel(net)
+  
             parameter_dicts = [
                 {'params': net.layers.parameters()}
             ]
