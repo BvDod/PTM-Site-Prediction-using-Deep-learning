@@ -28,7 +28,7 @@ def evaluateBestTrial(parameters):
     parameters["CV_Repeats"] = 5
     parameters["crossValidation"] = True
     
-    avg_dict, std_dict = testModel(parameters, logToComet=True, returnEvalMetrics=True, device_id=1)
+    avg_dict, std_dict = testModel(parameters, logToComet=True, returnEvalMetrics=True, device_id=0)
     return avg_dict, std_dict
 
     
@@ -75,7 +75,7 @@ if __name__ == "__main__":
         "ValidationMetric": "Validation Loss (total)",
         "earlyStoppingPatience": 50,
         "CV_Repeats": 1,
-        "Experiment Name": "Model architecture - sampling method - eval: ",
+        "Experiment Name": "Model architecture - architecture - eval: ",
         # Model parameters
         "weight_decay": None,
         "embeddingType": "adaptiveEmbedding",
@@ -90,31 +90,23 @@ if __name__ == "__main__":
 
 
     aminoAcids = {
-        "Hydroxylation-P": {
-            "data_sample_mode": ["undersample",],
-            "earlyStoppingPatience": 50,
-            "weight_decay": 8.544,
-            "learning_rate": 0.003 
-        },
-        "O-linked Glycosylation": {
-            "data_sample_mode": ["undersample",],
-            "earlyStoppingPatience": 25,
-            "weight_decay": 3.113,
-            "learning_rate": 0.00617
-        },
         "Phosphorylation-Y": {
-            "data_sample_mode": ["undersample",],
+            "data_sample_mode": ["balanced",],
             "earlyStoppingPatience": 20,
-            "weight_decay": 1.297,
-            "learning_rate": 0.00849        },                
+            "weight_decay": 0.19873,
+            "learning_rate": 0.000610,
+        },                
     }
 
     for amino_acid, aa_parameters in aminoAcids.items():
         for key, value in aa_parameters.items():
             parameters[key] = value
         parameters["aminoAcid"] = [amino_acid,]
+        parameters["CNNType"] = "Musite"
+        parameters["FCType"] = "Musite"
         avg_dict, std_dict = evaluateBestTrial(parameters)
         print(avg_dict, std_dict)
+
 
 
 

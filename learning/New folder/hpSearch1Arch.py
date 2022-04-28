@@ -28,7 +28,7 @@ def evaluateBestTrial(parameters):
     parameters["CV_Repeats"] = 5
     parameters["crossValidation"] = True
     
-    avg_dict, std_dict = testModel(parameters, logToComet=True, returnEvalMetrics=True, device_id=1)
+    avg_dict, std_dict = testModel(parameters, logToComet=True, returnEvalMetrics=True, device_id=0)
     return avg_dict, std_dict
 
     
@@ -91,22 +91,23 @@ if __name__ == "__main__":
 
     aminoAcids = {
         "Hydroxylation-P": {
-            "data_sample_mode": ["undersample",],
+            "data_sample_mode": ["balanced",],
             "earlyStoppingPatience": 50,
-            "weight_decay": 8.544,
-            "learning_rate": 0.003 
+            "weight_decay": 8.309,
+            "learning_rate": 0.005 
         },
         "O-linked Glycosylation": {
-            "data_sample_mode": ["undersample",],
+            "data_sample_mode": ["balanced",],
             "earlyStoppingPatience": 25,
-            "weight_decay": 3.113,
-            "learning_rate": 0.00617
+            "weight_decay": 3.274,
+            "learning_rate": 0.00758
         },
         "Phosphorylation-Y": {
-            "data_sample_mode": ["undersample",],
+            "data_sample_mode": ["balanced",],
             "earlyStoppingPatience": 20,
-            "weight_decay": 1.297,
-            "learning_rate": 0.00849        },                
+            "weight_decay": 0.365,
+            "learning_rate": 0.00996
+        },                
     }
 
     for amino_acid, aa_parameters in aminoAcids.items():
@@ -115,6 +116,7 @@ if __name__ == "__main__":
         parameters["aminoAcid"] = [amino_acid,]
         avg_dict, std_dict = evaluateBestTrial(parameters)
         print(avg_dict, std_dict)
+
 
 
 
