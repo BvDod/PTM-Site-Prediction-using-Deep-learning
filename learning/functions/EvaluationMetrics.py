@@ -63,7 +63,7 @@ def auc_pr_score(y_true, y_pred):
     return auc_pr
 
 
-def get_evaluation_metrics(AA, y_true, y_output, y_pred):
+def get_evaluation_metrics(AA, y_true, y_output, y_pred, figures=True):
     """ Calculates all evaluation metrics and returns them as a dict"""
     tn, fp, fn, tp = confusion_matrix(y_true, y_pred).ravel()
     accuracy = (tp+tn)/(fn+fp+tp+tn)
@@ -71,8 +71,9 @@ def get_evaluation_metrics(AA, y_true, y_output, y_pred):
     specificity = tn/(tn+fp)
     precision = tp/(tp+fp)
     auc_roc = roc_auc_score(y_true, y_output)
-    roc_plot = plot_roc(y_true, y_output)
-    pr_plot = plot_pr(y_true, y_output)
+    if figures:
+        roc_plot = plot_roc(y_true, y_output)
+        pr_plot = plot_pr(y_true, y_output)
     auc_pr = auc_pr_score(y_true, y_output)
     MCC = matthews_corrcoef(y_true, y_pred)
     f1 = f1_score(y_true, y_pred)
@@ -88,10 +89,13 @@ def get_evaluation_metrics(AA, y_true, y_output, y_pred):
         f"{AA} F1": f1
     }
 
-    eval_figures = {
-        f"{AA} ROC": roc_plot,
-        f"{AA} PR": pr_plot
-    }
+    if figures:
+        eval_figures = {
+            f"{AA} ROC": roc_plot,
+            f"{AA} PR": pr_plot
+        }
+    else:
+        eval_figures = {}
 
     return eval_metrics, eval_figures
 

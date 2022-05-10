@@ -326,6 +326,7 @@ def trainModel(trainloader, testloaders, net, optimizer, device, parameters, val
     # save_model(net)
     
     print(f"Total time taken: {t1 - t0}")
+    best_eval_metrics["TimeToTrain"] = t1 - t0
     return best_eval_metrics, best_eval_figures
 
 
@@ -379,8 +380,8 @@ def evalValidation(testloaders, net, device, val_ratio, experiment, epoch, param
 
                 loss = criterion(y_output[task], y_true[task])
                 losses.append(loss)
-
-                eval_metrics, eval_figures = get_evaluation_metrics(AA, y_true[task].detach().cpu().numpy(), y_output[task].detach().cpu().numpy(), y_pred[task].detach().cpu().numpy())
+                figures = parameters["CreateFigures"]
+                eval_metrics, eval_figures = get_evaluation_metrics(AA, y_true[task].detach().cpu().numpy(), y_output[task].detach().cpu().numpy(), y_pred[task].detach().cpu().numpy(), figures=figures)
                 eval_metrics[f"Validation Loss ({AA})"] = loss.detach().item()
                 eval_metrics_total.update(eval_metrics)
                 eval_figures_total.update(eval_figures)

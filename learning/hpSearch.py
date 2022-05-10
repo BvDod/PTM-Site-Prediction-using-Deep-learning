@@ -24,14 +24,13 @@ def objective(trial, tuning_settings, parameters):
     metric = testModel(parameters, trial=trial, logToComet=False,)
     return metric
 
-def evaluateBestTrial(best_params, tuning_settings, parameters):
-    parameters["aminoAcid"] = tuning_settings["aminoAcid"]
-    for parameter, value in best_params.items():
-        parameters[parameter] = value
+def evaluateBestTrial(parameters):
+    parameters["crossValidation"] = True
     parameters["CV_Repeats"] = 5
     
-    avg_dict, std_dict = testModel(parameters, logToComet=True, returnEvalMetrics=True)
+    avg_dict, std_dict = testModel(parameters, logToComet=True, returnEvalMetrics=True, device_id=0)
     return avg_dict, std_dict
+
 
     
 def performTuningExperiment(parameters, tuning_settings):
@@ -54,7 +53,9 @@ def performTuningExperiment(parameters, tuning_settings):
     study = optuna.create_study(direction="minimize", pruner=optuna.pruners.HyperbandPruner(), sampler=optuna.samplers.TPESampler(multivariate=True,))
     study.optimize(optunaObjective, n_trials=tuning_settings["n_trials"], gc_after_trial=True)
 
-    bestEvalMetricsAvg, bestEvalMetricsSTD = evaluateBestTrial(study.best_trial.params, tuning_settings, parameters)
+    for name, value in study.best_trial.params.items():
+        parameters[name] = value
+    bestEvalMetricsAvg, bestEvalMetricsSTD = evaluateBestTrial(parameters)
     experiment = createHpTuningLogger(tuning_settings, parameters)
     logHpStudy(study, experiment, bestEvalMetricsAvg, bestEvalMetricsSTD)
 
@@ -68,7 +69,7 @@ if __name__ == "__main__":
         "batch_size": 512,
         "learning_rate": None,
         "test_data_ratio": 0.2,
-        "data_sample_mode": "oversample",
+        "data_sample_mode": "balanced",
         "crossValidation": True,
         "loss_function": nn.BCELoss,
         "optimizer": optim.AdamW,
@@ -77,7 +78,7 @@ if __name__ == "__main__":
         "ValidationMetric": "Validation Loss (total)",
         "earlyStoppingPatience": 50,
         "CV_Repeats": 1,
-        "Experiment Name": "Model architecture - sampling method - local: ",
+        "Experiment Name": "Prottrans embeddings - local",
         # Model parameters
         "weight_decay": None,
         "embeddingType": "protBert",
@@ -85,7 +86,8 @@ if __name__ == "__main__":
         "LSTM_hidden_size": 32,
         "LSTM_dropout": 0,
         "UseUncertaintyBasedLoss": False,
-        "useLrWeight": False
+        "useLrWeight": False,
+        "CreateFigures": False
         }
 
     tuning_settings = {
@@ -96,36 +98,37 @@ if __name__ == "__main__":
             "weight_decay": [0, 25],
         },
         "IntsToTune" : {   
-        }
+        },
     }
 
 
     aminoAcids = {
-        "Hydroxylation-K": {
-            "data_sample_mode": ["balanced",],
-            "earlyStoppingPatience": 50,
-            "CV_Repeats":5,
-            "crossValidation": True},
-        "Hydroxylation-P": {
-            "data_sample_mode": ["balanced",],
-            "earlyStoppingPatience": 50,
-            "CV_Repeats":5,
-            "crossValidation": True},
-        "Pyrrolidone carboxylic acid": {
-            "data_sample_mode": ["balanced",],
-            "earlyStoppingPatience": 50,
-            "CV_Repeats":5,
-            "crossValidation": False},   
-        "S-palmitoylation-C": {
-            "data_sample_mode": ["balanced",],
-            "earlyStoppingPatience": 50,
+        "Methylation-K": {
+            "data_sample_mode": ["oversample",],
+            "earlyStoppingPatience": 25,
             "CV_Repeats":1,
-            "crossValidation": False},  
+            "crossValidation": True},
+        "Methylation-R": {
+            "data_sample_mode": ["oversample",],
+            "earlyStoppingPatience": 25,
+            "CV_Repeats":1,
+            "crossValidation": True},           
     }
 
-    
-    for CNNType in ["Adapt"]:
-        for FCType in ["Musite"]:
+    """
+    for amino_acid, aa_parameters in aminoAcids.items():
+        for key, value in aa_parameters.items():
+            parameters[key] = value
+        parameters["aminoAcid"] = [amino_acid,]
+        parameters["CNNType"] = "Adapt"
+        parameters["FCType"] = "Musite"
+        avg_dict, std_dict = evaluateBestTrial(parameters)
+        print(avg_dict, std_dict)
+
+    """
+
+    for CNNType in ["Musite"]:
+        for FCType in ["Adapt"]:
             for amino_acid, aa_parameters in aminoAcids.items():
                 parameters["CNNType"] = CNNType
                 parameters["FCType"] = FCType
@@ -133,6 +136,7 @@ if __name__ == "__main__":
                 for key, value in aa_parameters.items():
                     parameters[key] = value
                 performTuningExperiment(parameters, tuning_settings)
+
 
 
 

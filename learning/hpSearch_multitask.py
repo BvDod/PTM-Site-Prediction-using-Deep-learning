@@ -76,10 +76,12 @@ if __name__ == "__main__":
         "optimizer": optim.AdamW,
         "folds": 5,
         "earlyStopping": True,
-        "ValidationMetric": "Validation Loss (total)",
+        "ValidationMetric": "Validation Loss (Hydroxylation-P)",
+        # "ValidationMetric": "Validation Loss (total)",
         "earlyStoppingPatience": 50,
         "CV_Repeats": 1,
         "Experiment Name": "Model architecture - added max, ranges, bceloss",
+        'CreateFigures': False,
 
 
         # Model parameters
@@ -90,12 +92,12 @@ if __name__ == "__main__":
         "LSTM_dropout": 0,
         "MultiTask": True,
 
-        "MultiTask_sample_method": "oversample",
+        "MultiTask_sample_method": "balanced",
         "UseUncertaintyBasedLoss": False,
         "useLrWeight": False,
 
-        "CNNType": "Adapt",
-        "FCType": "Musite",
+        "CNNType": "Musite",
+        "FCType": "Adapt",
 
         "layerToSplitOn": "FC"
         }
