@@ -24,15 +24,12 @@ def objective(trial, tuning_settings, parameters):
     metric = testModel(parameters, trial=trial, logToComet=False,)
     return metric
 
-def evaluateBestTrial(best_params, tuning_settings, parameters):
-    parameters["aminoAcid"] = tuning_settings["aminoAcid"]
-    for parameter, value in best_params.items():
-        parameters[parameter] = value
+def evaluateBestTrial(parameters):
+    parameters["crossValidation"] = True
     parameters["CV_Repeats"] = 5
     
-    avg_dict, std_dict = testModel(parameters, logToComet=True, returnEvalMetrics=True)
+    avg_dict, std_dict = testModel(parameters, logToComet=True, returnEvalMetrics=True, device_id=0)
     return avg_dict, std_dict
-
     
 def performTuningExperiment(parameters, tuning_settings):
 

@@ -324,7 +324,7 @@ def trainModel(trainloader, testloaders, net, optimizer, device, parameters, val
     print('Finished Training')
     t1 = time.time()
     # save_model(net)
-    
+    best_eval_metrics["TimeToTrain"] = t1 - t0
     print(f"Total time taken: {t1 - t0}")
     return best_eval_metrics, best_eval_figures
 
