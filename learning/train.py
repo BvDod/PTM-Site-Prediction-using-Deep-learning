@@ -58,19 +58,21 @@ def testModel(parameters, trial=None, logToComet=True, returnEvalMetrics=False, 
             net = model(device, parameters=parameters)
             if device_id == "all" and (torch.cuda.device_count() > 1):
                 net = nn.DataParallel(net)
-  
+
+
+            trainloader, testloader, val_ratios, train_ratios = loadDataLoaders(parameters, fold)
+
             parameter_dicts = [
                 {'params': net.layers.parameters()}
             ]
-            if (len(parameters["aminoAcid"]) > 1) and "TaskWeightDecay" in parameters:
-                parameter_dicts = parameter_dicts + [{'params': net.heads[i].parameters(), "weight_decay": parameters["TaskWeightDecay"][i]} for i in range(len(parameters["TaskWeightDecay"]))]
+            if (len(parameters["aminoAcid"]) > 1) and "useWeightDecayWeight" in parameters:
+                parameter_dicts = parameter_dicts + [{'params': net.heads[i].parameters(), "weight_decay": parameters["WeightDecayWeights"][i]} for i in range(len(parameters["WeightDecayWeights"]))]
             else:
                 parameter_dicts.append({'params': net.heads.parameters()})
 
             optimizer = parameters["optimizer"](parameter_dicts, lr=parameters["learning_rate"], weight_decay=parameters["weight_decay"], eps=1e-6)
             net.to(device)
             
-            trainloader, testloader, val_ratios, train_ratios = loadDataLoaders(parameters, fold)
 
 
             parameters["currentFold"] = fold
@@ -170,6 +172,7 @@ def loadDataLoaders(parameters, fold):
         dataloader_samples = biggest_dataset_amount
 
     sample_weights = []
+    weight_decay_weights = []
     for i, aminoAcid in enumerate(parameters["aminoAcid"]):
         
         # Split dataset into trainig and test set
@@ -200,8 +203,10 @@ def loadDataLoaders(parameters, fold):
             
         else:
             batch_size = parameters["batch_size"]//len(parameters["aminoAcid"])
-        
-        sample_weights.append(sample_sizes[i]/max(sample_sizes))    
+        weight_decay_weights.append(math.log(((sum(sample_sizes)/sample_sizes[i])), parameters["log_base_WD"]) * parameters["weight_decay"])
+        sample_weights.append(math.log(((sum(sample_sizes)/sample_sizes[i])), parameters["log_base"]))
+        if sample_weights[-1] < 1:
+            sample_weights[-1] = 1
         trainloader, testloader = CreateDataloaders(trainset, testset, n_train_pos, n_train_neg, parameters, train_weight, parameters["data_sample_mode"][i], dataloader_samples, batch_size)
         
         trainloaders.append(trainloader)
@@ -212,6 +217,7 @@ def loadDataLoaders(parameters, fold):
     
     trainloader = MultiTaskLoader(trainloaders)
     parameters["sample_weights"] = sample_weights
+    parameters["WeightDecayWeights"] = weight_decay_weights
     return trainloader, testloaders, val_ratios, train_ratios
 
 
@@ -262,7 +268,7 @@ def trainModel(trainloader, testloaders, net, optimizer, device, parameters, val
                     print(f"Early stopping applied (best metric={best_eval_score})")
                     break
             
-            if metrics[parameters["ValidationMetric"]] > 10000:
+            if (metrics[parameters["ValidationMetric"]] > 10000) or (last_running_loss > 15000):
                 print(f"Exploding loss, terminate run (best metric={best_eval_score})")
                 break
 
@@ -294,15 +300,24 @@ def trainModel(trainloader, testloaders, net, optimizer, device, parameters, val
                         task_weights[labels_task == 1] = (train_ratio[task]/2)
                         criterion = parameters["loss_function"](weight=task_weights)
                     else:
-                        criterion = parameters["loss_function"]()
+                        if parameters["useLrWeight"] or parameters["dontAverageLoss"]:
+                            criterion = parameters["loss_function"](reduction="sum")
+                        else:
+                            criterion = parameters["loss_function"]()
 
-                    loss = criterion(outputs_task, labels_task)
+
+
                     if parameters["useLrWeight"]:
+                        loss = criterion(outputs_task, labels_task)
                         if parameters["MultiTask_sample_method"] == "balanced":
-                            weight = (task_indexes[task+1] - task_indexes[task]) / parameters["batch_size"]
+                            weight = parameters["sample_weights"][task]
                         else:
                             weight = parameters["sample_weights"][task]
                     else:
+                        if parameters["dontAverageLoss"]:
+                            loss = criterion(outputs_task, labels_task)
+                        else:
+                            loss = criterion(outputs_task, labels_task)
                         weight = 1
                     losses.append(weight * loss)
 
@@ -317,6 +332,7 @@ def trainModel(trainloader, testloaders, net, optimizer, device, parameters, val
                 running_loss += loss.item()
                 if i == max_batch:  
                     print('[%d, %5d] loss: %.3f' % (epoch + 1, i + 1, running_loss/(max_batch+1)))
+                    last_running_loss = running_loss/(max_batch+1)
                     running_loss = 0.0
             max_batch = i
         
@@ -439,6 +455,7 @@ if __name__ == "__main__":
         "MultiTask_sample_method": "balanced",
         "UseUncertaintyBasedLoss": False,
         "useLrWeight": False,
+        "useWeightDecayWeight": True,
 
         "CNNType": "Adapt",
         "FCType": "Musite",

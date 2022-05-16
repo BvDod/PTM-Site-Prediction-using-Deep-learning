@@ -76,8 +76,7 @@ if __name__ == "__main__":
         "optimizer": optim.AdamW,
         "folds": 5,
         "earlyStopping": True,
-        "ValidationMetric": "Validation Loss (Hydroxylation-P)",
-        # "ValidationMetric": "Validation Loss (total)",
+        "ValidationMetric": "Validation Loss (total)",
         "earlyStoppingPatience": 50,
         "CV_Repeats": 1,
         "Experiment Name": "Model architecture - added max, ranges, bceloss",
@@ -94,23 +93,27 @@ if __name__ == "__main__":
 
         "MultiTask_sample_method": "balanced",
         "UseUncertaintyBasedLoss": False,
-        "useLrWeight": False,
+        "useLrWeight": True,
 
         "CNNType": "Musite",
         "FCType": "Adapt",
 
-        "layerToSplitOn": "FC"
+        "layerToSplitOn": "FC",
+        "dontAverageLoss": False,
+        "useWeightDecayWeight": True,
         }
                       
 
     parameters["data_sample_mode"] = ["oversample"] * 13
 
     tuning_settings = {
-        "aminoAcid" : ["Hydroxylation-K", "Hydroxylation-P", "Pyrrolidone carboxylic acid", "S-palmitoylation-C", "Sumoylation"],
-        "n_trials": 250,
+        "aminoAcid" : ["Hydroxylation-K", "Hydroxylation-P", "Pyrrolidone carboxylic acid"],
+        "n_trials": 500,
         "FloatsToTune" : {
             "learning_rate": [0.00001, 0.01],
-            "weight_decay": [0, 25],
+            "weight_decay": [0, 5],
+            "log_base": [1,3],
+            "log_base_WD": [1,4]
         },
         "IntsToTune" : {   
         },
