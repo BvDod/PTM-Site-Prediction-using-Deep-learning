@@ -63,31 +63,118 @@ def auc_pr_score(y_true, y_pred):
     return auc_pr
 
 
-def get_evaluation_metrics(AA, y_true, y_output, y_pred, figures=True):
+def get_evaluation_metrics(AA, y_true, y_output, y_pred, figures=True, species=False):
     """ Calculates all evaluation metrics and returns them as a dict"""
-    tn, fp, fn, tp = confusion_matrix(y_true, y_pred).ravel()
-    accuracy = (tp+tn)/(fn+fp+tp+tn)
-    sensitivity = tp/(tp+fn)
-    specificity = tn/(tn+fp)
-    precision = tp/(tp+fp)
-    auc_roc = roc_auc_score(y_true, y_output)
+
+    if (not len(y_output.shape) > 1) or (y_output.shape[1] == 1):
+        tn, fp, fn, tp = confusion_matrix(y_true, y_pred).ravel()
+        accuracy = (tp+tn)/(fn+fp+tp+tn)
+        sensitivity = tp/(tp+fn)
+        specificity = tn/(tn+fp)
+        precision = tp/(tp+fp)
+        auc_roc = roc_auc_score(y_true, y_output)
+        auc_pr = auc_pr_score(y_true, y_output)
+        f1 = f1_score(y_true, y_pred)
+        MCC = matthews_corrcoef(y_true, y_pred)
+    
+    elif species:
+
+        y_true_PTM = y_true[:,[0,]]
+        y_true_species = y_true[:,1:]
+        y_output_PTM = y_output[:,[0,]]
+        y_output_species = y_output[:,1:]
+        y_pred_PTM = y_pred[:,[0,]]
+        y_pred_species = y_pred[:,1:]
+        
+
+        tn, fp, fn, tp = confusion_matrix(y_true_PTM, y_pred_PTM).ravel()
+        accuracy = (tp+tn)/(fn+fp+tp+tn)
+        sensitivity = tp/(tp+fn)
+        specificity = tn/(tn+fp)
+        precision = tp/(tp+fp)
+        auc_roc = roc_auc_score(y_true_PTM, y_output_PTM)
+        auc_pr = auc_pr_score(y_true_PTM, y_output_PTM)
+        f1 = f1_score(y_true_PTM, y_pred_PTM)
+        MCC = matthews_corrcoef(y_true_PTM, y_pred_PTM)
+
+        f1_species = f1_score(y_true_species, y_pred_species, average="macro")
+        f1_scores = f1_score(y_true_species, y_pred_species, average=None)
+        MCC_species = matthews_corrcoef(y_true_species, y_pred_species)
+
+    else:
+        f1 = f1_score(y_true, y_pred, average="macro")
+        f1_scores = f1_score(y_true, y_pred, average=None)
+        MCC = matthews_corrcoef(y_true, y_pred)
+
+
     if figures:
         roc_plot = plot_roc(y_true, y_output)
         pr_plot = plot_pr(y_true, y_output)
-    auc_pr = auc_pr_score(y_true, y_output)
-    MCC = matthews_corrcoef(y_true, y_pred)
-    f1 = f1_score(y_true, y_pred)
 
-    eval_metrics = {
-        f"{AA} Validation Accuracy": accuracy,
-        f"{AA} Validation Sensitivity": sensitivity,
-        f"{AA} Validation Specificity": specificity,
-        f"{AA} Validation Precision": precision,
-        f"{AA} AUC ROC": auc_roc,
-        f"{AA} AUC PR": auc_pr,
-        f"{AA} MCC": MCC,
-        f"{AA} F1": f1
-    }
+
+    if (not len(y_output.shape) > 1) or (y_output.shape[1] == 1):
+        eval_metrics = {
+            f"{AA} Validation Accuracy": accuracy,
+            f"{AA} Validation Sensitivity": sensitivity,
+            f"{AA} Validation Specificity": specificity,
+            f"{AA} Validation Precision": precision,
+            f"{AA} AUC ROC": auc_roc,
+            f"{AA} AUC PR": auc_pr,
+            f"{AA} MCC": MCC,
+            f"{AA} F1": f1
+        }
+    
+    elif species:
+        eval_metrics = {
+            f"{AA} Validation Accuracy": accuracy,
+            f"{AA} Validation Sensitivity": sensitivity,
+            f"{AA} Validation Specificity": specificity,
+            f"{AA} Validation Precision": precision,
+            f"{AA} AUC ROC": auc_roc,
+            f"{AA} AUC PR": auc_pr,
+            f"{AA} MCC": MCC,
+            f"{AA} F1": f1,
+            f"{AA} MCC (species)": MCC_species,
+            f"{AA} F1": f1_species,
+            }
+        
+        for i, e in enumerate(list(np.bincount(y_true_species.squeeze().astype(int)))):
+            eval_metrics[f"{i}_sample count"] = e
+        
+        species_metrics = {}
+        species_i = 0
+        for i, sample_count in enumerate(list(np.bincount(y_true_species.squeeze().astype(int)))):
+            if sample_count > 0:
+                species_metrics[f"{AA} F1 (species={i})"] = f1_scores[species_i]
+                species_i += 1
+            else:
+                species_metrics[f"{AA} F1 (species={i})"] = 0
+        eval_metrics.update(species_metrics)
+
+
+
+
+
+    else:
+        eval_metrics = {
+            f"{AA} MCC": MCC,
+            f"{AA} F1": f1}
+               
+        for i, e in enumerate(list(np.bincount(y_true))):
+            eval_metrics[f"{i}_sample count"] = e
+        
+        species_metrics = {}
+        species_i = 0
+        for i, sample_count in enumerate(list(np.bincount(y_true))):
+            if sample_count > 0:
+                species_metrics[f"{AA} F1 (species={i})"] = f1_scores[species_i]
+                species_i += 1
+            else:
+                species_metrics[f"{AA} F1 (species={i})"] = 0
+        eval_metrics.update(species_metrics)
+        
+
+
 
     if figures:
         eval_figures = {

@@ -45,7 +45,7 @@ class MultiTaskLoader(object):
         task_indexes = [0,] + task_indexes
 
         features = torch.cat([batch[0] for batch in batches], dim=0)
-        labels = torch.cat([batch[1] for batch in batches])
+        labels = torch.cat([batch[1] for batch in batches], dim=0)
 
         return [features, labels, task_indexes]
 

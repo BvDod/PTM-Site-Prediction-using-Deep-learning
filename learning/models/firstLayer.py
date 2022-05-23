@@ -4,7 +4,7 @@ import torch
 class firstLayer(nn.Module):
     """ Used as the first layer of other neural networks, can use different types of representation (one-hot, embedding, adaptive-embedding, bertEmbeddings) """
 
-    def __init__(self, device, embeddingType, embeddingSize=25, peptideSize=33, embeddingDropout=0, layerNorm=True):
+    def __init__(self, device, embeddingType, embeddingSize=25, peptideSize=33, embeddingDropout=0, layerNorm=True, add_extra=0):
         super().__init__()
         self.device =  device
         self.embeddingType = embeddingType
@@ -38,6 +38,8 @@ class firstLayer(nn.Module):
         else:
             print("Error: invalid embedding type")
             exit()
+        
+        self.outputDimensions += add_extra
 
 
     def forward(self, x):
