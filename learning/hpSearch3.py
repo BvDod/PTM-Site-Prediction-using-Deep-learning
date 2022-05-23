@@ -85,8 +85,9 @@ if __name__ == "__main__":
         "LSTM_dropout": 0,
         "UseUncertaintyBasedLoss": False,
         "useLrWeight": False,
-        "CNNType": "Adapt",
-        "FCType": "Musite",
+        "CNNType": "Musite",
+        "FCType": "Adapt",
+        "CreateFigures": False,
         }
 
     tuning_settings = {
@@ -101,22 +102,19 @@ if __name__ == "__main__":
     }
 
     aminoAcids = {
-        "Hydroxylation-P": {
-            "data_sample_mode": ["oversample",],
+        "Acetylation": {
+            "data_sample_mode": ["balanced",],
             "earlyStoppingPatience": 25,
             "CV_Repeats":1,
-            "crossValidation": True,
-            "learning_rate": 0.002079141427786005,
-            "weight_decay": 7.173835966047},      
-    }
+            "crossValidation": False,},}
 
     for CNNType in ["Musite"]:
         for FCType in ["Adapt"]:
             for amino_acid, aa_parameters in aminoAcids.items():
                 parameters["CNNType"] = CNNType
                 parameters["FCType"] = FCType
-                #tuning_settings["aminoAcid"] = [amino_acid,]
+                tuning_settings["aminoAcid"] = [amino_acid,]
                 parameters["aminoAcid"] = [amino_acid,]
                 for key, value in aa_parameters.items():
                     parameters[key] = value
-                evaluateBestTrial(parameters)
+                performTuningExperiment(parameters, tuning_settings)

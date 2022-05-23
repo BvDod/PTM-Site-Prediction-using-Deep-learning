@@ -76,8 +76,7 @@ if __name__ == "__main__":
         "optimizer": optim.AdamW,
         "folds": 5,
         "earlyStopping": True,
-        "ValidationMetric": "Validation Loss (Hydroxylation-P)",
-        # "ValidationMetric": "Validation Loss (total)",
+        "ValidationMetric": "Validation Loss (Hydroxylation-K)",
         "earlyStoppingPatience": 50,
         "CV_Repeats": 1,
         "Experiment Name": "Model architecture - added max, ranges, bceloss",
@@ -88,7 +87,7 @@ if __name__ == "__main__":
         "weight_decay": 2.5,
         "embeddingType": "adaptiveEmbedding",
         "LSTM_layers": 1,
-        "LSTM_hidden_size": 32,
+        "LSTM_hidden_size": 64,
         "LSTM_dropout": 0,
         "MultiTask": True,
 
@@ -99,24 +98,33 @@ if __name__ == "__main__":
         "CNNType": "Musite",
         "FCType": "Adapt",
 
-        "layerToSplitOn": "FC"
+        "layerToSplitOn": "FC",
+        "dontAverageLoss": False,
+        
+        "useWeightDecayWeight": False,
+        "SeperateTuningLRandWD": True,
         }
                       
 
-    parameters["data_sample_mode"] = ["oversample"] * 13
+    parameters["data_sample_mode"] = ["balanced", "oversample"]
 
     tuning_settings = {
-        "aminoAcid" : ["Hydroxylation-K", "Hydroxylation-P", "Pyrrolidone carboxylic acid", "S-palmitoylation-C", "Sumoylation"],
-        "n_trials": 250,
+        "aminoAcid" : ["S-palmitoylation-C", "Hydroxylation-K",],
+        "n_trials": 500,
         "FloatsToTune" : {
             "learning_rate": [0.00001, 0.01],
-            "weight_decay": [0, 25],
+            "weight_decay": [0, 10],
+            # "log_base": [1.01,3],
+            "weight_decay_Hydroxylation-K": [0, 10],
+            "weight_decay_S-palmitoylation-C": [0, 10],
+            "loss_weight_Hydroxylation-K": [0.00001, 0.9999],
+            "loss_weight_S-palmitoylation-C": [0.00001, 0.9999],
         },
         "IntsToTune" : {   
         },
         "crossValidation": True,
-        "earlyStoppingPatience": 20,
-        "CV_Repeats":1,
+        "earlyStoppingPatience": 50,
+        "CV_Repeats":3,
 
     }
 

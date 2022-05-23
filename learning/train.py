@@ -58,19 +58,30 @@ def testModel(parameters, trial=None, logToComet=True, returnEvalMetrics=False, 
             net = model(device, parameters=parameters)
             if device_id == "all" and (torch.cuda.device_count() > 1):
                 net = nn.DataParallel(net)
-  
+
+
+            trainloader, testloader, val_ratios, train_ratios = loadDataLoaders(parameters, fold)
+
             parameter_dicts = [
                 {'params': net.layers.parameters()}
             ]
-            if (len(parameters["aminoAcid"]) > 1) and "TaskWeightDecay" in parameters:
-                parameter_dicts = parameter_dicts + [{'params': net.heads[i].parameters(), "weight_decay": parameters["TaskWeightDecay"][i]} for i in range(len(parameters["TaskWeightDecay"]))]
+            if (len(parameters["aminoAcid"]) > 1) and parameters["useWeightDecayWeight"]:
+                parameter_dicts = parameter_dicts + [{'params': net.heads[i].parameters(), "weight_decay": parameters["WeightDecayWeights"][i]} for i in range(len(parameters["WeightDecayWeights"]))]
+            elif parameters["SeperateTuningLRandWD"] == True:
+                for i in range(len(parameters["aminoAcid"])):
+                    AA = parameters["aminoAcid"][i]
+                    if not f"learning_rate_{AA}" in parameters:
+                        parameter_dicts.append({'params': net.heads[i].parameters(), "weight_decay": parameters[f"weight_decay_{AA}"], "learning_rate": parameters["learning_rate"] })
+                    else:
+                        parameter_dicts.append({'params': net.heads[i].parameters(), "weight_decay": parameters[f"weight_decay_{AA}"], "learning_rate": parameters[f"learning_rate_{AA}"] })
+    
+
             else:
                 parameter_dicts.append({'params': net.heads.parameters()})
 
             optimizer = parameters["optimizer"](parameter_dicts, lr=parameters["learning_rate"], weight_decay=parameters["weight_decay"], eps=1e-6)
             net.to(device)
             
-            trainloader, testloader, val_ratios, train_ratios = loadDataLoaders(parameters, fold)
 
 
             parameters["currentFold"] = fold
@@ -142,11 +153,11 @@ def loadDataLoaders(parameters, fold):
         loaded_data_pos.append([X_train_pos, y_train_pos, X_val_pos, y_val_pos])
 
         if (parameters["data_sample_mode"][i] == "balanced") or (parameters["data_sample_mode"][i] == "undersample"):
-            samples = len(y_train_pos) * 2
+            samples = y_train_pos.shape[0] * 2
         if parameters["data_sample_mode"][i] == "oversample":
-            samples = len(y_train_neg) * 2
+            samples = y_train_neg.shape[0] * 2
         if parameters["data_sample_mode"][i] == "weighted":
-            samples = len(y_train_pos) + len(y_train_pos)
+            samples = y_train_pos.shape[0] + y_train_pos.shape[0]
         
         sample_sizes.append(samples)
         if biggest_dataset_amount is None or biggest_dataset_amount < samples:
@@ -166,10 +177,15 @@ def loadDataLoaders(parameters, fold):
         
         elif parameters["MultiTask_sample_method"] == "balanced":
             pass
+
+        elif parameters["MultiTask_sample_method"] in parameters["aminoAcid"]:
+            dataloader_samples = sample_sizes[parameters["aminoAcid"].index(parameters["MultiTask_sample_method"])]
+
     else:
         dataloader_samples = biggest_dataset_amount
 
     sample_weights = []
+    weight_decay_weights = []
     for i, aminoAcid in enumerate(parameters["aminoAcid"]):
         
         # Split dataset into trainig and test set
@@ -200,8 +216,15 @@ def loadDataLoaders(parameters, fold):
             
         else:
             batch_size = parameters["batch_size"]//len(parameters["aminoAcid"])
-        
-        sample_weights.append(sample_sizes[i]/max(sample_sizes))    
+        if 'log_base_WD' in parameters:
+            weight_decay_weights.append(math.log(((sum(sample_sizes)/sample_sizes[i])), parameters["log_base_WD"]) * parameters["weight_decay"])
+        if "log_base" in parameters:
+            sample_weights.append(math.log(((sum(sample_sizes)/sample_sizes[i])), parameters["log_base"]))
+            if sample_weights[-1] < 1:
+                sample_weights[-1] = 1
+        else:
+            sample_weights.append(sum(sample_sizes)/sample_sizes[i])
+
         trainloader, testloader = CreateDataloaders(trainset, testset, n_train_pos, n_train_neg, parameters, train_weight, parameters["data_sample_mode"][i], dataloader_samples, batch_size)
         
         trainloaders.append(trainloader)
@@ -211,7 +234,13 @@ def loadDataLoaders(parameters, fold):
         train_ratios.append(train_ratio)
     
     trainloader = MultiTaskLoader(trainloaders)
+
+    for i, AA in enumerate(parameters["aminoAcid"]):
+        if f"loss_weight_{AA}" in parameters:
+            sample_weights[i] = parameters[f"loss_weight_{AA}"]
+
     parameters["sample_weights"] = sample_weights
+    parameters["WeightDecayWeights"] = weight_decay_weights
     return trainloader, testloaders, val_ratios, train_ratios
 
 
@@ -262,7 +291,7 @@ def trainModel(trainloader, testloaders, net, optimizer, device, parameters, val
                     print(f"Early stopping applied (best metric={best_eval_score})")
                     break
             
-            if metrics[parameters["ValidationMetric"]] > 10000:
+            if (metrics[parameters["ValidationMetric"]] > 10000) or (last_running_loss > 15000):
                 print(f"Exploding loss, terminate run (best metric={best_eval_score})")
                 break
 
@@ -276,35 +305,71 @@ def trainModel(trainloader, testloaders, net, optimizer, device, parameters, val
             net.train()
             running_loss = 0.0
             for i, data in enumerate(trainloader, 0):
-                inputs, labels, task_indexes = data[0].to(device), data[1].reshape((-1,1)).to(device), data[2]
-                
+                inputs, labels, task_indexes = data[0].to(device), data[1].to(device), data[2]
                 useSampleWeighting = (parameters["data_sample_mode"] == "weighted")
 
                 # forward + backward + optimize
                 optimizer.zero_grad()
-                outputs = net(inputs, task_indexes)
+                outputs = net(inputs, task_indexes, labels[:,1])
 
                 losses = []
                 for task in range(len(task_indexes[:-1])):
-                    outputs_task = outputs[task_indexes[task]: task_indexes[task+1]]
-                    labels_task = labels[task_indexes[task]: task_indexes[task+1]]
+                    if parameters["MultiTask_Species"]:
+                        outputs_species = outputs[:,1:]
+                        outputs_PTM = outputs[:,[0,]]
+                    else:
+                        outputs_task = outputs[task_indexes[task]: task_indexes[task+1]]
+                    labels_task = labels[task_indexes[task]: task_indexes[task+1], :]
+                    if parameters["predictSpecies"]:
+                        labels_task = labels_task[:,1]
+                    elif parameters["MultiTask_Species"]:
+                        labels_species = labels_task[:,1]
+                        labels_PTM = labels_task[:,[0,]]
+                    else:
+                        labels_task = labels_task[:,[0,]]
+
+
+                    if parameters["predictSpecies"] and not parameters["onlyPredictHumans"]:
+                        parameters["loss_function"] = nn.CrossEntropyLoss
                     if useSampleWeighting:     
                         task_weights = torch.ones(outputs_task.shape, device=device)
                         task_weights[labels_task == 0] = 1./(train_ratio[task]/2)
                         task_weights[labels_task == 1] = (train_ratio[task]/2)
                         criterion = parameters["loss_function"](weight=task_weights)
                     else:
-                        criterion = parameters["loss_function"]()
+                        if parameters["useLrWeight"] or parameters["dontAverageLoss"]:
+                            criterion = parameters["loss_function"](reduction="sum")
+                        
+                        elif parameters["MultiTask_Species"]:
+                            criterion_PTM = nn.BCELoss()
+                            criterion_species = nn.CrossEntropyLoss()
 
-                    loss = criterion(outputs_task, labels_task)
+                        else:
+                            criterion = parameters["loss_function"]()
+
+
+
                     if parameters["useLrWeight"]:
+                        loss = criterion(outputs_task, labels_task)
                         if parameters["MultiTask_sample_method"] == "balanced":
-                            weight = (task_indexes[task+1] - task_indexes[task]) / parameters["batch_size"]
+                            weight = parameters["sample_weights"][task]
                         else:
                             weight = parameters["sample_weights"][task]
                     else:
+                        if parameters["dontAverageLoss"]:
+                            loss = criterion(outputs_task, labels_task)
+
+                        elif parameters["MultiTask_Species"]:
+                            loss1 = criterion_PTM(outputs_PTM, labels_PTM)
+                            loss2 = criterion_species(outputs_species, labels_species.long())
+
+                        else:
+                            loss = criterion(outputs_task, labels_task)
                         weight = 1
-                    losses.append(weight * loss)
+                    if parameters["MultiTask_Species"]:
+                        losses.append(loss1 + (parameters["species_weight"] * loss2))
+                    else:
+                        losses.append(weight * loss)
 
                 if parameters["UseUncertaintyBasedLoss"]:
                     loss = uncertaintyWrapper(losses)
@@ -317,6 +382,7 @@ def trainModel(trainloader, testloaders, net, optimizer, device, parameters, val
                 running_loss += loss.item()
                 if i == max_batch:  
                     print('[%d, %5d] loss: %.3f' % (epoch + 1, i + 1, running_loss/(max_batch+1)))
+                    last_running_loss = running_loss/(max_batch+1)
                     running_loss = 0.0
             max_batch = i
         
@@ -346,11 +412,28 @@ def evalValidation(testloaders, net, device, val_ratio, experiment, epoch, param
             for i, testloader in enumerate(testloaders):
                 y_pred_task, y_output_task, y_true_task = [], [], []
                 for data in testloader:
-                    features, labels = data[0].to(device), data[1].reshape((-1,1)).to(device)
+                    features, labelsAll = data[0].to(device), data[1].to(device)
+                    if parameters["predictSpecies"]:
+                        labels = labelsAll[:,1]
+                    elif parameters["MultiTask_Species"]:
+                        labels = labelsAll
+                    else:
+                        labels = labelsAll[:,[0,]]
                     task_indexes = [0, len(labels)]
                     
-                    y_output_batch = net(features, task_indexes)
-                    y_pred_batch = (y_output_batch > 0.5).int()
+                    y_output_batch = net(features, task_indexes, labelsAll[:,1])
+
+                    if parameters["predictSpecies"] and not parameters["onlyPredictHumans"]:
+                        _, y_pred_batch = torch.max(y_output_batch, dim=1)
+                    
+                    elif parameters["MultiTask_Species"]:
+                        y_pred_PTM = (y_output_batch[:,[0,]] > 0.5).int()
+                        _, y_pred_species = torch.max(y_output_batch[:,1:], dim=1)
+                        y_pred_batch = torch.cat([y_pred_PTM, y_pred_species.unsqueeze(1)], dim=1)
+
+                    else:
+                        y_pred_batch = (y_output_batch > 0.5).int()
+                    
 
                     useSampleWeighting = (parameters["data_sample_mode"] == "weighted")
                     useSampleWeighting = True
@@ -367,21 +450,45 @@ def evalValidation(testloaders, net, device, val_ratio, experiment, epoch, param
             losses = []
             eval_metrics_total = {}
             eval_figures_total = {}
+            if parameters["predictSpecies"] and not parameters["onlyPredictHumans"]:
+                parameters["loss_function"] = nn.CrossEntropyLoss
+                useSampleWeighting = False
+
             for task in range(len(testloaders)):
                 AA = parameters['aminoAcid'][task]
                 if useSampleWeighting:     
-                    task_weights = torch.ones(y_true[task].shape, device=device)
-                    task_weights[y_true[task] == 0] = 1./(val_ratio[task]/2)
-                    task_weights[y_true[task] == 1] = (val_ratio[task]/2)
+                    task_weights = torch.ones((y_true[task].shape[0], 1), device=device)
+                    task_weights[y_true[task][:,[0,]] == 0] = 1./(val_ratio[task]/2)
+                    task_weights[y_true[task][:,[0,]] == 1] = (val_ratio[task]/2)
 
                     criterion = parameters["loss_function"](weight=task_weights)
+
                 else:
                     criterion = parameters["loss_function"]()
 
-                loss = criterion(y_output[task], y_true[task])
+
+                if parameters["MultiTask_Species"]:
+                    criterion_PTM = nn.BCELoss(weight=task_weights)
+                    criterion_species = nn.CrossEntropyLoss()
+
+                    outputs_species = y_output[task][:,1:]
+                    outputs_PTM = y_output[task][:,[0,]]
+                    labels_species = y_true[task][:,1]
+                    labels_PTM = y_true[task][:,[0,]]
+
+                    loss1 = criterion_PTM(outputs_PTM, labels_PTM)
+                    loss2 = criterion_species(outputs_species, labels_species.long())
+                    loss = loss1 + (parameters["species_weight"] * loss2)
+                    eval_metrics_total["Validation Loss (PTM)"] = loss1.detach().item()
+                    eval_metrics_total["Validation Loss (species)"] = loss2.detach().item()
+                else:
+                    loss = criterion(y_output[task], y_true[task])
+
+                
                 losses.append(loss)
                 figures = parameters["CreateFigures"]
-                eval_metrics, eval_figures = get_evaluation_metrics(AA, y_true[task].detach().cpu().numpy(), y_output[task].detach().cpu().numpy(), y_pred[task].detach().cpu().numpy(), figures=figures)
+                species = parameters["MultiTask_Species"]
+                eval_metrics, eval_figures = get_evaluation_metrics(AA, y_true[task].detach().cpu().numpy(), y_output[task].detach().cpu().numpy(), y_pred[task].detach().cpu().numpy(), figures=figures, species=species)
                 eval_metrics[f"Validation Loss ({AA})"] = loss.detach().item()
                 eval_metrics_total.update(eval_metrics)
                 eval_figures_total.update(eval_figures)
@@ -413,8 +520,8 @@ if __name__ == "__main__":
         # Training parameters
         "gpu_mode": True,
         "epochs": 200,
-        "batch_size": 2048,
-        "learning_rate": 0.0005,
+        "batch_size": 512,
+        "learning_rate": 5.36E-04,
         "test_data_ratio": 0.2,
         "data_sample_mode": "oversample",
         "crossValidation": False,
@@ -423,31 +530,42 @@ if __name__ == "__main__":
         "folds": 5,
         "earlyStopping": True,
         "ValidationMetric": "Validation Loss (total)",
-        "earlyStoppingPatience": 50,
-        "CV_Repeats": 1,
-        "Experiment Name": "Model architecture - added max, ranges, bceloss",
+        "earlyStoppingPatience": 25,
+        "CV_Repeats": 5,
+        "Experiment Name": "test",
 
 
         # Model parameters
-        "weight_decay": 2.5,
+        "weight_decay": 1.02323669,
         "embeddingType": "adaptiveEmbedding",
         "LSTM_layers": 1,
         "LSTM_hidden_size": 32,
         "LSTM_dropout": 0,
-        "MultiTask": True,
+        "MultiTask": False,
+        "MultiTask_Species": True,
+        "species_weight": 0.15,
 
         "MultiTask_sample_method": "balanced",
         "UseUncertaintyBasedLoss": False,
         "useLrWeight": False,
+        "useWeightDecayWeight": False,
 
-        "CNNType": "Adapt",
-        "FCType": "Musite",
+        "CNNType": "Musite",
+        "FCType": "Adapt",
 
-        "layerToSplitOn": "FC"
+        "layerToSplitOn": "FC",
+        "SeperateTuningLRandWD": False,
+        'dontAverageLoss': False,
+        'CreateFigures': False,
+    
+        "predictSpecies": False,
+        "onlyPredictHumans": False,
+        "useSpecieFeature": False,
+        "SpecieFeatureHoldout": False
         }
                       
 
-    parameters["aminoAcid"] = ["Hydroxylation-K", "Hydroxylation-P", "Pyrrolidone carboxylic acid", "S-palmitoylation-C", "Sumoylation"]
+    parameters["aminoAcid"] = ["Methylation-K"]
     parameters["data_sample_mode"] = ["oversample"] * 13
     # parameters["TaskWeightDecay"] = [0.1] * 2
     testModel(parameters)

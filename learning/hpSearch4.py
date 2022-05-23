@@ -87,6 +87,7 @@ if __name__ == "__main__":
         "useLrWeight": False,
         "CNNType": "Musite",
         "FCType": "Adapt",
+        "CreateFigures": False,
         }
 
     tuning_settings = {
@@ -100,24 +101,34 @@ if __name__ == "__main__":
         },
     }
 
-    aminoAcids = {
-        "Phosphorylation-Y": {
-            "data_sample_mode": ["oversample",],
-            "earlyStoppingPatience": 20,
-            "CV_Repeats":1,
-            "crossValidation": False},           
+    tuning_settings = {
+        "n_trials": 250,
+        "aminoAcid": "O-linked Glycosylation",
+        "FloatsToTune" : {
+            "learning_rate": [0.00001, 0.01],
+            "weight_decay": [0, 25],
+        },
+        "IntsToTune" : {   
+        },
     }
+
+    aminoAcids = {
+         "Hydroxylation-K": {
+            "data_sample_mode": ["oversample",],
+            "earlyStoppingPatience": 50,
+            "CV_Repeats":5,
+            "crossValidation": True,},}
 
     for CNNType in ["Musite"]:
         for FCType in ["Adapt"]:
             for amino_acid, aa_parameters in aminoAcids.items():
                 parameters["CNNType"] = CNNType
                 parameters["FCType"] = FCType
-                #tuning_settings["aminoAcid"] = [amino_acid,]
+                tuning_settings["aminoAcid"] = [amino_acid,]
                 parameters["aminoAcid"] = [amino_acid,]
                 for key, value in aa_parameters.items():
                     parameters[key] = value
-                evaluateBestTrial(parameters)
+                performTuningExperiment(parameters, tuning_settings)
 
 
 

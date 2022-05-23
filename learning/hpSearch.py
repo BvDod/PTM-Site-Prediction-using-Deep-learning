@@ -73,27 +73,38 @@ if __name__ == "__main__":
         "optimizer": optim.AdamW,
         "folds": 5,
         "earlyStopping": True,
-        "ValidationMetric": "Validation Loss (total)",
-        "earlyStoppingPatience": 50,
+        "ValidationMetric": "Validation Loss (PTM)",
+        "earlyStoppingPatience": 25,
         "CV_Repeats": 1,
-        "Experiment Name": "Prottrans embeddings - local",
+        "Experiment Name": "speciesFeature - local",
         # Model parameters
         "weight_decay": None,
-        "embeddingType": "protBert",
+        "embeddingType": "adaptiveEmbedding",
         "LSTM_layers": 1,
         "LSTM_hidden_size": 32,
         "LSTM_dropout": 0,
         "UseUncertaintyBasedLoss": False,
         "useLrWeight": False,
-        "CreateFigures": False
+        "CreateFigures": False,
+        'SeperateTuningLRandWD': False,
+        'dontAverageLoss': False,
+
+        "predictSpecies": False,
+        "onlyPredictHumans": False,
+        "useSpecieFeature": False,
+        "SpecieFeatureHoldout": False,
+
+        "MultiTask_Species": True,
+        "species_weight": 0.15,
         }
 
     tuning_settings = {
         "n_trials": 250,
-        "aminoAcid": "O-linked Glycosylation",
+        "aminoAcid": "Methylation-K",
         "FloatsToTune" : {
             "learning_rate": [0.00001, 0.01],
             "weight_decay": [0, 25],
+            "species_weight": [0.001,1],
         },
         "IntsToTune" : {   
         },
@@ -105,13 +116,9 @@ if __name__ == "__main__":
             "data_sample_mode": ["oversample",],
             "earlyStoppingPatience": 25,
             "CV_Repeats":1,
-            "crossValidation": True},
-        "Methylation-R": {
-            "data_sample_mode": ["oversample",],
-            "earlyStoppingPatience": 25,
-            "CV_Repeats":1,
-            "crossValidation": True},           
-    }
+            "crossValidation": True,
+    }}
+
 
     """
     for amino_acid, aa_parameters in aminoAcids.items():
@@ -122,7 +129,6 @@ if __name__ == "__main__":
         parameters["FCType"] = "Musite"
         avg_dict, std_dict = evaluateBestTrial(parameters)
         print(avg_dict, std_dict)
-
     """
 
     for CNNType in ["Musite"]:
@@ -131,9 +137,12 @@ if __name__ == "__main__":
                 parameters["CNNType"] = CNNType
                 parameters["FCType"] = FCType
                 tuning_settings["aminoAcid"] = [amino_acid,]
+                parameters["aminoAcid"] = [amino_acid,]
                 for key, value in aa_parameters.items():
                     parameters[key] = value
+                
                 performTuningExperiment(parameters, tuning_settings)
+                # evaluateBestTrial(parameters)
 
 
 

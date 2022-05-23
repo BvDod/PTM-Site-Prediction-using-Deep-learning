@@ -34,7 +34,8 @@ def get_folder_name(AA, embeddingType):
 
     data_dir = "code/Thesis/dataset/"
     folder_name = f"{data_dir}train/{AA}/{type_folder}"
-    return folder_name
+    folder_species = f"{data_dir}train/{AA}"
+    return folder_name, folder_species
 
 
 def split_training_test_data(X, y, parameters, fold, tensor_dtype=torch.float):
@@ -47,16 +48,23 @@ def split_training_test_data(X, y, parameters, fold, tensor_dtype=torch.float):
     if CV:
         kfold = KFold(n_splits=k, shuffle=True, random_state=parameters["random_state"])
         train_ids, val_ids = list(kfold.split(X))[fold]
-        X_train, y_train = X[train_ids, :], y[train_ids]
-        X_val, y_val = X[val_ids, :], y[val_ids]
+        X_train, y_train = X[train_ids, :], y[train_ids, :]
+        X_val, y_val = X[val_ids, :], y[val_ids, :]
 
     else:
         X_train, X_val, y_train, y_val = train_test_split(X,y, test_size=test_data_ratio, random_state=parameters["random_state"])
 
+
     X_val = torch.tensor(X_val, dtype=tensor_dtype)
-    y_val = torch.tensor(y_val, dtype=torch.float)
+    if parameters["predictSpecies"] and not parameters["onlyPredictHumans"]:
+        y_val = torch.tensor(y_val, dtype=torch.long)
+    else:
+        y_val = torch.tensor(y_val, dtype=torch.float)
     X_train = torch.tensor(X_train, dtype=tensor_dtype)
-    y_train = torch.tensor(y_train, dtype=torch.float)
+    if parameters["predictSpecies"] and not parameters["onlyPredictHumans"]:
+        y_train = torch.tensor(y_train, dtype=torch.long)
+    else:
+        y_train = torch.tensor(y_train, dtype=torch.float)
 
     return X_train, y_train, X_val, y_val
 
@@ -67,16 +75,22 @@ def loadData(parameters, aminoAcid):
     asOneHot = parameters["embeddingType"] == "oneHot"
     tensor_dtype = torch.float if ((parameters["embeddingType"] == "oneHot") or (parameters["embeddingType"] == "protBert")) else torch.int
 
-    folder = get_folder_name(aminoAcid, parameters["embeddingType"])
+    folder, folder_species = get_folder_name(aminoAcid, parameters["embeddingType"])
     X_neg, y_neg = np.load(f"{folder}/X_train_neg.npy"), np.load(f"{folder}/y_train_neg.npy")
     X_pos, y_pos = np.load(f"{folder}/X_train_pos.npy"), np.load(f"{folder}/y_train_pos.npy")
 
-    print(X_pos.shape)
-    print(X_neg.shape)
+    species_pos, species_neg = np.load(f"{folder_species}/species_pos.npy").astype(int), np.load(f"{folder_species}/species_neg.npy").astype(int)
+    
+    if parameters["onlyPredictHumans"]:
+        species_pos, species_neg = (species_pos == 0).astype(int), (species_neg == 0).astype(int)
     
     n = len(y_neg) + len(y_pos)
 
-    print(f"Loaded folder {folder} ({n} samples)")
+    y_pos = np.vstack((y_pos, species_pos)).T
+    y_neg = np.vstack((y_neg, species_neg)).T
+
+    n = len(y_neg) + len(y_pos)
+
     return X_neg, y_neg, X_pos, y_pos, n, tensor_dtype
 
 
@@ -93,7 +107,7 @@ def createDatasets(X_train_neg, y_train_neg, X_val_neg, y_val_neg, X_train_pos, 
 
     if reduceNegativeSamples == True:
         X_train_neg = X_train_neg[:n_train_pos,:]
-        y_train_neg = y_train_neg[:n_train_pos]
+        y_train_neg = y_train_neg[:n_train_pos,:]
     
     
     X_train = torch.cat([X_train_pos, X_train_neg],dim=0)
