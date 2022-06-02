@@ -128,6 +128,30 @@ def createDatasets(X_train_neg, y_train_neg, X_val_neg, y_val_neg, X_train_pos, 
     return trainset, testset, train_weight, val_weight, n_train_pos, n_train_neg, train_ratio, val_ratio
 
 
+def createDataset(X_train_neg, y_train_neg, X_train_pos, y_train_pos, reduceNegativeSamples=False):
+    """Function used to create datasets"""
+
+    n_train_neg, n_train_pos = X_train_neg.shape[0], X_train_pos.shape[0]
+    train_ratio = n_train_neg/n_train_pos 
+
+    train_weight = torch.tensor(np.concatenate([np.full(n_train_pos, 1), np.full(n_train_neg, 1./train_ratio)]))
+
+    if reduceNegativeSamples == True:
+        X_train_neg = X_train_neg[:n_train_pos,:]
+        y_train_neg = y_train_neg[:n_train_pos,:]
+    
+    X_train = torch.cat([X_train_pos, X_train_neg],dim=0)
+    del X_train_pos
+    del X_train_neg
+    y_train = torch.cat([y_train_pos, y_train_neg],dim=0)
+    del y_train_pos
+    del y_train_neg
+
+    trainset = TensorDataset(X_train, y_train)
+
+    return trainset, train_weight, n_train_pos, n_train_neg, train_ratio
+
+
 def CreateDataloaders(trainset, testset, n_train_pos, n_train_neg, parameters, train_weight, data_sample_mode, dataloader_samples, batch_size):
     """ Create dataloaders off training and test-set based on type of sampling technique used """
     if not data_sample_mode in ["undersample", "oversample", "weighted", "balanced", "unbalanced", "focalLoss"]:
@@ -155,3 +179,11 @@ def CreateDataloaders(trainset, testset, n_train_pos, n_train_neg, parameters, t
     testloader = DataLoader(testset, batch_size=batch_size, shuffle=False, pin_memory=False)
 
     return trainloader, testloader
+
+
+def CreateDataloader(testset, parameters, batch_size):
+    """ Create dataloaders off training and test-set based on type of sampling technique used """
+
+    testloader = DataLoader(testset, batch_size=batch_size, shuffle=False, pin_memory=False)
+
+    return testloader

@@ -18,7 +18,7 @@ from models.FC import FCNet
 from torch.utils.tensorboard import SummaryWriter
 
 from functions.EvaluationMetrics import get_evaluation_metrics, log_evaluation_metrics, CreateLoggers, CreatekFoldLogger, log_evaluation_metrics_kFold, log_kFold_average
-from functions.DatasetHandling import split_training_test_data, loadData, createDatasets, CreateDataloaders
+from functions.DatasetHandling import split_training_test_data, loadData, createDatasets, CreateDataloaders, createDataset, CreateDataloader
 from functions.MultiTaskLoader import MultiTaskLoader, MultiTaskLossWrapper
 from models.firstLayer import firstLayer
 import random
@@ -60,7 +60,7 @@ def testModel(parameters, trial=None, logToComet=True, returnEvalMetrics=False, 
                 net = nn.DataParallel(net)
 
 
-            trainloader, testloader, val_ratios, train_ratios = loadDataLoaders(parameters, fold)
+            trainloader, testloader, actualTestloader, val_ratios, train_ratios = loadDataLoaders(parameters, fold, test=parameters["TestSet"])
 
             parameter_dicts = [
                 {'params': net.layers.parameters()}
@@ -85,7 +85,7 @@ def testModel(parameters, trial=None, logToComet=True, returnEvalMetrics=False, 
 
 
             parameters["currentFold"] = fold
-            best_metrics, best_figures = trainModel(trainloader, testloader, net, optimizer, device, parameters, val_ratios, train_ratios, trial=trial, logToComet=logToComet)
+            best_metrics, best_figures = trainModel(trainloader, testloader, actualTestloader, net, optimizer, device, parameters, val_ratios, train_ratios, trial=trial, logToComet=logToComet)
             
             results.append([best_metrics, best_figures])
             if not parameters["crossValidation"]:
@@ -127,7 +127,7 @@ def testModel(parameters, trial=None, logToComet=True, returnEvalMetrics=False, 
     return average_dict[parameters["ValidationMetric"]]
 
 
-def loadDataLoaders(parameters, fold):
+def loadDataLoaders(parameters, fold, test=False):
     # Load AA of specific redundanctPercentage from disk
     trainloaders, testloaders = [], []
     val_ratios, train_ratios = [], []
@@ -235,16 +235,28 @@ def loadDataLoaders(parameters, fold):
     
     trainloader = MultiTaskLoader(trainloaders)
 
+    if test:
+        X_neg, y_neg, X_pos, y_pos, n, tensor_dtype = loadData(parameters, parameters["aminoAcid"][0])
+        X_neg = torch.tensor(X_neg, dtype=tensor_dtype)
+        y_neg = torch.tensor(y_neg, dtype=torch.float)
+        X_pos = torch.tensor(X_pos, dtype=tensor_dtype)
+        y_pos = torch.tensor(y_pos, dtype=torch.float)
+        actualTestset, actualTestWeight, n_actualtest_pos, n_actualtest_neg, actualtest_ratio = createDataset(X_neg, y_neg, X_pos, y_pos, reduceNegativeSamples=False)
+        actualTestloader = CreateDataloader(actualTestset, parameters, batch_size)
+
+    else:
+        actualTestloader = None
+
     for i, AA in enumerate(parameters["aminoAcid"]):
         if f"loss_weight_{AA}" in parameters:
             sample_weights[i] = parameters[f"loss_weight_{AA}"]
 
     parameters["sample_weights"] = sample_weights
     parameters["WeightDecayWeights"] = weight_decay_weights
-    return trainloader, testloaders, val_ratios, train_ratios
+    return trainloader, testloaders, actualTestloader, val_ratios, train_ratios
 
 
-def trainModel(trainloader, testloaders, net, optimizer, device, parameters, val_ratio, train_ratio, trial=None, logToComet=True):
+def trainModel(trainloader, testloaders, actualTestloader, net, optimizer, device, parameters, val_ratio, train_ratio, trial=None, logToComet=True):
     # Enable tensorbard logging
     if logToComet:
         experiment = CreateLoggers(parameters, net)
@@ -267,7 +279,8 @@ def trainModel(trainloader, testloaders, net, optimizer, device, parameters, val
         # Evaluate validation performance
         if not epoch == 0:
             metrics, figures = evalValidation(testloaders, net, device, val_ratio, experiment, epoch, parameters)
-
+            if parameters["TestSet"]:
+                metrics_test, figures_test = best_eval_metrics_test, best_eval_figures_test = evalValidation([actualTestloader,], net, device, val_ratio, experiment, epoch, parameters)
             if trial: 
                 if (parameters["currentFold"] == 0) and (parameters["current_CV_Repeat"] == 1):
                     trial.report(metrics[parameters["ValidationMetric"]], epoch)
@@ -282,9 +295,20 @@ def trainModel(trainloader, testloaders, net, optimizer, device, parameters, val
                             figure.clf()
                     best_eval_metrics = metrics
                     best_eval_figures = figures
+
+                    if parameters["TestSet"]:
+                        if not best_eval_metrics_test is None:
+                            for name, figure in best_eval_figures_test.items():
+                                figure.clf()
+                        best_eval_metrics_test = metrics_test
+                        best_eval_figures_test = figures_test
+
             else:
                 for name, figure in figures.items():
                     figure.clf()
+                if parameters["TestSet"]:
+                    for name, figure in figures_test.items():
+                        figure.clf()
 
             if parameters["earlyStopping"]:
                 if epoch - best_eval_epoch >= parameters["earlyStoppingPatience"]:
@@ -393,6 +417,9 @@ def trainModel(trainloader, testloaders, net, optimizer, device, parameters, val
     
     print(f"Total time taken: {t1 - t0}")
     best_eval_metrics["TimeToTrain"] = t1 - t0
+
+    if parameters["TestSet"]:
+        return best_eval_metrics_test, best_eval_figures_test
     return best_eval_metrics, best_eval_figures
 
 
@@ -524,14 +551,14 @@ if __name__ == "__main__":
         "learning_rate": 5.36E-04,
         "test_data_ratio": 0.2,
         "data_sample_mode": "oversample",
-        "crossValidation": False,
+        "crossValidation": True,
         "loss_function": nn.BCELoss,
         "optimizer": optim.AdamW,
         "folds": 5,
         "earlyStopping": True,
         "ValidationMetric": "Validation Loss (total)",
         "earlyStoppingPatience": 25,
-        "CV_Repeats": 5,
+        "CV_Repeats": 1,
         "Experiment Name": "test",
 
 
@@ -542,7 +569,7 @@ if __name__ == "__main__":
         "LSTM_hidden_size": 32,
         "LSTM_dropout": 0,
         "MultiTask": False,
-        "MultiTask_Species": True,
+        "MultiTask_Species": False,
         "species_weight": 0.15,
 
         "MultiTask_sample_method": "balanced",
@@ -561,7 +588,9 @@ if __name__ == "__main__":
         "predictSpecies": False,
         "onlyPredictHumans": False,
         "useSpecieFeature": False,
-        "SpecieFeatureHoldout": False
+        "SpecieFeatureHoldout": False,
+
+        "TestSet": False
         }
                       
 
