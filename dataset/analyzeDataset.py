@@ -27,13 +27,13 @@ def get_merged_df(input_dir):
         dataframes.append(df)
 
     df_all = pd.concat(dataframes)
-    return df_all
+    return dataframes, df_all
 
 input_dir = "data/processed/final_split/train"
-df_all = get_merged_df(input_dir)
+dfs, df_all = get_merged_df(input_dir)
 
 input_dir = "data/processed/final_split/test"
-df_all_test = get_merged_df(input_dir)
+dfs, df_all_test = get_merged_df(input_dir)
 
 
 
@@ -84,6 +84,8 @@ def get_species_names(df):
 df_all = get_species_names(df_all)
 df_all_test = get_species_names(df_all_test)
 
+dfs = [get_species_names(df) for df in dfs]
+
 
 
 # %%
@@ -112,6 +114,10 @@ def plot_species_count(df, string):
 
 plot_species_count(df_all, "Train")
 plot_species_count(df_all_test, "Test")
+
+for df in dfs:
+    plot_species_count(df, df["PTM_type"].iloc[0])
+
 
 
 # %%

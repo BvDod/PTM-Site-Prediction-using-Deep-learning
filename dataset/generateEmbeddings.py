@@ -14,23 +14,35 @@ from math import ceil
 
 def main():
 
-    
+ 
+    tokenizer = T5Tokenizer.from_pretrained("Rostlab/prot_t5_xl_uniref50", do_lower_case=False )
+    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    model = T5EncoderModel.from_pretrained("models/prot_t5_xl_uniref50").half().cpu()
+
+    model = torch.nn.DataParallel(model)
+    model = model.to("cuda:0")
+    model = model.eval()
+    gc.collect()
+
+    '''
     tokenizer = T5Tokenizer.from_pretrained("Rostlab/prot_t5_xl_uniref50", do_lower_case=False )
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     model = T5EncoderModel.from_pretrained("models/prot_t5_xl_uniref50").half()
     model = model.to(device)
     model = model.eval()
     gc.collect()
+    '''
 
     
 
     # For all retrieved full UniProt sequences, now truncate them
-    input_dir = "dataset/data/processed/final_split/train"
-    output_dir = "dataset/data/learningData/balanced/train/"
+    input_dir = "code/Thesis/dataset/final_split/train"
+    output_dir = "output/train/"
 
     balance_dataset = ["Ubiquitination", "Phosphorylation-Y", "Acetylation", "Phosphorylation-Y"]
 
     for file in os.listdir(input_dir):
+        print(file)
         if not file.split("_")[-4] == "pos":
             continue
 
@@ -67,7 +79,7 @@ def main():
         df_neg = df_neg.reset_index(drop=True)
         df_pos = df_pos.reset_index(drop=True)
 
-        batch_size = 512
+        batch_size = 1024
 
 
         sequences = df_neg.TruncatedUniProtSequence.tolist()
@@ -128,7 +140,6 @@ def main():
         np.save(f"{file_dir}embeddings/y_train_neg.npy", y_neg)
         np.save(f"{file_dir}embeddings/X_train_pos.npy", embeddings_pos)
         np.save(f"{file_dir}embeddings/y_train_pos.npy", y_pos)
-
 
 if __name__ == "__main__":
     main()

@@ -1,0 +1,22 @@
+species,label
+Human,0
+Baker's yeast,1
+Mouse,2
+Mouse-ear cress,3
+Fruit fly,4
+Yeast,5
+Plasmodium falciparum (isolate 3D7),6
+Slime mold,7
+Caenorhabditis elegans,8
+Chlamydomonas reinhardtii,9
+Rice blast fungus,10
+Fission yeast,11
+Rice,12
+Rat,13
+Toxoplasma gondii (strain ATCC 50861 / VEG),14
+Trypanosoma brucei brucei (strain 927/4 GUTat10.1),15
+Zebrafish,16
+Neurospora crassa (strain ATCC 24698 / 74-OR23-1A / CBS 708.71 / DSM 1257 / FGSC 987),17
+Vanderwaltozyma polyspora (strain ATCC 22028 / DSM 70294 / BCRC 21397 / CBS 2163 / NBRC 10782 / NRRL Y-8283 / UCD 57-17),18
+Escherichia coli (strain K12),19
+other,20

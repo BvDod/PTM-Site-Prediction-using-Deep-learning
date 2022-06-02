@@ -1,0 +1,14 @@
+AA,avg AUC ROC,std AUC ROC,avg AUC PR,std AUC PR,avg MCC,std MCC,avg MCC (species),std MCC (species)
+Hydroxylation-K,0.955,0.024,0.87,0.059,0.7,0.16,0.076,0.07
+Hydroxylation-P,0.948,0.008,0.761,0.036,0.718,0.052,0.261,0.012
+Pyrrolidone carb. acid,0.985,0.003,0.96,0.013,0.884,0.032,0,0
+Methylation-R,0.835,0.004,0.418,0.012,0.339,0.019,0,0
+Sumoylation,0.907,0.004,0.656,0.007,0.509,0.024,0,0
+S-palmitoylation-C,0.892,0.009,0.651,0.025,0.509,0.028,0,0
+Methylation-K,0.836,0.005,0.39,0.012,0.312,0.016,0.497,0.017
+O-linked Glycosylation,0.746,0.006,0.223,0.008,0.194,0.011,0,0
+N-linked Glycosylation,0.976,0,0.887,0.001,0.853,0.002,0,0
+Acetylation,0.832,0.001,0.477,0.002,0.368,0.008,0.116,0.16
+Phosphorylation-Y,0.745,0,0.42,0.001,0.289,0.003,0,0
+Ubiquitination,0.792,0.001,0.566,0.003,0.386,0.008,0,0
+Phosphorylation-S/T,,,,,,,,

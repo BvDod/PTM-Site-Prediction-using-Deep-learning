@@ -1,0 +1,13 @@
+Sampling Method,AA,Learning Rate,Weight decay,avg  AUC ROC,std AUC ROC,avg AUC PR,std AUC PR,avg MCC,std MCC,avg TrainTime,std TrainTime
+Balanced,Hydroxylation-P,0.005,8.309,0.839,0.037,0.556,0.065,0.556,0.083,19.433,3.752
+Balanced,O-linked Glycosylation,0.00758,3.274,0.714,0.013,0.19,0.013,0.099,0.022,31.728,13.088
+Balanced,Phosphorylation-Y,0.00996,0.365,	0.733,0.002,	0.41,	0.005,	0.272,	0.006,276.999,43.818
+Undersample,Hydroxylation-P,0.003,8.544,0.848,	0.027,0.593,	0.069,	0.466,0.068,20.644,10.86
+Undersample,O-linked Glycosylation,0.00617,3.113,	0.697,0.014,	0.167,0.039,0.115,0.042,39.813,11.99
+Undersample,Phosphorylation-Y,0.00849,1.297,0.701,0.008,0.358,0.013,0.226,0.019,194.241,33.892
+Oversample,Hydroxylation-P,0.00474,12.378,0.868,0.03,0.615,0.067,0.494,0.075,26.143,7.544
+Oversample,O-linked Glycosylation,0.00667,2.801,0.715,0.028	,0.206,0.064,0.093,0.026,151.927,71.098
+Oversample,Phosphorylation-Y,0.00675,0.433,0.733,	0.003	,0.41,	0.005,0.27,0.006,862.005,277.084
+Weighted,Hydroxylation-P,0.002258,12.0283,0.841,0.048,0.57,0.1,0.435,0.109,27.794,4.752
+Weighted,O-linked Glycosylation,0.007468,10.478,0.664,0.055,0.252,	0.114,0,0,125.216,48.615
+Weighted,Phosphorylation-Y,0.00952,0.447,0.712,0.011,0.406,0.031,0.136,0.118,652.037,314.328
