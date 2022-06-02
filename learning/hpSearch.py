@@ -29,8 +29,6 @@ def evaluateBestTrial(parameters):
     parameters["CV_Repeats"] = 5
     avg_dict, std_dict = testModel(parameters, logToComet=True, returnEvalMetrics=True, device_id=0)
     return avg_dict, std_dict
-
-
     
 def performTuningExperiment(parameters, tuning_settings):
 

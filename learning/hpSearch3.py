@@ -25,12 +25,11 @@ def objective(trial, tuning_settings, parameters):
     return metric
 
 def evaluateBestTrial(parameters):
-    parameters["CV_Repeats"] = 5
     parameters["crossValidation"] = True
+    parameters["CV_Repeats"] = 5
     
     avg_dict, std_dict = testModel(parameters, logToComet=True, returnEvalMetrics=True, device_id=2)
     return avg_dict, std_dict
-
     
 def performTuningExperiment(parameters, tuning_settings):
 
@@ -52,7 +51,9 @@ def performTuningExperiment(parameters, tuning_settings):
     study = optuna.create_study(direction="minimize", pruner=optuna.pruners.HyperbandPruner(), sampler=optuna.samplers.TPESampler(multivariate=True,))
     study.optimize(optunaObjective, n_trials=tuning_settings["n_trials"], gc_after_trial=True)
 
-    bestEvalMetricsAvg, bestEvalMetricsSTD = evaluateBestTrial(study.best_trial.params, tuning_settings, parameters)
+    for name, value in study.best_trial.params.items():
+        parameters[name] = value
+    bestEvalMetricsAvg, bestEvalMetricsSTD = evaluateBestTrial(parameters)
     experiment = createHpTuningLogger(tuning_settings, parameters)
     logHpStudy(study, experiment, bestEvalMetricsAvg, bestEvalMetricsSTD)
 
@@ -75,7 +76,7 @@ if __name__ == "__main__":
         "ValidationMetric": "Validation Loss (total)",
         "earlyStoppingPatience": 50,
         "CV_Repeats": 1,
-        "Experiment Name": "Model architecture - sampling method - eval: ",
+        "Experiment Name": "Single model tuning and eval: ",
         # Model parameters
         "weight_decay": None,
         "embeddingType": "adaptiveEmbedding",
@@ -84,35 +85,36 @@ if __name__ == "__main__":
         "LSTM_dropout": 0,
         "UseUncertaintyBasedLoss": False,
         "useLrWeight": False,
-        "CNNType": "Adapt",
-        "FCType": "Musite",
+        "CNNType": "Musite",
+        "FCType": "Adapt",
+        "CreateFigures": False,
         }
 
-
-    aminoAcids = {
-        "Hydroxylation-P": {
-            "data_sample_mode": ["oversample",],
-            "earlyStoppingPatience": 50,
-            "weight_decay": 12.378,
-            "learning_rate": 0.00474 
+    tuning_settings = {
+        "n_trials": 250,
+        "aminoAcid": "O-linked Glycosylation",
+        "FloatsToTune" : {
+            "learning_rate": [0.00001, 0.01],
+            "weight_decay": [0, 25],
         },
-        "O-linked Glycosylation": {
-            "data_sample_mode": ["oversample",],
-            "earlyStoppingPatience": 25,
-            "weight_decay": 2.801,
-            "learning_rate": 0.00667
+        "IntsToTune" : {   
         },
-        "Phosphorylation-Y": {
-            "data_sample_mode": ["oversample",],
-            "earlyStoppingPatience": 20,
-            "weight_decay": 0.433,
-            "learning_rate": 0.00675        },                
     }
 
-    for amino_acid, aa_parameters in aminoAcids.items():
-        for key, value in aa_parameters.items():
-            parameters[key] = value
-        parameters["aminoAcid"] = [amino_acid,]
-        avg_dict, std_dict = evaluateBestTrial(parameters)
-        print(avg_dict, std_dict)
+    aminoAcids = {
+        "Acetylation": {
+            "data_sample_mode": ["balanced",],
+            "earlyStoppingPatience": 25,
+            "CV_Repeats":1,
+            "crossValidation": False,},}
 
+    for CNNType in ["Musite"]:
+        for FCType in ["Adapt"]:
+            for amino_acid, aa_parameters in aminoAcids.items():
+                parameters["CNNType"] = CNNType
+                parameters["FCType"] = FCType
+                tuning_settings["aminoAcid"] = [amino_acid,]
+                parameters["aminoAcid"] = [amino_acid,]
+                for key, value in aa_parameters.items():
+                    parameters[key] = value
+                performTuningExperiment(parameters, tuning_settings)

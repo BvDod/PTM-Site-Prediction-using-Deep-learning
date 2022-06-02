@@ -21,15 +21,18 @@ def defineHyperparameters(trial, tuning_settings, parameters):
 
 def objective(trial, tuning_settings, parameters):
     parameters = defineHyperparameters(trial, tuning_settings, parameters)
-    metric = testModel(parameters, trial=trial, logToComet=False, device_id=0)
+    metric = testModel(parameters, trial=trial, logToComet=False, device_id=2)
     return metric
 
-def evaluateBestTrial(parameters):
-    parameters["crossValidation"] = True
+def evaluateBestTrial(best_params, tuning_settings, parameters):
+    parameters["aminoAcid"] = tuning_settings["aminoAcid"]
+    for parameter, value in best_params.items():
+        parameters[parameter] = value
     parameters["CV_Repeats"] = 5
     
-    avg_dict, std_dict = testModel(parameters, logToComet=True, returnEvalMetrics=True, device_id=1)
+    avg_dict, std_dict = testModel(parameters, logToComet=True, returnEvalMetrics=True)
     return avg_dict, std_dict
+
     
 def performTuningExperiment(parameters, tuning_settings):
 
@@ -46,14 +49,14 @@ def performTuningExperiment(parameters, tuning_settings):
     print(bestEvalMetricsAvg)
     exit()
     """
-    
+    for param, value in tuning_settings.items():
+        parameters[param] = value
+
     optunaObjective = lambda trial: objective(trial, tuning_settings, parameters)      
     study = optuna.create_study(direction="minimize", pruner=optuna.pruners.HyperbandPruner(), sampler=optuna.samplers.TPESampler(multivariate=True,))
     study.optimize(optunaObjective, n_trials=tuning_settings["n_trials"], gc_after_trial=True)
 
-    for name, value in study.best_trial.params.items():
-        parameters[name] = value
-    bestEvalMetricsAvg, bestEvalMetricsSTD = evaluateBestTrial(parameters)
+    bestEvalMetricsAvg, bestEvalMetricsSTD = evaluateBestTrial(study.best_trial.params, tuning_settings, parameters)
     experiment = createHpTuningLogger(tuning_settings, parameters)
     logHpStudy(study, experiment, bestEvalMetricsAvg, bestEvalMetricsSTD)
 
@@ -64,65 +67,63 @@ if __name__ == "__main__":
         # Training parameters
         "gpu_mode": True,
         "epochs": 200,
-        "batch_size": 512,
-        "learning_rate": None,
+        "batch_size": 2048,
+        "learning_rate": 0.0005,
         "test_data_ratio": 0.2,
         "data_sample_mode": "oversample",
-        "crossValidation": True,
+        "crossValidation": False,
         "loss_function": nn.BCELoss,
         "optimizer": optim.AdamW,
         "folds": 5,
         "earlyStopping": True,
-        "ValidationMetric": "Validation Loss (total)",
+        "ValidationMetric": "Validation Loss (S-palmitoylation-C)",
+        # "ValidationMetric": "Validation Loss (total)",
         "earlyStoppingPatience": 50,
         "CV_Repeats": 1,
-        "Experiment Name": "Single model tuning and eval: ",
+        "Experiment Name": "Multitask - specific AA's test",
+        'CreateFigures': False,
+
+
         # Model parameters
-        "weight_decay": None,
+        "weight_decay": 2.5,
         "embeddingType": "adaptiveEmbedding",
         "LSTM_layers": 1,
         "LSTM_hidden_size": 32,
         "LSTM_dropout": 0,
+        "MultiTask": True,
+
+        "MultiTask_sample_method": "balanced",
         "UseUncertaintyBasedLoss": False,
         "useLrWeight": False,
+
         "CNNType": "Musite",
         "FCType": "Adapt",
-        "CreateFigures": False,
+
+        "layerToSplitOn": "FC"
         }
+                      
+
+    parameters["data_sample_mode"] = ["oversample"] * 13
 
     tuning_settings = {
+        "aminoAcid" : ["Hydroxylation-K", "Hydroxylation-P", "Pyrrolidone carboxylic acid", "S-palmitoylation-C", "Sumoylation"],
         "n_trials": 250,
-        "aminoAcid": "O-linked Glycosylation",
         "FloatsToTune" : {
             "learning_rate": [0.00001, 0.01],
             "weight_decay": [0, 25],
         },
         "IntsToTune" : {   
         },
+        "crossValidation": True,
+        "earlyStoppingPatience": 20,
+        "CV_Repeats":1,
+
     }
 
-    aminoAcids = {
-        "N-linked Glycosylation": {
-            "data_sample_mode": ["balanced",],
-            "earlyStoppingPatience": 25,
-            "CV_Repeats":1,
-            "crossValidation": True,},
-        "Ubiquitination": {
-            "data_sample_mode": ["balanced",],
-            "earlyStoppingPatience": 25,
-            "CV_Repeats":1,
-            "crossValidation": False,}
-    }
+    performTuningExperiment(parameters, tuning_settings)
 
-    for CNNType in ["Musite"]:
-        for FCType in ["Adapt"]:
-            for amino_acid, aa_parameters in aminoAcids.items():
-                parameters["CNNType"] = CNNType
-                parameters["FCType"] = FCType
-                tuning_settings["aminoAcid"] = [amino_acid,]
-                parameters["aminoAcid"] = [amino_acid,]
-                for key, value in aa_parameters.items():
-                    parameters[key] = value
-                performTuningExperiment(parameters, tuning_settings)
+
+
+
 
 
