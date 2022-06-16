@@ -9,7 +9,7 @@ import io
 def main():
     pd.set_option('display.max_rows', 10)
 
-    source_dir = "dataset/data/processed/yearsAdded/"
+    source_dir = "dataset/data/processed/yearsAdded1/"
     output_dir = "dataset/data/processed/final_split_if_2010"
 
 

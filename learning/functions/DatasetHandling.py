@@ -20,7 +20,7 @@ def indexListToOneHot(input_array):
     return output_array
 
 
-def get_folder_name(AA, embeddingType):
+def get_folder_name(AA, embeddingType, test=False, MusiteTest=False, split_2010=False):
     """Get folder name of AA of particular redundancy level"""
 
     embeddingToFolder = {
@@ -33,8 +33,23 @@ def get_folder_name(AA, embeddingType):
     type_folder = embeddingToFolder[embeddingType]
 
     data_dir = "code/Thesis/dataset/"
-    folder_name = f"{data_dir}train/{AA}/{type_folder}"
-    folder_species = f"{data_dir}train/{AA}"
+    if not test:
+        if split_2010:
+            folder_name = f"{data_dir}train_2010/{AA}/{type_folder}"
+            folder_species = f"{data_dir}train_2010/{AA}"
+        else:
+            folder_name = f"{data_dir}train/{AA}/{type_folder}"
+            folder_species = f"{data_dir}train/{AA}"
+    if test:
+        if split_2010:
+            folder_name = f"{data_dir}test_2010/{AA}/{type_folder}"
+            folder_species = f"{data_dir}test_2010/{AA}"
+        else:
+            folder_name = f"{data_dir}test/{AA}/{type_folder}"
+            folder_species = f"{data_dir}test/{AA}"
+    elif MusiteTest:
+        folder_name = f"{data_dir}test_Musiteown/{AA}/{type_folder}"
+        folder_species = f"{data_dir}test_Musiteown/{AA}"
     return folder_name, folder_species
 
 
@@ -69,13 +84,13 @@ def split_training_test_data(X, y, parameters, fold, tensor_dtype=torch.float):
     return X_train, y_train, X_val, y_val
 
 
-def loadData(parameters, aminoAcid):
+def loadData(parameters, aminoAcid, test=False, MusiteTest=False, split_2010= False):
     """Function used to load correct dataset based on parameters used"""
 
     asOneHot = parameters["embeddingType"] == "oneHot"
     tensor_dtype = torch.float if ((parameters["embeddingType"] == "oneHot") or (parameters["embeddingType"] == "protBert")) else torch.int
 
-    folder, folder_species = get_folder_name(aminoAcid, parameters["embeddingType"])
+    folder, folder_species = get_folder_name(aminoAcid, parameters["embeddingType"], test=test, MusiteTest=MusiteTest, split_2010=split_2010)
     X_neg, y_neg = np.load(f"{folder}/X_train_neg.npy"), np.load(f"{folder}/y_train_neg.npy")
     X_pos, y_pos = np.load(f"{folder}/X_train_pos.npy"), np.load(f"{folder}/y_train_pos.npy")
 

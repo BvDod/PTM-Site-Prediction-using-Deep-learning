@@ -1,0 +1,30 @@
+{'Acetylation Validation Accuracy': 0.8628, 'Acetylation Validation Sensitivity': 0.2615658362989324, 'Acetylation Validation Specificity': 0.9389364578639027, 'Acetylation Validation Precision': 0.35167464114832536, 'Acetylation 
+AUC ROC': 0.745904075366577, 'Acetylation AUC PR': 0.29638006781423964, 'Acetylation MCC': 0.22880497835507388, 'Acetylation F1': 0.3}
+Hydroxylation-K
+{'Hydroxylation-K Validation Accuracy': 0.9612903225806452, 'Hydroxylation-K Validation Sensitivity': 0.5, 'Hydroxylation-K Validation Specificity': 0.9863945578231292, 'Hydroxylation-K Validation Precision': 0.6666666666666666, 'Hydroxylation-K AUC ROC': 0.818877551020408, 'Hydroxylation-K AUC PR': 0.5780027952881912, 'Hydroxylation-K MCC': 0.5578579268296323, 'Hydroxylation-K F1': 0.5714285714285715}
+Hydroxylation-P
+{'Hydroxylation-P Validation Accuracy': 0.8896103896103896, 'Hydroxylation-P Validation Sensitivity': 0.6666666666666666, 'Hydroxylation-P Validation Specificity': 0.9652173913043478, 'Hydroxylation-P Validation Precision': 0.8666666666666667, 'Hydroxylation-P AUC ROC': 0.9189520624303233, 'Hydroxylation-P AUC PR': 0.8635767245850576, 'Hydroxylation-P MCC': 0.6938205394323038, 'Hydroxylation-P F1': 0.7536231884057971}
+Methylation-K
+{'Methylation-K Validation Accuracy': 0.963108983384962, 'Methylation-K Validation Sensitivity': 0.07526881720430108, 'Methylation-K Validation Specificity': 0.9869866975130133, 'Methylation-K Validation Precision': 0.1346153846153846, 'Methylation-K AUC ROC': 0.6183293220644663, 'Methylation-K AUC PR': 0.11842670508349182, 'Methylation-K MCC': 0.08276717912924512, 'Methylation-K F1': 0.09655172413793103}
+Methylation-R
+{'Methylation-R Validation Accuracy': 0.9373, 'Methylation-R Validation Sensitivity': 0.40784313725490196, 'Methylation-R Validation Specificity': 0.9657534246575342, 'Methylation-R Validation Precision': 0.3902439024390244, 'Methylation-R AUC ROC': 0.7615726564598442, 'Methylation-R AUC PR': 0.3935524362460047, 'Methylation-R MCC': 0.3658906166920761, 'Methylation-R F1': 0.398849472674976}
+{'N-linked Glycosylation Validation Accuracy': 0.9376, 'N-linked Glycosylation Validation Sensitivity': 0.9901500938086304, 'N-linked Glycosylation Validation Specificity': 0.9233604473817997, 'N-linked Glycosylation Validation Precision': 0.7778187177597642, 'N-linked Glycosylation AUC ROC': 0.9677969803826935, 'N-linked Glycosylation AUC PR': 0.83595271071367, 'N-linked Glycosylation MCC': 0.8413754460802683, 'N-linked Glycosylation F1': 0.8712340074288073}
+O-linked Glycosylation
+
+{'O-linked Glycosylation Validation Accuracy': 0.8997, 'O-linked Glycosylation Validation Sensitivity': 0.2423580786026201, 'O-linked Glycosylation Validation Specificity': 0.931251309997904, 'O-linked Glycosylation Validation Precision': 0.14471968709256844, 'O-linked Glycosylation AUC ROC': 0.681996693084767, 'O-linked Glycosylation AUC PR': 0.147076065259643, 'O-linked Glycosylation MCC': 0.13638184236942863, 'O-linked Glycosylation F1': 0.18122448979591838}
+Phosphorylation-Y
+{'Phosphorylation-Y Validation Accuracy': 0.8105, 'Phosphorylation-Y Validation Sensitivity': 0.23237962316817865, 'Phosphorylation-Y Validation Specificity': 0.9072020543947706, 'Phosphorylation-Y Validation Precision': 0.29521276595744683, 'Phosphorylation-Y AUC ROC': 0.6487860435265362, 'Phosphorylation-Y AUC PR': 0.23757482823707912, 'Phosphorylation-Y MCC': 0.15459682692382296, 'Phosphorylation-Y F1': 0.26005466614603673}
+Phosphorylation-['S', 'T']
+{"Phosphorylation-['S', 'T'] Validation Accuracy": 0.7562, "Phosphorylation-['S', 'T'] Validation Sensitivity": 0.6679316888045541, "Phosphorylation-['S', 'T'] Validation Specificity": 0.7665995975855131, "Phosphorylation-['S', 'T'] Validation Precision": 0.2521489971346705, "Phosphorylation-['S', 'T'] AUC ROC": 0.7852338572866675, "Phosphorylation-['S', 'T'] AUC PR": 0.3589497198703277, "Phosphorylation-['S', 'T'] MCC": 0.29743406571555714, "Phosphorylation-['S', 'T'] F1": 0.36609464378575146}
+Pyrrolidone carboxylic acid
+
+{'Pyrrolidone carboxylic acid Validation Accuracy': 0.9596153846153846, 'Pyrrolidone carboxylic acid Validation Sensitivity': 0.8620689655172413, 'Pyrrolidone carboxylic acid Validation Specificity': 0.9718614718614719, 'Pyrrolidone carboxylic acid Validation Precision': 0.7936507936507936, 'Pyrrolidone carboxylic acid AUC ROC': 0.9345424690252275, 'Pyrrolidone carboxylic acid AUC PR': 0.8919836201138442, 'Pyrrolidone carboxylic acid MCC': 0.8045192408130105, 'Pyrrolidone carboxylic acid F1': 0.8264462809917354}
+S-palmitoylation-C
+{'S-palmitoylation-C Validation Accuracy': 0.8362696734789759, 'S-palmitoylation-C Validation Sensitivity': 0.11642743221690591, 'S-palmitoylation-C Validation Specificity': 0.9606060606060606, 'S-palmitoylation-C Validation Precision': 0.33796296296296297, 'S-palmitoylation-C AUC ROC': 0.6004887939859667, 'S-palmitoylation-C AUC PR': 0.24774751949363438, 'S-palmitoylation-C MCC': 0.12439283678989052, 'S-palmitoylation-C F1': 0.17319098457888493}
+Sumoylation
+{'Sumoylation Validation Accuracy': 0.897489539748954, 'Sumoylation Validation Sensitivity': 0.31994818652849744, 'Sumoylation Validation Specificity': 0.9623327515997673, 'Sumoylation Validation Precision': 0.4881422924901186, 'Sumoylation AUC ROC': 0.6892126100546468, 'Sumoylation AUC PR': 0.3282524384796185, 'Sumoylation MCC': 0.34211566069837945, 'Sumoylation F1': 0.38654147104851333}
+Ubiquitination
+error: no pred for seq: 3588
+error: no pred for seq: 4053
+error: no pred for seq: 6550
+{'Ubiquitination Validation Accuracy': 0.6984, 'Ubiquitination Validation Sensitivity': 0.17052980132450332, 'Ubiquitination Validation Specificity': 0.8665611814345991, 'Ubiquitination Validation Precision': 0.2893258426966292, 'Ubiquitination AUC ROC': 0.5472206595184704, 'Ubiquitination AUC PR': 0.2800935597728368, 'Ubiquitination MCC': 0.045432704157591784, 'Ubiquitination F1': 0.21458333333333335}

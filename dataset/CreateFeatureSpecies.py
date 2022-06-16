@@ -55,7 +55,7 @@ tokenizer = tokenizer = BertTokenizer.from_pretrained('Rostlab/prot_bert_bfd', d
 
 
 # For all retrieved full UniProt sequences, now truncate them
-input_dir = "data/processed/final_split/train"
+input_dir = "data/processed/final_split_if_2010/train"
 df_all = get_merged_df(input_dir)
 
 # %%
@@ -84,8 +84,8 @@ index_species = {
 df_index_species = pd.DataFrame(data=index_species)
 df_index_species.to_csv("SpeciesLabels.csv", index=False)
 
-input_dir = "data/processed/final_split/train"
-output_dir = "data/learningData/balanced/train_species/"
+input_dir = "data/processed/final_split_if_2010/train"
+output_dir = "data/learningData/balanced/train_2010_noolddata/"
 
 # %%
 
@@ -117,6 +117,19 @@ for file in os.listdir(input_dir):
     df_neg = get_species_names(df_neg)
 
     n = len(df_pos)
+
+    column = "DateSeqModified"
+
+    df_pos[column] = pd.to_datetime(df_pos[column])
+    df_neg[column] = pd.to_datetime(df_neg[column])
+
+    split_date = "2002"
+
+    print(f"old sample count: {len(df_pos)+len(df_neg)}")
+    df_pos= df_pos[df_pos[column] >= split_date]
+    df_neg = df_neg[df_neg[column] >= split_date]
+    print(f"new sample count: {len(df_pos)+len(df_neg)}")
+
 
     df_neg["TruncatedUniProtSequence"] = df_neg.dbPTMSequence
     df_neg = df_neg.sample(frac=1)

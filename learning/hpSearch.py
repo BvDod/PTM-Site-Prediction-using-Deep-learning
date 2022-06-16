@@ -25,8 +25,6 @@ def objective(trial, tuning_settings, parameters):
     return metric
 
 def evaluateBestTrial(parameters):
-    parameters["crossValidation"] = True
-    parameters["CV_Repeats"] = 5
     avg_dict, std_dict = testModel(parameters, logToComet=True, returnEvalMetrics=True, device_id=0)
     return avg_dict, std_dict
     
@@ -62,7 +60,7 @@ if __name__ == "__main__":
     parameters = { 
         # Training parameters
         "gpu_mode": True,
-        "epochs": 200,
+        "epochs": 400,
         "batch_size": 512,
         "learning_rate": None,
         "test_data_ratio": 0.2,
@@ -72,10 +70,10 @@ if __name__ == "__main__":
         "optimizer": optim.AdamW,
         "folds": 5,
         "earlyStopping": True,
-        "ValidationMetric": "Validation Loss (PTM)",
+        "ValidationMetric": "Validation Loss (total)",
         "earlyStoppingPatience": 25,
         "CV_Repeats": 1,
-        "Experiment Name": "HP TUNING - MULTITASK - SEMITUNED OLD PARAMETERS",
+        "Experiment Name": "test normal test set NO species",
         # Model parameters
         "weight_decay": None,
         "embeddingType": "adaptiveEmbedding",
@@ -93,16 +91,19 @@ if __name__ == "__main__":
         "useSpecieFeature": False,
         "SpecieFeatureHoldout": False,
 
-        "MultiTask_Species": True,
+        "MultiTask_Species": False,
         "species_weight": 0.15,
-        "TestSet": False
+        "TestSet": True,
+        "MusiteTest": False,
+        "split_2010": False,
         }
 
     tuning_settings = {
         "n_trials": 250,
         "aminoAcid": "Methylation-K",
         "FloatsToTune" : {
-            "species_weight": [0.001, 0.3],
+            "learning_rate": [0.00001, 0.01],
+            "weight_decay": [0, 25],
         },
         "IntsToTune" : {   
         },
@@ -116,14 +117,16 @@ if __name__ == "__main__":
             "learning_rate": 0.0015666979 ,
             "weight_decay": 23.27890382,
             "CV_Repeats":5,
-            "crossValidation": True},
+            "crossValidation": True,
+            "SpecieFeatureHoldout": False,},
         "Hydroxylation-P": {
             "data_sample_mode": ["oversample",],
             "earlyStoppingPatience": 50,
             "learning_rate": 0.002079141428,
             "weight_decay": 7.1738,
             "CV_Repeats":5,
-            "crossValidation": True},
+            "crossValidation": True,
+            "SpecieFeatureHoldout": False,},
         "Pyrrolidone carboxylic acid": {
             "data_sample_mode": ["oversample",],
             "earlyStoppingPatience": 50,
@@ -136,42 +139,42 @@ if __name__ == "__main__":
             "earlyStoppingPatience": 50,
             "learning_rate": 6.91E-04,
             "weight_decay": 3.1783,
-            "CV_Repeats":1,
+            "CV_Repeats":3,
             "crossValidation": True},
         "Sumoylation": {
             "data_sample_mode": ["oversample",],
             "earlyStoppingPatience": 50,
             "learning_rate": 0.0009745544177,
             "weight_decay": 0.5650471043,
-            "CV_Repeats":1,
+            "CV_Repeats":3,
             "crossValidation": True},
         "S-palmitoylation-C": {
             "data_sample_mode": ["oversample",],
             "earlyStoppingPatience": 50,
             "learning_rate": 5.87E-04,
             "weight_decay": 1.950457673,
-            "CV_Repeats":1,
+            "CV_Repeats":3,
             "crossValidation": True},
         "Methylation-K": {
             "data_sample_mode": ["oversample",],
             "earlyStoppingPatience": 25,
             "learning_rate": 5.36E-04,
             "weight_decay": 1.02323669,
-            "CV_Repeats":1,
+            "CV_Repeats":3,
             "crossValidation": True},
         "O-linked Glycosylation": {
             "data_sample_mode": ["balanced",],
             "earlyStoppingPatience": 25,
             "learning_rate": 0.003566031739,
             "weight_decay": 1.162598511,
-            "CV_Repeats":1,
+            "CV_Repeats":3,
             "crossValidation": True},
         "N-linked Glycosylation": {
             "data_sample_mode": ["balanced",],
             "earlyStoppingPatience": 25,
             "learning_rate": 0.001754199373,
             "weight_decay": 0.5873957722,
-            "CV_Repeats":1,
+            "CV_Repeats":3,
             "crossValidation": True},
         "Acetylation": {
             "data_sample_mode": ["balanced",],
@@ -179,29 +182,125 @@ if __name__ == "__main__":
             "learning_rate": 5.92E-04,
             "weight_decay": 0.2448830361,
             "CV_Repeats":1,
-            "crossValidation": False},
+            "crossValidation": True},
         "Phosphorylation-Y": {
             "data_sample_mode": ["balanced",],
             "earlyStoppingPatience": 25,
             "learning_rate": 1.98E-04,
             "weight_decay": 0.161356466,
             "CV_Repeats":1,
-            "crossValidation": False},
+            "crossValidation": True},
         "Ubiquitination": {
             "data_sample_mode": ["balanced",],
             "earlyStoppingPatience": 20,
             "learning_rate": 5.29E-04,
             "weight_decay": 1.031953666,
             "CV_Repeats":1,
-            "crossValidation": False},
+            "crossValidation": True},
         "Phosphorylation-['S', 'T']": {
             "data_sample_mode": ["balanced",],
             "earlyStoppingPatience": 20,
             "learning_rate": 0.00036135,
             "weight_decay": 0.0961727,
             "CV_Repeats":1,
-            "crossValidation": False},
-    }
+            "crossValidation": True}, }
+    
+    {
+        "Hydroxylation-K": {
+            "data_sample_mode": ["oversample",],
+            "earlyStoppingPatience": 50,
+            "learning_rate": 0.0015666979 ,
+            "weight_decay": 23.27890382,
+            "CV_Repeats":5,
+            "crossValidation": True,
+            "SpecieFeatureHoldout": True,},
+        "Hydroxylation-P": {
+            "data_sample_mode": ["oversample",],
+            "earlyStoppingPatience": 50,
+            "learning_rate": 0.002079141428,
+            "weight_decay": 7.1738,
+            "CV_Repeats":5,
+            "crossValidation": True,
+            "SpecieFeatureHoldout": True,},
+        "Pyrrolidone carboxylic acid": {
+            "data_sample_mode": ["oversample",],
+            "earlyStoppingPatience": 50,
+            "learning_rate": 0.00334134,
+            "weight_decay": 3.290942,
+            "CV_Repeats":5,
+            "crossValidation": True},
+        "Methylation-R": {
+            "data_sample_mode": ["oversample",],
+            "earlyStoppingPatience": 50,
+            "learning_rate": 6.91E-04,
+            "weight_decay": 3.1783,
+            "CV_Repeats":3,
+            "crossValidation": True},
+        "Sumoylation": {
+            "data_sample_mode": ["oversample",],
+            "earlyStoppingPatience": 50,
+            "learning_rate": 0.0009745544177,
+            "weight_decay": 0.5650471043,
+            "CV_Repeats":3,
+            "crossValidation": True},
+        "S-palmitoylation-C": {
+            "data_sample_mode": ["oversample",],
+            "earlyStoppingPatience": 50,
+            "learning_rate": 5.87E-04,
+            "weight_decay": 1.950457673,
+            "CV_Repeats":3,
+            "crossValidation": True},
+        "Methylation-K": {
+            "data_sample_mode": ["oversample",],
+            "earlyStoppingPatience": 25,
+            "learning_rate": 5.36E-04,
+            "weight_decay": 1.02323669,
+            "CV_Repeats":3,
+            "crossValidation": True},
+        "O-linked Glycosylation": {
+            "data_sample_mode": ["balanced",],
+            "earlyStoppingPatience": 25,
+            "learning_rate": 0.003566031739,
+            "weight_decay": 1.162598511,
+            "CV_Repeats":3,
+            "crossValidation": True},
+        "N-linked Glycosylation": {
+            "data_sample_mode": ["balanced",],
+            "earlyStoppingPatience": 25,
+            "learning_rate": 0.001754199373,
+            "weight_decay": 0.5873957722,
+            "CV_Repeats":3,
+            "crossValidation": True},
+        "Acetylation": {
+            "data_sample_mode": ["balanced",],
+            "earlyStoppingPatience": 25,
+            "learning_rate": 5.92E-04,
+            "weight_decay": 0.2448830361,
+            "CV_Repeats":1,
+            "crossValidation": True},
+        "Phosphorylation-Y": {
+            "data_sample_mode": ["balanced",],
+            "earlyStoppingPatience": 25,
+            "learning_rate": 1.98E-04,
+            "weight_decay": 0.161356466,
+            "CV_Repeats":1,
+            "crossValidation": True},
+        "Ubiquitination": {
+            "data_sample_mode": ["balanced",],
+            "earlyStoppingPatience": 20,
+            "learning_rate": 5.29E-04,
+            "weight_decay": 1.031953666,
+            "CV_Repeats":1,
+            "crossValidation": True},
+        "Phosphorylation-['S', 'T']": {
+            "data_sample_mode": ["balanced",],
+            "earlyStoppingPatience": 20,
+            "learning_rate": 0.00036135,
+            "weight_decay": 0.0961727,
+            "CV_Repeats":1,
+            "crossValidation": True}, }
+
+    
 
 
     """
@@ -225,8 +324,8 @@ if __name__ == "__main__":
                 for key, value in aa_parameters.items():
                     parameters[key] = value
                 
-                performTuningExperiment(parameters, tuning_settings)
-                # evaluateBestTrial(parameters)
+                #performTuningExperiment(parameters, tuning_settings)
+                evaluateBestTrial(parameters)
 
 
 

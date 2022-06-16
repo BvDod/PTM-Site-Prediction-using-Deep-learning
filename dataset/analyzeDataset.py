@@ -11,9 +11,12 @@ sys.path.append(os.path.join(os.path.dirname(__file__), "lib"))
 def get_merged_df(input_dir):
     dataframes = []
     for file in os.listdir(input_dir):
-
+        if not ((file == "df_test") or (file == "df_test")):
+            continue
+       
         df = pd.read_csv(f"{input_dir}/{file}", delimiter=",")
 
+        """
         if file.split("_")[-4] == "neg":
             df["label"] = 0
         elif file.split("_")[-4] == "pos":
@@ -22,6 +25,8 @@ def get_merged_df(input_dir):
         else:
             print("Error: invalid filename")
             exit()
+        """
+        df["label"] = df["y"]
 
         df["PTM_type"] = file.split("_")[0]
         dataframes.append(df)
@@ -29,11 +34,11 @@ def get_merged_df(input_dir):
     df_all = pd.concat(dataframes)
     return dataframes, df_all
 
-input_dir = "data/processed/final_split/train"
+input_dir = "data/MusiteTest_musiteowndata_static/MusiteY"
 dfs, df_all = get_merged_df(input_dir)
 
-input_dir = "data/processed/final_split/test"
-dfs, df_all_test = get_merged_df(input_dir)
+# input_dir = "data/processed/final_split/test"
+# dfs, df_all_test = get_merged_df(input_dir)
 
 
 
@@ -60,7 +65,7 @@ print("Train dataset")
 print_stats(df_all)
 
 print("Test dataset")
-print_stats(df_all_test)
+# print_stats(df_all_test)
 
 
 
@@ -82,7 +87,7 @@ def get_species_names(df):
     return df
 
 df_all = get_species_names(df_all)
-df_all_test = get_species_names(df_all_test)
+# df_all_test = get_species_names(df_all_test)
 
 dfs = [get_species_names(df) for df in dfs]
 
@@ -113,7 +118,7 @@ def plot_species_count(df, string):
     plt.savefig(f'species_{string}.png', dpi=300, bbox_inches='tight')
 
 plot_species_count(df_all, "Train")
-plot_species_count(df_all_test, "Test")
+# plot_species_count(df_all_test, "Test")
 
 for df in dfs:
     plot_species_count(df, df["PTM_type"].iloc[0])
@@ -160,9 +165,9 @@ def plot_date_hist_overlapping(df, df_test, ax= None):
     return ax
 
 
-# ax = plot_date_hist(df_all, "Train")
+ax = plot_date_hist(df_all, "Train")
 
-plot_date_hist_overlapping(df_all, df_all_test)
+# plot_date_hist_overlapping(df_all, df_all_test)
 
 
 # %%

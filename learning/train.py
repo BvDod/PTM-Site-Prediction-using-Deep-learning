@@ -60,7 +60,7 @@ def testModel(parameters, trial=None, logToComet=True, returnEvalMetrics=False, 
                 net = nn.DataParallel(net)
 
 
-            trainloader, testloader, actualTestloader, val_ratios, train_ratios = loadDataLoaders(parameters, fold, test=parameters["TestSet"])
+            trainloader, testloader, actualTestloader, val_ratios, train_ratios = loadDataLoaders(parameters, fold, test=parameters["TestSet"], MusiteTest=parameters["MusiteTest"], split_2010=parameters["split_2010"])
 
             parameter_dicts = [
                 {'params': net.layers.parameters()}
@@ -127,7 +127,7 @@ def testModel(parameters, trial=None, logToComet=True, returnEvalMetrics=False, 
     return average_dict[parameters["ValidationMetric"]]
 
 
-def loadDataLoaders(parameters, fold, test=False):
+def loadDataLoaders(parameters, fold, test=False, MusiteTest=False, split_2010=False):
     # Load AA of specific redundanctPercentage from disk
     trainloaders, testloaders = [], []
     val_ratios, train_ratios = [], []
@@ -140,7 +140,7 @@ def loadDataLoaders(parameters, fold, test=False):
     
     sample_sizes = []
     for i, aminoAcid in enumerate(parameters["aminoAcid"]):
-        X_neg, y_neg, X_pos, y_pos, n, tensor_dtype = loadData(parameters, aminoAcid)
+        X_neg, y_neg, X_pos, y_pos, n, tensor_dtype = loadData(parameters, aminoAcid, split_2010=split_2010)
         X_train_neg, y_train_neg, X_val_neg, y_val_neg = split_training_test_data(X_neg, y_neg, parameters, fold, tensor_dtype=tensor_dtype)
         X_train_pos, y_train_pos, X_val_pos, y_val_pos = split_training_test_data(X_pos, y_pos, parameters, fold, tensor_dtype=tensor_dtype)
         
@@ -235,8 +235,8 @@ def loadDataLoaders(parameters, fold, test=False):
     
     trainloader = MultiTaskLoader(trainloaders)
 
-    if test:
-        X_neg, y_neg, X_pos, y_pos, n, tensor_dtype = loadData(parameters, parameters["aminoAcid"][0])
+    if test or MusiteTest:
+        X_neg, y_neg, X_pos, y_pos, n, tensor_dtype = loadData(parameters, parameters["aminoAcid"][0], test=test, MusiteTest=MusiteTest, split_2010=split_2010)
         X_neg = torch.tensor(X_neg, dtype=tensor_dtype)
         y_neg = torch.tensor(y_neg, dtype=torch.float)
         X_pos = torch.tensor(X_pos, dtype=tensor_dtype)
@@ -279,7 +279,7 @@ def trainModel(trainloader, testloaders, actualTestloader, net, optimizer, devic
         # Evaluate validation performance
         if not epoch == 0:
             metrics, figures = evalValidation(testloaders, net, device, val_ratio, experiment, epoch, parameters)
-            if parameters["TestSet"]:
+            if parameters["TestSet"] or parameters["MusiteTest"]:
                 metrics_test, figures_test = best_eval_metrics_test, best_eval_figures_test = evalValidation([actualTestloader,], net, device, val_ratio, experiment, epoch, parameters)
             if trial: 
                 if (parameters["currentFold"] == 0) and (parameters["current_CV_Repeat"] == 1):
@@ -296,7 +296,7 @@ def trainModel(trainloader, testloaders, actualTestloader, net, optimizer, devic
                     best_eval_metrics = metrics
                     best_eval_figures = figures
 
-                    if parameters["TestSet"]:
+                    if parameters["TestSet"] or parameters["MusiteTest"]:
                         if not best_eval_metrics_test is None:
                             for name, figure in best_eval_figures_test.items():
                                 figure.clf()
@@ -306,7 +306,7 @@ def trainModel(trainloader, testloaders, actualTestloader, net, optimizer, devic
             else:
                 for name, figure in figures.items():
                     figure.clf()
-                if parameters["TestSet"]:
+                if parameters["TestSet"] or parameters["MusiteTest"]:
                     for name, figure in figures_test.items():
                         figure.clf()
 
@@ -418,7 +418,7 @@ def trainModel(trainloader, testloaders, actualTestloader, net, optimizer, devic
     print(f"Total time taken: {t1 - t0}")
     best_eval_metrics["TimeToTrain"] = t1 - t0
 
-    if parameters["TestSet"]:
+    if parameters["TestSet"] or parameters["MusiteTest"]:
         return best_eval_metrics_test, best_eval_figures_test
     return best_eval_metrics, best_eval_figures
 
