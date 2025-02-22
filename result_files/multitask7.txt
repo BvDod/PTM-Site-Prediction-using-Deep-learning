@@ -1,0 +1,85 @@
+{'CNNType': 'Musite',
+ 'CV_Repeats': 1,
+ 'CreateFigures': False,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Adapt',
+ 'FloatsToTune': {'learning_rate': [1e-05, 0.01], 'weight_decay': [0, 25]},
+ 'IntsToTune': {},
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': True,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 20,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.009855246707772842,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'n_trials': 250,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 932301115,
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': 1,
+ 'weight_decay': 17.158921264065814}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 1761.334
+[2,    26] loss: 1721.265
+[3,    26] loss: 1721.166
+[4,    26] loss: 1721.193
+[5,    26] loss: 1721.208
+[6,    26] loss: 1721.088
+[7,    26] loss: 1721.191
+[8,    26] loss: 1721.221
+[9,    26] loss: 1721.147
+[10,    26] loss: 1721.102
+[11,    26] loss: 1721.134
+[12,    26] loss: 1721.124
+[13,    26] loss: 1721.185
+[14,    26] loss: 1721.100
+[15,    26] loss: 1721.212
+[16,    26] loss: 1721.136

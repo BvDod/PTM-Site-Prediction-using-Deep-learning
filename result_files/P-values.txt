@@ -1,0 +1,213 @@
+
+If independent, non correct paired t-test
+Hydroxylation-P
+Oversample vs Balanced = 0.06147323126977297
+Oversample vs Undersample = 0.10275104183578623
+Oversample vs Weighted = 0.11119897610249914
+O-linked Glycosylation
+Oversample vs Balanced = 0.4664562424899139
+Oversample vs Undersample = 0.07204966240077905
+Oversample vs Weighted = 0.020060464144846833
+Phosphorylation-Y
+Balanced vs Undersample = 1.6967107825822775e-10
+Balanced vs Oversample = 0.5
+Balanced vs Weighted = 2.4654728008557418e-05
+
+
+
+if only cv, non repeated
+Hydroxylation-P
+AdaptiveEmb. vs One-hot = 0.0020291819150718487
+AdaptiveEmb. vs Embedding-Layer = 9.854479063896499e-06
+O-linked Glycosylation
+AdaptiveEmb. vs One-hot = 0.00021842526111630215
+AdaptiveEmb. vs Embedding-Layer = 4.166655261748378e-06
+Phosphorylation-Y
+AdaptiveEmb. vs One-hot = 8.955347076502552e-17
+AdaptiveEmb. vs Embedding-Layer = 2.6718324958733782e-12
+Hydroxylation-P
+Oversample vs Balanced = 0.00012161816459116978
+Oversample vs Undersample = 0.0009122870114360748
+Oversample vs Weighted = 0.0012599353070856369
+O-linked Glycosylation
+Oversample vs Balanced = 0.4103836742778354
+Oversample vs Undersample = 0.0002230756967157452
+Oversample vs Weighted = 2.5082706417526492e-06
+Phosphorylation-Y
+Balanced vs Undersample = 6.172224096515525e-20
+Balanced vs Oversample = 0.5
+Balanced vs Weighted = 7.438711414082919e-13
+Hydroxylation-P
+CNN-Musite, FC-Musite vs CNN-Musite, FC-Adapt = 0.5
+CNN-Musite, FC-Musite vs CNN-Adapt, FC-Adapt = 0.386004342607277
+CNN-Musite, FC-Musite vs CNN-Adapt, FC-Musite = 0.11581611240075576
+O-linked Glycosylation
+CNN-Musite, FC-Adapt vs CNN-Musite, FC-Musite = 0.0016257253212255392
+CNN-Musite, FC-Adapt vs CNN-Adapt, FC-Adapt = 0.0020710455154984517
+CNN-Musite, FC-Adapt vs CNN-Adapt, FC-Musite = 0.0006814674574153523
+Phosphorylation-Y
+CNN-Musite, FC-Musite vs CNN-Musite, FC-Adapt = 0.03078141893098821
+CNN-Musite, FC-Musite vs CNN-Adapt, FC-Adapt = 2.4577627638389504e-10
+CNN-Musite, FC-Musite vs CNN-Adapt, FC-Musite = 1.4953614216371688e-15
+Hydroxylation-K
+ProtTransEmb. vs AdaptiveEmb. = 0.004251380208516854
+Hydroxylation-P
+ProtTransEmb. vs AdaptiveEmb. = 0.07774192783246747
+Pyrrolidone carb. acid
+ProtTransEmb. vs AdaptiveEmb. = 0.3523690412095998
+Sumoylation
+AdaptiveEmb. vs ProtTransEmb. = 3.927563738529809e-12
+S-palmitoylation-C
+AdaptiveEmb. vs ProtTransEmb. = 0.5
+Methylation-K
+AdaptiveEmb. vs ProtTransEmb. = 1.5961533324941095e-17
+plot.py:221: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+
+
+
+correct paired t test
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df_metric["Metric"] = avg_metric
+Hydroxylation-K
+Seq+Species (FC) vs Seq+Species (Conv) = 0.0007007488786427024
+Seq+Species (FC) vs Sequence only = 0.19703894630788055
+Hydroxylation-P
+Seq+Species (FC) vs Seq+Species (Conv) = 0.023803734073445815
+Seq+Species (FC) vs Sequence only = 0.23257573251229152
+Pyrrolidone carb. acid
+Sequence only vs Seq+Species (FC) = 0.0018786987564506986
+Sequence only vs Seq+Species (Conv) = 0.3403126586891088
+Methylation-R
+Seq+Species (Conv) vs Seq+Species (FC) = 0.00014246647030058263
+Seq+Species (Conv) vs Sequence only = 0.0002986591457248216
+Sumoylation
+Seq+Species (Conv) vs Seq+Species (FC) = 0.08300679291841564
+Seq+Species (Conv) vs Sequence only = 5.7157704287010874e-05
+S-palmitoylation-C
+Seq+Species (Conv) vs Seq+Species (FC) = 8.218784678657346e-14
+Seq+Species (Conv) vs Sequence only = 1.1330404802993503e-13
+Methylation-K
+Seq+Species (Conv) vs Seq+Species (FC) = 0.018498350803711767
+Seq+Species (Conv) vs Sequence only = 4.4022354282379033e-26
+O-linked Glycosylation
+Seq+Species (Conv) vs Seq+Species (FC) = 0.15182356902589256
+Seq+Species (Conv) vs Sequence only = 1.305006840988242e-08
+N-linked Glycosylation
+Seq+Species (Conv) vs Seq+Species (FC) = 2.0784281799081834e-05
+Seq+Species (Conv) vs Sequence only = 7.691719475280885e-21
+Acetylation
+Seq+Species (Conv) vs Seq+Species (FC) = 8.847655423986287e-18
+Seq+Species (Conv) vs Sequence only = 1.7269676870663498e-37
+Phosphorylation-Y
+Seq+Species (Conv) vs Seq+Species (FC) = 7.712195862025555e-07
+Seq+Species (Conv) vs Sequence only = 1.4446629834325698e-36
+Ubiquitination
+Seq+Species (Conv) vs Seq+Species (FC) = 2.4577627638389504e-10
+Seq+Species (Conv) vs Sequence only = 4.4224099172013413e-26
+Phosphorylation-S/T
+Seq+Species (Conv) vs Seq+Species (FC) = 9.191285791164512e-11
+Seq+Species (Conv) vs Sequence only = 4.774634479506138e-48
+plot.py:95: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations.
+  plt.tight_layout()
+
+
+
+
+
+
+Hydroxylation-P
+AdaptiveEmb. vs One-hot = 0.12478523369823237
+AdaptiveEmb. vs Embedding-Layer = 0.030445583741027085
+O-linked Glycosylation
+AdaptiveEmb. vs One-hot = 0.07165806434058242
+AdaptiveEmb. vs Embedding-Layer = 0.02348967071881591
+Phosphorylation-Y
+AdaptiveEmb. vs One-hot = 5.719393525231834e-08
+AdaptiveEmb. vs Embedding-Layer = 5.154950940616896e-05
+Hydroxylation-P
+Oversample vs Balanced = 0.06147323126977297
+Oversample vs Undersample = 0.10275104183578623
+Oversample vs Weighted = 0.11119897610249914
+O-linked Glycosylation
+Oversample vs Balanced = 0.4664562424899139
+Oversample vs Undersample = 0.07204966240077905
+Oversample vs Weighted = 0.020060464144846833
+Phosphorylation-Y
+Balanced vs Undersample = 1.6967107825822775e-10
+Balanced vs Oversample = 0.5
+Balanced vs Weighted = 2.4654728008557418e-05
+Hydroxylation-P
+CNN-Musite, FC-Musite vs CNN-Musite, FC-Adapt = 0.5
+CNN-Musite, FC-Musite vs CNN-Adapt, FC-Adapt = 0.4571198278609008
+CNN-Musite, FC-Musite vs CNN-Adapt, FC-Musite = 0.32631977432829573
+O-linked Glycosylation
+CNN-Musite, FC-Adapt vs CNN-Musite, FC-Musite = 0.11829303647828324
+CNN-Musite, FC-Adapt vs CNN-Adapt, FC-Adapt = 0.1253989441061603
+CNN-Musite, FC-Adapt vs CNN-Adapt, FC-Musite = 0.09560463808498929
+Phosphorylation-Y
+CNN-Musite, FC-Musite vs CNN-Musite, FC-Adapt = 0.2367212501643457
+CNN-Musite, FC-Musite vs CNN-Adapt, FC-Adapt = 0.0005410076675682555
+CNN-Musite, FC-Musite vs CNN-Adapt, FC-Musite = 4.4221857783464744e-07
+Hydroxylation-K
+ProtTransEmb. vs AdaptiveEmb. = 0.1488273019966112
+Hydroxylation-P
+ProtTransEmb. vs AdaptiveEmb. = 0.2955071559719794
+Pyrrolidone carb. acid
+ProtTransEmb. vs AdaptiveEmb. = 0.4439678648045452
+Sumoylation
+AdaptiveEmb. vs ProtTransEmb. = 6.397579649292773e-05
+S-palmitoylation-C
+AdaptiveEmb. vs ProtTransEmb. = 0.5
+Methylation-K
+AdaptiveEmb. vs ProtTransEmb. = 1.5369165280479337e-08
+plot.py:221: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df_metric["Metric"] = avg_metric
+Hydroxylation-K
+Seq+Species (FC) vs Seq+Species (Conv) = 0.0962690018358959
+Seq+Species (FC) vs Sequence only = 0.37500547097558473
+Hydroxylation-P
+Seq+Species (FC) vs Seq+Species (Conv) = 0.22284495407498717
+Seq+Species (FC) vs Sequence only = 0.3925856105098583
+Pyrrolidone carb. acid
+Sequence only vs Seq+Species (FC) = 0.12249357853852952
+Sequence only vs Seq+Species (Conv) = 0.4391577525617273
+Methylation-R
+Seq+Species (Conv) vs Seq+Species (FC) = 0.06409581258344596
+Seq+Species (Conv) vs Sequence only = 0.07766378526823133
+Sumoylation
+Seq+Species (Conv) vs Seq+Species (FC) = 0.30030021888493064
+Seq+Species (Conv) vs Sequence only = 0.05017076647127308
+S-palmitoylation-C
+Seq+Species (Conv) vs Seq+Species (FC) = 6.425337744754085e-06
+Seq+Species (Conv) vs Sequence only = 7.86163375903207e-06
+Methylation-K
+Seq+Species (Conv) vs Seq+Species (FC) = 0.21006888255633327
+Seq+Species (Conv) vs Sequence only = 4.7699353622549595e-16
+O-linked Glycosylation
+Seq+Species (Conv) vs Seq+Species (FC) = 0.34984323589374633
+Seq+Species (Conv) vs Sequence only = 0.0030801456275757694
+N-linked Glycosylation
+Seq+Species (Conv) vs Seq+Species (FC) = 0.037816582320403365
+Seq+Species (Conv) vs Sequence only = 2.857763004814908e-11
+Acetylation
+Seq+Species (Conv) vs Seq+Species (FC) = 9.707014322214237e-09
+Seq+Species (Conv) vs Sequence only = 3.373485495475344e-27
+Phosphorylation-Y
+Seq+Species (Conv) vs Seq+Species (FC) = 0.01369929084645159
+Seq+Species (Conv) vs Sequence only = 2.7806483965284577e-26
+Ubiquitination
+Seq+Species (Conv) vs Seq+Species (FC) = 0.0005410076675682555
+Seq+Species (Conv) vs Sequence only = 4.790613713681243e-16
+Phosphorylation-S/T
+Seq+Species (Conv) vs Seq+Species (FC) = 0.0003356905603650963
+Seq+Species (Conv) vs Sequence only = 9.967754552092355e-38
+plot.py:95: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations.
+  plt.tight_layout()
+

@@ -67,15 +67,18 @@ def get_evaluation_metrics(AA, y_true, y_output, y_pred, figures=True, species=F
     """ Calculates all evaluation metrics and returns them as a dict"""
 
     if (not len(y_output.shape) > 1) or (y_output.shape[1] == 1):
-        tn, fp, fn, tp = confusion_matrix(y_true, y_pred).ravel()
-        accuracy = (tp+tn)/(fn+fp+tp+tn)
-        sensitivity = tp/(tp+fn)
-        specificity = tn/(tn+fp)
-        precision = tp/(tp+fp)
-        auc_roc = roc_auc_score(y_true, y_output)
-        auc_pr = auc_pr_score(y_true, y_output)
-        f1 = f1_score(y_true, y_pred)
-        MCC = matthews_corrcoef(y_true, y_pred)
+        try:
+            tn, fp, fn, tp = confusion_matrix(y_true, y_pred).ravel()
+            accuracy = (tp+tn)/(fn+fp+tp+tn)
+            sensitivity = tp/(tp+fn)
+            specificity = tn/(tn+fp)
+            precision = tp/(tp+fp)
+            auc_roc = roc_auc_score(y_true, y_output)
+            auc_pr = auc_pr_score(y_true, y_output)
+            f1 = f1_score(y_true, y_pred)
+            MCC = matthews_corrcoef(y_true, y_pred)
+        except:
+            accuracy, sensitivity, specificity, precision, auc_roc, auc_pr, f1, MCC = [0]*8
     
     elif species:
 

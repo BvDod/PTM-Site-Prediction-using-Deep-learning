@@ -1,0 +1,51 @@
+Acetylation_uniprot_sequence_truncated_nonRed_pos_year_added: 2010-04-20 00:00:00
+Train: 49995/270723
+Test: 12080/91094
+
+Hydroxylation-K_uniprot_sequence_truncated_nonRed_pos_year_added: 2007-01-23 00:00:00
+Train: 48/190
+Test: 8/147  
+
+Hydroxylation-P_uniprot_sequence_truncated_nonRed_pos_year_added: 2012-01-25 00:00:00
+Train: 176/819
+Test: 39/115
+
+Methylation-K_uniprot_sequence_truncated_nonRed_pos_year_added: 2008-09-03 00:00:00
+Train: 4634/42729
+Test: 93/3458
+
+Methylation-R_uniprot_sequence_truncated_nonRed_pos_year_added: 2008-11-25 00:00:00
+Train: 3769/40750
+Test: 872/16597
+
+N-linked Glycosylation_uniprot_sequence_truncated_nonRed_pos_year_added: 2009-11-24 00:00:00
+Train: 10950/39212
+Test: 2706/10122
+
+O-linked Glycosylation_uniprot_sequence_truncated_nonRed_pos_year_added: 2010-05-18 00:00:00
+Train: 5875/77158
+Test: 1250/24161
+
+Phosphorylation-Y_uniprot_sequence_truncated_nonRed_pos_year_added: 2010-10-05 00:00:00
+Train: 47915/194382
+Test: 11640/67484
+
+Phosphorylation-['S', 'T']_uniprot_sequence_truncated_nonRed_pos_year_added: 2011-12-14 00:00:00
+Train: 269888/1203323
+Test: 64800/551803
+
+Pyrrolidone carboxylic acid_uniprot_sequence_truncated_nonRed_pos_year_added: 2008-09-02 00:00:00
+Train: 237/1306
+Test: 58/462
+
+S-palmitoylation-C_uniprot_sequence_truncated_nonRed_pos_year_added: 2010-04-20 00:00:00
+Train: 2525/10073
+Test: 627/3630
+
+Sumoylation_uniprot_sequence_truncated_nonRed_pos_year_added: 2008-11-25 00:00:00
+Train: 3241/20251
+Test: 772/6876
+
+Ubiquitination_uniprot_sequence_truncated_nonRed_pos_year_added: 2010-07-13 00:00:00
+Train: 47426/131804
+Test: 11757/36976

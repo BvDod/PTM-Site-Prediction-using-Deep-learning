@@ -1,0 +1,177 @@
+COMET INFO: ---------------------------
+COMET INFO: Comet.ml Experiment Summary
+COMET INFO: ---------------------------
+COMET INFO:   Data:
+COMET INFO:     display_summary_level : 1
+COMET INFO:     url                   : https://www.comet.ml/brentvd/hp-tuning-model-architecture-added-max-ranges-bceloss/6deb03f9e4b3402e84bfbe9a647ef254
+COMET INFO:   Metrics:
+COMET INFO:     EvalMetric (loss)                                      : 2.508985185623169
+COMET INFO:     avg_Hydroxylation-K AUC PR                             : 0.4959122927856158
+COMET INFO:     avg_Hydroxylation-K AUC ROC                            : 0.756280701754386
+COMET INFO:     avg_Hydroxylation-K F1                                 : 0.46389256509789584
+COMET INFO:     avg_Hydroxylation-K MCC                                : 0.3044840752375136
+COMET INFO:     avg_Hydroxylation-K Validation Accuracy                : 0.6194326241134752
+COMET INFO:     avg_Hydroxylation-K Validation Precision               : 0.3397496252295715
+COMET INFO:     avg_Hydroxylation-K Validation Sensitivity             : 0.7857777777777778
+COMET INFO:     avg_Hydroxylation-K Validation Specificity             : 0.5778947368421052
+COMET INFO:     avg_Hydroxylation-P AUC PR                             : 0.28467536880178745
+COMET INFO:     avg_Hydroxylation-P AUC ROC                            : 0.6408636067824306
+COMET INFO:     avg_Hydroxylation-P F1                                 : 0.3515189174529337
+COMET INFO:     avg_Hydroxylation-P MCC                                : 0.16629428892790354
+COMET INFO:     avg_Hydroxylation-P Validation Accuracy                : 0.5666551444089133
+COMET INFO:     avg_Hydroxylation-P Validation Precision               : 0.24506386281985088
+COMET INFO:     avg_Hydroxylation-P Validation Sensitivity             : 0.6609206349206349
+COMET INFO:     avg_Hydroxylation-P Validation Specificity             : 0.5463175220709262
+COMET INFO:     avg_Pyrrolidone carboxylic acid AUC PR                 : 0.16673329994407632
+COMET INFO:     avg_Pyrrolidone carboxylic acid AUC ROC                : 0.5105986665231259
+COMET INFO:     avg_Pyrrolidone carboxylic acid F1                     : 0.21763512119374348
+COMET INFO:     avg_Pyrrolidone carboxylic acid MCC                    : 0.0016273630106720773
+COMET INFO:     avg_Pyrrolidone carboxylic acid Validation Accuracy    : 0.5591902579099572
+COMET INFO:     avg_Pyrrolidone carboxylic acid Validation Precision   : 0.15301940468874003
+COMET INFO:     avg_Pyrrolidone carboxylic acid Validation Sensitivity : 0.41640070921985817
+COMET INFO:     avg_Pyrrolidone carboxylic acid Validation Specificity : 0.5851727062677313
+COMET INFO:     avg_S-palmitoylation-C AUC PR                          : 0.2677145625113744
+COMET INFO:     avg_S-palmitoylation-C AUC ROC                         : 0.6182499885954206
+COMET INFO:     avg_S-palmitoylation-C F1                              : 0.33543731936027715
+COMET INFO:     avg_S-palmitoylation-C MCC                             : 0.12255843890745972
+COMET INFO:     avg_S-palmitoylation-C Validation Accuracy             : 0.6083652999111514
+COMET INFO:     avg_S-palmitoylation-C Validation Precision            : 0.2625555651909836
+COMET INFO:     avg_S-palmitoylation-C Validation Sensitivity          : 0.5108910891089109
+COMET INFO:     avg_S-palmitoylation-C Validation Specificity          : 0.6327978394415271
+COMET INFO:     avg_Sumoylation AUC PR                                 : 0.3451140330777419
+COMET INFO:     avg_Sumoylation AUC ROC                                : 0.7182272525925397
+COMET INFO:     avg_Sumoylation F1                                     : 0.3372742075938282
+COMET INFO:     avg_Sumoylation MCC                                    : 0.2151817089924384
+COMET INFO:     avg_Sumoylation Validation Accuracy                    : 0.621831645879188
+COMET INFO:     avg_Sumoylation Validation Precision                   : 0.22975167894680115
+COMET INFO:     avg_Sumoylation Validation Sensitivity                 : 0.6850225418022028
+COMET INFO:     avg_Sumoylation Validation Specificity                 : 0.6117153112628798
+COMET INFO:     avg_Validation Loss (Hydroxylation-K)                  : 0.4899924659729004
+COMET INFO:     avg_Validation Loss (Hydroxylation-P)                  : 0.5114712631702423
+COMET INFO:     avg_Validation Loss (Pyrrolidone carboxylic acid)      : 0.5342454898357392
+COMET INFO:     avg_Validation Loss (S-palmitoylation-C)               : 0.5450843238830566
+COMET INFO:     avg_Validation Loss (Sumoylation)                      : 0.4431331527233124
+COMET INFO:     avg_Validation Loss (total)                            : 2.5239266967773437
+COMET INFO:     learning_rate                                          : 0.005451139117074361
+COMET INFO:     std_Hydroxylation-K AUC PR                             : 0.15805794061535083
+COMET INFO:     std_Hydroxylation-K AUC ROC                            : 0.11499059625147202
+COMET INFO:     std_Hydroxylation-K F1                                 : 0.108715525057909
+COMET INFO:     std_Hydroxylation-K MCC                                : 0.17049005338905332
+COMET INFO:     std_Hydroxylation-K Validation Accuracy                : 0.13262061957714938
+COMET INFO:     std_Hydroxylation-K Validation Precision               : 0.10047891194916521
+COMET INFO:     std_Hydroxylation-K Validation Sensitivity             : 0.17831285217568812
+COMET INFO:     std_Hydroxylation-K Validation Specificity             : 0.17463852655828482
+COMET INFO:     std_Hydroxylation-P AUC PR                             : 0.07392729007114962
+COMET INFO:     std_Hydroxylation-P AUC ROC                            : 0.06165342087299701
+COMET INFO:     std_Hydroxylation-P F1                                 : 0.04109031702105074
+COMET INFO:     std_Hydroxylation-P MCC                                : 0.0697061490325981
+COMET INFO:     std_Hydroxylation-P Validation Accuracy                : 0.095376945956039
+COMET INFO:     std_Hydroxylation-P Validation Precision               : 0.04067107998280588
+COMET INFO:     std_Hydroxylation-P Validation Sensitivity             : 0.15253558759898944
+COMET INFO:     std_Hydroxylation-P Validation Specificity             : 0.14213056335937158
+COMET INFO:     std_Pyrrolidone carboxylic acid AUC PR                 : 0.05436458411640301
+COMET INFO:     std_Pyrrolidone carboxylic acid AUC ROC                : 0.09351815344758942
+COMET INFO:     std_Pyrrolidone carboxylic acid F1                     : 0.07469013104557437
+COMET INFO:     std_Pyrrolidone carboxylic acid MCC                    : 0.10940292531466517
+COMET INFO:     std_Pyrrolidone carboxylic acid Validation Accuracy    : 0.10369438173701266
+COMET INFO:     std_Pyrrolidone carboxylic acid Validation Precision   : 0.050453450007808806
+COMET INFO:     std_Pyrrolidone carboxylic acid Validation Sensitivity : 0.203384643141676
+COMET INFO:     std_Pyrrolidone carboxylic acid Validation Specificity : 0.14554429735015675
+COMET INFO:     std_S-palmitoylation-C AUC PR                          : 0.02077989973268467
+COMET INFO:     std_S-palmitoylation-C AUC ROC                         : 0.02652466001401816
+COMET INFO:     std_S-palmitoylation-C F1                              : 0.04338624460360211
+COMET INFO:     std_S-palmitoylation-C MCC                             : 0.03528296527001685
+COMET INFO:     std_S-palmitoylation-C Validation Accuracy             : 0.08550784859305086
+COMET INFO:     std_S-palmitoylation-C Validation Precision            : 0.020727692411509586
+COMET INFO:     std_S-palmitoylation-C Validation Sensitivity          : 0.17604283372506363
+COMET INFO:     std_S-palmitoylation-C Validation Specificity          : 0.14934941023143739
+COMET INFO:     std_Sumoylation AUC PR                                 : 0.07411105771937312
+COMET INFO:     std_Sumoylation AUC ROC                                : 0.03858423338742237
+COMET INFO:     std_Sumoylation F1                                     : 0.04115283804057033
+COMET INFO:     std_Sumoylation MCC                                    : 0.051032219068006285
+COMET INFO:     std_Sumoylation Validation Accuracy                    : 0.1062477804157375
+COMET INFO:     std_Sumoylation Validation Precision                   : 0.04111453140348347
+COMET INFO:     std_Sumoylation Validation Sensitivity                 : 0.13848557369939635
+COMET INFO:     std_Sumoylation Validation Specificity                 : 0.1423960808323817
+COMET INFO:     std_Validation Loss (Hydroxylation-K)                  : 0.055955861968903245
+COMET INFO:     std_Validation Loss (Hydroxylation-P)                  : 0.018091251200879503
+COMET INFO:     std_Validation Loss (Pyrrolidone carboxylic acid)      : 0.046375788257875056
+COMET INFO:     std_Validation Loss (S-palmitoylation-C)               : 0.012838304993261216
+COMET INFO:     std_Validation Loss (Sumoylation)                      : 0.02051912685604822
+COMET INFO:     std_Validation Loss (total)                            : 0.0470381181229009
+COMET INFO:     weight_decay                                           : 3.9279174763279334
+COMET INFO:   Parameters:
+COMET INFO:     bootstrap                          : True
+COMET INFO:     ccp_alpha                          : 0.0
+COMET INFO:     criterion                          : squared_error
+COMET INFO:     max_depth                          : 64
+COMET INFO:     max_features                       : auto
+COMET INFO:     max_leaf_nodes                     : 1
+COMET INFO:     max_samples                        : 1
+COMET INFO:     min_impurity_decrease              : 0.0
+COMET INFO:     min_samples_leaf                   : 1
+COMET INFO:     min_samples_split                  : 2
+COMET INFO:     min_weight_fraction_leaf           : 0.0
+COMET INFO:     n_estimators                       : 64
+COMET INFO:     n_jobs                             : 1
+COMET INFO:     oob_score                          : False
+COMET INFO:     parameters_CNNType                 : Adapt
+COMET INFO:     parameters_CV_Repeats              : 5
+COMET INFO:     parameters_Experiment Name         : Model architecture - added max, ranges, bceloss
+COMET INFO:     parameters_FCType                  : Musite
+COMET INFO:     parameters_FloatsToTune            : {"learning_rate": [1e-05, 0.01], "weight_decay": [0, 25]}
+COMET INFO:     parameters_IntsToTune              : {}
+COMET INFO:     parameters_LSTM_dropout            : 0
+COMET INFO:     parameters_LSTM_hidden_size        : 32
+COMET INFO:     parameters_LSTM_layers             : 1
+COMET INFO:     parameters_MultiTask               : True
+COMET INFO:     parameters_MultiTask_sample_method : balanced
+COMET INFO:     parameters_UseUncertaintyBasedLoss : False
+COMET INFO:     parameters_ValidationMetric        : Validation Loss (total)
+COMET INFO:     parameters_aminoAcid               : ['Hydroxylation-K', 'Hydroxylation-P', 'Pyrrolidone carboxylic acid', 'S-palmitoylation-C', 'Sumoylation']
+COMET INFO:     parameters_batch_size              : 2048
+COMET INFO:     parameters_crossValidation         : True
+COMET INFO:     parameters_currentFold             : 4
+COMET INFO:     parameters_current_CV_Repeat       : 5
+COMET INFO:     parameters_data_sample_mode        : ['oversample', 'oversample', 'oversample', 'oversample', 'oversample', 'oversample', 'oversample', 'oversample', 'oversample', 'oversample', 'oversample', 'oversample', 'oversample']
+COMET INFO:     parameters_earlyStopping           : True
+COMET INFO:     parameters_earlyStoppingPatience   : 20
+COMET INFO:     parameters_embeddingType           : adaptiveEmbedding
+COMET INFO:     parameters_epochs                  : 200
+COMET INFO:     parameters_folds                   : 5
+COMET INFO:     parameters_gpu_mode                : True
+COMET INFO:     parameters_layerToSplitOn          : FC
+COMET INFO:     parameters_learning_rate           : 0.005451139117074361
+COMET INFO:     parameters_loss_function           : <class 'torch.nn.modules.loss.BCELoss'>
+COMET INFO:     parameters_n_trials                : 250
+COMET INFO:     parameters_optimizer               : <class 'torch.optim.adamw.AdamW'>
+COMET INFO:     parameters_random_state            : 3731292135
+COMET INFO:     parameters_sample_weights          : [0.009382136905129313, 0.04049132769582125, 0.06450219122276403, 0.4974384297265601, 1.0]
+COMET INFO:     parameters_test_data_ratio         : 0.2
+COMET INFO:     parameters_useLrWeight             : True
+COMET INFO:     parameters_weight_decay            : 3.9279174763279334
+COMET INFO:     random_state                       : 66
+COMET INFO:     splitter                           : best
+COMET INFO:     tuning_CV_Repeats                  : 1
+COMET INFO:     tuning_FloatsToTune                : {"learning_rate": [1e-05, 0.01], "weight_decay": [0, 25]}
+COMET INFO:     tuning_IntsToTune                  : {}
+COMET INFO:     tuning_aminoAcid                   : ['Hydroxylation-K', 'Hydroxylation-P', 'Pyrrolidone carboxylic acid', 'S-palmitoylation-C', 'Sumoylation']
+COMET INFO:     tuning_crossValidation             : True
+COMET INFO:     tuning_earlyStoppingPatience       : 20
+COMET INFO:     tuning_n_trials                    : 250
+COMET INFO:     verbose                            : 0
+COMET INFO:     warm_start                         : False
+COMET INFO:   Uploads:
+COMET INFO:     environment details      : 1
+COMET INFO:     figures                  : 6
+COMET INFO:     filename                 : 1
+COMET INFO:     git metadata             : 1
+COMET INFO:     git-patch (uncompressed) : 1 (7.82 KB)
+COMET INFO:     installed packages       : 1
+COMET INFO:     source_code              : 2 (9.70 KB)
+COMET INFO: ---------------------------
+COMET INFO: Uploading metrics, params, and assets to Comet before program termination (may take several seconds)
+COMET INFO: The Python SDK has 3600 seconds to finish before aborting...
+COMET INFO: Waiting for completion of the file uploads (may take several seconds)
+COMET INFO: The Python SDK has 10800 seconds to finish before aborting...
+COMET INFO: All files uploaded, waiting for confirmation they have been all received

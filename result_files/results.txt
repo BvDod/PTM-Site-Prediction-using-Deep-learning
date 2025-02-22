@@ -1,0 +1,4886 @@
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.0004291369685549515,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 1703461917,
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 19.644276738427845}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.461
+[2,    26] loss: 3.410
+[3,    26] loss: 3.289
+[4,    26] loss: 2.928
+[5,    26] loss: 2.465
+[6,    26] loss: 2.160
+[7,    26] loss: 2.020
+[8,    26] loss: 1.975
+[9,    26] loss: 1.989
+[10,    26] loss: 2.016
+[11,    26] loss: 2.080
+[12,    26] loss: 2.096
+[13,    26] loss: 2.101
+[14,    26] loss: 2.137
+[15,    26] loss: 2.158
+[16,    26] loss: 2.218
+[17,    26] loss: 2.303
+[18,    26] loss: 2.335
+[19,    26] loss: 2.333
+[20,    26] loss: 2.363
+[21,    26] loss: 2.458
+[22,    26] loss: 2.502
+[23,    26] loss: 2.518
+[24,    26] loss: 2.528
+[25,    26] loss: 2.593
+[26,    26] loss: 2.694
+[27,    26] loss: 2.748
+[28,    26] loss: 2.762
+[29,    26] loss: 2.824
+[30,    26] loss: 2.863
+[31,    26] loss: 2.877
+[32,    26] loss: 2.902
+[33,    26] loss: 2.940
+[34,    26] loss: 2.997
+[35,    26] loss: 3.043
+[36,    26] loss: 3.101
+[37,    26] loss: 3.153
+[38,    26] loss: 3.219
+[39,    26] loss: 3.298
+[40,    26] loss: 3.369
+[41,    26] loss: 3.433
+[42,    26] loss: 3.460
+[43,    26] loss: 3.465
+[44,    26] loss: 3.465
+[45,    26] loss: 3.466
+[46,    26] loss: 3.466
+[47,    26] loss: 3.466
+[48,    26] loss: 3.466
+[49,    26] loss: 3.465
+[50,    26] loss: 3.465
+[51,    26] loss: 3.466
+[52,    26] loss: 3.466
+[53,    26] loss: 3.466
+[54,    26] loss: 3.466
+[55,    26] loss: 3.466
+[56,    26] loss: 3.466
+[57,    26] loss: 3.466
+[58,    26] loss: 3.466
+[59,    26] loss: 3.466
+[60,    26] loss: 3.466
+[61,    26] loss: 3.466
+Early stopping applied (best metric=2.4081430435180664)
+Finished Training
+Total time taken: 97.13328719139099
+{'Hydroxylation-K Validation Accuracy': 0.8958333333333334, 'Hydroxylation-K Validation Sensitivity': 0.8, 'Hydroxylation-K Validation Specificity': 0.9210526315789473, 'Hydroxylation-K Validation Precision': 0.7272727272727273, 'Hydroxylation-K AUC ROC': 0.9236842105263159, 'Hydroxylation-K AUC PR': 0.8393353174603174, 'Hydroxylation-K MCC': 0.6967252657629202, 'Hydroxylation-K F1': 0.761904761904762, 'Validation Loss (Hydroxylation-K)': 0.3470771908760071, 'Hydroxylation-P Validation Accuracy': 0.82, 'Hydroxylation-P Validation Sensitivity': 0.6388888888888888, 'Hydroxylation-P Validation Specificity': 0.8597560975609756, 'Hydroxylation-P Validation Precision': 0.5, 'Hydroxylation-P AUC ROC': 0.8114837398373985, 'Hydroxylation-P AUC PR': 0.6686926351967983, 'Hydroxylation-P MCC': 0.4552242142921066, 'Hydroxylation-P F1': 0.5609756097560975, 'Validation Loss (Hydroxylation-P)': 0.41343551874160767, 'Pyrrolidone carboxylic acid Validation Accuracy': 0.8354838709677419, 'Pyrrolidone carboxylic acid Validation Sensitivity': 0.375, 'Pyrrolidone carboxylic acid Validation Specificity': 0.9198473282442748, 'Pyrrolidone carboxylic acid Validation Precision': 0.46153846153846156, 'Pyrrolidone carboxylic acid AUC ROC': 0.7973918575063612, 'Pyrrolidone carboxylic acid AUC PR': 0.37886893969758534, 'Pyrrolidone carboxylic acid MCC': 0.32162626856444854, 'Pyrrolidone carboxylic acid F1': 0.41379310344827586, 'Validation Loss (Pyrrolidone carboxylic acid)': 0.4845505654811859, 'S-palmitoylation-C Validation Accuracy': 0.7265873015873016, 'S-palmitoylation-C Validation Sensitivity': 0.1405940594059406, 'S-palmitoylation-C Validation Specificity': 0.8734491315136477, 'S-palmitoylation-C Validation Precision': 0.21779141104294478, 'S-palmitoylation-C AUC ROC': 0.5148804756406162, 'S-palmitoylation-C AUC PR': 0.20995683247721045, 'S-palmitoylation-C MCC': 0.016750273508057866, 'S-palmitoylation-C F1': 0.17087845968712395, 'Validation Loss (S-palmitoylation-C)': 0.5685514807701111, 'Sumoylation Validation Accuracy': 0.7970212765957447, 'Sumoylation Validation Sensitivity': 0.0662557781201849, 'Sumoylation Validation Specificity': 0.9140952851147864, 'Sumoylation Validation Precision': 0.10997442455242967, 'Sumoylation AUC ROC': 0.5181202761858721, 'Sumoylation AUC PR': 0.13687959410821807, 'Sumoylation MCC': -0.024545161797348534, 'Sumoylation F1': 0.0826923076923077, 'Validation Loss (Sumoylation)': 0.5945281386375427, 'Validation Loss (total)': 2.4081430435180664}
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.009128463368493269,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 692167041,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 18.432586025332487}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.511
+[2,    26] loss: 3.251
+[3,    26] loss: 3.230
+[4,    26] loss: 3.208
+[5,    26] loss: 3.235
+[6,    26] loss: 3.242
+[7,    26] loss: 3.306
+[8,    26] loss: 3.321
+[9,    26] loss: 3.324
+[10,    26] loss: 3.329
+[11,    26] loss: 3.328
+[12,    26] loss: 3.330
+[13,    26] loss: 3.326
+[14,    26] loss: 3.360
+[15,    26] loss: 3.323
+[16,    26] loss: 3.333
+[17,    26] loss: 3.339
+[18,    26] loss: 3.329
+[19,    26] loss: 3.332
+[20,    26] loss: 3.339
+[21,    26] loss: 3.312
+[22,    26] loss: 3.327
+[23,    26] loss: 3.338
+[24,    26] loss: 3.318
+[25,    26] loss: 3.321
+[26,    26] loss: 3.341
+[27,    26] loss: 3.329
+[28,    26] loss: 3.325
+[29,    26] loss: 3.326
+[30,    26] loss: 3.342
+[31,    26] loss: 3.324
+[32,    26] loss: 3.346
+[33,    26] loss: 3.343
+[34,    26] loss: 3.331
+[35,    26] loss: 3.319
+[36,    26] loss: 3.328
+[37,    26] loss: 3.340
+[38,    26] loss: 3.320
+[39,    26] loss: 3.338
+[40,    26] loss: 3.336
+[41,    26] loss: 3.335
+[42,    26] loss: 3.332
+[43,    26] loss: 3.369
+[44,    26] loss: 3.346
+[45,    26] loss: 3.346
+[46,    26] loss: 3.335
+[47,    26] loss: 3.330
+[48,    26] loss: 3.352
+[49,    26] loss: 3.351
+[50,    26] loss: 3.342
+[51,    26] loss: 3.336
+[52,    26] loss: 3.329
+[53,    26] loss: 3.325
+[54,    26] loss: 3.382
+Early stopping applied (best metric=2.6060523986816406)
+Finished Training
+Total time taken: 84.28712487220764
+{'Hydroxylation-K Validation Accuracy': 0.20833333333333334, 'Hydroxylation-K Validation Sensitivity': 1.0, 'Hydroxylation-K Validation Specificity': 0.0, 'Hydroxylation-K Validation Precision': 0.20833333333333334, 'Hydroxylation-K AUC ROC': 0.8026315789473685, 'Hydroxylation-K AUC PR': 0.46572717723453017, 'Hydroxylation-K MCC': 0.0, 'Hydroxylation-K F1': 0.3448275862068966, 'Validation Loss (Hydroxylation-K)': 0.5487961769104004, 'Hydroxylation-P Validation Accuracy': 0.18, 'Hydroxylation-P Validation Sensitivity': 1.0, 'Hydroxylation-P Validation Specificity': 0.0, 'Hydroxylation-P Validation Precision': 0.18, 'Hydroxylation-P AUC ROC': 0.8241869918699187, 'Hydroxylation-P AUC PR': 0.4797356308644989, 'Hydroxylation-P MCC': 0.0, 'Hydroxylation-P F1': 0.3050847457627119, 'Validation Loss (Hydroxylation-P)': 0.5130507349967957, 'Pyrrolidone carboxylic acid Validation Accuracy': 0.15483870967741936, 'Pyrrolidone carboxylic acid Validation Sensitivity': 1.0, 'Pyrrolidone carboxylic acid Validation Specificity': 0.0, 'Pyrrolidone carboxylic acid Validation Precision': 0.15483870967741936, 'Pyrrolidone carboxylic acid AUC ROC': 0.5850429389312977, 'Pyrrolidone carboxylic acid AUC PR': 0.21577868088682606, 'Pyrrolidone carboxylic acid MCC': 0.0, 'Pyrrolidone carboxylic acid F1': 0.26815642458100564, 'Validation Loss (Pyrrolidone carboxylic acid)': 0.4999481737613678, 'S-palmitoylation-C Validation Accuracy': 0.2003968253968254, 'S-palmitoylation-C Validation Sensitivity': 1.0, 'S-palmitoylation-C Validation Specificity': 0.0, 'S-palmitoylation-C Validation Precision': 0.2003968253968254, 'S-palmitoylation-C AUC ROC': 0.4965201582192959, 'S-palmitoylation-C AUC PR': 0.20017995948151607, 'S-palmitoylation-C MCC': 0.0, 'S-palmitoylation-C F1': 0.3338842975206612, 'Validation Loss (S-palmitoylation-C)': 0.55531907081604, 'Sumoylation Validation Accuracy': 0.13808510638297872, 'Sumoylation Validation Sensitivity': 1.0, 'Sumoylation Validation Specificity': 0.0, 'Sumoylation Validation Precision': 0.13808510638297872, 'Sumoylation AUC ROC': 0.4817787386477268, 'Sumoylation AUC PR': 0.12783940238210154, 'Sumoylation MCC': 0.0, 'Sumoylation F1': 0.24266217984670033, 'Validation Loss (Sumoylation)': 0.48893824219703674, 'Validation Loss (total)': 2.6060523986816406}
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.0014127971864146107,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 3024190311,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 11.708926903189015}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.505
+[2,    26] loss: 2.916
+[3,    26] loss: 2.382
+[4,    26] loss: 2.084
+[5,    26] loss: 1.950
+[6,    26] loss: 1.894
+[7,    26] loss: 1.888
+[8,    26] loss: 1.824
+[9,    26] loss: 1.988
+[10,    26] loss: 1.926
+[11,    26] loss: 2.069
+[12,    26] loss: 2.055
+[13,    26] loss: 2.181
+[14,    26] loss: 1.977
+[15,    26] loss: 2.121
+[16,    26] loss: 2.228
+[17,    26] loss: 2.122
+[18,    26] loss: 2.086
+[19,    26] loss: 2.133
+[20,    26] loss: 2.175
+[21,    26] loss: 2.107
+[22,    26] loss: 2.088
+[23,    26] loss: 2.194
+[24,    26] loss: 2.190
+[25,    26] loss: 2.212
+[26,    26] loss: 2.101
+[27,    26] loss: 2.185
+[28,    26] loss: 2.086
+[29,    26] loss: 2.107
+[30,    26] loss: 2.070
+[31,    26] loss: 2.433
+[32,    26] loss: 2.419
+[33,    26] loss: 2.312
+[34,    26] loss: 2.463
+[35,    26] loss: 2.507
+[36,    26] loss: 2.610
+[37,    26] loss: 2.615
+[38,    26] loss: 2.567
+[39,    26] loss: 2.572
+[40,    26] loss: 2.566
+[41,    26] loss: 2.592
+[42,    26] loss: 2.628
+[43,    26] loss: 2.563
+[44,    26] loss: 2.808
+[45,    26] loss: 2.726
+[46,    26] loss: 2.677
+[47,    26] loss: 2.860
+[48,    26] loss: 2.814
+[49,    26] loss: 2.762
+[50,    26] loss: 2.768
+[51,    26] loss: 2.764
+[52,    26] loss: 2.682
+[53,    26] loss: 2.772
+[54,    26] loss: 2.749
+[55,    26] loss: 2.743
+Early stopping applied (best metric=2.560629367828369)
+Finished Training
+Total time taken: 83.3795108795166
+{'Hydroxylation-K Validation Accuracy': 0.7916666666666666, 'Hydroxylation-K Validation Sensitivity': 0.6, 'Hydroxylation-K Validation Specificity': 0.8421052631578947, 'Hydroxylation-K Validation Precision': 0.5, 'Hydroxylation-K AUC ROC': 0.6894736842105262, 'Hydroxylation-K AUC PR': 0.48934274743438066, 'Hydroxylation-K MCC': 0.4146442144313646, 'Hydroxylation-K F1': 0.5454545454545454, 'Validation Loss (Hydroxylation-K)': 0.5443565249443054, 'Hydroxylation-P Validation Accuracy': 0.73, 'Hydroxylation-P Validation Sensitivity': 0.8055555555555556, 'Hydroxylation-P Validation Specificity': 0.7134146341463414, 'Hydroxylation-P Validation Precision': 0.3815789473684211, 'Hydroxylation-P AUC ROC': 0.8513719512195121, 'Hydroxylation-P AUC PR': 0.5523883847008328, 'Hydroxylation-P MCC': 0.41076927154386134, 'Hydroxylation-P F1': 0.5178571428571429, 'Validation Loss (Hydroxylation-P)': 0.37921401858329773, 'Pyrrolidone carboxylic acid Validation Accuracy': 0.7064516129032258, 'Pyrrolidone carboxylic acid Validation Sensitivity': 0.7083333333333334, 'Pyrrolidone carboxylic acid Validation Specificity': 0.7061068702290076, 'Pyrrolidone carboxylic acid Validation Precision': 0.3063063063063063, 'Pyrrolidone carboxylic acid AUC ROC': 0.7586673027989821, 'Pyrrolidone carboxylic acid AUC PR': 0.30835619940119957, 'Pyrrolidone carboxylic acid MCC': 0.31271240893586677, 'Pyrrolidone carboxylic acid F1': 0.42767295597484273, 'Validation Loss (Pyrrolidone carboxylic acid)': 0.43085622787475586, 'S-palmitoylation-C Validation Accuracy': 0.6051587301587301, 'S-palmitoylation-C Validation Sensitivity': 0.47128712871287126, 'S-palmitoylation-C Validation Specificity': 0.6387096774193548, 'S-palmitoylation-C Validation Precision': 0.2463768115942029, 'S-palmitoylation-C AUC ROC': 0.5613836817924969, 'S-palmitoylation-C AUC PR': 0.23723476211417233, 'S-palmitoylation-C MCC': 0.0905626702020928, 'S-palmitoylation-C F1': 0.3235893949694086, 'Validation Loss (S-palmitoylation-C)': 0.5970636606216431, 'Sumoylation Validation Accuracy': 0.6529787234042553, 'Sumoylation Validation Sensitivity': 0.2942989214175655, 'Sumoylation Validation Specificity': 0.7104418662058751, 'Sumoylation Validation Precision': 0.14002932551319647, 'Sumoylation AUC ROC': 0.5254419860187844, 'Sumoylation AUC PR': 0.1410764468556176, 'Sumoylation MCC': 0.0036035766502002815, 'Sumoylation F1': 0.18976651763537009, 'Validation Loss (Sumoylation)': 0.6091389656066895, 'Validation Loss (total)': 2.560629367828369}
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.0020708113975820125,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 3300006623,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 5.092001039707525}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.495
+[2,    26] loss: 2.265
+[3,    26] loss: 1.767
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.008739555493553864,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 2701660391,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 0.013455607581905338}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.492
+[2,    26] loss: 1.872
+[3,    26] loss: 1.542
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.008346549771861368,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 3930013119,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 13.448656203945372}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.537
+[2,    26] loss: 3.173
+[3,    26] loss: 3.114
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.00023601921884826074,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 3017791003,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 17.471124271485728}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.459
+[2,    26] loss: 3.426
+[3,    26] loss: 3.375
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.00877555832516274,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 1859371023,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 5.686307843177735}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.505
+[2,    26] loss: 2.458
+[3,    26] loss: 2.409
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.0031767350661752037,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 742227929,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 20.899733292241844}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.459
+[2,    26] loss: 3.165
+[3,    26] loss: 3.127
+[4,    26] loss: 3.119
+[5,    26] loss: 3.207
+[6,    26] loss: 3.170
+[7,    26] loss: 3.121
+[8,    26] loss: 3.066
+[9,    26] loss: 3.042
+[10,    26] loss: 3.048
+[11,    26] loss: 3.102
+[12,    26] loss: 3.181
+[13,    26] loss: 3.234
+[14,    26] loss: 3.261
+[15,    26] loss: 3.289
+[16,    26] loss: 3.334
+[17,    26] loss: 3.310
+[18,    26] loss: 3.323
+[19,    26] loss: 3.301
+[20,    26] loss: 3.311
+[21,    26] loss: 3.317
+[22,    26] loss: 3.332
+[23,    26] loss: 3.313
+[24,    26] loss: 3.294
+[25,    26] loss: 3.332
+[26,    26] loss: 3.326
+[27,    26] loss: 3.314
+[28,    26] loss: 3.324
+[29,    26] loss: 3.307
+[30,    26] loss: 3.319
+[31,    26] loss: 3.327
+[32,    26] loss: 3.335
+[33,    26] loss: 3.322
+[34,    26] loss: 3.319
+[35,    26] loss: 3.347
+[36,    26] loss: 3.343
+[37,    26] loss: 3.346
+[38,    26] loss: 3.344
+[39,    26] loss: 3.353
+[40,    26] loss: 3.345
+[41,    26] loss: 3.329
+[42,    26] loss: 3.324
+[43,    26] loss: 3.313
+[44,    26] loss: 3.307
+[45,    26] loss: 3.306
+[46,    26] loss: 3.322
+[47,    26] loss: 3.313
+[48,    26] loss: 3.321
+[49,    26] loss: 3.296
+[50,    26] loss: 3.305
+[51,    26] loss: 3.311
+[52,    26] loss: 3.309
+[53,    26] loss: 3.311
+[54,    26] loss: 3.309
+[55,    26] loss: 3.317
+[56,    26] loss: 3.310
+[57,    26] loss: 3.308
+[58,    26] loss: 3.309
+[59,    26] loss: 3.310
+Early stopping applied (best metric=2.5419530868530273)
+Finished Training
+Total time taken: 100.62788820266724
+{'Hydroxylation-K Validation Accuracy': 0.7916666666666666, 'Hydroxylation-K Validation Sensitivity': 0.7, 'Hydroxylation-K Validation Specificity': 0.8157894736842105, 'Hydroxylation-K Validation Precision': 0.5, 'Hydroxylation-K AUC ROC': 0.8289473684210527, 'Hydroxylation-K AUC PR': 0.6466902668310487, 'Hydroxylation-K MCC': 0.46085127853657143, 'Hydroxylation-K F1': 0.5833333333333334, 'Validation Loss (Hydroxylation-K)': 0.5023351907730103, 'Hydroxylation-P Validation Accuracy': 0.83, 'Hydroxylation-P Validation Sensitivity': 0.6666666666666666, 'Hydroxylation-P Validation Specificity': 0.8658536585365854, 'Hydroxylation-P Validation Precision': 0.5217391304347826, 'Hydroxylation-P AUC ROC': 0.8245257452574526, 'Hydroxylation-P AUC PR': 0.5747557228372246, 'Hydroxylation-P MCC': 0.4861497723282551, 'Hydroxylation-P F1': 0.5853658536585366, 'Validation Loss (Hydroxylation-P)': 0.47847792506217957, 'Pyrrolidone carboxylic acid Validation Accuracy': 0.7967741935483871, 'Pyrrolidone carboxylic acid Validation Sensitivity': 0.16666666666666666, 'Pyrrolidone carboxylic acid Validation Specificity': 0.9122137404580153, 'Pyrrolidone carboxylic acid Validation Precision': 0.25806451612903225, 'Pyrrolidone carboxylic acid AUC ROC': 0.7717875318066157, 'Pyrrolidone carboxylic acid AUC PR': 0.3050267135390289, 'Pyrrolidone carboxylic acid MCC': 0.09511685000085622, 'Pyrrolidone carboxylic acid F1': 0.20253164556962025, 'Validation Loss (Pyrrolidone carboxylic acid)': 0.498165488243103, 'S-palmitoylation-C Validation Accuracy': 0.7309523809523809, 'S-palmitoylation-C Validation Sensitivity': 0.08316831683168317, 'S-palmitoylation-C Validation Specificity': 0.8933002481389578, 'S-palmitoylation-C Validation Precision': 0.16342412451361868, 'S-palmitoylation-C AUC ROC': 0.5145714075129597, 'S-palmitoylation-C AUC PR': 0.19694726381861075, 'S-palmitoylation-C MCC': -0.031125962396190972, 'S-palmitoylation-C F1': 0.11023622047244096, 'Validation Loss (S-palmitoylation-C)': 0.5597192049026489, 'Sumoylation Validation Accuracy': 0.7780851063829787, 'Sumoylation Validation Sensitivity': 0.09399075500770417, 'Sumoylation Validation Specificity': 0.8876820538138731, 'Sumoylation Validation Precision': 0.1182170542635659, 'Sumoylation AUC ROC': 0.5206380588939404, 'Sumoylation AUC PR': 0.13867529913735732, 'Sumoylation MCC': -0.020224541811750634, 'Sumoylation F1': 0.10472103004291845, 'Validation Loss (Sumoylation)': 0.5032554268836975, 'Validation Loss (total)': 2.5419530868530273}
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.004462606745118869,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 418306,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 17.78381370685922}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.530
+[2,    26] loss: 3.145
+[3,    26] loss: 3.137
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.009358727184413607,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 1143192703,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 12.216730014148647}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.524
+[2,    26] loss: 3.032
+[3,    26] loss: 3.120
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.008824138941876548,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 943725264,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 8.252693740448999}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.525
+[2,    26] loss: 2.895
+[3,    26] loss: 2.908
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.009854477266860272,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 2492373327,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 6.146958923541021}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.508
+[2,    26] loss: 2.662
+[3,    26] loss: 2.668
+[4,    26] loss: 2.628
+[5,    26] loss: 2.657
+[6,    26] loss: 2.713
+[7,    26] loss: 2.650
+[8,    26] loss: 2.758
+[9,    26] loss: 2.686
+[10,    26] loss: 2.856
+[11,    26] loss: 2.887
+[12,    26] loss: 2.880
+[13,    26] loss: 2.828
+[14,    26] loss: 2.821
+[15,    26] loss: 3.121
+[16,    26] loss: 2.933
+[17,    26] loss: 2.884
+[18,    26] loss: 2.889
+[19,    26] loss: 3.035
+[20,    26] loss: 2.954
+[21,    26] loss: 2.846
+[22,    26] loss: 2.868
+[23,    26] loss: 3.047
+[24,    26] loss: 2.880
+[25,    26] loss: 2.865
+[26,    26] loss: 3.188
+[27,    26] loss: 3.115
+[28,    26] loss: 3.054
+[29,    26] loss: 2.991
+[30,    26] loss: 2.951
+[31,    26] loss: 2.926
+[32,    26] loss: 2.893
+[33,    26] loss: 2.925
+[34,    26] loss: 2.895
+[35,    26] loss: 2.835
+[36,    26] loss: 2.926
+[37,    26] loss: 2.947
+[38,    26] loss: 2.961
+[39,    26] loss: 2.923
+[40,    26] loss: 2.895
+[41,    26] loss: 2.933
+[42,    26] loss: 2.872
+[43,    26] loss: 2.943
+[44,    26] loss: 2.826
+[45,    26] loss: 2.951
+[46,    26] loss: 2.937
+[47,    26] loss: 2.882
+[48,    26] loss: 3.074
+[49,    26] loss: 3.062
+[50,    26] loss: 3.010
+[51,    26] loss: 3.039
+[52,    26] loss: 3.013
+[53,    26] loss: 3.020
+[54,    26] loss: 3.115
+[55,    26] loss: 3.091
+[56,    26] loss: 3.019
+[57,    26] loss: 3.037
+[58,    26] loss: 3.098
+[59,    26] loss: 3.027
+[60,    26] loss: 3.015
+[61,    26] loss: 2.986
+[62,    26] loss: 2.987
+[63,    26] loss: 3.013
+[64,    26] loss: 3.008
+[65,    26] loss: 3.095
+[66,    26] loss: 3.023
+[67,    26] loss: 2.978
+[68,    26] loss: 3.260
+[69,    26] loss: 3.072
+[70,    26] loss: 3.182
+[71,    26] loss: 3.146
+[72,    26] loss: 3.135
+[73,    26] loss: 3.139
+[74,    26] loss: 3.221
+[75,    26] loss: 3.173
+[76,    26] loss: 3.166
+[77,    26] loss: 3.208
+[78,    26] loss: 3.486
+[79,    26] loss: 3.467
+[80,    26] loss: 3.466
+[81,    26] loss: 3.466
+[82,    26] loss: 3.466
+[83,    26] loss: 3.466
+[84,    26] loss: 3.466
+[85,    26] loss: 3.466
+[86,    26] loss: 3.465
+[87,    26] loss: 3.466
+[88,    26] loss: 3.466
+[89,    26] loss: 3.466
+[90,    26] loss: 3.466
+[91,    26] loss: 3.465
+[92,    26] loss: 3.466
+[93,    26] loss: 3.467
+[94,    26] loss: 3.465
+Early stopping applied (best metric=2.5632834434509277)
+Finished Training
+Total time taken: 155.47581243515015
+{'Hydroxylation-K Validation Accuracy': 0.5, 'Hydroxylation-K Validation Sensitivity': 0.9, 'Hydroxylation-K Validation Specificity': 0.39473684210526316, 'Hydroxylation-K Validation Precision': 0.28125, 'Hydroxylation-K AUC ROC': 0.6763157894736842, 'Hydroxylation-K AUC PR': 0.6089874072796274, 'Hydroxylation-K MCC': 0.2539166875385041, 'Hydroxylation-K F1': 0.4285714285714286, 'Validation Loss (Hydroxylation-K)': 0.5275601148605347, 'Hydroxylation-P Validation Accuracy': 0.53, 'Hydroxylation-P Validation Sensitivity': 0.9166666666666666, 'Hydroxylation-P Validation Specificity': 0.4451219512195122, 'Hydroxylation-P Validation Precision': 0.2661290322580645, 'Hydroxylation-P AUC ROC': 0.6996951219512195, 'Hydroxylation-P AUC PR': 0.5946002806163124, 'Hydroxylation-P MCC': 0.28635873499271797, 'Hydroxylation-P F1': 0.41250000000000003, 'Validation Loss (Hydroxylation-P)': 0.500501275062561, 'Pyrrolidone carboxylic acid Validation Accuracy': 0.5387096774193548, 'Pyrrolidone carboxylic acid Validation Sensitivity': 0.8333333333333334, 'Pyrrolidone carboxylic acid Validation Specificity': 0.4847328244274809, 'Pyrrolidone carboxylic acid Validation Precision': 0.22857142857142856, 'Pyrrolidone carboxylic acid AUC ROC': 0.6849554707379135, 'Pyrrolidone carboxylic acid AUC PR': 0.5183323155637359, 'Pyrrolidone carboxylic acid MCC': 0.2320613521361757, 'Pyrrolidone carboxylic acid F1': 0.35874439461883406, 'Validation Loss (Pyrrolidone carboxylic acid)': 0.48117151856422424, 'S-palmitoylation-C Validation Accuracy': 0.46825396825396826, 'S-palmitoylation-C Validation Sensitivity': 0.6297029702970297, 'S-palmitoylation-C Validation Specificity': 0.4277915632754342, 'S-palmitoylation-C Validation Precision': 0.21617946974847044, 'S-palmitoylation-C AUC ROC': 0.5327951256664128, 'S-palmitoylation-C AUC PR': 0.42436616668874083, 'S-palmitoylation-C MCC': 0.04668912005705545, 'S-palmitoylation-C F1': 0.32186234817813764, 'Validation Loss (S-palmitoylation-C)': 0.5566887259483337, 'Sumoylation Validation Accuracy': 0.41808510638297874, 'Sumoylation Validation Sensitivity': 0.6687211093990755, 'Sumoylation Validation Specificity': 0.3779313749691434, 'Sumoylation Validation Precision': 0.14691943127962084, 'Sumoylation AUC ROC': 0.523818996545965, 'Sumoylation AUC PR': 0.38218868733914424, 'Sumoylation MCC': 0.03330817830457507, 'Sumoylation F1': 0.24091035248404108, 'Validation Loss (Sumoylation)': 0.49736177921295166, 'Validation Loss (total)': 2.5632834434509277}
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.0056623088242812505,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 4193151919,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 0.44673693158459593}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.492
+[2,    26] loss: 2.080
+[3,    26] loss: 1.510
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.006110357927718583,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 2569110324,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 18.572720370656214}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.511
+[2,    26] loss: 3.311
+[3,    26] loss: 3.277
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.0029957989653747693,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 1072462018,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 24.056114872745344}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.498
+[2,    26] loss: 3.357
+[3,    26] loss: 3.280
+[4,    26] loss: 3.305
+[5,    26] loss: 3.407
+[6,    26] loss: 3.460
+[7,    26] loss: 3.466
+[8,    26] loss: 3.466
+[9,    26] loss: 3.466
+[10,    26] loss: 3.466
+[11,    26] loss: 3.466
+[12,    26] loss: 3.466
+[13,    26] loss: 3.466
+[14,    26] loss: 3.466
+[15,    26] loss: 3.466
+[16,    26] loss: 3.466
+[17,    26] loss: 3.466
+[18,    26] loss: 3.466
+[19,    26] loss: 3.466
+[20,    26] loss: 3.466
+[21,    26] loss: 3.466
+[22,    26] loss: 3.466
+[23,    26] loss: 3.466
+[24,    26] loss: 3.465
+[25,    26] loss: 3.465
+[26,    26] loss: 3.466
+[27,    26] loss: 3.465
+[28,    26] loss: 3.466
+[29,    26] loss: 3.466
+[30,    26] loss: 3.466
+[31,    26] loss: 3.466
+[32,    26] loss: 3.466
+[33,    26] loss: 3.465
+[34,    26] loss: 3.466
+[35,    26] loss: 3.465
+[36,    26] loss: 3.465
+[37,    26] loss: 3.465
+[38,    26] loss: 3.466
+[39,    26] loss: 3.466
+[40,    26] loss: 3.466
+[41,    26] loss: 3.466
+[42,    26] loss: 3.466
+[43,    26] loss: 3.466
+[44,    26] loss: 3.466
+[45,    26] loss: 3.466
+[46,    26] loss: 3.466
+[47,    26] loss: 3.466
+[48,    26] loss: 3.465
+[49,    26] loss: 3.466
+[50,    26] loss: 3.466
+[51,    26] loss: 3.466
+[52,    26] loss: 3.466
+[53,    26] loss: 3.466
+Early stopping applied (best metric=2.5537567138671875)
+Finished Training
+Total time taken: 89.84006547927856
+{'Hydroxylation-K Validation Accuracy': 0.4375, 'Hydroxylation-K Validation Sensitivity': 0.9, 'Hydroxylation-K Validation Specificity': 0.3157894736842105, 'Hydroxylation-K Validation Precision': 0.2571428571428571, 'Hydroxylation-K AUC ROC': 0.8368421052631579, 'Hydroxylation-K AUC PR': 0.650140977443609, 'Hydroxylation-K MCC': 0.19720428879999152, 'Hydroxylation-K F1': 0.39999999999999997, 'Validation Loss (Hydroxylation-K)': 0.528091549873352, 'Hydroxylation-P Validation Accuracy': 0.685, 'Hydroxylation-P Validation Sensitivity': 0.8888888888888888, 'Hydroxylation-P Validation Specificity': 0.6402439024390244, 'Hydroxylation-P Validation Precision': 0.3516483516483517, 'Hydroxylation-P AUC ROC': 0.8665311653116532, 'Hydroxylation-P AUC PR': 0.5852926264814212, 'Hydroxylation-P MCC': 0.408229049383555, 'Hydroxylation-P F1': 0.5039370078740157, 'Validation Loss (Hydroxylation-P)': 0.4778248071670532, 'Pyrrolidone carboxylic acid Validation Accuracy': 0.6, 'Pyrrolidone carboxylic acid Validation Sensitivity': 0.4791666666666667, 'Pyrrolidone carboxylic acid Validation Specificity': 0.6221374045801527, 'Pyrrolidone carboxylic acid Validation Precision': 0.1885245901639344, 'Pyrrolidone carboxylic acid AUC ROC': 0.57418893129771, 'Pyrrolidone carboxylic acid AUC PR': 0.18488482910345383, 'Pyrrolidone carboxylic acid MCC': 0.07501348174620924, 'Pyrrolidone carboxylic acid F1': 0.27058823529411763, 'Validation Loss (Pyrrolidone carboxylic acid)': 0.5039739608764648, 'S-palmitoylation-C Validation Accuracy': 0.5464285714285714, 'S-palmitoylation-C Validation Sensitivity': 0.5465346534653466, 'S-palmitoylation-C Validation Specificity': 0.5464019851116625, 'S-palmitoylation-C Validation Precision': 0.2319327731092437, 'S-palmitoylation-C AUC ROC': 0.5526629486770017, 'S-palmitoylation-C AUC PR': 0.22628402588284485, 'S-palmitoylation-C MCC': 0.07451966151375548, 'S-palmitoylation-C F1': 0.3256637168141593, 'Validation Loss (S-palmitoylation-C)': 0.5518169403076172, 'Sumoylation Validation Accuracy': 0.49638297872340426, 'Sumoylation Validation Sensitivity': 0.5208012326656395, 'Sumoylation Validation Specificity': 0.4924709948160948, 'Sumoylation Validation Precision': 0.14118629908103592, 'Sumoylation AUC ROC': 0.4980983979682774, 'Sumoylation AUC PR': 0.13206580386472816, 'Sumoylation MCC': 0.009159158239342578, 'Sumoylation F1': 0.2221491948734801, 'Validation Loss (Sumoylation)': 0.49204957485198975, 'Validation Loss (total)': 2.5537567138671875}
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.006954177617318743,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 2477659512,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 2.716226610945263}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.519
+[2,    26] loss: 2.220
+[3,    26] loss: 1.973
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.0035189739111858814,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 1280363268,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 24.573831563323374}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.511
+[2,    26] loss: 3.350
+[3,    26] loss: 3.350
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.001526371200159143,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 1727630605,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 7.471261011971885}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.475
+[2,    26] loss: 2.682
+[3,    26] loss: 2.112
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.0006521187918049876,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 319139073,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 23.556660580278912}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.397
+[2,    26] loss: 3.345
+[3,    26] loss: 3.112
+[4,    26] loss: 2.810
+[5,    26] loss: 2.630
+[6,    26] loss: 2.667
+[7,    26] loss: 2.679
+[8,    26] loss: 2.738
+[9,    26] loss: 2.792
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.0064668689981494725,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 559636520,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 24.719260143404515}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.488
+[2,    26] loss: 3.389
+[3,    26] loss: 3.383
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.0023546831897331417,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 1155461274,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 13.78030998374916}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.469
+[2,    26] loss: 2.754
+[3,    26] loss: 2.440
+[4,    26] loss: 2.369
+[5,    26] loss: 2.392
+[6,    26] loss: 2.513
+[7,    26] loss: 2.699
+[8,    26] loss: 2.708
+[9,    26] loss: 2.809
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.00226629580000105,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 3200827366,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 14.817915788042558}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.456
+[2,    26] loss: 2.778
+[3,    26] loss: 2.505
+[4,    26] loss: 2.487
+[5,    26] loss: 2.487
+[6,    26] loss: 2.621
+[7,    26] loss: 2.683
+[8,    26] loss: 2.724
+[9,    26] loss: 2.817
+[10,    26] loss: 2.846
+[11,    26] loss: 2.903
+[12,    26] loss: 2.967
+[13,    26] loss: 3.003
+[14,    26] loss: 3.002
+[15,    26] loss: 3.067
+[16,    26] loss: 3.108
+[17,    26] loss: 3.111
+[18,    26] loss: 3.134
+[19,    26] loss: 3.176
+[20,    26] loss: 3.148
+[21,    26] loss: 3.197
+[22,    26] loss: 3.160
+[23,    26] loss: 3.179
+[24,    26] loss: 3.176
+[25,    26] loss: 3.243
+[26,    26] loss: 3.242
+[27,    26] loss: 3.224
+[28,    26] loss: 3.214
+[29,    26] loss: 3.238
+[30,    26] loss: 3.300
+[31,    26] loss: 3.318
+[32,    26] loss: 3.340
+[33,    26] loss: 3.344
+[34,    26] loss: 3.332
+[35,    26] loss: 3.346
+[36,    26] loss: 3.354
+[37,    26] loss: 3.357
+[38,    26] loss: 3.365
+[39,    26] loss: 3.366
+[40,    26] loss: 3.364
+[41,    26] loss: 3.346
+[42,    26] loss: 3.353
+[43,    26] loss: 3.363
+[44,    26] loss: 3.377
+[45,    26] loss: 3.399
+[46,    26] loss: 3.416
+[47,    26] loss: 3.441
+[48,    26] loss: 3.461
+[49,    26] loss: 3.466
+[50,    26] loss: 3.466
+[51,    26] loss: 3.466
+[52,    26] loss: 3.466
+[53,    26] loss: 3.466
+[54,    26] loss: 3.466
+[55,    26] loss: 3.466
+[56,    26] loss: 3.465
+[57,    26] loss: 3.466
+[58,    26] loss: 3.466
+Early stopping applied (best metric=2.5049514770507812)
+Finished Training
+Total time taken: 107.1989221572876
+{'Hydroxylation-K Validation Accuracy': 0.7916666666666666, 'Hydroxylation-K Validation Sensitivity': 0.5, 'Hydroxylation-K Validation Specificity': 0.868421052631579, 'Hydroxylation-K Validation Precision': 0.5, 'Hydroxylation-K AUC ROC': 0.7657894736842106, 'Hydroxylation-K AUC PR': 0.5888909253910783, 'Hydroxylation-K MCC': 0.3684210526315789, 'Hydroxylation-K F1': 0.5, 'Validation Loss (Hydroxylation-K)': 0.47257575392723083, 'Hydroxylation-P Validation Accuracy': 0.73, 'Hydroxylation-P Validation Sensitivity': 0.6666666666666666, 'Hydroxylation-P Validation Specificity': 0.7439024390243902, 'Hydroxylation-P Validation Precision': 0.36363636363636365, 'Hydroxylation-P AUC ROC': 0.7383130081300813, 'Hydroxylation-P AUC PR': 0.35443066850661176, 'Hydroxylation-P MCC': 0.3354556215294814, 'Hydroxylation-P F1': 0.4705882352941177, 'Validation Loss (Hydroxylation-P)': 0.48017287254333496, 'Pyrrolidone carboxylic acid Validation Accuracy': 0.8064516129032258, 'Pyrrolidone carboxylic acid Validation Sensitivity': 0.4583333333333333, 'Pyrrolidone carboxylic acid Validation Specificity': 0.8702290076335878, 'Pyrrolidone carboxylic acid Validation Precision': 0.39285714285714285, 'Pyrrolidone carboxylic acid AUC ROC': 0.813255407124682, 'Pyrrolidone carboxylic acid AUC PR': 0.4327953737061289, 'Pyrrolidone carboxylic acid MCC': 0.30894286998073256, 'Pyrrolidone carboxylic acid F1': 0.4230769230769231, 'Validation Loss (Pyrrolidone carboxylic acid)': 0.44578325748443604, 'S-palmitoylation-C Validation Accuracy': 0.6873015873015873, 'S-palmitoylation-C Validation Sensitivity': 0.18811881188118812, 'S-palmitoylation-C Validation Specificity': 0.8124069478908189, 'S-palmitoylation-C Validation Precision': 0.20084566596194503, 'S-palmitoylation-C AUC ROC': 0.5047681989042577, 'S-palmitoylation-C AUC PR': 0.20584652560989403, 'S-palmitoylation-C MCC': 0.0005389904571145962, 'S-palmitoylation-C F1': 0.19427402862985685, 'Validation Loss (S-palmitoylation-C)': 0.5716134309768677, 'Sumoylation Validation Accuracy': 0.7640425531914894, 'Sumoylation Validation Sensitivity': 0.11248073959938366, 'Sumoylation Validation Specificity': 0.8684275487533942, 'Sumoylation Validation Precision': 0.12046204620462046, 'Sumoylation AUC ROC': 0.490030995409454, 'Sumoylation AUC PR': 0.13136141683191782, 'Sumoylation MCC': -0.01965341863477612, 'Sumoylation F1': 0.11633466135458168, 'Validation Loss (Sumoylation)': 0.5348060131072998, 'Validation Loss (total)': 2.5049514770507812}
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.0006620694415462978,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 1068569349,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 20.779853915749534}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.456
+[2,    26] loss: 3.381
+[3,    26] loss: 3.074
+[4,    26] loss: 2.757
+[5,    26] loss: 2.604
+[6,    26] loss: 2.501
+[7,    26] loss: 2.461
+[8,    26] loss: 2.480
+[9,    26] loss: 2.432
+[10,    26] loss: 2.584
+[11,    26] loss: 2.752
+[12,    26] loss: 2.880
+[13,    26] loss: 3.049
+[14,    26] loss: 3.179
+[15,    26] loss: 3.303
+[16,    26] loss: 3.411
+[17,    26] loss: 3.450
+[18,    26] loss: 3.464
+[19,    26] loss: 3.466
+[20,    26] loss: 3.466
+[21,    26] loss: 3.466
+[22,    26] loss: 3.466
+[23,    26] loss: 3.466
+[24,    26] loss: 3.466
+[25,    26] loss: 3.466
+[26,    26] loss: 3.466
+[27,    26] loss: 3.466
+[28,    26] loss: 3.466
+[29,    26] loss: 3.466
+[30,    26] loss: 3.466
+[31,    26] loss: 3.465
+[32,    26] loss: 3.466
+[33,    26] loss: 3.466
+[34,    26] loss: 3.466
+[35,    26] loss: 3.466
+[36,    26] loss: 3.466
+[37,    26] loss: 3.466
+[38,    26] loss: 3.466
+[39,    26] loss: 3.466
+[40,    26] loss: 3.466
+[41,    26] loss: 3.466
+[42,    26] loss: 3.466
+[43,    26] loss: 3.466
+[44,    26] loss: 3.466
+[45,    26] loss: 3.466
+[46,    26] loss: 3.466
+[47,    26] loss: 3.466
+[48,    26] loss: 3.466
+[49,    26] loss: 3.466
+[50,    26] loss: 3.466
+[51,    26] loss: 3.466
+[52,    26] loss: 3.466
+[53,    26] loss: 3.466
+[54,    26] loss: 3.466
+[55,    26] loss: 3.466
+[56,    26] loss: 3.466
+[57,    26] loss: 3.466
+Early stopping applied (best metric=2.3744759559631348)
+Finished Training
+Total time taken: 100.1632125377655
+{'Hydroxylation-K Validation Accuracy': 0.7291666666666666, 'Hydroxylation-K Validation Sensitivity': 0.8, 'Hydroxylation-K Validation Specificity': 0.7105263157894737, 'Hydroxylation-K Validation Precision': 0.42105263157894735, 'Hydroxylation-K AUC ROC': 0.7842105263157895, 'Hydroxylation-K AUC PR': 0.5701003992967056, 'Hydroxylation-K MCC': 0.4239690287269883, 'Hydroxylation-K F1': 0.5517241379310345, 'Validation Loss (Hydroxylation-K)': 0.46247565746307373, 'Hydroxylation-P Validation Accuracy': 0.785, 'Hydroxylation-P Validation Sensitivity': 0.9166666666666666, 'Hydroxylation-P Validation Specificity': 0.7560975609756098, 'Hydroxylation-P Validation Precision': 0.4520547945205479, 'Hydroxylation-P AUC ROC': 0.8997289972899729, 'Hydroxylation-P AUC PR': 0.6400510848658016, 'Hydroxylation-P MCC': 0.5368744977349006, 'Hydroxylation-P F1': 0.6055045871559632, 'Validation Loss (Hydroxylation-P)': 0.373864084482193, 'Pyrrolidone carboxylic acid Validation Accuracy': 0.7903225806451613, 'Pyrrolidone carboxylic acid Validation Sensitivity': 0.5, 'Pyrrolidone carboxylic acid Validation Specificity': 0.8435114503816794, 'Pyrrolidone carboxylic acid Validation Precision': 0.36923076923076925, 'Pyrrolidone carboxylic acid AUC ROC': 0.7984255725190839, 'Pyrrolidone carboxylic acid AUC PR': 0.32750028837370343, 'Pyrrolidone carboxylic acid MCC': 0.3052620117245608, 'Pyrrolidone carboxylic acid F1': 0.4247787610619469, 'Validation Loss (Pyrrolidone carboxylic acid)': 0.46114298701286316, 'S-palmitoylation-C Validation Accuracy': 0.651984126984127, 'S-palmitoylation-C Validation Sensitivity': 0.29504950495049503, 'S-palmitoylation-C Validation Specificity': 0.741439205955335, 'S-palmitoylation-C Validation Precision': 0.22238805970149253, 'S-palmitoylation-C AUC ROC': 0.537198240915903, 'S-palmitoylation-C AUC PR': 0.21759213852914241, 'S-palmitoylation-C MCC': 0.03306118908060527, 'S-palmitoylation-C F1': 0.25361702127659574, 'Validation Loss (S-palmitoylation-C)': 0.5578129887580872, 'Sumoylation Validation Accuracy': 0.6382978723404256, 'Sumoylation Validation Sensitivity': 0.2110939907550077, 'Sumoylation Validation Specificity': 0.7067390767711677, 'Sumoylation Validation Precision': 0.10339622641509434, 'Sumoylation AUC ROC': 0.48187002467385215, 'Sumoylation AUC PR': 0.12559171171744776, 'Sumoylation MCC': -0.06300220015486749, 'Sumoylation F1': 0.13880445795339413, 'Validation Loss (Sumoylation)': 0.519180178642273, 'Validation Loss (total)': 2.3744759559631348}
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.0052006331549053365,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 2529998126,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 16.256627653405456}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.503
+[2,    26] loss: 3.023
+[3,    26] loss: 2.999
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.0036964177131156377,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 2628411405,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 10.96492210382889}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.466
+[2,    26] loss: 2.767
+[3,    26] loss: 2.295
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.00921796153726981,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 3877709386,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 19.650680080219583}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.512
+[2,    26] loss: 3.243
+[3,    26] loss: 3.211
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.0029954979887996374,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 819936534,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 16.572825834476006}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.572
+[2,    26] loss: 3.034
+[3,    26] loss: 2.983
+[4,    26] loss: 2.839
+[5,    26] loss: 2.832
+[6,    26] loss: 2.947
+[7,    26] loss: 2.983
+[8,    26] loss: 3.022
+[9,    26] loss: 3.041
+[10,    26] loss: 3.079
+[11,    26] loss: 3.082
+[12,    26] loss: 3.089
+[13,    26] loss: 3.121
+[14,    26] loss: 3.165
+[15,    26] loss: 3.263
+[16,    26] loss: 3.282
+[17,    26] loss: 3.279
+[18,    26] loss: 3.303
+[19,    26] loss: 3.372
+[20,    26] loss: 3.343
+[21,    26] loss: 3.343
+[22,    26] loss: 3.368
+[23,    26] loss: 3.342
+[24,    26] loss: 3.345
+[25,    26] loss: 3.351
+[26,    26] loss: 3.348
+[27,    26] loss: 3.363
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.00013776227853197834,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 1831303359,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 10.91948487878378}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.479
+[2,    26] loss: 3.452
+[3,    26] loss: 3.423
+[4,    26] loss: 3.373
+[5,    26] loss: 3.279
+[6,    26] loss: 3.142
+[7,    26] loss: 2.953
+[8,    26] loss: 2.706
+[9,    26] loss: 2.466
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.005942287194245285,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 3626120630,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 1.3180211957623311}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.514
+[2,    26] loss: 2.119
+[3,    26] loss: 1.755
+[4,    26] loss: 1.431
+[5,    26] loss: 1.325
+[6,    26] loss: 1.486
+[7,    26] loss: 1.208
+[8,    26] loss: 1.083
+[9,    26] loss: 0.915
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.0014481176263865226,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 267513138,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 19.249465666536594}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.468
+[2,    26] loss: 3.179
+[3,    26] loss: 2.825
+[4,    26] loss: 2.722
+[5,    26] loss: 2.763
+[6,    26] loss: 2.808
+[7,    26] loss: 2.882
+[8,    26] loss: 2.927
+[9,    26] loss: 3.019
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.0022091340355494824,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 4078733998,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 14.396217038932686}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.458
+[2,    26] loss: 2.825
+[3,    26] loss: 2.458
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.005708073779437969,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 2945122661,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 21.841222656584733}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.476
+[2,    26] loss: 3.250
+[3,    26] loss: 3.238
+[4,    26] loss: 3.266
+[5,    26] loss: 3.295
+[6,    26] loss: 3.318
+[7,    26] loss: 3.294
+[8,    26] loss: 3.302
+[9,    26] loss: 3.311
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 8.076336827090615e-05,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 631129037,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 17.300622332291894}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.506
+[2,    26] loss: 3.468
+[3,    26] loss: 3.463
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.0010400172176753002,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 2913772406,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 9.519081720176459}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.486
+[2,    26] loss: 2.949
+[3,    26] loss: 2.272
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.0027673604952061295,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 330225162,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 20.778847617138098}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.559
+[2,    26] loss: 3.272
+[3,    26] loss: 3.082
+[4,    26] loss: 3.101
+[5,    26] loss: 3.172
+[6,    26] loss: 3.128
+[7,    26] loss: 3.216
+[8,    26] loss: 3.316
+[9,    26] loss: 3.411
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.0022365491221335797,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 1456478,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 24.90861646431113}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.505
+[2,    26] loss: 3.247
+[3,    26] loss: 3.043
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.002815511451979202,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 1616021967,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 18.564080691459928}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.575
+[2,    26] loss: 3.067
+[3,    26] loss: 2.951
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.005480244563584333,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 487636946,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 12.714473101908261}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.575
+[2,    26] loss: 3.072
+[3,    26] loss: 3.106
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.00028414107114264285,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 1290021635,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 22.747203025374862}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.439
+[2,    26] loss: 3.424
+[3,    26] loss: 3.350
+[4,    26] loss: 3.191
+[5,    26] loss: 2.978
+[6,    26] loss: 2.792
+[7,    26] loss: 2.680
+[8,    26] loss: 2.542
+[9,    26] loss: 2.449
+[10,    26] loss: 2.417
+[11,    26] loss: 2.399
+[12,    26] loss: 2.382
+[13,    26] loss: 2.345
+[14,    26] loss: 2.326
+[15,    26] loss: 2.333
+[16,    26] loss: 2.365
+[17,    26] loss: 2.383
+[18,    26] loss: 2.532
+[19,    26] loss: 2.565
+[20,    26] loss: 2.590
+[21,    26] loss: 2.655
+[22,    26] loss: 2.738
+[23,    26] loss: 2.771
+[24,    26] loss: 2.844
+[25,    26] loss: 2.895
+[26,    26] loss: 2.965
+[27,    26] loss: 3.034
+[28,    26] loss: 3.099
+[29,    26] loss: 3.162
+[30,    26] loss: 3.242
+[31,    26] loss: 3.323
+[32,    26] loss: 3.393
+[33,    26] loss: 3.433
+[34,    26] loss: 3.456
+[35,    26] loss: 3.463
+[36,    26] loss: 3.465
+[37,    26] loss: 3.466
+[38,    26] loss: 3.466
+[39,    26] loss: 3.466
+[40,    26] loss: 3.466
+[41,    26] loss: 3.466
+[42,    26] loss: 3.466
+[43,    26] loss: 3.466
+[44,    26] loss: 3.466
+[45,    26] loss: 3.466
+[46,    26] loss: 3.466
+[47,    26] loss: 3.466
+[48,    26] loss: 3.466
+[49,    26] loss: 3.466
+[50,    26] loss: 3.466
+[51,    26] loss: 3.466
+[52,    26] loss: 3.466
+[53,    26] loss: 3.466
+[54,    26] loss: 3.466
+[55,    26] loss: 3.466
+[56,    26] loss: 3.466
+[57,    26] loss: 3.466
+[58,    26] loss: 3.466
+[59,    26] loss: 3.466
+[60,    26] loss: 3.466
+[61,    26] loss: 3.466
+[62,    26] loss: 3.466
+[63,    26] loss: 3.466
+[64,    26] loss: 3.466
+[65,    26] loss: 3.466
+[66,    26] loss: 3.465
+[67,    26] loss: 3.466
+Early stopping applied (best metric=2.323820114135742)
+Finished Training
+Total time taken: 129.57852125167847
+{'Hydroxylation-K Validation Accuracy': 0.9375, 'Hydroxylation-K Validation Sensitivity': 0.8, 'Hydroxylation-K Validation Specificity': 0.9736842105263158, 'Hydroxylation-K Validation Precision': 0.8888888888888888, 'Hydroxylation-K AUC ROC': 0.9078947368421053, 'Hydroxylation-K AUC PR': 0.824125976148035, 'Hydroxylation-K MCC': 0.8050112948805689, 'Hydroxylation-K F1': 0.8421052631578948, 'Validation Loss (Hydroxylation-K)': 0.40698325634002686, 'Hydroxylation-P Validation Accuracy': 0.665, 'Hydroxylation-P Validation Sensitivity': 0.7777777777777778, 'Hydroxylation-P Validation Specificity': 0.6402439024390244, 'Hydroxylation-P Validation Precision': 0.3218390804597701, 'Hydroxylation-P AUC ROC': 0.8418021680216803, 'Hydroxylation-P AUC PR': 0.6336406985918719, 'Hydroxylation-P MCC': 0.3239463812680054, 'Hydroxylation-P F1': 0.45528455284552843, 'Validation Loss (Hydroxylation-P)': 0.41460996866226196, 'Pyrrolidone carboxylic acid Validation Accuracy': 0.7806451612903226, 'Pyrrolidone carboxylic acid Validation Sensitivity': 0.6875, 'Pyrrolidone carboxylic acid Validation Specificity': 0.7977099236641222, 'Pyrrolidone carboxylic acid Validation Precision': 0.38372093023255816, 'Pyrrolidone carboxylic acid AUC ROC': 0.8228371501272265, 'Pyrrolidone carboxylic acid AUC PR': 0.3918768402636209, 'Pyrrolidone carboxylic acid MCC': 0.392037584048793, 'Pyrrolidone carboxylic acid F1': 0.49253731343283585, 'Validation Loss (Pyrrolidone carboxylic acid)': 0.4327061176300049, 'S-palmitoylation-C Validation Accuracy': 0.6361111111111111, 'S-palmitoylation-C Validation Sensitivity': 0.300990099009901, 'S-palmitoylation-C Validation Specificity': 0.7200992555831266, 'S-palmitoylation-C Validation Precision': 0.2122905027932961, 'S-palmitoylation-C AUC ROC': 0.5256049922610126, 'S-palmitoylation-C AUC PR': 0.20582282667846424, 'S-palmitoylation-C MCC': 0.018718529386444537, 'S-palmitoylation-C F1': 0.248976248976249, 'Validation Loss (S-palmitoylation-C)': 0.5567052364349365, 'Sumoylation Validation Accuracy': 0.7406382978723405, 'Sumoylation Validation Sensitivity': 0.1386748844375963, 'Sumoylation Validation Specificity': 0.8370772648728709, 'Sumoylation Validation Precision': 0.12, 'Sumoylation AUC ROC': 0.5346209861249044, 'Sumoylation AUC PR': 0.14078566178950602, 'Sumoylation MCC': -0.02284270544513582, 'Sumoylation F1': 0.12866333095067906, 'Validation Loss (Sumoylation)': 0.512815535068512, 'Validation Loss (total)': 2.323820114135742}
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.00945088701537474,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 3879303232,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 10.892034027187217}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.478
+[2,    26] loss: 3.024
+[3,    26] loss: 3.046
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.0005307174411926534,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 3576636293,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 21.733658311426243}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.479
+[2,    26] loss: 3.409
+[3,    26] loss: 3.268
+[4,    26] loss: 3.124
+[5,    26] loss: 2.909
+[6,    26] loss: 2.620
+[7,    26] loss: 2.416
+[8,    26] loss: 2.314
+[9,    26] loss: 2.452
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.00042884750629007805,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 423735912,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 20.000835201580465}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.482
+[2,    26] loss: 3.401
+[3,    26] loss: 3.253
+[4,    26] loss: 2.955
+[5,    26] loss: 2.621
+[6,    26] loss: 2.391
+[7,    26] loss: 2.231
+[8,    26] loss: 2.164
+[9,    26] loss: 2.123
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.0005146461948877069,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 1891448321,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 7.467190125383313}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.457
+[2,    26] loss: 3.311
+[3,    26] loss: 2.937
+[4,    26] loss: 2.359
+[5,    26] loss: 1.833
+[6,    26] loss: 1.541
+[7,    26] loss: 1.420
+[8,    26] loss: 1.338
+[9,    26] loss: 1.266
+[10,    26] loss: 1.222
+[11,    26] loss: 1.145
+[12,    26] loss: 1.090
+[13,    26] loss: 1.050
+[14,    26] loss: 1.156
+[15,    26] loss: 1.180
+[16,    26] loss: 1.024
+[17,    26] loss: 0.854
+[18,    26] loss: 0.751
+[19,    26] loss: 0.720
+[20,    26] loss: 0.650
+[21,    26] loss: 0.591
+[22,    26] loss: 0.562
+[23,    26] loss: 0.892
+[24,    26] loss: 0.622
+[25,    26] loss: 0.518
+[26,    26] loss: 0.504
+[27,    26] loss: 0.510
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.00035648886688043963,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 2428930740,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 21.57083497606292}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.508
+[2,    26] loss: 3.440
+[3,    26] loss: 3.363
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.005647519179510047,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 1271041780,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 8.87733334120325}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.541
+[2,    26] loss: 2.598
+[3,    26] loss: 2.372
+[4,    26] loss: 2.356
+[5,    26] loss: 2.584
+[6,    26] loss: 2.596
+[7,    26] loss: 2.670
+[8,    26] loss: 2.739
+[9,    26] loss: 2.785
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.00942942869412831,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 3978367020,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 3.9221715938843325}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.515
+[2,    26] loss: 2.389
+[3,    26] loss: 2.210
+[4,    26] loss: 2.277
+[5,    26] loss: 2.485
+[6,    26] loss: 2.456
+[7,    26] loss: 2.382
+[8,    26] loss: 2.372
+[9,    26] loss: 2.598
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.0008818040074759946,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 2866041675,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 1.1822468560593116}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.435
+[2,    26] loss: 2.868
+[3,    26] loss: 1.936
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.0026951838287194558,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 4252329671,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 14.210719122805862}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.600
+[2,    26] loss: 2.964
+[3,    26] loss: 2.777
+[4,    26] loss: 2.640
+[5,    26] loss: 2.717
+[6,    26] loss: 3.019
+[7,    26] loss: 3.055
+[8,    26] loss: 3.180
+[9,    26] loss: 3.256
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.0011983595116940781,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 74019946,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 24.45991134096684}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.554
+[2,    26] loss: 3.252
+[3,    26] loss: 3.148
+[4,    26] loss: 3.093
+[5,    26] loss: 2.969
+[6,    26] loss: 2.968
+[7,    26] loss: 3.060
+[8,    26] loss: 3.147
+[9,    26] loss: 3.250
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.0024122474165323843,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 795430597,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 23.94822479982884}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.462
+[2,    26] loss: 3.299
+[3,    26] loss: 3.086
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.0045926516097398945,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 3434193150,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 22.98819341860249}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.459
+[2,    26] loss: 3.271
+[3,    26] loss: 3.285
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.009566866422319784,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 1985920543,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 24.440449892551925}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.430
+[2,    26] loss: 3.459
+[3,    26] loss: 3.464
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.0022670297444105673,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 1035129025,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 19.449813402471133}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.453
+[2,    26] loss: 3.033
+[3,    26] loss: 2.912
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.004295300854281498,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 2781899744,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 6.192367431591378}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.478
+[2,    26] loss: 2.606
+[3,    26] loss: 2.360
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': False,
+ 'currentFold': 0,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.00628032175563875,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 1812729560,
+ 'sample_weights': [0.009382716049382716,
+                    0.0404320987654321,
+                    0.06444444444444444,
+                    0.4974074074074074,
+                    1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 4.2157980871446235}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 3.490
+[2,    26] loss: 2.336
+[3,    26] loss: 2.173

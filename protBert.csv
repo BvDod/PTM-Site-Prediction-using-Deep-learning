@@ -1,7 +1,0 @@
-AA,avg AUC ROC,std AUC ROC,avg AUC PR,std AUC PR,avg MCC,std MCC
-Sumoylation,0.804,0.007,0.487,0.015,0.31,0.017
-S-palmitoylation-C,0.754,0.01,0.452,0.018,0.307,0.02
-Methylation-K,0.754,0.009,0.254,0.012,0.204,0.015
-Pyrrolidone carb. acid,0.959,0.014,0.864,0.029,0.661,0.071
-Hydroxylation-P,0.876,0.038,0.677,0.089,0.531,0.079
-Hydroxylation-K,0.878,0.07,0.651,0.167,0.631,0.139

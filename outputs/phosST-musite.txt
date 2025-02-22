@@ -1,0 +1,730 @@
+COMET INFO:     train_loss [7010]                                                                                      : (0.39774590730667114, 0.6971316337585449)
+COMET INFO:     validate_Phosphorylation-['S', 'T'] AUC PR [198]                                                       : (0.06661709286659284, 0.6508350966598325)
+COMET INFO:     validate_Phosphorylation-['S', 'T'] AUC ROC [198]                                                      : (0.6322631533719232, 0.876557532648825)
+COMET INFO:     validate_Phosphorylation-['S', 'T'] F1 [198]                                                           : (0.08850030271733324, 0.5929060106119803)
+COMET INFO:     validate_Phosphorylation-['S', 'T'] MCC [198]                                                          : (0.059261958603716705, 0.4950576210411193)
+COMET INFO:     validate_Phosphorylation-['S', 'T'] Validation Accuracy [198]                                          : (0.48812, 0.8049878837658808)
+COMET INFO:     validate_Phosphorylation-['S', 'T'] Validation Precision [198]                                         : (0.04734776312781038, 0.4832438746280279)
+COMET INFO:     validate_Phosphorylation-['S', 'T'] Validation Sensitivity [198]                                       : (0.6761023407729995, 0.8252560028248588)
+COMET INFO:     validate_Phosphorylation-['S', 'T'] Validation Specificity [198]                                       : (0.4809397255154372, 0.8136318273228319)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(0., device='cuda:0')) AUC PR [198]                  : (0.04400212917234439, 0.7379830682777828)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(0., device='cuda:0')) AUC ROC [198]                 : (0.6655901722391083, 0.8076554158809159)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(0., device='cuda:0')) F1 [198]                      : (0.05565423327412669, 0.6544229791560753)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(0., device='cuda:0')) MCC [198]                     : (0.009782638677086909, 0.3788337069853611)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(0., device='cuda:0')) Validation Accuracy [198]     : (0.057885410513880686, 0.6311136235161108)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(0., device='cuda:0')) Validation Precision [198]    : (0.028641072516758074, 0.5131382254260373)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(0., device='cuda:0')) Validation Sensitivity [198]  : (0.9030692779888921, 0.9804735457468576)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(0., device='cuda:0')) Validation Specificity [198]  : (0.03100303951367781, 0.45958702064896756)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(1., device='cuda:0')) AUC PR [198]                  : (0.05457070747917272, 0.7285137569236946)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(1., device='cuda:0')) AUC ROC [198]                 : (0.6281994120964345, 0.8533652196134294)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(1., device='cuda:0')) F1 [198]                      : (0.08137044967880086, 0.6382227758745977)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(1., device='cuda:0')) MCC [198]                     : (0.04738502500830474, 0.48870396376589265)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(1., device='cuda:0')) Validation Accuracy [198]     : (0.1528538812785388, 0.7730233163996353)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(1., device='cuda:0')) Validation Precision [198]    : (0.042511187154514345, 0.557388939256573)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(1., device='cuda:0')) Validation Sensitivity [198]  : (0.7464788732394366, 0.9794721407624634)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(1., device='cuda:0')) Validation Specificity [198]  : (0.11961040503622758, 0.782751868992524)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(10., device='cuda:0')) AUC PR [198]                 : (0.02, 0.705995815015143)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(10., device='cuda:0')) AUC ROC [198]                : (0.25, 0.9059547569913524)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(10., device='cuda:0')) F1 [198]                     : (0.0, 0.634190077704722)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(10., device='cuda:0')) MCC [198]                    : (-0.2059386177619785, 0.5623743221601549)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(10., device='cuda:0')) Validation Accuracy [198]    : (0.30303030303030304, 0.8572594752186589)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(10., device='cuda:0')) Validation Precision [198]   : (0.0, 0.5391260162601627)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(10., device='cuda:0')) Validation Sensitivity [198] : (0.0, 1.0)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(10., device='cuda:0')) Validation Specificity [198] : (0.28125, 0.873975267472558)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(11., device='cuda:0')) AUC PR [198]                 : (0.042211399711399714, 0.6914735591206179)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(11., device='cuda:0')) AUC ROC [198]                : (0.43103448275862066, 0.8615769028860734)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(11., device='cuda:0')) F1 [198]                     : (0.0, 0.8)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(11., device='cuda:0')) MCC [198]                    : (-0.08188394740675291, 0.809547547484654)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(11., device='cuda:0')) Validation Accuracy [198]    : (0.8255287009063444, 0.9836065573770492)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(11., device='cuda:0')) Validation Precision [198]   : (0.0, 1.0)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(11., device='cuda:0')) Validation Sensitivity [198] : (0.0, 0.6762936221419976)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(11., device='cuda:0')) Validation Specificity [198] : (0.8436665260790103, 1.0)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(12., device='cuda:0')) AUC PR [198]                 : (0.03047096955113459, 0.43336113515249197)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(12., device='cuda:0')) AUC ROC [198]                : (0.6070116861435726, 0.9069101983829136)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(12., device='cuda:0')) F1 [198]                     : (0.0, 0.4793028322440087)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(12., device='cuda:0')) MCC [198]                    : (-0.03649041376590373, 0.44822618115389357)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(12., device='cuda:0')) Validation Accuracy [198]    : (0.8836879432624114, 0.9723127035830619)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(12., device='cuda:0')) Validation Precision [198]   : (0.0, 0.41841004184100417)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(12., device='cuda:0')) Validation Sensitivity [198] : (0.0, 0.7214484679665738)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(12., device='cuda:0')) Validation Specificity [198] : (0.8947169096761977, 0.996661101836394)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(13., device='cuda:0')) AUC PR [198]                 : (0.11896027019427635, 0.5573359312467455)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(13., device='cuda:0')) AUC ROC [198]                : (0.662259008438424, 0.8326275013372393)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(13., device='cuda:0')) F1 [198]                     : (0.09576126493949967, 0.5637030247479378)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(13., device='cuda:0')) MCC [198]                    : (0.07909182997924187, 0.31145056052075903)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(13., device='cuda:0')) Validation Accuracy [198]    : (0.17366528729394207, 0.5940298507462687)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(13., device='cuda:0')) Validation Precision [198]   : (0.05030416471689284, 0.422680412371134)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(13., device='cuda:0')) Validation Sensitivity [198] : (0.81292984869326, 0.9969183359013868)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(13., device='cuda:0')) Validation Specificity [198] : (0.13589270508089696, 0.49443757725587145)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(14., device='cuda:0')) AUC PR [99]                  : (0.15661472494479697, 0.38108350859940754)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(14., device='cuda:0')) AUC ROC [99]                 : (0.8151956127723806, 0.9092867258390688)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(14., device='cuda:0')) F1 [99]                      : (0.14501510574018128, 0.4136690647482015)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(14., device='cuda:0')) MCC [99]                     : (0.11781100326915225, 0.3897777655305406)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(14., device='cuda:0')) Validation Accuracy [99]     : (0.8984700973574409, 0.9343996291145109)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(14., device='cuda:0')) Validation Precision [99]    : (0.19672131147540983, 0.3314121037463977)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(14., device='cuda:0')) Validation Sensitivity [99]  : (0.11483253588516747, 0.6411483253588517)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(14., device='cuda:0')) Validation Specificity [99]  : (0.9140073081607796, 0.9761266747868453)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(15., device='cuda:0')) AUC PR [99]                  : (0.394384115735655, 0.6001845972658687)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(15., device='cuda:0')) AUC ROC [99]                 : (0.843242106484503, 0.9061088630727059)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(15., device='cuda:0')) F1 [99]                      : (0.44257703081232497, 0.5807692307692307)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(15., device='cuda:0')) MCC [99]                     : (0.36359007743354843, 0.5270626464524646)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(15., device='cuda:0')) Validation Accuracy [99]     : (0.8237849579147434, 0.8829758349171871)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(15., device='cuda:0')) Validation Precision [99]    : (0.36574074074074076, 0.49335548172757476)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(15., device='cuda:0')) Validation Sensitivity [99]  : (0.5602836879432624, 0.8156028368794326)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(15., device='cuda:0')) Validation Specificity [99]  : (0.8248466257668712, 0.906441717791411)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(16., device='cuda:0')) AUC PR [198]                 : (0.06141365812509132, 0.42924441144735415)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(16., device='cuda:0')) AUC ROC [198]                : (0.5988069746099725, 0.8022329010344295)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(16., device='cuda:0')) F1 [198]                     : (0.05761316872427984, 0.44799999999999995)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(16., device='cuda:0')) MCC [198]                    : (0.008288680632493722, 0.3388407589665519)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(16., device='cuda:0')) Validation Accuracy [198]    : (0.40124740124740127, 0.8073496659242761)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(16., device='cuda:0')) Validation Precision [198]   : (0.03056768558951965, 0.37628865979381443)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(16., device='cuda:0')) Validation Sensitivity [198] : (0.40441176470588236, 0.7857142857142857)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(16., device='cuda:0')) Validation Specificity [198] : (0.3897216274089936, 0.8792650918635171)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(17., device='cuda:0')) AUC PR [198]                 : (0, 0.6878662952757747)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(17., device='cuda:0')) AUC ROC [198]                : (0, 0.9115320073256954)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(17., device='cuda:0')) F1 [198]                     : (0, 0.614963503649635)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(17., device='cuda:0')) MCC [198]                    : (0, 0.5506231029388368)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(17., device='cuda:0')) Validation Accuracy [198]    : (0, 0.8635628839314581)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(17., device='cuda:0')) Validation Precision [198]   : (0, 0.5160796324655437)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(17., device='cuda:0')) Validation Sensitivity [198] : (0, 0.8623024830699775)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(17., device='cuda:0')) Validation Specificity [198] : (0, 0.8807547169811321)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(18., device='cuda:0')) AUC PR [99]                  : (0.3416635395578563, 0.6113957696543115)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(18., device='cuda:0')) AUC ROC [99]                 : (0.8428127229552014, 0.9099287608216464)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(18., device='cuda:0')) F1 [99]                      : (0.4308390022675737, 0.575)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(18., device='cuda:0')) MCC [99]                     : (0.3518826712179447, 0.5262968101809212)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(18., device='cuda:0')) Validation Accuracy [99]     : (0.8076296054776655, 0.8780567329638083)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(18., device='cuda:0')) Validation Precision [99]    : (0.3518742442563482, 0.47289719626168225)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(18., device='cuda:0')) Validation Sensitivity [99]  : (0.5507246376811594, 0.8434782608695652)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(18., device='cuda:0')) Validation Specificity [99]  : (0.8030859662013226, 0.896399706098457)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(19., device='cuda:0')) AUC PR [198]                 : (0.019230769230769232, 0.5723834924317416)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(19., device='cuda:0')) AUC ROC [198]                : (0.21875, 0.8640149901661479)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(19., device='cuda:0')) F1 [198]                     : (0.0, 0.5611353711790393)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(19., device='cuda:0')) MCC [198]                    : (-0.1, 0.4790056863734668)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(19., device='cuda:0')) Validation Accuracy [198]    : (0.7272727272727273, 0.9696969696969697)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(19., device='cuda:0')) Validation Precision [198]   : (0.0, 0.48927875243664715)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(19., device='cuda:0')) Validation Sensitivity [198] : (0.0, 0.7429305912596401)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(19., device='cuda:0')) Validation Specificity [198] : (0.7409557838320678, 1.0)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(2., device='cuda:0')) AUC PR [198]                  : (0.09005467066403958, 0.6372647847046521)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(2., device='cuda:0')) AUC ROC [198]                 : (0.6969111607377059, 0.8343057371827113)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(2., device='cuda:0')) F1 [198]                      : (0.074077817079333, 0.5858554663372452)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(2., device='cuda:0')) MCC [198]                     : (0.05307189324571493, 0.32835860301577385)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(2., device='cuda:0')) Validation Accuracy [198]     : (0.11121889702672552, 0.5982183300619055)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(2., device='cuda:0')) Validation Precision [198]    : (0.038467593807399635, 0.44195639363582795)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(2., device='cuda:0')) Validation Sensitivity [198]  : (0.8646529859349781, 0.9972789115646259)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(2., device='cuda:0')) Validation Specificity [198]  : (0.07846293129463837, 0.46851498484678417)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(20., device='cuda:0')) AUC PR [198]                 : (0.09781849296715273, 0.3146315350056774)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(20., device='cuda:0')) AUC ROC [198]                : (0.6817687261259502, 0.7767297070627244)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(20., device='cuda:0')) F1 [198]                     : (0.16672629695885507, 0.34032768036792177)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(20., device='cuda:0')) MCC [198]                    : (0.12579359038823199, 0.27727133199012577)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(20., device='cuda:0')) Validation Accuracy [198]    : (0.872328684659376, 0.9260163704608149)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(20., device='cuda:0')) Validation Precision [198]   : (0.12446581196581197, 0.37862468931234466)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(20., device='cuda:0')) Validation Sensitivity [198] : (0.21482339316734222, 0.4279523293607801)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(20., device='cuda:0')) Validation Specificity [198] : (0.8936762623879189, 0.9617729444719064)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(3., device='cuda:0')) AUC PR [198]                  : (0.05461704035155851, 0.5834347805428678)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(3., device='cuda:0')) AUC ROC [198]                 : (0.5928774292412609, 0.8756110601555485)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(3., device='cuda:0')) F1 [198]                      : (0.08555825242718447, 0.556480811006517)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(3., device='cuda:0')) MCC [198]                     : (0.06280003858549207, 0.48902624577177733)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(3., device='cuda:0')) Validation Accuracy [198]     : (0.7141605327725201, 0.866557734204793)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(3., device='cuda:0')) Validation Precision [198]    : (0.04745497259201253, 0.47956318252730107)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(3., device='cuda:0')) Validation Sensitivity [198]  : (0.41654357459379615, 0.7421302285467875)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(3., device='cuda:0')) Validation Specificity [198]  : (0.7196460017158081, 0.8971385823826444)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(4., device='cuda:0')) AUC PR [198]                  : (0.06097856711765133, 0.4528120522505917)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(4., device='cuda:0')) AUC ROC [198]                 : (0.7203652090397, 0.8741317447240838)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(4., device='cuda:0')) F1 [198]                      : (0.10686506594521475, 0.45903479236812567)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(4., device='cuda:0')) MCC [198]                     : (0.12642247994615508, 0.35367493995033145)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(4., device='cuda:0')) Validation Accuracy [198]     : (0.5763554700032082, 0.8237131806010116)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(4., device='cuda:0')) Validation Precision [198]    : (0.057329462989840346, 0.4229461756373938)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(4., device='cuda:0')) Validation Sensitivity [198]  : (0.47459315841912986, 0.9054726368159204)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(4., device='cuda:0')) Validation Specificity [198]  : (0.5693684733963202, 0.88125910813174)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(5., device='cuda:0')) AUC PR [198]                  : (0.14034276387299072, 0.5391262831907059)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(5., device='cuda:0')) AUC ROC [198]                 : (0.7351440576230492, 0.8904970716671798)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(5., device='cuda:0')) F1 [198]                      : (0.15929203539823011, 0.529124633908233)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(5., device='cuda:0')) MCC [198]                     : (0.14039728134106202, 0.46954780398930723)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(5., device='cuda:0')) Validation Accuracy [198]     : (0.5686719636776391, 0.8663572188376366)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(5., device='cuda:0')) Validation Precision [198]    : (0.0891089108910891, 0.4442528735632184)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(5., device='cuda:0')) Validation Sensitivity [198]  : (0.43013468013468015, 0.9375)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(5., device='cuda:0')) Validation Specificity [198]  : (0.5582232893157263, 0.8943515787173604)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(6., device='cuda:0')) AUC PR [99]                   : (0.41147025210397997, 0.6288028904772561)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(6., device='cuda:0')) AUC ROC [99]                  : (0.8406764274335263, 0.9075220561359362)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(6., device='cuda:0')) F1 [99]                       : (0.4692649751504054, 0.5961866818440524)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(6., device='cuda:0')) MCC [99]                      : (0.38539628984911517, 0.5379222940759947)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(6., device='cuda:0')) Validation Accuracy [99]      : (0.7986029722000844, 0.8669541981154189)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(6., device='cuda:0')) Validation Precision [99]     : (0.36622191011235955, 0.49224624060150374)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(6., device='cuda:0')) Validation Sensitivity [99]   : (0.6471861471861472, 0.8275613275613276)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(6., device='cuda:0')) Validation Specificity [99]   : (0.8054852093323994, 0.8835605366668463)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(7., device='cuda:0')) AUC PR [198]                  : (0.03931451612903226, 0.5261699507389163)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(7., device='cuda:0')) AUC ROC [198]                 : (0.8311949658585556, 0.9403973509933775)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(7., device='cuda:0')) F1 [198]                      : (0.039999999999999994, 0.5122480620155038)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(7., device='cuda:0')) MCC [198]                     : (0.04620150427379804, 0.47094956248451886)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(7., device='cuda:0')) Validation Accuracy [198]     : (0.6405228758169934, 0.9101266554855127)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(7., device='cuda:0')) Validation Precision [198]    : (0.020833333333333332, 0.44450579790171174)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(7., device='cuda:0')) Validation Sensitivity [198]  : (0.3828529194382853, 1.0)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(7., device='cuda:0')) Validation Specificity [198]  : (0.6357615894039735, 0.9373823566319488)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(8., device='cuda:0')) AUC PR [198]                  : (0.02483100971445958, 0.4433941622193662)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(8., device='cuda:0')) AUC ROC [198]                 : (0.5242626886145404, 0.871082221554844)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(8., device='cuda:0')) F1 [198]                      : (0.043795620437956206, 0.4665641813989239)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(8., device='cuda:0')) MCC [198]                     : (0.010075403616944666, 0.41340195758190185)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(8., device='cuda:0')) Validation Accuracy [198]     : (0.763758389261745, 0.8856012527816698)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(8., device='cuda:0')) Validation Precision [198]    : (0.024793388429752067, 0.394925178919974)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(8., device='cuda:0')) Validation Sensitivity [198]  : (0.1875, 0.6807511737089202)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(8., device='cuda:0')) Validation Specificity [198]  : (0.7736625514403292, 0.9321467293097218)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(9., device='cuda:0')) AUC PR [99]                   : (0.41776404826520747, 0.6233693166235323)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(9., device='cuda:0')) AUC ROC [99]                  : (0.854856569101955, 0.9048325270861773)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(9., device='cuda:0')) F1 [99]                       : (0.463980463980464, 0.5970149253731343)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(9., device='cuda:0')) MCC [99]                      : (0.3952979720006147, 0.5492760277588622)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(9., device='cuda:0')) Validation Accuracy [99]      : (0.8546081813701331, 0.8988664366683096)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(9., device='cuda:0')) Validation Precision [99]     : (0.4068352059925094, 0.517358747447243)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(9., device='cuda:0')) Validation Sensitivity [99]   : (0.5292479108635098, 0.8068709377901578)
+COMET INFO:     validate_Phosphorylation-['S', 'T'](species=tensor(9., device='cuda:0')) Validation Specificity [99]   : (0.8602779003087782, 0.9218129686810763)
+COMET INFO:     validate_Validation Loss (Phosphorylation-['S', 'T']) [198]                                            : (0.34262335300445557, 0.49457404017448425)
+COMET INFO:     validate_Validation Loss (total) [198]                                                                 : (0.34262335300445557, 0.49457404017448425)
+COMET INFO:   Parameters:
+COMET INFO:     CNNType                 : Musite
+COMET INFO:     CV_Repeats              : 1
+COMET INFO:     CreateFigures           : False
+COMET INFO:     Experiment Name         : retestt
+COMET INFO:     FCType                  : Adapt
+COMET INFO:     LSTM_dropout            : 0
+COMET INFO:     LSTM_hidden_size        : 32
+COMET INFO:     LSTM_layers             : 1
+COMET INFO:     MultiTask_Species       : False
+COMET INFO:     MusiteTest              : True
+COMET INFO:     SeperateTuningLRandWD   : False
+COMET INFO:     SpecieFeatureHoldout    : False
+COMET INFO:     TestSet                 : True
+COMET INFO:     UseUncertaintyBasedLoss : False
+COMET INFO:     ValidationMetric        : Validation Loss (total)
+COMET INFO:     WeightDecayWeights      : []
+COMET INFO:     aminoAcid               : ["Phosphorylation-['S', 'T']"]
+COMET INFO:     batch_size              : 512
+COMET INFO:     crossValidation         : False
+COMET INFO:     currentFold             : 0
+COMET INFO:     current_CV_Repeat       : 1
+COMET INFO:     data_sample_mode        : ['balanced']
+COMET INFO:     dontAverageLoss         : False
+COMET INFO:     earlyStopping           : True
+COMET INFO:     earlyStoppingPatience   : 20
+COMET INFO:     embeddingType           : adaptiveEmbedding
+COMET INFO:     epochs                  : 400
+COMET INFO:     folds                   : 5
+COMET INFO:     gpu_mode                : True
+COMET INFO:     layerToSplitOn          : FC
+COMET INFO:     learning_rate           : 0.00036135
+COMET INFO:     loss_function           : <class 'torch.nn.modules.loss.BCELoss'>
+COMET INFO:     onlyPredictHumans       : False
+COMET INFO:     optimizer               : <class 'torch.optim.adamw.AdamW'>
+COMET INFO:     predictSpecies          : False
+COMET INFO:     random_state            : 1663630928
+COMET INFO:     sample_weights          : [1.0]
+COMET INFO:     specieMetrics           : True
+COMET INFO:     species_weight          : 0.15
+COMET INFO:     split_2010              : True
+COMET INFO:     test_data_ratio         : 0.2
+COMET INFO:     useLrWeight             : False
+COMET INFO:     useSpecieFeature        : True
+COMET INFO:     weight_decay            : 0.0961727
+COMET INFO:   Uploads:
+COMET INFO:     environment details      : 1
+COMET INFO:     filename                 : 1
+COMET INFO:     git metadata             : 1
+COMET INFO:     git-patch (uncompressed) : 1 (12.20 MB)
+COMET INFO:     installed packages       : 1
+COMET INFO:     model graph              : 1
+COMET INFO:     source_code              : 2 (17.90 KB)
+COMET INFO: ---------------------------
+COMET ERROR: Error sending a notification, make sure you have opted-in for notifications
+COMET WARNING: Native output logging mode is not available, fallbacking on basic output logging
+COMET INFO: Experiment is live on comet.ml https://www.comet.com/brentvd/evaluation-retestt/9a28cbcde7c64b0db6337f6c203dda6d
+
+results!
+{'gpu_mode': True, 'epochs': 400, 'batch_size': 512, 'learning_rate': 0.00036135, 'test_data_ratio': 0.2, 'data_sample_mode': ['balanced'], 'crossValidation': False, 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>, 'optimizer': <class 'torch.optim.adamw.AdamW'>, 'folds': 5, 'earlyStopping': True, 'ValidationMetric': 'Validation Loss (total)', 'earlyStoppingPatience': 20, 'CV_Repeats': 1, 'Experiment Name': 'retestt', 'weight_decay': 0.0961727, 'embeddingType': 'adaptiveEmbedding', 'LSTM_layers': 1, 'LSTM_hidden_size': 32, 'LSTM_dropout': 0, 'UseUncertaintyBasedLoss': False, 'useLrWeight': False, 'CreateFigures': False, 'SeperateTuningLRandWD': False, 'dontAverageLoss': False, 'predictSpecies': False, 'onlyPredictHumans': False, 'useSpecieFeature': True, 'SpecieFeatureHoldout': False, 'MultiTask_Species': False, 'species_weight': 0.15, 'TestSet': True, 'MusiteTest': True, 'split_2010': True, 'specieMetrics': True, 'CNNType': 'Musite', 'FCType': 'Adapt', 'aminoAcid': ["Phosphorylation-['S', 'T']"], 'random_state': 1663630928, 'current_CV_Repeat': 1, 'layerToSplitOn': 'FC', 'sample_weights': [1.0], 'WeightDecayWeights': [], 'currentFold': 0}
+{"Phosphorylation-['S', 'T'] Validation Accuracy": 0.58149, "Phosphorylation-['S', 'T'] Validation Sensitivity": 0.7144801306477954, "Phosphorylation-['S', 'T'] Validation Specificity": 0.5764175819612566, "Phosphorylation-['S', 'T'] Validation Precision": 0.060446266147788245, "Phosphorylation-['S', 'T'] AUC ROC": 0.7167324042196529, "Phosphorylation-['S', 'T'] AUC PR": 0.1254087881702205, "Phosphorylation-['S', 'T'] MCC": 0.11040713144355838, "Phosphorylation-['S', 'T'] F1": 0.11146260164327722, "Validation Loss (Phosphorylation-['S', 'T'])": 0.3627420663833618, "Phosphorylation-['S', 'T'](species=tensor(0., device='cuda:0')) Validation Accuracy": 0.20200826934435911, "Phosphorylation-['S', 'T'](species=tensor(0., device='cuda:0')) Validation Sensitivity": 0.9791666666666666, "Phosphorylation-['S', 'T'](species=tensor(0., device='cuda:0')) Validation Specificity": 0.17933130699088146, "Phosphorylation-['S', 'T'](species=tensor(0., device='cuda:0')) Validation Precision": 0.03364352183249821, "Phosphorylation-['S', 'T'](species=tensor(0., device='cuda:0')) AUC ROC": 0.723758865248227, "Phosphorylation-['S', 'T'](species=tensor(0., device='cuda:0')) AUC PR": 0.06229685313360167, "Phosphorylation-['S', 'T'](species=tensor(0., device='cuda:0')) MCC": 0.06926011774414623, "Phosphorylation-['S', 'T'](species=tensor(0., device='cuda:0')) F1": 0.06505190311418685, "Phosphorylation-['S', 'T'](species=tensor(1., device='cuda:0')) Validation Accuracy": 0.3610730593607306, "Phosphorylation-['S', 'T'](species=tensor(1., device='cuda:0')) Validation Sensitivity": 0.9648093841642229, "Phosphorylation-['S', 'T'](species=tensor(1., device='cuda:0')) Validation Specificity": 0.33661955101556007, "Phosphorylation-['S', 'T'](species=tensor(1., device='cuda:0')) Validation Precision": 0.055630706797429826, "Phosphorylation-['S', 'T'](species=tensor(1., device='cuda:0')) AUC ROC": 0.7648662656977183, "Phosphorylation-['S', 'T'](species=tensor(1., device='cuda:0')) AUC PR": 0.14260089533687545, "Phosphorylation-['S', 'T'](species=tensor(1., device='cuda:0')) MCC": 0.12448994516931655, "Phosphorylation-['S', 'T'](species=tensor(1., device='cuda:0')) F1": 0.10519584332533972, "Phosphorylation-['S', 'T'](species=tensor(2., device='cuda:0')) Validation Accuracy": 0.27739244312945627, "Phosphorylation-['S', 'T'](species=tensor(2., device='cuda:0')) Validation Sensitivity": 0.9714285714285714, "Phosphorylation-['S', 'T'](species=tensor(2., device='cuda:0')) Validation Specificity": 0.25173523790363145, "Phosphorylation-['S', 'T'](species=tensor(2., device='cuda:0')) Validation Precision": 0.045795651337309985, "Phosphorylation-['S', 'T'](species=tensor(2., device='cuda:0')) AUC ROC": 0.8301106460087304, "Phosphorylation-['S', 'T'](species=tensor(2., device='cuda:0')) AUC PR": 
+0.22593369720920478, "Phosphorylation-['S', 'T'](species=tensor(2., device='cuda:0')) MCC": 0.0963716384032407, "Phosphorylation-['S', 'T'](species=tensor(2., device='cuda:0')) F1": 0.0874678427048879, "Phosphorylation-['S', 'T'](species=tensor(3., device='cuda:0')) Validation Accuracy": 0.7666929547844374, "Phosphorylation-['S', 'T'](species=tensor(3., device='cuda:0')) Validation Sensitivity": 0.48892171344165436, "Phosphorylation-['S', 'T'](species=tensor(3., device='cuda:0')) Validation Specificity": 0.7751839978326636, "Phosphorylation-['S', 'T'](species=tensor(3., device='cuda:0')) Validation Precision": 0.06233521657250471, "Phosphorylation-['S', 'T'](species=tensor(3., device='cuda:0')) AUC ROC": 0.6713937535277741, "Phosphorylation-['S', 'T'](species=tensor(3., device='cuda:0')) AUC PR": 0.1185743635349039, "Phosphorylation-['S', 'T'](species=tensor(3., 
+device='cuda:0')) MCC": 0.106044865802505, "Phosphorylation-['S', 'T'](species=tensor(3., device='cuda:0')) F1": 0.1105729079672624, "Phosphorylation-['S', 'T'](species=tensor(4., device='cuda:0')) Validation Accuracy": 0.7061276868784088, "Phosphorylation-['S', 'T'](species=tensor(4., device='cuda:0')) Validation Sensitivity": 0.8656716417910447, 
+"Phosphorylation-['S', 'T'](species=tensor(4., device='cuda:0')) Validation Specificity": 0.700812199569037, "Phosphorylation-['S', 'T'](species=tensor(4., device='cuda:0')) Validation Precision": 0.08792319353208691, "Phosphorylation-['S', 'T'](species=tensor(4., device='cuda:0')) AUC ROC": 0.8666867881708645, "Phosphorylation-['S', 'T'](species=tensor(4., device='cuda:0')) AUC PR": 0.2193601383258715, "Phosphorylation-['S', 'T'](species=tensor(4., device='cuda:0')) MCC": 0.21497083255073252, "Phosphorylation-['S', 'T'](species=tensor(4., device='cuda:0')) F1": 0.1596330275229358, "Phosphorylation-['S', 'T'](species=tensor(5., device='cuda:0')) Validation Accuracy": 0.684449489216799, "Phosphorylation-['S', 'T'](species=tensor(5., device='cuda:0')) Validation Sensitivity": 0.8541666666666666, "Phosphorylation-['S', 'T'](species=tensor(5., device='cuda:0')) Validation Specificity": 0.6746698679471789, "Phosphorylation-['S', 'T'](species=tensor(5., device='cuda:0')) Validation Precision": 0.13141025641025642, "Phosphorylation-['S', 'T'](species=tensor(5., device='cuda:0')) AUC ROC": 0.8456882753101241, "Phosphorylation-['S', 'T'](species=tensor(5., device='cuda:0')) AUC PR": 0.31016827483587706, "Phosphorylation-['S', 'T'](species=tensor(5., device='cuda:0')) MCC": 0.25097539122160617, "Phosphorylation-['S', 'T'](species=tensor(5., device='cuda:0')) F1": 0.2277777777777778, "Phosphorylation-['S', 'T'](species=tensor(7., device='cuda:0')) Validation Accuracy": 0.6928104575163399, "Phosphorylation-['S', 'T'](species=tensor(7., device='cuda:0')) Validation Sensitivity": 0.5, "Phosphorylation-['S', 'T'](species=tensor(7., device='cuda:0')) Validation Specificity": 0.695364238410596, "Phosphorylation-['S', 'T'](species=tensor(7., device='cuda:0')) Validation Precision": 0.02127659574468085, "Phosphorylation-['S', 'T'](species=tensor(7., device='cuda:0')) AUC ROC": 0.8443708609271523, "Phosphorylation-['S', 'T'](species=tensor(7., device='cuda:0')) AUC PR": 0.5154124149659864, "Phosphorylation-['S', 'T'](species=tensor(7., device='cuda:0')) MCC": 0.04810017744977197, "Phosphorylation-['S', 'T'](species=tensor(7., device='cuda:0')) F1": 0.04081632653061224, "Phosphorylation-['S', 'T'](species=tensor(8., device='cuda:0')) Validation Accuracy": 
+0.8187919463087249, "Phosphorylation-['S', 'T'](species=tensor(8., device='cuda:0')) Validation Sensitivity": 0.3125, "Phosphorylation-['S', 'T'](species=tensor(8., device='cuda:0')) Validation Specificity": 0.8299039780521262, "Phosphorylation-['S', 'T'](species=tensor(8., device='cuda:0')) Validation Precision": 0.03875968992248062, "Phosphorylation-['S', 'T'](species=tensor(8., device='cuda:0')) AUC ROC": 0.5823902606310014, "Phosphorylation-['S', 'T'](species=tensor(8., device='cuda:0')) AUC PR": 0.028140530723140978, "Phosphorylation-['S', 'T'](species=tensor(8., device='cuda:0')) MCC": 0.054558279422337846, "Phosphorylation-['S', 'T'](species=tensor(8., device='cuda:0')) F1": 0.06896551724137931, "Phosphorylation-['S', 'T'](species=tensor(10., device='cuda:0')) Validation Accuracy": 0.6666666666666666, "Phosphorylation-['S', 'T'](species=tensor(10., device='cuda:0')) Validation Sensitivity": 0.0, "Phosphorylation-['S', 'T'](species=tensor(10., device='cuda:0')) Validation Specificity": 0.6875, "Phosphorylation-['S', 'T'](species=tensor(10., device='cuda:0')) Validation Precision": 0.0, "Phosphorylation-['S', 'T'](species=tensor(10., device='cuda:0')) AUC ROC": 0.40625, "Phosphorylation-['S', 'T'](species=tensor(10., device='cuda:0')) AUC PR": 0.025, "Phosphorylation-['S', 'T'](species=tensor(10., device='cuda:0')) MCC": -0.11656310103003922, "Phosphorylation-['S', 'T'](species=tensor(10., device='cuda:0')) F1": 0.0, "Phosphorylation-['S', 'T'](species=tensor(11., device='cuda:0')) Validation Accuracy": 0.9344262295081968, "Phosphorylation-['S', 'T'](species=tensor(11., device='cuda:0')) Validation Sensitivity": 0.0, "Phosphorylation-['S', 'T'](species=tensor(11., device='cuda:0')) Validation Specificity": 0.9827586206896551, "Phosphorylation-['S', 'T'](species=tensor(11., device='cuda:0')) Validation Precision": 0.0, "Phosphorylation-['S', 'T'](species=tensor(11., device='cuda:0')) AUC 
+ROC": 0.7758620689655172, "Phosphorylation-['S', 'T'](species=tensor(11., device='cuda:0')) AUC PR": 0.2988247863247863, "Phosphorylation-['S', 'T'](species=tensor(11., device='cuda:0')) MCC": -0.029361010975735173, "Phosphorylation-['S', 'T'](species=tensor(11., device='cuda:0')) F1": 0.0, "Phosphorylation-['S', 'T'](species=tensor(12., device='cuda:0')) Validation Accuracy": 0.9462540716612378, "Phosphorylation-['S', 'T'](species=tensor(12., device='cuda:0')) Validation Sensitivity": 0.0, "Phosphorylation-['S', 'T'](species=tensor(12., device='cuda:0')) Validation Specificity": 0.9699499165275459, "Phosphorylation-['S', 'T'](species=tensor(12., device='cuda:0')) Validation Precision": 0.0, "Phosphorylation-['S', 'T'](species=tensor(12., device='cuda:0')) AUC ROC": 0.6481914301613801, "Phosphorylation-['S', 'T'](species=tensor(12., device='cuda:0')) AUC PR": 0.033145364903078345, "Phosphorylation-['S', 'T'](species=tensor(12., device='cuda:0')) MCC": -0.027500800845166717, "Phosphorylation-['S', 'T'](species=tensor(12., device='cuda:0')) F1": 0.0, "Phosphorylation-['S', 'T'](species=tensor(13., device='cuda:0')) Validation Accuracy": 0.33769757818329826, "Phosphorylation-['S', 'T'](species=tensor(13., device='cuda:0')) Validation Sensitivity": 0.9599383667180277, "Phosphorylation-['S', 'T'](species=tensor(13., device='cuda:0')) Validation Specificity": 0.30904059040590404, "Phosphorylation-['S', 'T'](species=tensor(13., device='cuda:0')) Validation Precision": 0.06013513513513514, "Phosphorylation-['S', 'T'](species=tensor(13., device='cuda:0')) AUC ROC": 0.8254914764390028, "Phosphorylation-['S', 'T'](species=tensor(13., device='cuda:0')) AUC PR": 0.24099395210208818, "Phosphorylation-['S', 'T'](species=tensor(13., device='cuda:0')) MCC": 0.12074258424248417, "Phosphorylation-['S', 'T'](species=tensor(13., device='cuda:0')) F1": 0.11318012535198474, "Phosphorylation-['S', 'T'](species=tensor(16., device='cuda:0')) Validation Accuracy": 0.6278586278586279, "Phosphorylation-['S', 'T'](species=tensor(16., device='cuda:0')) Validation Sensitivity": 0.5, "Phosphorylation-['S', 'T'](species=tensor(16., device='cuda:0')) Validation Specificity": 0.6316916488222698, "Phosphorylation-['S', 'T'](species=tensor(16., device='cuda:0')) Validation Precision": 0.03910614525139665, "Phosphorylation-['S', 'T'](species=tensor(16., device='cuda:0')) AUC ROC": 0.6272560416029367, "Phosphorylation-['S', 'T'](species=tensor(16., device='cuda:0')) AUC PR": 0.0660415691007891, "Phosphorylation-['S', 'T'](species=tensor(16., device='cuda:0')) MCC": 0.045798442232916875, "Phosphorylation-['S', 'T'](species=tensor(16., device='cuda:0')) F1": 0.07253886010362694, "Phosphorylation-['S', 'T'](species=tensor(17., device='cuda:0')) Validation Accuracy": 0, "Phosphorylation-['S', 
+'T'](species=tensor(17., device='cuda:0')) Validation Sensitivity": 0, "Phosphorylation-['S', 'T'](species=tensor(17., device='cuda:0')) Validation Specificity": 0, "Phosphorylation-['S', 'T'](species=tensor(17., device='cuda:0')) Validation Precision": 0, "Phosphorylation-['S', 'T'](species=tensor(17., device='cuda:0')) AUC ROC": 0, "Phosphorylation-['S', 'T'](species=tensor(17., device='cuda:0')) AUC PR": 0, "Phosphorylation-['S', 'T'](species=tensor(17., device='cuda:0')) MCC": 0, "Phosphorylation-['S', 'T'](species=tensor(17., device='cuda:0')) F1": 0, "Phosphorylation-['S', 'T'](species=tensor(19., device='cuda:0')) Validation Accuracy": 0.7575757575757576, "Phosphorylation-['S', 'T'](species=tensor(19., device='cuda:0')) Validation Sensitivity": 0.0, "Phosphorylation-['S', 'T'](species=tensor(19., device='cuda:0')) Validation Specificity": 0.78125, "Phosphorylation-['S', 'T'](species=tensor(19., device='cuda:0')) Validation Precision": 0.0, "Phosphorylation-['S', 'T'](species=tensor(19., device='cuda:0')) AUC ROC": 0.3125, "Phosphorylation-['S', 'T'](species=tensor(19., device='cuda:0')) AUC PR": 0.021739130434782608, "Phosphorylation-['S', 'T'](species=tensor(19., device='cuda:0')) MCC": -0.09172492321316786, "Phosphorylation-['S', 'T'](species=tensor(19., device='cuda:0')) F1": 0.0, "Phosphorylation-['S', 'T'](species=tensor(20., device='cuda:0')) Validation Accuracy": 
+0.8919640030751141, "Phosphorylation-['S', 'T'](species=tensor(20., device='cuda:0')) Validation Sensitivity": 0.38244853737811485, "Phosphorylation-['S', 'T'](species=tensor(20., device='cuda:0')) Validation Specificity": 0.9141576215195847, "Phosphorylation-['S', 'T'](species=tensor(20., device='cuda:0')) Validation Precision": 0.1625230202578269, "Phosphorylation-['S', 'T'](species=tensor(20., device='cuda:0')) AUC ROC": 0.7178176146580721, "Phosphorylation-['S', 'T'](species=tensor(20., device='cuda:0')) AUC PR": 0.14979939755881105, "Phosphorylation-['S', 'T'](species=tensor(20., device='cuda:0')) MCC": 0.19931643759972545, "Phosphorylation-['S', 'T'](species=tensor(20., device='cuda:0')) F1": 0.22810985460420033, 'Validation Loss (total)': 0.3627420663833618}
+{"Phosphorylation-['S', 'T'] Validation Accuracy": 0, "Phosphorylation-['S', 'T'] Validation Sensitivity": 0, "Phosphorylation-['S', 'T'] Validation Specificity": 0, "Phosphorylation-['S', 'T'] Validation Precision": 0, "Phosphorylation-['S', 'T'] AUC ROC": 0, "Phosphorylation-['S', 'T'] AUC PR": 0, "Phosphorylation-['S', 'T'] MCC": 0, "Phosphorylation-['S', 'T'] F1": 0, "Validation Loss (Phosphorylation-['S', 'T'])": 0, "Phosphorylation-['S', 'T'](species=tensor(0., device='cuda:0')) Validation Accuracy": 0, "Phosphorylation-['S', 'T'](species=tensor(0., device='cuda:0')) Validation Sensitivity": 0, "Phosphorylation-['S', 'T'](species=tensor(0., device='cuda:0')) Validation Specificity": 0, "Phosphorylation-['S', 'T'](species=tensor(0., device='cuda:0')) Validation Precision": 0, "Phosphorylation-['S', 'T'](species=tensor(0., device='cuda:0')) AUC ROC": 0, "Phosphorylation-['S', 'T'](species=tensor(0., device='cuda:0')) AUC PR": 0, "Phosphorylation-['S', 'T'](species=tensor(0., device='cuda:0')) MCC": 0, "Phosphorylation-['S', 'T'](species=tensor(0., device='cuda:0')) F1": 0, "Phosphorylation-['S', 'T'](species=tensor(1., device='cuda:0')) Validation Accuracy": 0, "Phosphorylation-['S', 'T'](species=tensor(1., device='cuda:0')) Validation Sensitivity": 0, "Phosphorylation-['S', 'T'](species=tensor(1., device='cuda:0')) Validation Specificity": 0, "Phosphorylation-['S', 'T'](species=tensor(1., device='cuda:0')) Validation Precision": 0, "Phosphorylation-['S', 'T'](species=tensor(1., device='cuda:0')) AUC ROC": 0, "Phosphorylation-['S', 'T'](species=tensor(1., device='cuda:0')) AUC PR": 0, "Phosphorylation-['S', 'T'](species=tensor(1., device='cuda:0')) MCC": 0, "Phosphorylation-['S', 'T'](species=tensor(1., device='cuda:0')) F1": 0, "Phosphorylation-['S', 'T'](species=tensor(2., device='cuda:0')) Validation Accuracy": 0, "Phosphorylation-['S', 'T'](species=tensor(2., device='cuda:0')) Validation Sensitivity": 0, "Phosphorylation-['S', 'T'](species=tensor(2., device='cuda:0')) Validation Specificity": 0, "Phosphorylation-['S', 'T'](species=tensor(2., device='cuda:0')) Validation Precision": 0, "Phosphorylation-['S', 'T'](species=tensor(2., device='cuda:0')) AUC ROC": 0, "Phosphorylation-['S', 'T'](species=tensor(2., device='cuda:0')) AUC PR": 0, "Phosphorylation-['S', 'T'](species=tensor(2., device='cuda:0')) MCC": 0, "Phosphorylation-['S', 'T'](species=tensor(2., device='cuda:0')) F1": 0, "Phosphorylation-['S', 'T'](species=tensor(3., device='cuda:0')) Validation Accuracy": 0, "Phosphorylation-['S', 'T'](species=tensor(3., device='cuda:0')) Validation Sensitivity": 0, "Phosphorylation-['S', 'T'](species=tensor(3., device='cuda:0')) Validation Specificity": 0, "Phosphorylation-['S', 'T'](species=tensor(3., device='cuda:0')) Validation Precision": 0, "Phosphorylation-['S', 'T'](species=tensor(3., device='cuda:0')) AUC ROC": 0, "Phosphorylation-['S', 'T'](species=tensor(3., device='cuda:0')) AUC PR": 0, "Phosphorylation-['S', 'T'](species=tensor(3., device='cuda:0')) MCC": 0, "Phosphorylation-['S', 'T'](species=tensor(3., device='cuda:0')) F1": 0, "Phosphorylation-['S', 'T'](species=tensor(4., device='cuda:0')) Validation Accuracy": 0, "Phosphorylation-['S', 'T'](species=tensor(4., device='cuda:0')) Validation Sensitivity": 0, "Phosphorylation-['S', 'T'](species=tensor(4., device='cuda:0')) Validation Specificity": 0, "Phosphorylation-['S', 'T'](species=tensor(4., device='cuda:0')) Validation Precision": 0, "Phosphorylation-['S', 'T'](species=tensor(4., device='cuda:0')) AUC ROC": 0, "Phosphorylation-['S', 'T'](species=tensor(4., device='cuda:0')) AUC PR": 0, "Phosphorylation-['S', 'T'](species=tensor(4., device='cuda:0')) MCC": 0, "Phosphorylation-['S', 'T'](species=tensor(4., device='cuda:0')) F1": 0, "Phosphorylation-['S', 'T'](species=tensor(5., device='cuda:0')) Validation Accuracy": 0, "Phosphorylation-['S', 'T'](species=tensor(5., device='cuda:0')) Validation Sensitivity": 0, "Phosphorylation-['S', 'T'](species=tensor(5., device='cuda:0')) Validation Specificity": 0, "Phosphorylation-['S', 'T'](species=tensor(5., device='cuda:0')) Validation Precision": 0, "Phosphorylation-['S', 'T'](species=tensor(5., device='cuda:0')) AUC ROC": 0, "Phosphorylation-['S', 'T'](species=tensor(5., device='cuda:0')) AUC PR": 0, "Phosphorylation-['S', 'T'](species=tensor(5., device='cuda:0')) MCC": 0, "Phosphorylation-['S', 'T'](species=tensor(5., device='cuda:0')) F1": 0, "Phosphorylation-['S', 'T'](species=tensor(7., device='cuda:0')) Validation Accuracy": 0, "Phosphorylation-['S', 'T'](species=tensor(7., device='cuda:0')) Validation Sensitivity": 0, "Phosphorylation-['S', 'T'](species=tensor(7., device='cuda:0')) Validation Specificity": 0, "Phosphorylation-['S', 'T'](species=tensor(7., device='cuda:0')) Validation Precision": 0, "Phosphorylation-['S', 'T'](species=tensor(7., device='cuda:0')) AUC ROC": 0, "Phosphorylation-['S', 'T'](species=tensor(7., device='cuda:0')) AUC PR": 0, "Phosphorylation-['S', 'T'](species=tensor(7., device='cuda:0')) MCC": 0, "Phosphorylation-['S', 'T'](species=tensor(7., device='cuda:0')) F1": 0, "Phosphorylation-['S', 'T'](species=tensor(8., device='cuda:0')) Validation Accuracy": 0, "Phosphorylation-['S', 'T'](species=tensor(8., device='cuda:0')) Validation Sensitivity": 0, "Phosphorylation-['S', 'T'](species=tensor(8., device='cuda:0')) Validation Specificity": 0, "Phosphorylation-['S', 'T'](species=tensor(8., device='cuda:0')) Validation Precision": 0, "Phosphorylation-['S', 'T'](species=tensor(8., device='cuda:0')) AUC ROC": 0, "Phosphorylation-['S', 'T'](species=tensor(8., 
+device='cuda:0')) AUC PR": 0, "Phosphorylation-['S', 'T'](species=tensor(8., device='cuda:0')) MCC": 0, "Phosphorylation-['S', 'T'](species=tensor(8., device='cuda:0')) F1": 0, "Phosphorylation-['S', 'T'](species=tensor(10., device='cuda:0')) Validation Accuracy": 0, "Phosphorylation-['S', 'T'](species=tensor(10., device='cuda:0')) Validation Sensitivity": 0, "Phosphorylation-['S', 'T'](species=tensor(10., device='cuda:0')) Validation Specificity": 0, "Phosphorylation-['S', 'T'](species=tensor(10., device='cuda:0')) Validation Precision": 0, "Phosphorylation-['S', 'T'](species=tensor(10., device='cuda:0')) AUC ROC": 0, "Phosphorylation-['S', 'T'](species=tensor(10., device='cuda:0')) AUC PR": 0, "Phosphorylation-['S', 'T'](species=tensor(10., device='cuda:0')) MCC": 0, "Phosphorylation-['S', 'T'](species=tensor(10., device='cuda:0')) F1": 0, "Phosphorylation-['S', 'T'](species=tensor(11., device='cuda:0')) Validation Accuracy": 0, "Phosphorylation-['S', 'T'](species=tensor(11., device='cuda:0')) Validation Sensitivity": 0, "Phosphorylation-['S', 'T'](species=tensor(11., device='cuda:0')) Validation Specificity": 0, "Phosphorylation-['S', 'T'](species=tensor(11., device='cuda:0')) Validation Precision": 0, 
+"Phosphorylation-['S', 'T'](species=tensor(11., device='cuda:0')) AUC ROC": 0, "Phosphorylation-['S', 'T'](species=tensor(11., device='cuda:0')) AUC PR": 0, "Phosphorylation-['S', 'T'](species=tensor(11., device='cuda:0')) MCC": 0, "Phosphorylation-['S', 'T'](species=tensor(11., device='cuda:0')) F1": 0, "Phosphorylation-['S', 'T'](species=tensor(12., device='cuda:0')) Validation Accuracy": 0, "Phosphorylation-['S', 'T'](species=tensor(12., device='cuda:0')) Validation Sensitivity": 0, "Phosphorylation-['S', 'T'](species=tensor(12., device='cuda:0')) Validation Specificity": 0, "Phosphorylation-['S', 'T'](species=tensor(12., device='cuda:0')) Validation Precision": 0, "Phosphorylation-['S', 
+'T'](species=tensor(12., device='cuda:0')) AUC ROC": 0, "Phosphorylation-['S', 'T'](species=tensor(12., device='cuda:0')) AUC PR": 0, "Phosphorylation-['S', 'T'](species=tensor(12., device='cuda:0')) MCC": 0, "Phosphorylation-['S', 'T'](species=tensor(12., device='cuda:0')) F1": 0, "Phosphorylation-['S', 'T'](species=tensor(13., device='cuda:0')) Validation Accuracy": 0, "Phosphorylation-['S', 'T'](species=tensor(13., device='cuda:0')) Validation Sensitivity": 0, "Phosphorylation-['S', 'T'](species=tensor(13., device='cuda:0')) Validation Specificity": 0, "Phosphorylation-['S', 'T'](species=tensor(13., device='cuda:0')) Validation Precision": 0, "Phosphorylation-['S', 'T'](species=tensor(13., device='cuda:0')) AUC ROC": 0, "Phosphorylation-['S', 'T'](species=tensor(13., device='cuda:0')) AUC PR": 0, "Phosphorylation-['S', 'T'](species=tensor(13., device='cuda:0')) MCC": 0, "Phosphorylation-['S', 'T'](species=tensor(13., device='cuda:0')) F1": 0, "Phosphorylation-['S', 'T'](species=tensor(16., device='cuda:0')) Validation Accuracy": 0, "Phosphorylation-['S', 'T'](species=tensor(16., device='cuda:0')) Validation Sensitivity": 0, "Phosphorylation-['S', 'T'](species=tensor(16., device='cuda:0')) Validation Specificity": 0, "Phosphorylation-['S', 'T'](species=tensor(16., device='cuda:0')) Validation Precision": 0, "Phosphorylation-['S', 'T'](species=tensor(16., device='cuda:0')) AUC ROC": 0, "Phosphorylation-['S', 'T'](species=tensor(16., device='cuda:0')) AUC PR": 0, "Phosphorylation-['S', 'T'](species=tensor(16., device='cuda:0')) MCC": 0, "Phosphorylation-['S', 'T'](species=tensor(16., device='cuda:0')) F1": 0, "Phosphorylation-['S', 'T'](species=tensor(17., device='cuda:0')) Validation Accuracy": 0, "Phosphorylation-['S', 'T'](species=tensor(17., device='cuda:0')) Validation Sensitivity": 0, "Phosphorylation-['S', 'T'](species=tensor(17., device='cuda:0')) Validation Specificity": 0, "Phosphorylation-['S', 'T'](species=tensor(17., device='cuda:0')) Validation Precision": 0, "Phosphorylation-['S', 'T'](species=tensor(17., device='cuda:0')) AUC ROC": 0, "Phosphorylation-['S', 'T'](species=tensor(17., device='cuda:0')) AUC PR": 0, "Phosphorylation-['S', 'T'](species=tensor(17., device='cuda:0')) MCC": 0, "Phosphorylation-['S', 'T'](species=tensor(17., device='cuda:0')) F1": 0, "Phosphorylation-['S', 'T'](species=tensor(19., device='cuda:0')) Validation Accuracy": 0, "Phosphorylation-['S', 'T'](species=tensor(19., device='cuda:0')) Validation Sensitivity": 0, "Phosphorylation-['S', 'T'](species=tensor(19., device='cuda:0')) Validation Specificity": 0, "Phosphorylation-['S', 'T'](species=tensor(19., device='cuda:0')) Validation Precision": 0, "Phosphorylation-['S', 'T'](species=tensor(19., device='cuda:0')) AUC ROC": 0, "Phosphorylation-['S', 'T'](species=tensor(19., device='cuda:0')) AUC PR": 0, "Phosphorylation-['S', 'T'](species=tensor(19., device='cuda:0')) MCC": 0, "Phosphorylation-['S', 'T'](species=tensor(19., device='cuda:0')) F1": 0, "Phosphorylation-['S', 'T'](species=tensor(20., device='cuda:0')) Validation Accuracy": 0, "Phosphorylation-['S', 'T'](species=tensor(20., device='cuda:0')) Validation Sensitivity": 0, "Phosphorylation-['S', 'T'](species=tensor(20., device='cuda:0')) Validation Specificity": 0, "Phosphorylation-['S', 'T'](species=tensor(20., device='cuda:0')) Validation Precision": 0, "Phosphorylation-['S', 'T'](species=tensor(20., device='cuda:0')) AUC ROC": 0, "Phosphorylation-['S', 'T'](species=tensor(20., device='cuda:0')) AUC PR": 0, "Phosphorylation-['S', 'T'](species=tensor(20., device='cuda:0')) MCC": 0, "Phosphorylation-['S', 'T'](species=tensor(20., device='cuda:0')) F1": 0, 'Validation Loss (total)': 0}
+COMET INFO: ---------------------------
+COMET INFO: Comet.ml Experiment Summary
+COMET INFO: ---------------------------
+COMET INFO:   Data:
+COMET INFO:     display_summary_level : 1
+COMET INFO:     url                   : https://www.comet.com/brentvd/evaluation-retestt/9a28cbcde7c64b0db6337f6c203dda6d
+COMET INFO:   Metrics:
+COMET INFO:     0_Phosphorylation-['S', 'T'] AUC PR                                                         : 0.1254087881702205
+COMET INFO:     0_Phosphorylation-['S', 'T'] AUC ROC                                                        : 0.7167324042196529
+COMET INFO:     0_Phosphorylation-['S', 'T'] F1                                                             : 0.11146260164327722
+COMET INFO:     0_Phosphorylation-['S', 'T'] MCC                                                            : 0.11040713144355838
+COMET INFO:     0_Phosphorylation-['S', 'T'] Validation Accuracy                                            : 0.58149
+COMET INFO:     0_Phosphorylation-['S', 'T'] Validation Precision                                           : 0.060446266147788245
+COMET INFO:     0_Phosphorylation-['S', 'T'] Validation Sensitivity                                         : 0.7144801306477954
+COMET INFO:     0_Phosphorylation-['S', 'T'] Validation Specificity                                         : 0.5764175819612566
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(0., device='cuda:0')) AUC PR                    : 0.06229685313360167
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(0., device='cuda:0')) AUC ROC                   : 0.723758865248227
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(0., device='cuda:0')) F1                        : 0.06505190311418685
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(0., device='cuda:0')) MCC                       : 0.06926011774414623
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(0., device='cuda:0')) Validation Accuracy       : 0.20200826934435911
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(0., device='cuda:0')) Validation Precision      : 0.03364352183249821
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(0., device='cuda:0')) Validation Sensitivity    : 0.9791666666666666
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(0., device='cuda:0')) Validation Specificity    : 0.17933130699088146
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(1., device='cuda:0')) AUC PR                    : 0.14260089533687545
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(1., device='cuda:0')) AUC ROC                   : 0.7648662656977183
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(1., device='cuda:0')) F1                        : 0.10519584332533972
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(1., device='cuda:0')) MCC                       : 0.12448994516931655
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(1., device='cuda:0')) Validation Accuracy       : 0.3610730593607306
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(1., device='cuda:0')) Validation Precision      : 0.055630706797429826
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(1., device='cuda:0')) Validation Sensitivity    : 0.9648093841642229
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(1., device='cuda:0')) Validation Specificity    : 0.33661955101556007
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(10., device='cuda:0')) AUC PR                   : 0.025
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(10., device='cuda:0')) AUC ROC                  : 0.40625
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(10., device='cuda:0')) F1                       : 0.0
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(10., device='cuda:0')) MCC                      : -0.11656310103003922
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(10., device='cuda:0')) Validation Accuracy      : 0.6666666666666666
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(10., device='cuda:0')) Validation Precision     : 0.0
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(10., device='cuda:0')) Validation Sensitivity   : 0.0
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(10., device='cuda:0')) Validation Specificity   : 0.6875
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(11., device='cuda:0')) AUC PR                   : 0.2988247863247863
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(11., device='cuda:0')) AUC ROC                  : 0.7758620689655172
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(11., device='cuda:0')) F1                       : 0.0
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(11., device='cuda:0')) MCC                      : -0.029361010975735173
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(11., device='cuda:0')) Validation Accuracy      : 0.9344262295081968
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(11., device='cuda:0')) Validation Precision     : 0.0
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(11., device='cuda:0')) Validation Sensitivity   : 0.0
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(11., device='cuda:0')) Validation Specificity   : 0.9827586206896551
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(12., device='cuda:0')) AUC PR                   : 0.033145364903078345
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(12., device='cuda:0')) AUC ROC                  : 0.6481914301613801
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(12., device='cuda:0')) F1                       : 0.0
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(12., device='cuda:0')) MCC                      : -0.027500800845166717
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(12., device='cuda:0')) Validation Accuracy      : 0.9462540716612378
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(12., device='cuda:0')) Validation Precision     : 0.0
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(12., device='cuda:0')) Validation Sensitivity   : 0.0
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(12., device='cuda:0')) Validation Specificity   : 0.9699499165275459
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(13., device='cuda:0')) AUC PR                   : 0.24099395210208818
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(13., device='cuda:0')) AUC ROC                  : 0.8254914764390028
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(13., device='cuda:0')) F1                       : 0.11318012535198474
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(13., device='cuda:0')) MCC                      : 0.12074258424248417
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(13., device='cuda:0')) Validation Accuracy      : 0.33769757818329826
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(13., device='cuda:0')) Validation Precision     : 0.06013513513513514
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(13., device='cuda:0')) Validation Sensitivity   : 0.9599383667180277
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(13., device='cuda:0')) Validation Specificity   : 0.30904059040590404
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(16., device='cuda:0')) AUC PR                   : 0.0660415691007891
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(16., device='cuda:0')) AUC ROC                  : 0.6272560416029367
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(16., device='cuda:0')) F1                       : 0.07253886010362694
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(16., device='cuda:0')) MCC                      : 0.045798442232916875
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(16., device='cuda:0')) Validation Accuracy      : 0.6278586278586279
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(16., device='cuda:0')) Validation Precision     : 0.03910614525139665
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(16., device='cuda:0')) Validation Sensitivity   : 0.5
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(16., device='cuda:0')) Validation Specificity   : 0.6316916488222698
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(17., device='cuda:0')) AUC PR                   : 0
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(17., device='cuda:0')) AUC ROC                  : 0
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(17., device='cuda:0')) F1                       : 0
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(17., device='cuda:0')) MCC                      : 0
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(17., device='cuda:0')) Validation Accuracy      : 0
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(17., device='cuda:0')) Validation Precision     : 0
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(17., device='cuda:0')) Validation Sensitivity   : 0
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(17., device='cuda:0')) Validation Specificity   : 0
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(19., device='cuda:0')) AUC PR                   : 0.021739130434782608
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(19., device='cuda:0')) AUC ROC                  : 0.3125
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(19., device='cuda:0')) F1                       : 0.0
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(19., device='cuda:0')) MCC                      : -0.09172492321316786
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(19., device='cuda:0')) Validation Accuracy      : 0.7575757575757576
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(19., device='cuda:0')) Validation Precision     : 0.0
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(19., device='cuda:0')) Validation Sensitivity   : 0.0
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(19., device='cuda:0')) Validation Specificity   : 0.78125
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(2., device='cuda:0')) AUC PR                    : 0.22593369720920478
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(2., device='cuda:0')) AUC ROC                   : 0.8301106460087304
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(2., device='cuda:0')) F1                        : 0.0874678427048879
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(2., device='cuda:0')) MCC                       : 0.0963716384032407
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(2., device='cuda:0')) Validation Accuracy       : 0.27739244312945627
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(2., device='cuda:0')) Validation Precision      : 0.045795651337309985
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(2., device='cuda:0')) Validation Sensitivity    : 0.9714285714285714
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(2., device='cuda:0')) Validation Specificity    : 0.25173523790363145
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(20., device='cuda:0')) AUC PR                   : 0.14979939755881105
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(20., device='cuda:0')) AUC ROC                  : 0.7178176146580721
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(20., device='cuda:0')) F1                       : 0.22810985460420033
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(20., device='cuda:0')) MCC                      : 0.19931643759972545
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(20., device='cuda:0')) Validation Accuracy      : 0.8919640030751141
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(20., device='cuda:0')) Validation Precision     : 0.1625230202578269
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(20., device='cuda:0')) Validation Sensitivity   : 0.38244853737811485
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(20., device='cuda:0')) Validation Specificity   : 0.9141576215195847
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(3., device='cuda:0')) AUC PR                    : 0.1185743635349039
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(3., device='cuda:0')) AUC ROC                   : 0.6713937535277741
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(3., device='cuda:0')) F1                        : 0.1105729079672624
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(3., device='cuda:0')) MCC                       : 0.106044865802505
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(3., device='cuda:0')) Validation Accuracy       : 0.7666929547844374
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(3., device='cuda:0')) Validation Precision      : 0.06233521657250471
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(3., device='cuda:0')) Validation Sensitivity    : 0.48892171344165436
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(3., device='cuda:0')) Validation Specificity    : 0.7751839978326636
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(4., device='cuda:0')) AUC PR                    : 0.2193601383258715
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(4., device='cuda:0')) AUC ROC                   : 0.8666867881708645
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(4., device='cuda:0')) F1                        : 0.1596330275229358
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(4., device='cuda:0')) MCC                       : 0.21497083255073252
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(4., device='cuda:0')) Validation Accuracy       : 0.7061276868784088
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(4., device='cuda:0')) Validation Precision      : 0.08792319353208691
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(4., device='cuda:0')) Validation Sensitivity    : 0.8656716417910447
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(4., device='cuda:0')) Validation Specificity    : 0.700812199569037
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(5., device='cuda:0')) AUC PR                    : 0.31016827483587706
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(5., device='cuda:0')) AUC ROC                   : 0.8456882753101241
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(5., device='cuda:0')) F1                        : 0.2277777777777778
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(5., device='cuda:0')) MCC                       : 0.25097539122160617
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(5., device='cuda:0')) Validation Accuracy       : 0.684449489216799
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(5., device='cuda:0')) Validation Precision      : 0.13141025641025642
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(5., device='cuda:0')) Validation Sensitivity    : 0.8541666666666666
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(5., device='cuda:0')) Validation Specificity    : 0.6746698679471789
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(7., device='cuda:0')) AUC PR                    : 0.5154124149659864
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(7., device='cuda:0')) AUC ROC                   : 0.8443708609271523
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(7., device='cuda:0')) F1                        : 0.04081632653061224
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(7., device='cuda:0')) MCC                       : 0.04810017744977197
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(7., device='cuda:0')) Validation Accuracy       : 0.6928104575163399
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(7., device='cuda:0')) Validation Precision      : 0.02127659574468085
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(7., device='cuda:0')) Validation Sensitivity    : 0.5
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(7., device='cuda:0')) Validation Specificity    : 0.695364238410596
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(8., device='cuda:0')) AUC PR                    : 0.028140530723140978
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(8., device='cuda:0')) AUC ROC                   : 0.5823902606310014
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(8., device='cuda:0')) F1                        : 0.06896551724137931
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(8., device='cuda:0')) MCC                       : 0.054558279422337846
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(8., device='cuda:0')) Validation Accuracy       : 0.8187919463087249
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(8., device='cuda:0')) Validation Precision      : 0.03875968992248062
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(8., device='cuda:0')) Validation Sensitivity    : 0.3125
+COMET INFO:     0_Phosphorylation-['S', 'T'](species=tensor(8., device='cuda:0')) Validation Specificity    : 0.8299039780521262
+COMET INFO:     0_Validation Loss (Phosphorylation-['S', 'T'])                                              : 0.3627420663833618
+COMET INFO:     0_Validation Loss (total)                                                                   : 0.3627420663833618
+COMET INFO:     avg_Phosphorylation-['S', 'T'] AUC PR                                                       : 0.1254087881702205
+COMET INFO:     avg_Phosphorylation-['S', 'T'] AUC ROC                                                      : 0.7167324042196529
+COMET INFO:     avg_Phosphorylation-['S', 'T'] F1                                                           : 0.11146260164327722
+COMET INFO:     avg_Phosphorylation-['S', 'T'] MCC                                                          : 0.11040713144355838
+COMET INFO:     avg_Phosphorylation-['S', 'T'] Validation Accuracy                                          : 0.58149
+COMET INFO:     avg_Phosphorylation-['S', 'T'] Validation Precision                                         : 0.060446266147788245
+COMET INFO:     avg_Phosphorylation-['S', 'T'] Validation Sensitivity                                       : 0.7144801306477954
+COMET INFO:     avg_Phosphorylation-['S', 'T'] Validation Specificity                                       : 0.5764175819612566
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(0., device='cuda:0')) AUC PR                  : 0.06229685313360167
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(0., device='cuda:0')) AUC ROC                 : 0.723758865248227
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(0., device='cuda:0')) F1                      : 0.06505190311418685
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(0., device='cuda:0')) MCC                     : 0.06926011774414623
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(0., device='cuda:0')) Validation Accuracy     : 0.20200826934435911
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(0., device='cuda:0')) Validation Precision    : 0.03364352183249821
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(0., device='cuda:0')) Validation Sensitivity  : 0.9791666666666666
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(0., device='cuda:0')) Validation Specificity  : 0.17933130699088146
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(1., device='cuda:0')) AUC PR                  : 0.14260089533687545
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(1., device='cuda:0')) AUC ROC                 : 0.7648662656977183
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(1., device='cuda:0')) F1                      : 0.10519584332533972
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(1., device='cuda:0')) MCC                     : 0.12448994516931655
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(1., device='cuda:0')) Validation Accuracy     : 0.3610730593607306
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(1., device='cuda:0')) Validation Precision    : 0.055630706797429826
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(1., device='cuda:0')) Validation Sensitivity  : 0.9648093841642229
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(1., device='cuda:0')) Validation Specificity  : 0.33661955101556007
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(10., device='cuda:0')) AUC PR                 : 0.025
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(10., device='cuda:0')) AUC ROC                : 0.40625
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(10., device='cuda:0')) F1                     : 0.0
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(10., device='cuda:0')) MCC                    : -0.11656310103003922
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(10., device='cuda:0')) Validation Accuracy    : 0.6666666666666666
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(10., device='cuda:0')) Validation Precision   : 0.0
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(10., device='cuda:0')) Validation Sensitivity : 0.0
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(10., device='cuda:0')) Validation Specificity : 0.6875
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(11., device='cuda:0')) AUC PR                 : 0.2988247863247863
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(11., device='cuda:0')) AUC ROC                : 0.7758620689655172
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(11., device='cuda:0')) F1                     : 0.0
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(11., device='cuda:0')) MCC                    : -0.029361010975735173
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(11., device='cuda:0')) Validation Accuracy    : 0.9344262295081968
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(11., device='cuda:0')) Validation Precision   : 0.0
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(11., device='cuda:0')) Validation Sensitivity : 0.0
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(11., device='cuda:0')) Validation Specificity : 0.9827586206896551
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(12., device='cuda:0')) AUC PR                 : 0.033145364903078345
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(12., device='cuda:0')) AUC ROC                : 0.6481914301613801
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(12., device='cuda:0')) F1                     : 0.0
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(12., device='cuda:0')) MCC                    : -0.027500800845166717
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(12., device='cuda:0')) Validation Accuracy    : 0.9462540716612378
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(12., device='cuda:0')) Validation Precision   : 0.0
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(12., device='cuda:0')) Validation Sensitivity : 0.0
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(12., device='cuda:0')) Validation Specificity : 0.9699499165275459
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(13., device='cuda:0')) AUC PR                 : 0.24099395210208818
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(13., device='cuda:0')) AUC ROC                : 0.8254914764390028
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(13., device='cuda:0')) F1                     : 0.11318012535198474
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(13., device='cuda:0')) MCC                    : 0.12074258424248417
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(13., device='cuda:0')) Validation Accuracy    : 0.33769757818329826
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(13., device='cuda:0')) Validation Precision   : 0.06013513513513514
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(13., device='cuda:0')) Validation Sensitivity : 0.9599383667180277
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(13., device='cuda:0')) Validation Specificity : 0.30904059040590404
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(16., device='cuda:0')) AUC PR                 : 0.0660415691007891
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(16., device='cuda:0')) AUC ROC                : 0.6272560416029367
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(16., device='cuda:0')) F1                     : 0.07253886010362694
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(16., device='cuda:0')) MCC                    : 0.045798442232916875
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(16., device='cuda:0')) Validation Accuracy    : 0.6278586278586279
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(16., device='cuda:0')) Validation Precision   : 0.03910614525139665
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(16., device='cuda:0')) Validation Sensitivity : 0.5
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(16., device='cuda:0')) Validation Specificity : 0.6316916488222698
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(17., device='cuda:0')) AUC PR                 : 0
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(17., device='cuda:0')) AUC ROC                : 0
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(17., device='cuda:0')) F1                     : 0
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(17., device='cuda:0')) MCC                    : 0
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(17., device='cuda:0')) Validation Accuracy    : 0
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(17., device='cuda:0')) Validation Precision   : 0
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(17., device='cuda:0')) Validation Sensitivity : 0
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(17., device='cuda:0')) Validation Specificity : 0
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(19., device='cuda:0')) AUC PR                 : 0.021739130434782608
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(19., device='cuda:0')) AUC ROC                : 0.3125
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(19., device='cuda:0')) F1                     : 0.0
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(19., device='cuda:0')) MCC                    : -0.09172492321316786
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(19., device='cuda:0')) Validation Accuracy    : 0.7575757575757576
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(19., device='cuda:0')) Validation Precision   : 0.0
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(19., device='cuda:0')) Validation Sensitivity : 0.0
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(19., device='cuda:0')) Validation Specificity : 0.78125
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(2., device='cuda:0')) AUC PR                  : 0.22593369720920478
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(2., device='cuda:0')) AUC ROC                 : 0.8301106460087304
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(2., device='cuda:0')) F1                      : 0.0874678427048879
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(2., device='cuda:0')) MCC                     : 0.0963716384032407
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(2., device='cuda:0')) Validation Accuracy     : 0.27739244312945627
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(2., device='cuda:0')) Validation Precision    : 0.045795651337309985
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(2., device='cuda:0')) Validation Sensitivity  : 0.9714285714285714
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(2., device='cuda:0')) Validation Specificity  : 0.25173523790363145
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(20., device='cuda:0')) AUC PR                 : 0.14979939755881105
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(20., device='cuda:0')) AUC ROC                : 0.7178176146580721
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(20., device='cuda:0')) F1                     : 0.22810985460420033
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(20., device='cuda:0')) MCC                    : 0.19931643759972545
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(20., device='cuda:0')) Validation Accuracy    : 0.8919640030751141
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(20., device='cuda:0')) Validation Precision   : 0.1625230202578269
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(20., device='cuda:0')) Validation Sensitivity : 0.38244853737811485
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(20., device='cuda:0')) Validation Specificity : 0.9141576215195847
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(3., device='cuda:0')) AUC PR                  : 0.1185743635349039
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(3., device='cuda:0')) AUC ROC                 : 0.6713937535277741
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(3., device='cuda:0')) F1                      : 0.1105729079672624
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(3., device='cuda:0')) MCC                     : 0.106044865802505
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(3., device='cuda:0')) Validation Accuracy     : 0.7666929547844374
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(3., device='cuda:0')) Validation Precision    : 0.06233521657250471
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(3., device='cuda:0')) Validation Sensitivity  : 0.48892171344165436
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(3., device='cuda:0')) Validation Specificity  : 0.7751839978326636
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(4., device='cuda:0')) AUC PR                  : 0.2193601383258715
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(4., device='cuda:0')) AUC ROC                 : 0.8666867881708645
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(4., device='cuda:0')) F1                      : 0.1596330275229358
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(4., device='cuda:0')) MCC                     : 0.21497083255073252
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(4., device='cuda:0')) Validation Accuracy     : 0.7061276868784088
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(4., device='cuda:0')) Validation Precision    : 0.08792319353208691
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(4., device='cuda:0')) Validation Sensitivity  : 0.8656716417910447
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(4., device='cuda:0')) Validation Specificity  : 0.700812199569037
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(5., device='cuda:0')) AUC PR                  : 0.31016827483587706
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(5., device='cuda:0')) AUC ROC                 : 0.8456882753101241
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(5., device='cuda:0')) F1                      : 0.2277777777777778
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(5., device='cuda:0')) MCC                     : 0.25097539122160617
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(5., device='cuda:0')) Validation Accuracy     : 0.684449489216799
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(5., device='cuda:0')) Validation Precision    : 0.13141025641025642
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(5., device='cuda:0')) Validation Sensitivity  : 0.8541666666666666
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(5., device='cuda:0')) Validation Specificity  : 0.6746698679471789
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(7., device='cuda:0')) AUC PR                  : 0.5154124149659864
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(7., device='cuda:0')) AUC ROC                 : 0.8443708609271523
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(7., device='cuda:0')) F1                      : 0.04081632653061224
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(7., device='cuda:0')) MCC                     : 0.04810017744977197
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(7., device='cuda:0')) Validation Accuracy     : 0.6928104575163399
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(7., device='cuda:0')) Validation Precision    : 0.02127659574468085
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(7., device='cuda:0')) Validation Sensitivity  : 0.5
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(7., device='cuda:0')) Validation Specificity  : 0.695364238410596
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(8., device='cuda:0')) AUC PR                  : 0.028140530723140978
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(8., device='cuda:0')) AUC ROC                 : 0.5823902606310014
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(8., device='cuda:0')) F1                      : 0.06896551724137931
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(8., device='cuda:0')) MCC                     : 0.054558279422337846
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(8., device='cuda:0')) Validation Accuracy     : 0.8187919463087249
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(8., device='cuda:0')) Validation Precision    : 0.03875968992248062
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(8., device='cuda:0')) Validation Sensitivity  : 0.3125
+COMET INFO:     avg_Phosphorylation-['S', 'T'](species=tensor(8., device='cuda:0')) Validation Specificity  : 0.8299039780521262
+COMET INFO:     avg_Validation Loss (Phosphorylation-['S', 'T'])                                            : 0.3627420663833618
+COMET INFO:     avg_Validation Loss (total)                                                                 : 0.3627420663833618
+COMET INFO:     std_Phosphorylation-['S', 'T'] AUC PR                                                       : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'] AUC ROC                                                      : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'] F1                                                           : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'] MCC                                                          : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'] Validation Accuracy                                          : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'] Validation Precision                                         : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'] Validation Sensitivity                                       : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'] Validation Specificity                                       : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(0., device='cuda:0')) AUC PR                  : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(0., device='cuda:0')) AUC ROC                 : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(0., device='cuda:0')) F1                      : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(0., device='cuda:0')) MCC                     : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(0., device='cuda:0')) Validation Accuracy     : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(0., device='cuda:0')) Validation Precision    : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(0., device='cuda:0')) Validation Sensitivity  : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(0., device='cuda:0')) Validation Specificity  : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(1., device='cuda:0')) AUC PR                  : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(1., device='cuda:0')) AUC ROC                 : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(1., device='cuda:0')) F1                      : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(1., device='cuda:0')) MCC                     : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(1., device='cuda:0')) Validation Accuracy     : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(1., device='cuda:0')) Validation Precision    : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(1., device='cuda:0')) Validation Sensitivity  : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(1., device='cuda:0')) Validation Specificity  : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(10., device='cuda:0')) AUC PR                 : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(10., device='cuda:0')) AUC ROC                : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(10., device='cuda:0')) F1                     : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(10., device='cuda:0')) MCC                    : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(10., device='cuda:0')) Validation Accuracy    : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(10., device='cuda:0')) Validation Precision   : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(10., device='cuda:0')) Validation Sensitivity : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(10., device='cuda:0')) Validation Specificity : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(11., device='cuda:0')) AUC PR                 : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(11., device='cuda:0')) AUC ROC                : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(11., device='cuda:0')) F1                     : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(11., device='cuda:0')) MCC                    : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(11., device='cuda:0')) Validation Accuracy    : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(11., device='cuda:0')) Validation Precision   : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(11., device='cuda:0')) Validation Sensitivity : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(11., device='cuda:0')) Validation Specificity : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(12., device='cuda:0')) AUC PR                 : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(12., device='cuda:0')) AUC ROC                : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(12., device='cuda:0')) F1                     : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(12., device='cuda:0')) MCC                    : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(12., device='cuda:0')) Validation Accuracy    : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(12., device='cuda:0')) Validation Precision   : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(12., device='cuda:0')) Validation Sensitivity : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(12., device='cuda:0')) Validation Specificity : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(13., device='cuda:0')) AUC PR                 : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(13., device='cuda:0')) AUC ROC                : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(13., device='cuda:0')) F1                     : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(13., device='cuda:0')) MCC                    : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(13., device='cuda:0')) Validation Accuracy    : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(13., device='cuda:0')) Validation Precision   : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(13., device='cuda:0')) Validation Sensitivity : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(13., device='cuda:0')) Validation Specificity : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(16., device='cuda:0')) AUC PR                 : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(16., device='cuda:0')) AUC ROC                : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(16., device='cuda:0')) F1                     : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(16., device='cuda:0')) MCC                    : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(16., device='cuda:0')) Validation Accuracy    : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(16., device='cuda:0')) Validation Precision   : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(16., device='cuda:0')) Validation Sensitivity : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(16., device='cuda:0')) Validation Specificity : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(17., device='cuda:0')) AUC PR                 : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(17., device='cuda:0')) AUC ROC                : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(17., device='cuda:0')) F1                     : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(17., device='cuda:0')) MCC                    : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(17., device='cuda:0')) Validation Accuracy    : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(17., device='cuda:0')) Validation Precision   : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(17., device='cuda:0')) Validation Sensitivity : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(17., device='cuda:0')) Validation Specificity : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(19., device='cuda:0')) AUC PR                 : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(19., device='cuda:0')) AUC ROC                : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(19., device='cuda:0')) F1                     : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(19., device='cuda:0')) MCC                    : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(19., device='cuda:0')) Validation Accuracy    : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(19., device='cuda:0')) Validation Precision   : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(19., device='cuda:0')) Validation Sensitivity : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(19., device='cuda:0')) Validation Specificity : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(2., device='cuda:0')) AUC PR                  : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(2., device='cuda:0')) AUC ROC                 : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(2., device='cuda:0')) F1                      : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(2., device='cuda:0')) MCC                     : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(2., device='cuda:0')) Validation Accuracy     : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(2., device='cuda:0')) Validation Precision    : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(2., device='cuda:0')) Validation Sensitivity  : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(2., device='cuda:0')) Validation Specificity  : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(20., device='cuda:0')) AUC PR                 : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(20., device='cuda:0')) AUC ROC                : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(20., device='cuda:0')) F1                     : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(20., device='cuda:0')) MCC                    : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(20., device='cuda:0')) Validation Accuracy    : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(20., device='cuda:0')) Validation Precision   : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(20., device='cuda:0')) Validation Sensitivity : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(20., device='cuda:0')) Validation Specificity : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(3., device='cuda:0')) AUC PR                  : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(3., device='cuda:0')) AUC ROC                 : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(3., device='cuda:0')) F1                      : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(3., device='cuda:0')) MCC                     : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(3., device='cuda:0')) Validation Accuracy     : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(3., device='cuda:0')) Validation Precision    : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(3., device='cuda:0')) Validation Sensitivity  : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(3., device='cuda:0')) Validation Specificity  : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(4., device='cuda:0')) AUC PR                  : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(4., device='cuda:0')) AUC ROC                 : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(4., device='cuda:0')) F1                      : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(4., device='cuda:0')) MCC                     : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(4., device='cuda:0')) Validation Accuracy     : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(4., device='cuda:0')) Validation Precision    : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(4., device='cuda:0')) Validation Sensitivity  : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(4., device='cuda:0')) Validation Specificity  : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(5., device='cuda:0')) AUC PR                  : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(5., device='cuda:0')) AUC ROC                 : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(5., device='cuda:0')) F1                      : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(5., device='cuda:0')) MCC                     : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(5., device='cuda:0')) Validation Accuracy     : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(5., device='cuda:0')) Validation Precision    : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(5., device='cuda:0')) Validation Sensitivity  : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(5., device='cuda:0')) Validation Specificity  : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(7., device='cuda:0')) AUC PR                  : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(7., device='cuda:0')) AUC ROC                 : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(7., device='cuda:0')) F1                      : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(7., device='cuda:0')) MCC                     : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(7., device='cuda:0')) Validation Accuracy     : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(7., device='cuda:0')) Validation Precision    : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(7., device='cuda:0')) Validation Sensitivity  : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(7., device='cuda:0')) Validation Specificity  : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(8., device='cuda:0')) AUC PR                  : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(8., device='cuda:0')) AUC ROC                 : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(8., device='cuda:0')) F1                      : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(8., device='cuda:0')) MCC                     : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(8., device='cuda:0')) Validation Accuracy     : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(8., device='cuda:0')) Validation Precision    : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(8., device='cuda:0')) Validation Sensitivity  : 0
+COMET INFO:     std_Phosphorylation-['S', 'T'](species=tensor(8., device='cuda:0')) Validation Specificity  : 0
+COMET INFO:     std_Validation Loss (Phosphorylation-['S', 'T'])                                            : 0
+COMET INFO:     std_Validation Loss (total)                                                                 : 0
+COMET INFO:   Parameters:
+COMET INFO:     CNNType                 : Musite
+COMET INFO:     CV_Repeats              : 1
+COMET INFO:     CreateFigures           : False
+COMET INFO:     Experiment Name         : retestt
+COMET INFO:     FCType                  : Adapt
+COMET INFO:     LSTM_dropout            : 0
+COMET INFO:     LSTM_hidden_size        : 32
+COMET INFO:     LSTM_layers             : 1
+COMET INFO:     MultiTask_Species       : False
+COMET INFO:     MusiteTest              : True
+COMET INFO:     SeperateTuningLRandWD   : False
+COMET INFO:     SpecieFeatureHoldout    : False
+COMET INFO:     TestSet                 : True
+COMET INFO:     UseUncertaintyBasedLoss : False
+COMET INFO:     ValidationMetric        : Validation Loss (total)
+COMET INFO:     WeightDecayWeights      : []
+COMET INFO:     aminoAcid               : ["Phosphorylation-['S', 'T']"]
+COMET INFO:     batch_size              : 512
+COMET INFO:     crossValidation         : False
+COMET INFO:     currentFold             : 0
+COMET INFO:     current_CV_Repeat       : 1
+COMET INFO:     data_sample_mode        : ['balanced']
+COMET INFO:     dontAverageLoss         : False
+COMET INFO:     earlyStopping           : True
+COMET INFO:     earlyStoppingPatience   : 20
+COMET INFO:     embeddingType           : adaptiveEmbedding
+COMET INFO:     epochs                  : 400
+COMET INFO:     folds                   : 5
+COMET INFO:     gpu_mode                : True
+COMET INFO:     layerToSplitOn          : FC
+COMET INFO:     learning_rate           : 0.00036135
+COMET INFO:     loss_function           : <class 'torch.nn.modules.loss.BCELoss'>
+COMET INFO:     onlyPredictHumans       : False
+COMET INFO:     optimizer               : <class 'torch.optim.adamw.AdamW'>
+COMET INFO:     predictSpecies          : False
+COMET INFO:     random_state            : 1663630928
+COMET INFO:     sample_weights          : [1.0]
+COMET INFO:     specieMetrics           : True
+COMET INFO:     species_weight          : 0.15
+COMET INFO:     split_2010              : True
+COMET INFO:     test_data_ratio         : 0.2
+COMET INFO:     useLrWeight             : False
+COMET INFO:     useSpecieFeature        : True
+COMET INFO:     weight_decay            : 0.0961727
+COMET INFO:   Uploads:
+COMET INFO:     environment details      : 1
+COMET INFO:     filename                 : 1
+COMET INFO:     git metadata             : 1
+COMET INFO:     git-patch (uncompressed) : 1 (12.20 MB)
+COMET INFO:     installed packages       : 1
+COMET INFO:     source_code              : 2 (17.90 KB)
+COMET INFO: ---------------------------
+COMET INFO: Uploading metrics, params, and assets to Comet before program termination (may take several seconds)
+COMET INFO: The Python SDK has 3600 seconds to finish before aborting...
+COMET INFO: Waiting for completion of the file uploads (may take several seconds)
+COMET INFO: The Python SDK has 10800 seconds to finish before aborting...
+COMET INFO: Still uploading 1 file(s), remaining 1.85 MB/2.00 MB

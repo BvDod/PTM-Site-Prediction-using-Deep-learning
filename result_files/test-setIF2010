@@ -1,0 +1,10 @@
+
+
+
+Sumoylation_uniprot_sequence_truncated_nonRed_pos_year_added: 2010
+Train: 3422/21442
+Test: 591/5685
+
+Ubiquitination_uniprot_sequence_truncated_nonRed_pos_year_added: 2010
+Train: 45631/125073
+Test: 13552/43707

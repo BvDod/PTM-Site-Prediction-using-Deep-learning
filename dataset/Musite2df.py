@@ -41,7 +41,7 @@ def find(s, ch):
 
 
 
-input_file_annotated = "Musitedeep/test_allspecies_sequences_annotated_ST.fasta"
+input_file_annotated = "Musitedeep/train_allspecies_sequences_annotated_ST.fasta"
 PTMType = "Phosphorylation-ST"
 
 legal_aas = ["S", "T"]

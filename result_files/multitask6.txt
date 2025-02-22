@@ -1,0 +1,312 @@
+{'CNNType': 'Musite',
+ 'CV_Repeats': 1,
+ 'CreateFigures': False,
+ 'Experiment Name': 'Model architecture - added max, ranges, bceloss',
+ 'FCType': 'Adapt',
+ 'FloatsToTune': {'learning_rate': [1e-05, 0.01], 'weight_decay': [0, 25]},
+ 'IntsToTune': {},
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'MultiTask': True,
+ 'MultiTask_sample_method': 'balanced',
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-K',
+               'Hydroxylation-P',
+               'Pyrrolidone carboxylic acid',
+               'S-palmitoylation-C',
+               'Sumoylation'],
+ 'batch_size': 2048,
+ 'crossValidation': True,
+ 'data_sample_mode': ['oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample',
+                      'oversample'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 20,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.0037388202763971915,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'n_trials': 250,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 1457414313,
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': 1,
+ 'weight_decay': 5.592809489765455}
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16139
+1271 32406
+[1,     1] loss: 1756.220
+[2,    26] loss: 1721.352
+[3,    26] loss: 1721.267
+[4,    26] loss: 1721.099
+[5,    26] loss: 1721.086
+[6,    26] loss: 1721.363
+[7,    26] loss: 1721.153
+[8,    26] loss: 1721.072
+[9,    26] loss: 1721.268
+[10,    26] loss: 1721.175
+[11,    26] loss: 1721.144
+[12,    26] loss: 1721.161
+[13,    26] loss: 1721.205
+[14,    26] loss: 1721.157
+[15,    26] loss: 1721.055
+[16,    26] loss: 1721.214
+[17,    26] loss: 1721.225
+[18,    26] loss: 1721.202
+[19,    26] loss: 1721.183
+[20,    26] loss: 1721.111
+[21,    26] loss: 1721.013
+[22,    26] loss: 1721.170
+[23,    26] loss: 1721.224
+[24,    26] loss: 1721.134
+[25,    26] loss: 1721.138
+[26,    26] loss: 1721.204
+[27,    26] loss: 1721.206
+[28,    26] loss: 1721.157
+[29,    26] loss: 1721.153
+[30,    26] loss: 1721.048
+[31,    26] loss: 1721.211
+[32,    26] loss: 1721.223
+[33,    26] loss: 1721.209
+[34,    26] loss: 1721.109
+[35,    26] loss: 1721.271
+Early stopping applied (best metric=2.6450729370117188)
+Finished Training
+Total time taken: 68.60313630104065
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16140
+1271 32409
+[1,     1] loss: 1767.543
+[2,    26] loss: 1721.390
+[3,    26] loss: 1721.298
+[4,    26] loss: 1721.154
+[5,    26] loss: 1720.479
+[6,    26] loss: 1696.558
+[7,    26] loss: 1667.778
+[8,    26] loss: 1671.714
+[9,    26] loss: 1641.900
+[10,    26] loss: 1591.190
+[11,    26] loss: 1570.466
+[12,    26] loss: 1556.231
+[13,    26] loss: 1537.264
+[14,    26] loss: 1543.745
+[15,    26] loss: 1522.135
+[16,    26] loss: 1524.734
+[17,    26] loss: 1529.320
+[18,    26] loss: 1510.800
+[19,    26] loss: 1506.757
+[20,    26] loss: 1501.457
+[21,    26] loss: 1509.488
+[22,    26] loss: 1507.840
+[23,    26] loss: 1503.691
+[24,    26] loss: 1508.273
+[25,    26] loss: 1503.140
+[26,    26] loss: 1501.774
+[27,    26] loss: 1490.575
+[28,    26] loss: 1487.637
+[29,    26] loss: 1501.058
+[30,    26] loss: 1504.084
+[31,    26] loss: 1474.460
+[32,    26] loss: 1497.431
+[33,    26] loss: 1486.332
+[34,    26] loss: 1480.714
+[35,    26] loss: 1478.064
+[36,    26] loss: 1482.992
+[37,    26] loss: 1486.724
+[38,    26] loss: 1494.511
+[39,    26] loss: 1479.884
+[40,    26] loss: 1485.688
+[41,    26] loss: 1493.153
+[42,    26] loss: 1479.439
+[43,    26] loss: 1477.342
+[44,    26] loss: 1483.509
+[45,    26] loss: 1478.654
+[46,    26] loss: 1481.889
+[47,    26] loss: 1485.555
+[48,    26] loss: 1489.779
+[49,    26] loss: 1505.837
+[50,    26] loss: 1483.977
+[51,    26] loss: 1469.831
+[52,    26] loss: 1480.951
+[53,    26] loss: 1477.198
+[54,    26] loss: 1478.815
+[55,    26] loss: 1484.270
+[56,    26] loss: 1464.226
+[57,    26] loss: 1477.623
+[58,    26] loss: 1492.428
+[59,    26] loss: 1484.469
+[60,    26] loss: 1482.168
+[61,    26] loss: 1474.899
+[62,    26] loss: 1489.802
+[63,    26] loss: 1488.311
+[64,    26] loss: 1468.728
+Early stopping applied (best metric=2.3887271881103516)
+Finished Training
+Total time taken: 106.66215920448303
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 305
+52 1325
+82 2090
+633 16140
+1271 32409
+[1,     1] loss: 1764.342
+[2,    26] loss: 1721.541
+[3,    26] loss: 1721.355
+[4,    26] loss: 1721.253
+[5,    26] loss: 1721.212
+[6,    26] loss: 1721.272
+[7,    26] loss: 1721.272
+[8,    26] loss: 1721.142
+[9,    26] loss: 1721.100
+[10,    26] loss: 1721.066
+[11,    26] loss: 1721.249
+[12,    26] loss: 1721.290
+[13,    26] loss: 1721.281
+[14,    26] loss: 1721.235
+[15,    26] loss: 1721.321
+[16,    26] loss: 1721.189
+[17,    26] loss: 1721.274
+[18,    26] loss: 1721.248
+[19,    26] loss: 1721.321
+[20,    26] loss: 1721.275
+[21,    26] loss: 1721.160
+[22,    26] loss: 1721.251
+[23,    26] loss: 1721.189
+[24,    26] loss: 1721.159
+[25,    26] loss: 1721.350
+[26,    26] loss: 1721.284
+[27,    26] loss: 1721.270
+[28,    26] loss: 1721.272
+[29,    26] loss: 1721.267
+[30,    26] loss: 1721.369
+[31,    26] loss: 1721.250
+[32,    26] loss: 1721.320
+[33,    26] loss: 1721.313
+[34,    26] loss: 1721.232
+[35,    26] loss: 1721.335
+[36,    26] loss: 1721.274
+[37,    26] loss: 1721.313
+[38,    26] loss: 1721.264
+[39,    26] loss: 1721.204
+[40,    26] loss: 1721.109
+[41,    26] loss: 1721.427
+[42,    26] loss: 1721.265
+[43,    26] loss: 1721.258
+[44,    26] loss: 1721.371
+[45,    26] loss: 1721.169
+[46,    26] loss: 1721.218
+[47,    26] loss: 1721.284
+[48,    26] loss: 1721.278
+[49,    26] loss: 1721.267
+[50,    26] loss: 1721.338
+[51,    26] loss: 1721.300
+[52,    26] loss: 1721.279
+[53,    26] loss: 1721.230
+[54,    26] loss: 1721.238
+[55,    26] loss: 1721.251
+[56,    26] loss: 1721.279
+[57,    26] loss: 1721.276
+[58,    26] loss: 1721.321
+[59,    26] loss: 1721.233
+Early stopping applied (best metric=2.6391775608062744)
+Finished Training
+Total time taken: 93.99260807037354
+(48, 33)
+(190, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-K/indices (238 samples)
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+(237, 33)
+(1306, 33)
+Loaded folder code/Thesis/dataset/train/Pyrrolidone carboxylic acid/indices (1543 samples)
+(2525, 33)
+(10073, 33)
+Loaded folder code/Thesis/dataset/train/S-palmitoylation-C/indices (12598 samples)
+(3241, 33)
+(20251, 33)
+Loaded folder code/Thesis/dataset/train/Sumoylation/indices (23492 samples)
+12 306
+52 1326
+82 2091
+633 16141
+1271 32410
+[1,     1] loss: 1762.773
+[2,    26] loss: 1721.880
+[3,    26] loss: 1721.553
+[4,    26] loss: 1721.601
+[5,    26] loss: 1714.753
+[6,    26] loss: 1650.814
+[7,    26] loss: 1608.331
+[8,    26] loss: 1562.069
+[9,    26] loss: 1543.491
+[10,    26] loss: 1536.003
+[11,    26] loss: 1523.207
+[12,    26] loss: 1513.654
+[13,    26] loss: 1535.723
+[14,    26] loss: 1512.326
+[15,    26] loss: 1514.072
+[16,    26] loss: 1520.928

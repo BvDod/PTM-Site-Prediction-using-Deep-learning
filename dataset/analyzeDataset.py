@@ -11,12 +11,9 @@ sys.path.append(os.path.join(os.path.dirname(__file__), "lib"))
 def get_merged_df(input_dir):
     dataframes = []
     for file in os.listdir(input_dir):
-        if not ((file == "df_test") or (file == "df_test")):
-            continue
-       
         df = pd.read_csv(f"{input_dir}/{file}", delimiter=",")
 
-        """
+
         if file.split("_")[-4] == "neg":
             df["label"] = 0
         elif file.split("_")[-4] == "pos":
@@ -25,8 +22,6 @@ def get_merged_df(input_dir):
         else:
             print("Error: invalid filename")
             exit()
-        """
-        df["label"] = df["y"]
 
         df["PTM_type"] = file.split("_")[0]
         dataframes.append(df)
@@ -34,7 +29,7 @@ def get_merged_df(input_dir):
     df_all = pd.concat(dataframes)
     return dataframes, df_all
 
-input_dir = "data/MusiteTest_musiteowndata_static/MusiteY"
+input_dir = "data/learningData/balanced/final_split/train/"
 dfs, df_all = get_merged_df(input_dir)
 
 # input_dir = "data/processed/final_split/test"
@@ -96,6 +91,13 @@ dfs = [get_species_names(df) for df in dfs]
 # %%
 
 def plot_species_count(df, string):
+
+    print(len(df["Common name"].unique()))
+    for index, row in df.iterrows():
+        if len(row["Common name"]) > 15:
+            row["Common name"] = row["Common name"][:14] + "."
+            df.at[index,"Common name"] = row["Common name"]
+
     species_count = df["Common name"].value_counts().to_dict()
     x, y = zip(*species_count.items())
 
@@ -113,11 +115,12 @@ def plot_species_count(df, string):
     percent = [100.* value/sum(y) for value in y_short]
     labels = ['{0} - {1:1.2f} %'.format(i,j) for i,j in zip(x_short, percent)]
 
-    plt.legend(patches, labels, loc='center left', bbox_to_anchor=(1, 0.5), fontsize=8)
+    plt.legend(patches, labels, loc='center left', bbox_to_anchor=(1, 0.5), fontsize=10)
     plt.title(f"{string} Dataset - Species", loc="right", fontsize=18)
     plt.savefig(f'species_{string}.png', dpi=300, bbox_inches='tight')
 
 plot_species_count(df_all, "Train")
+
 # plot_species_count(df_all_test, "Test")
 
 for df in dfs:
@@ -141,6 +144,8 @@ def plot_date_hist(df, string, ax= None):
     ax.xaxis.set_major_locator(locator)
     ax.xaxis.set_major_formatter(mdates.AutoDateFormatter(locator))
     plt.title(f"{string} Dataset - Year of sequencing")
+    plt.xlabel('Date')
+    plt.ylabel('Frequency')    
     plt.savefig(f'year_{string}.png', dpi=300, bbox_inches='tight')
     return ax
 

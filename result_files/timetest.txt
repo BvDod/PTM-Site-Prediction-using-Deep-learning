@@ -1,0 +1,1252 @@
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - sampling method - timetest: ',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Hydroxylation-P'],
+ 'batch_size': 512,
+ 'crossValidation': True,
+ 'data_sample_mode': ['balanced'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'learning_rate': 0.00153,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 2462265906,
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 17.76677}
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+[1,     1] loss: 0.706
+[2,     1] loss: 0.695
+[3,     1] loss: 0.688
+[4,     1] loss: 0.682
+[5,     1] loss: 0.675
+[6,     1] loss: 0.669
+[7,     1] loss: 0.662
+[8,     1] loss: 0.656
+[9,     1] loss: 0.649
+[10,     1] loss: 0.641
+[11,     1] loss: 0.633
+[12,     1] loss: 0.625
+[13,     1] loss: 0.614
+[14,     1] loss: 0.605
+[15,     1] loss: 0.596
+[16,     1] loss: 0.584
+[17,     1] loss: 0.574
+[18,     1] loss: 0.562
+[19,     1] loss: 0.550
+[20,     1] loss: 0.538
+[21,     1] loss: 0.526
+[22,     1] loss: 0.512
+[23,     1] loss: 0.494
+[24,     1] loss: 0.479
+[25,     1] loss: 0.463
+[26,     1] loss: 0.447
+[27,     1] loss: 0.430
+[28,     1] loss: 0.414
+[29,     1] loss: 0.396
+[30,     1] loss: 0.380
+[31,     1] loss: 0.366
+[32,     1] loss: 0.350
+[33,     1] loss: 0.337
+[34,     1] loss: 0.324
+[35,     1] loss: 0.308
+[36,     1] loss: 0.295
+[37,     1] loss: 0.283
+[38,     1] loss: 0.271
+[39,     1] loss: 0.259
+[40,     1] loss: 0.250
+[41,     1] loss: 0.240
+[42,     1] loss: 0.230
+[43,     1] loss: 0.221
+[44,     1] loss: 0.213
+[45,     1] loss: 0.204
+[46,     1] loss: 0.196
+[47,     1] loss: 0.186
+[48,     1] loss: 0.183
+[49,     1] loss: 0.181
+[50,     1] loss: 0.176
+[51,     1] loss: 0.189
+[52,     1] loss: 0.186
+[53,     1] loss: 0.170
+[54,     1] loss: 0.167
+[55,     1] loss: 0.162
+[56,     1] loss: 0.159
+[57,     1] loss: 0.154
+[58,     1] loss: 0.152
+[59,     1] loss: 0.151
+[60,     1] loss: 0.154
+[61,     1] loss: 0.151
+[62,     1] loss: 0.146
+[63,     1] loss: 0.144
+[64,     1] loss: 0.141
+[65,     1] loss: 0.141
+[66,     1] loss: 0.142
+[67,     1] loss: 0.139
+[68,     1] loss: 0.137
+[69,     1] loss: 0.137
+[70,     1] loss: 0.135
+[71,     1] loss: 0.132
+[72,     1] loss: 0.135
+[73,     1] loss: 0.132
+[74,     1] loss: 0.134
+[75,     1] loss: 0.131
+[76,     1] loss: 0.132
+[77,     1] loss: 0.129
+[78,     1] loss: 0.131
+[79,     1] loss: 0.132
+[80,     1] loss: 0.129
+[81,     1] loss: 0.129
+[82,     1] loss: 0.127
+[83,     1] loss: 0.125
+[84,     1] loss: 0.128
+[85,     1] loss: 0.128
+[86,     1] loss: 0.127
+[87,     1] loss: 0.128
+[88,     1] loss: 0.126
+[89,     1] loss: 0.128
+[90,     1] loss: 0.136
+[91,     1] loss: 0.132
+[92,     1] loss: 0.132
+[93,     1] loss: 0.129
+[94,     1] loss: 0.131
+[95,     1] loss: 0.133
+[96,     1] loss: 0.133
+[97,     1] loss: 0.131
+[98,     1] loss: 0.132
+[99,     1] loss: 0.132
+[100,     1] loss: 0.131
+[101,     1] loss: 0.131
+[102,     1] loss: 0.129
+Early stopping applied (best metric=0.4081957936286926)
+Finished Training
+Total time taken: 23.706440210342407
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+[1,     1] loss: 0.698
+[2,     1] loss: 0.692
+[3,     1] loss: 0.687
+[4,     1] loss: 0.683
+[5,     1] loss: 0.677
+[6,     1] loss: 0.672
+[7,     1] loss: 0.666
+[8,     1] loss: 0.659
+[9,     1] loss: 0.651
+[10,     1] loss: 0.643
+[11,     1] loss: 0.634
+[12,     1] loss: 0.625
+[13,     1] loss: 0.612
+[14,     1] loss: 0.600
+[15,     1] loss: 0.589
+[16,     1] loss: 0.577
+[17,     1] loss: 0.563
+[18,     1] loss: 0.549
+[19,     1] loss: 0.532
+[20,     1] loss: 0.519
+[21,     1] loss: 0.501
+[22,     1] loss: 0.484
+[23,     1] loss: 0.465
+[24,     1] loss: 0.447
+[25,     1] loss: 0.426
+[26,     1] loss: 0.409
+[27,     1] loss: 0.386
+[28,     1] loss: 0.366
+[29,     1] loss: 0.342
+[30,     1] loss: 0.323
+[31,     1] loss: 0.303
+[32,     1] loss: 0.280
+[33,     1] loss: 0.262
+[34,     1] loss: 0.245
+[35,     1] loss: 0.227
+[36,     1] loss: 0.213
+[37,     1] loss: 0.197
+[38,     1] loss: 0.183
+[39,     1] loss: 0.169
+[40,     1] loss: 0.158
+[41,     1] loss: 0.152
+[42,     1] loss: 0.140
+[43,     1] loss: 0.133
+[44,     1] loss: 0.124
+[45,     1] loss: 0.119
+[46,     1] loss: 0.112
+[47,     1] loss: 0.109
+[48,     1] loss: 0.103
+[49,     1] loss: 0.100
+[50,     1] loss: 0.098
+[51,     1] loss: 0.095
+[52,     1] loss: 0.094
+[53,     1] loss: 0.091
+[54,     1] loss: 0.089
+[55,     1] loss: 0.089
+[56,     1] loss: 0.088
+[57,     1] loss: 0.088
+[58,     1] loss: 0.088
+[59,     1] loss: 0.087
+[60,     1] loss: 0.087
+[61,     1] loss: 0.087
+[62,     1] loss: 0.086
+[63,     1] loss: 0.087
+[64,     1] loss: 0.090
+[65,     1] loss: 0.089
+[66,     1] loss: 0.091
+[67,     1] loss: 0.089
+[68,     1] loss: 0.091
+[69,     1] loss: 0.093
+[70,     1] loss: 0.093
+[71,     1] loss: 0.096
+[72,     1] loss: 0.108
+[73,     1] loss: 0.103
+[74,     1] loss: 0.109
+[75,     1] loss: 0.146
+[76,     1] loss: 0.203
+[77,     1] loss: 0.190
+[78,     1] loss: 0.132
+[79,     1] loss: 0.173
+[80,     1] loss: 0.134
+[81,     1] loss: 0.137
+[82,     1] loss: 0.158
+[83,     1] loss: 0.146
+[84,     1] loss: 0.142
+[85,     1] loss: 0.146
+[86,     1] loss: 0.145
+[87,     1] loss: 0.142
+[88,     1] loss: 0.139
+[89,     1] loss: 0.134
+[90,     1] loss: 0.135
+[91,     1] loss: 0.132
+[92,     1] loss: 0.126
+[93,     1] loss: 0.127
+[94,     1] loss: 0.123
+[95,     1] loss: 0.122
+[96,     1] loss: 0.120
+[97,     1] loss: 0.120
+[98,     1] loss: 0.118
+[99,     1] loss: 0.117
+[100,     1] loss: 0.118
+[101,     1] loss: 0.118
+[102,     1] loss: 0.116
+[103,     1] loss: 0.117
+[104,     1] loss: 0.117
+[105,     1] loss: 0.116
+[106,     1] loss: 0.118
+[107,     1] loss: 0.117
+[108,     1] loss: 0.116
+[109,     1] loss: 0.119
+[110,     1] loss: 0.119
+[111,     1] loss: 0.121
+[112,     1] loss: 0.119
+[113,     1] loss: 0.121
+[114,     1] loss: 0.122
+[115,     1] loss: 0.122
+[116,     1] loss: 0.122
+[117,     1] loss: 0.122
+[118,     1] loss: 0.124
+[119,     1] loss: 0.123
+[120,     1] loss: 0.121
+[121,     1] loss: 0.122
+[122,     1] loss: 0.123
+[123,     1] loss: 0.122
+[124,     1] loss: 0.124
+[125,     1] loss: 0.121
+[126,     1] loss: 0.123
+[127,     1] loss: 0.121
+[128,     1] loss: 0.123
+[129,     1] loss: 0.121
+[130,     1] loss: 0.120
+[131,     1] loss: 0.120
+[132,     1] loss: 0.121
+[133,     1] loss: 0.121
+[134,     1] loss: 0.121
+[135,     1] loss: 0.121
+[136,     1] loss: 0.122
+[137,     1] loss: 0.122
+[138,     1] loss: 0.120
+[139,     1] loss: 0.122
+[140,     1] loss: 0.119
+[141,     1] loss: 0.121
+[142,     1] loss: 0.120
+[143,     1] loss: 0.124
+[144,     1] loss: 0.123
+[145,     1] loss: 0.125
+[146,     1] loss: 0.123
+[147,     1] loss: 0.121
+[148,     1] loss: 0.122
+[149,     1] loss: 0.122
+[150,     1] loss: 0.122
+[151,     1] loss: 0.122
+[152,     1] loss: 0.121
+[153,     1] loss: 0.121
+[154,     1] loss: 0.121
+[155,     1] loss: 0.118
+[156,     1] loss: 0.122
+[157,     1] loss: 0.121
+[158,     1] loss: 0.119
+[159,     1] loss: 0.119
+[160,     1] loss: 0.121
+[161,     1] loss: 0.122
+[162,     1] loss: 0.121
+[163,     1] loss: 0.120
+[164,     1] loss: 0.121
+[165,     1] loss: 0.122
+[166,     1] loss: 0.139
+[167,     1] loss: 0.132
+[168,     1] loss: 0.131
+[169,     1] loss: 0.131
+[170,     1] loss: 0.128
+[171,     1] loss: 0.130
+[172,     1] loss: 0.127
+[173,     1] loss: 0.128
+[174,     1] loss: 0.126
+[175,     1] loss: 0.126
+[176,     1] loss: 0.125
+Early stopping applied (best metric=0.36202725768089294)
+Finished Training
+Total time taken: 37.28005027770996
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+[1,     1] loss: 0.694
+[2,     1] loss: 0.688
+[3,     1] loss: 0.683
+[4,     1] loss: 0.678
+[5,     1] loss: 0.673
+[6,     1] loss: 0.665
+[7,     1] loss: 0.658
+[8,     1] loss: 0.648
+[9,     1] loss: 0.640
+[10,     1] loss: 0.629
+[11,     1] loss: 0.619
+[12,     1] loss: 0.607
+[13,     1] loss: 0.593
+[14,     1] loss: 0.582
+[15,     1] loss: 0.570
+[16,     1] loss: 0.552
+[17,     1] loss: 0.538
+[18,     1] loss: 0.521
+[19,     1] loss: 0.505
+[20,     1] loss: 0.492
+[21,     1] loss: 0.473
+[22,     1] loss: 0.457
+[23,     1] loss: 0.442
+[24,     1] loss: 0.428
+[25,     1] loss: 0.416
+[26,     1] loss: 0.400
+[27,     1] loss: 0.388
+[28,     1] loss: 0.377
+[29,     1] loss: 0.364
+[30,     1] loss: 0.353
+[31,     1] loss: 0.340
+[32,     1] loss: 0.329
+[33,     1] loss: 0.318
+[34,     1] loss: 0.308
+[35,     1] loss: 0.296
+[36,     1] loss: 0.282
+[37,     1] loss: 0.269
+[38,     1] loss: 0.254
+[39,     1] loss: 0.243
+[40,     1] loss: 0.232
+[41,     1] loss: 0.221
+[42,     1] loss: 0.210
+[43,     1] loss: 0.202
+[44,     1] loss: 0.189
+[45,     1] loss: 0.178
+[46,     1] loss: 0.170
+[47,     1] loss: 0.159
+[48,     1] loss: 0.153
+[49,     1] loss: 0.145
+[50,     1] loss: 0.136
+[51,     1] loss: 0.130
+[52,     1] loss: 0.123
+[53,     1] loss: 0.119
+[54,     1] loss: 0.111
+[55,     1] loss: 0.106
+[56,     1] loss: 0.104
+[57,     1] loss: 0.100
+[58,     1] loss: 0.097
+[59,     1] loss: 0.095
+[60,     1] loss: 0.092
+[61,     1] loss: 0.090
+[62,     1] loss: 0.087
+[63,     1] loss: 0.087
+[64,     1] loss: 0.087
+[65,     1] loss: 0.084
+[66,     1] loss: 0.086
+[67,     1] loss: 0.082
+[68,     1] loss: 0.084
+[69,     1] loss: 0.082
+[70,     1] loss: 0.082
+[71,     1] loss: 0.080
+[72,     1] loss: 0.083
+[73,     1] loss: 0.083
+[74,     1] loss: 0.083
+[75,     1] loss: 0.082
+[76,     1] loss: 0.083
+[77,     1] loss: 0.084
+[78,     1] loss: 0.081
+[79,     1] loss: 0.084
+[80,     1] loss: 0.083
+[81,     1] loss: 0.085
+[82,     1] loss: 0.083
+[83,     1] loss: 0.085
+[84,     1] loss: 0.085
+[85,     1] loss: 0.087
+[86,     1] loss: 0.085
+[87,     1] loss: 0.086
+[88,     1] loss: 0.089
+[89,     1] loss: 0.106
+[90,     1] loss: 0.109
+[91,     1] loss: 0.238
+[92,     1] loss: 0.240
+[93,     1] loss: 0.230
+[94,     1] loss: 0.190
+[95,     1] loss: 0.170
+[96,     1] loss: 0.170
+[97,     1] loss: 0.184
+[98,     1] loss: 0.184
+[99,     1] loss: 0.184
+Early stopping applied (best metric=0.42376646399497986)
+Finished Training
+Total time taken: 21.049957513809204
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+[1,     1] loss: 0.692
+[2,     1] loss: 0.687
+[3,     1] loss: 0.681
+[4,     1] loss: 0.675
+[5,     1] loss: 0.668
+[6,     1] loss: 0.660
+[7,     1] loss: 0.653
+[8,     1] loss: 0.644
+[9,     1] loss: 0.634
+[10,     1] loss: 0.624
+[11,     1] loss: 0.613
+[12,     1] loss: 0.602
+[13,     1] loss: 0.590
+[14,     1] loss: 0.578
+[15,     1] loss: 0.562
+[16,     1] loss: 0.549
+[17,     1] loss: 0.532
+[18,     1] loss: 0.515
+[19,     1] loss: 0.500
+[20,     1] loss: 0.481
+[21,     1] loss: 0.461
+[22,     1] loss: 0.441
+[23,     1] loss: 0.418
+[24,     1] loss: 0.396
+[25,     1] loss: 0.377
+[26,     1] loss: 0.357
+[27,     1] loss: 0.337
+[28,     1] loss: 0.320
+[29,     1] loss: 0.298
+[30,     1] loss: 0.278
+[31,     1] loss: 0.258
+[32,     1] loss: 0.240
+[33,     1] loss: 0.229
+[34,     1] loss: 0.211
+[35,     1] loss: 0.198
+[36,     1] loss: 0.186
+[37,     1] loss: 0.176
+[38,     1] loss: 0.164
+[39,     1] loss: 0.155
+[40,     1] loss: 0.147
+[41,     1] loss: 0.139
+[42,     1] loss: 0.136
+[43,     1] loss: 0.127
+[44,     1] loss: 0.123
+[45,     1] loss: 0.120
+[46,     1] loss: 0.116
+[47,     1] loss: 0.113
+[48,     1] loss: 0.110
+[49,     1] loss: 0.109
+[50,     1] loss: 0.107
+[51,     1] loss: 0.104
+[52,     1] loss: 0.105
+[53,     1] loss: 0.103
+[54,     1] loss: 0.102
+[55,     1] loss: 0.102
+[56,     1] loss: 0.103
+[57,     1] loss: 0.103
+[58,     1] loss: 0.106
+[59,     1] loss: 0.105
+[60,     1] loss: 0.106
+[61,     1] loss: 0.107
+[62,     1] loss: 0.107
+[63,     1] loss: 0.107
+[64,     1] loss: 0.107
+[65,     1] loss: 0.110
+[66,     1] loss: 0.109
+[67,     1] loss: 0.109
+[68,     1] loss: 0.109
+[69,     1] loss: 0.112
+[70,     1] loss: 0.112
+[71,     1] loss: 0.111
+[72,     1] loss: 0.111
+[73,     1] loss: 0.115
+[74,     1] loss: 0.123
+[75,     1] loss: 0.171
+[76,     1] loss: 0.144
+[77,     1] loss: 0.370
+[78,     1] loss: 0.203
+[79,     1] loss: 0.273
+[80,     1] loss: 0.219
+[81,     1] loss: 0.210
+[82,     1] loss: 0.227
+[83,     1] loss: 0.249
+[84,     1] loss: 0.235
+[85,     1] loss: 0.225
+[86,     1] loss: 0.225
+[87,     1] loss: 0.230
+[88,     1] loss: 0.216
+[89,     1] loss: 0.204
+Early stopping applied (best metric=0.31816932559013367)
+Finished Training
+Total time taken: 20.105318307876587
+(176, 33)
+(819, 33)
+Loaded folder code/Thesis/dataset/train/Hydroxylation-P/indices (995 samples)
+[1,     1] loss: 0.694
+[2,     1] loss: 0.687
+[3,     1] loss: 0.683
+[4,     1] loss: 0.676
+[5,     1] loss: 0.671
+[6,     1] loss: 0.665
+[7,     1] loss: 0.659
+[8,     1] loss: 0.651
+[9,     1] loss: 0.645
+[10,     1] loss: 0.637
+[11,     1] loss: 0.629
+[12,     1] loss: 0.619
+[13,     1] loss: 0.610
+[14,     1] loss: 0.601
+[15,     1] loss: 0.589
+[16,     1] loss: 0.579
+[17,     1] loss: 0.567
+[18,     1] loss: 0.554
+[19,     1] loss: 0.543
+[20,     1] loss: 0.526
+[21,     1] loss: 0.513
+[22,     1] loss: 0.496
+[23,     1] loss: 0.481
+[24,     1] loss: 0.461
+[25,     1] loss: 0.448
+[26,     1] loss: 0.426
+[27,     1] loss: 0.409
+[28,     1] loss: 0.390
+[29,     1] loss: 0.375
+[30,     1] loss: 0.357
+[31,     1] loss: 0.341
+[32,     1] loss: 0.326
+[33,     1] loss: 0.304
+[34,     1] loss: 0.290
+[35,     1] loss: 0.273
+[36,     1] loss: 0.257
+[37,     1] loss: 0.241
+[38,     1] loss: 0.228
+[39,     1] loss: 0.222
+[40,     1] loss: 0.205
+[41,     1] loss: 0.191
+[42,     1] loss: 0.180
+[43,     1] loss: 0.172
+[44,     1] loss: 0.165
+[45,     1] loss: 0.160
+[46,     1] loss: 0.148
+[47,     1] loss: 0.141
+[48,     1] loss: 0.135
+[49,     1] loss: 0.131
+[50,     1] loss: 0.127
+[51,     1] loss: 0.123
+[52,     1] loss: 0.117
+[53,     1] loss: 0.113
+[54,     1] loss: 0.111
+[55,     1] loss: 0.109
+[56,     1] loss: 0.106
+[57,     1] loss: 0.104
+[58,     1] loss: 0.103
+[59,     1] loss: 0.103
+[60,     1] loss: 0.101
+[61,     1] loss: 0.098
+[62,     1] loss: 0.098
+[63,     1] loss: 0.100
+[64,     1] loss: 0.098
+[65,     1] loss: 0.098
+[66,     1] loss: 0.096
+[67,     1] loss: 0.097
+[68,     1] loss: 0.096
+[69,     1] loss: 0.098
+[70,     1] loss: 0.097
+[71,     1] loss: 0.099
+[72,     1] loss: 0.101
+[73,     1] loss: 0.100
+[74,     1] loss: 0.098
+[75,     1] loss: 0.107
+[76,     1] loss: 0.107
+[77,     1] loss: 0.116
+[78,     1] loss: 0.112
+[79,     1] loss: 0.151
+[80,     1] loss: 0.289
+[81,     1] loss: 0.165
+[82,     1] loss: 0.208
+[83,     1] loss: 0.181
+[84,     1] loss: 0.162
+[85,     1] loss: 0.168
+[86,     1] loss: 0.193
+[87,     1] loss: 0.176
+[88,     1] loss: 0.170
+[89,     1] loss: 0.166
+[90,     1] loss: 0.169
+[91,     1] loss: 0.168
+[92,     1] loss: 0.162
+[93,     1] loss: 0.160
+[94,     1] loss: 0.159
+[95,     1] loss: 0.153
+[96,     1] loss: 0.151
+[97,     1] loss: 0.150
+[98,     1] loss: 0.148
+[99,     1] loss: 0.143
+[100,     1] loss: 0.143
+[101,     1] loss: 0.141
+[102,     1] loss: 0.140
+[103,     1] loss: 0.138
+[104,     1] loss: 0.136
+Early stopping applied (best metric=0.3189178705215454)
+Finished Training
+Total time taken: 24.141906023025513
+results!
+{'gpu_mode': True, 'epochs': 200, 'batch_size': 512, 'learning_rate': 0.00153, 'test_data_ratio': 0.2, 'data_sample_mode': ['balanced'], 'crossValidation': True, 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>, 'optimizer': <class 'torch.optim.adamw.AdamW'>, 'folds': 5, 'earlyStopping': True, 'ValidationMetric': 'Validation Loss (total)', 'earlyStoppingPatience': 50, 'CV_Repeats': 1, 'Experiment Name': 'Model architecture - sampling method - timetest: ', 'weight_decay': 17.76677, 'embeddingType': 'adaptiveEmbedding', 'LSTM_layers': 1, 'LSTM_hidden_size': 32, 'LSTM_dropout': 0, 'UseUncertaintyBasedLoss': False, 'useLrWeight': False, 'aminoAcid': ['Hydroxylation-P'], 'CNNType': 'Adapt', 'FCType': 'Musite', 'random_state': 2462265911, 'current_CV_Repeat': 1, 'layerToSplitOn': 'FC', 'sample_weights': [1.0], 'currentFold': 4}
+{'Hydroxylation-P Validation Accuracy': 0.7708372163849551, 'Hydroxylation-P Validation Sensitivity': 0.802063492063492, 'Hydroxylation-P Validation Specificity': 0.7643648062247493, 'Hydroxylation-P Validation Precision': 0.4321476535819807, 'Hydroxylation-P AUC ROC': 0.8628900206399084, 'Hydroxylation-P AUC PR': 0.6002397518418331, 'Hydroxylation-P MCC': 0.46323784012180985, 'Hydroxylation-P F1': 0.5562882284494822, 'Validation Loss (Hydroxylation-P)': 0.3662153422832489, 'Validation Loss (total)': 0.3662153422832489, 'TimeToTrain': 25.256734466552736}
+{'Hydroxylation-P Validation Accuracy': 0.062062190451355886, 'Hydroxylation-P Validation Sensitivity': 0.1259826580666359, 'Hydroxylation-P Validation Specificity': 0.07677181339055363, 'Hydroxylation-P Validation Precision': 0.07336093990345804, 'Hydroxylation-P AUC ROC': 0.048945828568433825, 'Hydroxylation-P AUC PR': 0.08249182144251388, 'Hydroxylation-P MCC': 0.10434005542084386, 'Hydroxylation-P F1': 0.07335734612679515, 'Validation Loss (Hydroxylation-P)': 0.0490853860971022, 'Validation Loss (total)': 0.0490853860971022, 'TimeToTrain': 6.936145157869811}
+{'Hydroxylation-P Validation Accuracy': 0.7708372163849551, 'Hydroxylation-P Validation Sensitivity': 0.802063492063492, 'Hydroxylation-P Validation Specificity': 0.7643648062247493, 'Hydroxylation-P Validation Precision': 0.4321476535819807, 'Hydroxylation-P AUC ROC': 0.8628900206399084, 'Hydroxylation-P AUC PR': 0.6002397518418331, 'Hydroxylation-P MCC': 0.46323784012180985, 'Hydroxylation-P F1': 0.5562882284494822, 'Validation Loss (Hydroxylation-P)': 0.3662153422832489, 'Validation Loss (total)': 0.3662153422832489, 'TimeToTrain': 25.256734466552736} {'Hydroxylation-P Validation Accuracy': 0.062062190451355886, 'Hydroxylation-P Validation Sensitivity': 0.1259826580666359, 'Hydroxylation-P Validation Specificity': 0.07677181339055363, 'Hydroxylation-P Validation Precision': 0.07336093990345804, 'Hydroxylation-P AUC ROC': 0.048945828568433825, 'Hydroxylation-P AUC PR': 0.08249182144251388, 'Hydroxylation-P MCC': 0.10434005542084386, 'Hydroxylation-P F1': 0.07335734612679515, 'Validation Loss (Hydroxylation-P)': 0.0490853860971022, 'Validation Loss (total)': 0.0490853860971022, 'TimeToTrain': 6.936145157869811}
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - sampling method - timetest: ',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['O-linked Glycosylation'],
+ 'batch_size': 512,
+ 'crossValidation': True,
+ 'currentFold': 4,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['balanced'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 25,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.0051,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 616586717,
+ 'sample_weights': [1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 5.184}
+(5875, 33)
+(77158, 33)
+Loaded folder code/Thesis/dataset/train/O-linked Glycosylation/indices (83033 samples)
+[1,     1] loss: 0.701
+[2,    19] loss: 0.620
+[3,    19] loss: 0.613
+[4,    19] loss: 0.601
+[5,    19] loss: 0.595
+[6,    19] loss: 0.587
+[7,    19] loss: 0.579
+[8,    19] loss: 0.590
+[9,    19] loss: 0.594
+[10,    19] loss: 0.583
+[11,    19] loss: 0.595
+[12,    19] loss: 0.580
+[13,    19] loss: 0.582
+[14,    19] loss: 0.580
+[15,    19] loss: 0.594
+[16,    19] loss: 0.582
+[17,    19] loss: 0.586
+[18,    19] loss: 0.579
+[19,    19] loss: 0.580
+[20,    19] loss: 0.571
+[21,    19] loss: 0.582
+[22,    19] loss: 0.570
+[23,    19] loss: 0.577
+[24,    19] loss: 0.569
+[25,    19] loss: 0.568
+[26,    19] loss: 0.587
+[27,    19] loss: 0.596
+[28,    19] loss: 0.580
+[29,    19] loss: 0.592
+[30,    19] loss: 0.578
+[31,    19] loss: 0.573
+[32,    19] loss: 0.581
+[33,    19] loss: 0.586
+[34,    19] loss: 0.584
+[35,    19] loss: 0.594
+[36,    19] loss: 0.579
+[37,    19] loss: 0.589
+[38,    19] loss: 0.599
+Early stopping applied (best metric=0.30167949199676514)
+Finished Training
+Total time taken: 27.68399953842163
+(5875, 33)
+(77158, 33)
+Loaded folder code/Thesis/dataset/train/O-linked Glycosylation/indices (83033 samples)
+[1,     1] loss: 0.694
+[2,    19] loss: 0.622
+[3,    19] loss: 0.609
+[4,    19] loss: 0.602
+[5,    19] loss: 0.594
+[6,    19] loss: 0.594
+[7,    19] loss: 0.589
+[8,    19] loss: 0.596
+[9,    19] loss: 0.601
+[10,    19] loss: 0.594
+[11,    19] loss: 0.593
+[12,    19] loss: 0.597
+[13,    19] loss: 0.590
+[14,    19] loss: 0.596
+[15,    19] loss: 0.599
+[16,    19] loss: 0.592
+[17,    19] loss: 0.601
+[18,    19] loss: 0.594
+[19,    19] loss: 0.595
+[20,    19] loss: 0.591
+[21,    19] loss: 0.595
+[22,    19] loss: 0.595
+[23,    19] loss: 0.585
+[24,    19] loss: 0.586
+[25,    19] loss: 0.594
+[26,    19] loss: 0.583
+[27,    19] loss: 0.587
+[28,    19] loss: 0.586
+[29,    19] loss: 0.578
+[30,    19] loss: 0.578
+[31,    19] loss: 0.575
+[32,    19] loss: 0.582
+Early stopping applied (best metric=0.30916476249694824)
+Finished Training
+Total time taken: 21.927195072174072
+(5875, 33)
+(77158, 33)
+Loaded folder code/Thesis/dataset/train/O-linked Glycosylation/indices (83033 samples)
+[1,     1] loss: 0.711
+[2,    19] loss: 0.638
+[3,    19] loss: 0.630
+[4,    19] loss: 0.611
+[5,    19] loss: 0.605
+[6,    19] loss: 0.594
+[7,    19] loss: 0.607
+[8,    19] loss: 0.594
+[9,    19] loss: 0.596
+[10,    19] loss: 0.595
+[11,    19] loss: 0.595
+[12,    19] loss: 0.590
+[13,    19] loss: 0.601
+[14,    19] loss: 0.593
+[15,    19] loss: 0.601
+[16,    19] loss: 0.598
+[17,    19] loss: 0.610
+[18,    19] loss: 0.596
+[19,    19] loss: 0.610
+[20,    19] loss: 0.596
+[21,    19] loss: 0.597
+[22,    19] loss: 0.588
+[23,    19] loss: 0.596
+[24,    19] loss: 0.593
+[25,    19] loss: 0.597
+[26,    19] loss: 0.604
+[27,    19] loss: 0.590
+[28,    19] loss: 0.590
+[29,    19] loss: 0.591
+Early stopping applied (best metric=0.31341856718063354)
+Finished Training
+Total time taken: 19.679951429367065
+(5875, 33)
+(77158, 33)
+Loaded folder code/Thesis/dataset/train/O-linked Glycosylation/indices (83033 samples)
+[1,     1] loss: 0.700
+[2,    19] loss: 0.621
+[3,    19] loss: 0.612
+[4,    19] loss: 0.607
+[5,    19] loss: 0.596
+[6,    19] loss: 0.598
+[7,    19] loss: 0.592
+[8,    19] loss: 0.593
+[9,    19] loss: 0.589
+[10,    19] loss: 0.598
+[11,    19] loss: 0.594
+[12,    19] loss: 0.592
+[13,    19] loss: 0.592
+[14,    19] loss: 0.596
+[15,    19] loss: 0.592
+[16,    19] loss: 0.590
+[17,    19] loss: 0.591
+[18,    19] loss: 0.588
+[19,    19] loss: 0.598
+[20,    19] loss: 0.595
+[21,    19] loss: 0.593
+[22,    19] loss: 0.584
+[23,    19] loss: 0.582
+[24,    19] loss: 0.581
+[25,    19] loss: 0.621
+[26,    19] loss: 0.602
+[27,    19] loss: 0.597
+[28,    19] loss: 0.594
+[29,    19] loss: 0.592
+[30,    19] loss: 0.597
+[31,    19] loss: 0.604
+[32,    19] loss: 0.594
+[33,    19] loss: 0.596
+[34,    19] loss: 0.592
+[35,    19] loss: 0.594
+[36,    19] loss: 0.595
+[37,    19] loss: 0.589
+[38,    19] loss: 0.600
+[39,    19] loss: 0.594
+[40,    19] loss: 0.596
+[41,    19] loss: 0.588
+[42,    19] loss: 0.602
+[43,    19] loss: 0.599
+[44,    19] loss: 0.593
+[45,    19] loss: 0.598
+[46,    19] loss: 0.590
+[47,    19] loss: 0.610
+[48,    19] loss: 0.592
+[49,    19] loss: 0.607
+[50,    19] loss: 0.591
+[51,    19] loss: 0.601
+[52,    19] loss: 0.596
+[53,    19] loss: 0.592
+[54,    19] loss: 0.593
+[55,    19] loss: 0.604
+[56,    19] loss: 0.599
+[57,    19] loss: 0.595
+[58,    19] loss: 0.598
+[59,    19] loss: 0.594
+[60,    19] loss: 0.603
+[61,    19] loss: 0.600
+[62,    19] loss: 0.589
+[63,    19] loss: 0.594
+[64,    19] loss: 0.601
+[65,    19] loss: 0.592
+[66,    19] loss: 0.593
+[67,    19] loss: 0.600
+[68,    19] loss: 0.595
+[69,    19] loss: 0.598
+[70,    19] loss: 0.604
+[71,    19] loss: 0.597
+[72,    19] loss: 0.601
+[73,    19] loss: 0.591
+[74,    19] loss: 0.601
+[75,    19] loss: 0.598
+[76,    19] loss: 0.601
+[77,    19] loss: 0.590
+[78,    19] loss: 0.596
+[79,    19] loss: 0.597
+Early stopping applied (best metric=0.30564042925834656)
+Finished Training
+Total time taken: 54.444336891174316
+(5875, 33)
+(77158, 33)
+Loaded folder code/Thesis/dataset/train/O-linked Glycosylation/indices (83033 samples)
+[1,     1] loss: 0.693
+[2,    19] loss: 0.617
+[3,    19] loss: 0.609
+[4,    19] loss: 0.597
+[5,    19] loss: 0.589
+[6,    19] loss: 0.586
+[7,    19] loss: 0.600
+[8,    19] loss: 0.582
+[9,    19] loss: 0.584
+[10,    19] loss: 0.579
+[11,    19] loss: 0.578
+[12,    19] loss: 0.586
+[13,    19] loss: 0.576
+[14,    19] loss: 0.584
+[15,    19] loss: 0.591
+[16,    19] loss: 0.581
+[17,    19] loss: 0.582
+[18,    19] loss: 0.585
+[19,    19] loss: 0.580
+[20,    19] loss: 0.578
+[21,    19] loss: 0.581
+[22,    19] loss: 0.573
+[23,    19] loss: 0.576
+[24,    19] loss: 0.588
+[25,    19] loss: 0.620
+[26,    19] loss: 0.609
+[27,    19] loss: 0.603
+[28,    19] loss: 0.606
+[29,    19] loss: 0.597
+[30,    19] loss: 0.601
+[31,    19] loss: 0.598
+[32,    19] loss: 0.598
+[33,    19] loss: 0.600
+[34,    19] loss: 0.602
+[35,    19] loss: 0.595
+[36,    19] loss: 0.599
+Early stopping applied (best metric=0.31039997935295105)
+Finished Training
+Total time taken: 24.84384775161743
+results!
+{'gpu_mode': True, 'epochs': 200, 'batch_size': 512, 'learning_rate': 0.0051, 'test_data_ratio': 0.2, 'data_sample_mode': ['balanced'], 'crossValidation': True, 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>, 'optimizer': <class 'torch.optim.adamw.AdamW'>, 'folds': 5, 'earlyStopping': True, 'ValidationMetric': 'Validation Loss (total)', 'earlyStoppingPatience': 25, 'CV_Repeats': 1, 'Experiment Name': 'Model architecture - sampling method - timetest: ', 'weight_decay': 5.184, 'embeddingType': 'adaptiveEmbedding', 'LSTM_layers': 1, 'LSTM_hidden_size': 32, 'LSTM_dropout': 0, 'UseUncertaintyBasedLoss': False, 'useLrWeight': False, 'aminoAcid': ['O-linked Glycosylation'], 'CNNType': 'Adapt', 'FCType': 'Musite', 'random_state': 616586722, 'current_CV_Repeat': 1, 'layerToSplitOn': 'FC', 'sample_weights': [1.0], 'currentFold': 4}
+{'O-linked Glycosylation Validation Accuracy': 0.28702001678595185, 'O-linked Glycosylation Validation Sensitivity': 0.9194893617021277, 'O-linked Glycosylation Validation Specificity': 0.2388624368033231, 'O-linked Glycosylation Validation Precision': 0.08497709760987222, 'O-linked Glycosylation AUC ROC': 0.7045311042387375, 'O-linked Glycosylation AUC PR': 0.1840425519876739, 'O-linked Glycosylation MCC': 0.09649947604442882, 'O-linked Glycosylation F1': 0.15542264485098736, 'Validation Loss (O-linked Glycosylation)': 0.3080606460571289, 'Validation Loss (total)': 0.3080606460571289, 'TimeToTrain': 29.715866136550904}
+{'O-linked Glycosylation Validation Accuracy': 0.09664537673631525, 'O-linked Glycosylation Validation Sensitivity': 0.04145650635811648, 'O-linked Glycosylation Validation Specificity': 0.10712028946985656, 'O-linked Glycosylation Validation Precision': 0.007000155414130634, 'O-linked Glycosylation AUC ROC': 0.011421849664474093, 'O-linked Glycosylation AUC PR': 0.011735425194706915, 'O-linked Glycosylation MCC': 0.026630251926324906, 'O-linked Glycosylation F1': 0.011238443454141064, 'Validation Loss (O-linked Glycosylation)': 0.004527014707357486, 'Validation Loss (total)': 0.004527014707357486, 'TimeToTrain': 14.14872160158753}
+{'O-linked Glycosylation Validation Accuracy': 0.28702001678595185, 'O-linked Glycosylation Validation Sensitivity': 0.9194893617021277, 'O-linked Glycosylation Validation Specificity': 0.2388624368033231, 'O-linked Glycosylation Validation Precision': 0.08497709760987222, 'O-linked Glycosylation AUC ROC': 0.7045311042387375, 'O-linked Glycosylation AUC PR': 0.1840425519876739, 'O-linked Glycosylation MCC': 0.09649947604442882, 'O-linked Glycosylation F1': 0.15542264485098736, 'Validation Loss (O-linked Glycosylation)': 0.3080606460571289, 'Validation Loss (total)': 0.3080606460571289, 'TimeToTrain': 29.715866136550904} {'O-linked Glycosylation Validation Accuracy': 0.09664537673631525, 'O-linked Glycosylation Validation Sensitivity': 0.04145650635811648, 'O-linked Glycosylation Validation Specificity': 0.10712028946985656, 'O-linked Glycosylation Validation Precision': 0.007000155414130634, 'O-linked Glycosylation AUC ROC': 0.011421849664474093, 'O-linked Glycosylation AUC PR': 0.011735425194706915, 'O-linked Glycosylation MCC': 0.026630251926324906, 'O-linked Glycosylation F1': 0.011238443454141064, 'Validation Loss (O-linked Glycosylation)': 0.004527014707357486, 'Validation Loss (total)': 0.004527014707357486, 'TimeToTrain': 14.14872160158753}
+{'CNNType': 'Adapt',
+ 'CV_Repeats': 1,
+ 'Experiment Name': 'Model architecture - sampling method - timetest: ',
+ 'FCType': 'Musite',
+ 'LSTM_dropout': 0,
+ 'LSTM_hidden_size': 32,
+ 'LSTM_layers': 1,
+ 'UseUncertaintyBasedLoss': False,
+ 'ValidationMetric': 'Validation Loss (total)',
+ 'aminoAcid': ['Phosphorylation-Y'],
+ 'batch_size': 512,
+ 'crossValidation': True,
+ 'currentFold': 4,
+ 'current_CV_Repeat': 1,
+ 'data_sample_mode': ['balanced'],
+ 'earlyStopping': True,
+ 'earlyStoppingPatience': 50,
+ 'embeddingType': 'adaptiveEmbedding',
+ 'epochs': 200,
+ 'folds': 5,
+ 'gpu_mode': True,
+ 'layerToSplitOn': 'FC',
+ 'learning_rate': 0.00287,
+ 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>,
+ 'optimizer': <class 'torch.optim.adamw.AdamW'>,
+ 'random_state': 2426741976,
+ 'sample_weights': [1.0],
+ 'test_data_ratio': 0.2,
+ 'useLrWeight': False,
+ 'weight_decay': 0.49177}
+(47915, 33)
+(194382, 33)
+Loaded folder code/Thesis/dataset/train/Phosphorylation-Y/indices (242297 samples)
+[1,     1] loss: 0.701
+[2,   150] loss: 0.612
+[3,   150] loss: 0.602
+[4,   150] loss: 0.597
+[5,   150] loss: 0.590
+[6,   150] loss: 0.583
+[7,   150] loss: 0.577
+[8,   150] loss: 0.569
+[9,   150] loss: 0.562
+[10,   150] loss: 0.552
+[11,   150] loss: 0.543
+[12,   150] loss: 0.534
+[13,   150] loss: 0.528
+[14,   150] loss: 0.515
+[15,   150] loss: 0.508
+[16,   150] loss: 0.497
+[17,   150] loss: 0.488
+[18,   150] loss: 0.482
+[19,   150] loss: 0.474
+[20,   150] loss: 0.468
+[21,   150] loss: 0.464
+[22,   150] loss: 0.458
+[23,   150] loss: 0.455
+[24,   150] loss: 0.449
+[25,   150] loss: 0.443
+[26,   150] loss: 0.443
+[27,   150] loss: 0.439
+[28,   150] loss: 0.435
+[29,   150] loss: 0.435
+[30,   150] loss: 0.434
+[31,   150] loss: 0.433
+[32,   150] loss: 0.431
+[33,   150] loss: 0.429
+[34,   150] loss: 0.427
+[35,   150] loss: 0.426
+[36,   150] loss: 0.428
+[37,   150] loss: 0.424
+[38,   150] loss: 0.422
+[39,   150] loss: 0.423
+[40,   150] loss: 0.422
+[41,   150] loss: 0.424
+[42,   150] loss: 0.424
+[43,   150] loss: 0.423
+[44,   150] loss: 0.424
+[45,   150] loss: 0.424
+[46,   150] loss: 0.421
+[47,   150] loss: 0.423
+[48,   150] loss: 0.422
+[49,   150] loss: 0.419
+[50,   150] loss: 0.420
+[51,   150] loss: 0.423
+[52,   150] loss: 0.421
+[53,   150] loss: 0.418
+[54,   150] loss: 0.418
+[55,   150] loss: 0.420
+[56,   150] loss: 0.417
+Early stopping applied (best metric=0.48478561639785767)
+Finished Training
+Total time taken: 161.63350915908813
+(47915, 33)
+(194382, 33)
+Loaded folder code/Thesis/dataset/train/Phosphorylation-Y/indices (242297 samples)
+[1,     1] loss: 0.692
+[2,   150] loss: 0.614
+[3,   150] loss: 0.604
+[4,   150] loss: 0.596
+[5,   150] loss: 0.588
+[6,   150] loss: 0.581
+[7,   150] loss: 0.574
+[8,   150] loss: 0.563
+[9,   150] loss: 0.553
+[10,   150] loss: 0.542
+[11,   150] loss: 0.530
+[12,   150] loss: 0.516
+[13,   150] loss: 0.507
+[14,   150] loss: 0.493
+[15,   150] loss: 0.482
+[16,   150] loss: 0.474
+[17,   150] loss: 0.469
+[18,   150] loss: 0.458
+[19,   150] loss: 0.453
+[20,   150] loss: 0.447
+[21,   150] loss: 0.440
+[22,   150] loss: 0.435
+[23,   150] loss: 0.435
+[24,   150] loss: 0.429
+[25,   150] loss: 0.426
+[26,   150] loss: 0.424
+[27,   150] loss: 0.424
+[28,   150] loss: 0.423
+[29,   150] loss: 0.419
+[30,   150] loss: 0.420
+[31,   150] loss: 0.417
+[32,   150] loss: 0.415
+[33,   150] loss: 0.418
+[34,   150] loss: 0.415
+[35,   150] loss: 0.414
+[36,   150] loss: 0.416
+[37,   150] loss: 0.417
+[38,   150] loss: 0.416
+[39,   150] loss: 0.416
+[40,   150] loss: 0.414
+[41,   150] loss: 0.416
+[42,   150] loss: 0.417
+[43,   150] loss: 0.418
+[44,   150] loss: 0.417
+[45,   150] loss: 0.418
+[46,   150] loss: 0.416
+[47,   150] loss: 0.418
+[48,   150] loss: 0.414
+[49,   150] loss: 0.420
+[50,   150] loss: 0.416
+[51,   150] loss: 0.415
+[52,   150] loss: 0.418
+[53,   150] loss: 0.419
+[54,   150] loss: 0.420
+[55,   150] loss: 0.418
+[56,   150] loss: 0.419
+Early stopping applied (best metric=0.48542940616607666)
+Finished Training
+Total time taken: 165.85351848602295
+(47915, 33)
+(194382, 33)
+Loaded folder code/Thesis/dataset/train/Phosphorylation-Y/indices (242297 samples)
+[1,     1] loss: 0.697
+[2,   150] loss: 0.617
+[3,   150] loss: 0.605
+[4,   150] loss: 0.595
+[5,   150] loss: 0.588
+[6,   150] loss: 0.580
+[7,   150] loss: 0.571
+[8,   150] loss: 0.561
+[9,   150] loss: 0.551
+[10,   150] loss: 0.540
+[11,   150] loss: 0.529
+[12,   150] loss: 0.518
+[13,   150] loss: 0.507
+[14,   150] loss: 0.495
+[15,   150] loss: 0.485
+[16,   150] loss: 0.477
+[17,   150] loss: 0.471
+[18,   150] loss: 0.458
+[19,   150] loss: 0.456
+[20,   150] loss: 0.448
+[21,   150] loss: 0.443
+[22,   150] loss: 0.436
+[23,   150] loss: 0.433
+[24,   150] loss: 0.430
+[25,   150] loss: 0.423
+[26,   150] loss: 0.429
+[27,   150] loss: 0.424
+[28,   150] loss: 0.421
+[29,   150] loss: 0.422
+[30,   150] loss: 0.421
+[31,   150] loss: 0.421
+[32,   150] loss: 0.421
+[33,   150] loss: 0.420
+[34,   150] loss: 0.419
+[35,   150] loss: 0.418
+[36,   150] loss: 0.421
+[37,   150] loss: 0.419
+[38,   150] loss: 0.417
+[39,   150] loss: 0.417
+[40,   150] loss: 0.415
+[41,   150] loss: 0.416
+[42,   150] loss: 0.413
+[43,   150] loss: 0.413
+[44,   150] loss: 0.414
+[45,   150] loss: 0.414
+[46,   150] loss: 0.412
+[47,   150] loss: 0.411
+[48,   150] loss: 0.412
+[49,   150] loss: 0.416
+[50,   150] loss: 0.412
+[51,   150] loss: 0.413
+[52,   150] loss: 0.410
+[53,   150] loss: 0.412
+[54,   150] loss: 0.411
+[55,   150] loss: 0.410
+Early stopping applied (best metric=0.4862472414970398)
+Finished Training
+Total time taken: 158.12149906158447
+(47915, 33)
+(194382, 33)
+Loaded folder code/Thesis/dataset/train/Phosphorylation-Y/indices (242297 samples)
+[1,     1] loss: 0.697
+[2,   150] loss: 0.615
+[3,   150] loss: 0.606
+[4,   150] loss: 0.599
+[5,   150] loss: 0.592
+[6,   150] loss: 0.585
+[7,   150] loss: 0.576
+[8,   150] loss: 0.569
+[9,   150] loss: 0.559
+[10,   150] loss: 0.548
+[11,   150] loss: 0.537
+[12,   150] loss: 0.527
+[13,   150] loss: 0.515
+[14,   150] loss: 0.504
+[15,   150] loss: 0.495
+[16,   150] loss: 0.484
+[17,   150] loss: 0.476
+[18,   150] loss: 0.467
+[19,   150] loss: 0.459
+[20,   150] loss: 0.453
+[21,   150] loss: 0.452
+[22,   150] loss: 0.443
+[23,   150] loss: 0.440
+[24,   150] loss: 0.438
+[25,   150] loss: 0.430
+[26,   150] loss: 0.429
+[27,   150] loss: 0.431
+[28,   150] loss: 0.430
+[29,   150] loss: 0.425
+[30,   150] loss: 0.423
+[31,   150] loss: 0.422
+[32,   150] loss: 0.423
+[33,   150] loss: 0.422
+[34,   150] loss: 0.418
+[35,   150] loss: 0.417
+[36,   150] loss: 0.420
+[37,   150] loss: 0.415
+[38,   150] loss: 0.417
+[39,   150] loss: 0.421
+[40,   150] loss: 0.416
+[41,   150] loss: 0.418
+[42,   150] loss: 0.418
+[43,   150] loss: 0.416
+[44,   150] loss: 0.416
+[45,   150] loss: 0.419
+[46,   150] loss: 0.419
+[47,   150] loss: 0.416
+[48,   150] loss: 0.416
+[49,   150] loss: 0.418
+[50,   150] loss: 0.416
+[51,   150] loss: 0.418
+[52,   150] loss: 0.417
+[53,   150] loss: 0.416
+[54,   150] loss: 0.418
+[55,   150] loss: 0.415
+[56,   150] loss: 0.419
+Early stopping applied (best metric=0.483817994594574)
+Finished Training
+Total time taken: 158.82100439071655
+(47915, 33)
+(194382, 33)
+Loaded folder code/Thesis/dataset/train/Phosphorylation-Y/indices (242297 samples)
+[1,     1] loss: 0.692
+[2,   150] loss: 0.615
+[3,   150] loss: 0.604
+[4,   150] loss: 0.596
+[5,   150] loss: 0.588
+[6,   150] loss: 0.582
+[7,   150] loss: 0.573
+[8,   150] loss: 0.563
+[9,   150] loss: 0.555
+[10,   150] loss: 0.544
+[11,   150] loss: 0.533
+[12,   150] loss: 0.523
+[13,   150] loss: 0.512
+[14,   150] loss: 0.502
+[15,   150] loss: 0.491
+[16,   150] loss: 0.483
+[17,   150] loss: 0.474
+[18,   150] loss: 0.465
+[19,   150] loss: 0.458
+[20,   150] loss: 0.452
+[21,   150] loss: 0.447
+[22,   150] loss: 0.442
+[23,   150] loss: 0.437
+[24,   150] loss: 0.433
+[25,   150] loss: 0.431
+[26,   150] loss: 0.426
+[27,   150] loss: 0.426
+[28,   150] loss: 0.423
+[29,   150] loss: 0.420
+[30,   150] loss: 0.424
+[31,   150] loss: 0.422
+[32,   150] loss: 0.422
+[33,   150] loss: 0.420
+[34,   150] loss: 0.419
+[35,   150] loss: 0.422
+[36,   150] loss: 0.418
+[37,   150] loss: 0.419
+[38,   150] loss: 0.425
+[39,   150] loss: 0.418
+[40,   150] loss: 0.420
+[41,   150] loss: 0.422
+[42,   150] loss: 0.421
+[43,   150] loss: 0.416
+[44,   150] loss: 0.417
+[45,   150] loss: 0.416
+[46,   150] loss: 0.417
+[47,   150] loss: 0.415
+[48,   150] loss: 0.420
+[49,   150] loss: 0.416
+[50,   150] loss: 0.415
+[51,   150] loss: 0.416
+[52,   150] loss: 0.416
+[53,   150] loss: 0.416
+[54,   150] loss: 0.416
+Early stopping applied (best metric=0.48118123412132263)
+Finished Training
+Total time taken: 153.5863106250763
+results!
+{'gpu_mode': True, 'epochs': 200, 'batch_size': 512, 'learning_rate': 0.00287, 'test_data_ratio': 0.2, 'data_sample_mode': ['balanced'], 'crossValidation': True, 'loss_function': <class 'torch.nn.modules.loss.BCELoss'>, 'optimizer': <class 'torch.optim.adamw.AdamW'>, 'folds': 5, 'earlyStopping': True, 'ValidationMetric': 'Validation Loss (total)', 'earlyStoppingPatience': 50, 'CV_Repeats': 1, 'Experiment Name': 'Model architecture - sampling method - timetest: ', 'weight_decay': 0.49177, 'embeddingType': 'adaptiveEmbedding', 'LSTM_layers': 1, 'LSTM_hidden_size': 32, 'LSTM_dropout': 0, 'UseUncertaintyBasedLoss': False, 'useLrWeight': False, 'aminoAcid': ['Phosphorylation-Y'], 'CNNType': 'Adapt', 'FCType': 'Musite', 'random_state': 2426741981, 'current_CV_Repeat': 1, 'layerToSplitOn': 'FC', 'sample_weights': [1.0], 'currentFold': 4}
+{'Phosphorylation-Y Validation Accuracy': 0.6553032152125366, 'Phosphorylation-Y Validation Sensitivity': 0.6790566628404466, 'Phosphorylation-Y Validation Specificity': 0.6494480058245384, 'Phosphorylation-Y Validation Precision': 0.32321354713720674, 'Phosphorylation-Y AUC ROC': 0.7275433605824809, 'Phosphorylation-Y AUC PR': 0.4028034194652712, 'Phosphorylation-Y MCC': 0.2655421243242584, 'Phosphorylation-Y F1': 0.43793061939632466, 'Validation Loss (Phosphorylation-Y)': 0.48429229855537415, 'Validation Loss (total)': 0.48429229855537415, 'TimeToTrain': 159.60316834449767}
+{'Phosphorylation-Y Validation Accuracy': 0.0051252536893231825, 'Phosphorylation-Y Validation Sensitivity': 0.011337534745225765, 'Phosphorylation-Y Validation Specificity': 0.008622358737944048, 'Phosphorylation-Y Validation Precision': 0.0029380371699667058, 'Phosphorylation-Y AUC ROC': 0.0031655956104455403, 'Phosphorylation-Y AUC PR': 0.004495244277921492, 'Phosphorylation-Y MCC': 0.004599888769667886, 'Phosphorylation-Y F1': 0.0029091800134572647, 'Validation Loss (Phosphorylation-Y)': 0.0019533218038286417, 'Validation Loss (total)': 0.0019533218038286417, 'TimeToTrain': 4.533179398759235}
+{'Phosphorylation-Y Validation Accuracy': 0.6553032152125366, 'Phosphorylation-Y Validation Sensitivity': 0.6790566628404466, 'Phosphorylation-Y Validation Specificity': 0.6494480058245384, 'Phosphorylation-Y Validation Precision': 0.32321354713720674, 'Phosphorylation-Y AUC ROC': 0.7275433605824809, 'Phosphorylation-Y AUC PR': 0.4028034194652712, 'Phosphorylation-Y MCC': 0.2655421243242584, 'Phosphorylation-Y F1': 0.43793061939632466, 'Validation Loss (Phosphorylation-Y)': 0.48429229855537415, 'Validation Loss (total)': 0.48429229855537415, 'TimeToTrain': 159.60316834449767} {'Phosphorylation-Y Validation Accuracy': 0.0051252536893231825, 'Phosphorylation-Y Validation Sensitivity': 0.011337534745225765, 'Phosphorylation-Y Validation Specificity': 0.008622358737944048, 'Phosphorylation-Y Validation Precision': 0.0029380371699667058, 'Phosphorylation-Y AUC ROC': 0.0031655956104455403, 'Phosphorylation-Y AUC PR': 0.004495244277921492, 'Phosphorylation-Y MCC': 0.004599888769667886, 'Phosphorylation-Y F1': 0.0029091800134572647, 'Validation Loss (Phosphorylation-Y)': 0.0019533218038286417, 'Validation Loss (total)': 0.0019533218038286417, 'TimeToTrain': 4.533179398759235}

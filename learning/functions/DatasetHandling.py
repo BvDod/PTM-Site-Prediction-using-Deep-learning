@@ -41,15 +41,17 @@ def get_folder_name(AA, embeddingType, test=False, MusiteTest=False, split_2010=
             folder_name = f"{data_dir}train/{AA}/{type_folder}"
             folder_species = f"{data_dir}train/{AA}"
     if test:
-        if split_2010:
+        if MusiteTest:
+            folder_name = f"{data_dir}test_Musiteown/{AA}/{type_folder}"
+            folder_species = f"{data_dir}test_Musiteown/{AA}"
+        elif split_2010:
             folder_name = f"{data_dir}test_2010/{AA}/{type_folder}"
             folder_species = f"{data_dir}test_2010/{AA}"
         else:
             folder_name = f"{data_dir}test/{AA}/{type_folder}"
             folder_species = f"{data_dir}test/{AA}"
-    elif MusiteTest:
-        folder_name = f"{data_dir}test_Musiteown/{AA}/{type_folder}"
-        folder_species = f"{data_dir}test_Musiteown/{AA}"
+
+    print(folder_name, folder_species)
     return folder_name, folder_species
 
 

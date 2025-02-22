@@ -434,10 +434,10 @@ def evalValidation(testloaders, net, device, val_ratio, experiment, epoch, param
 
     with context():
         with torch.no_grad():
-            y_pred, y_output, y_true = [], [], []
+            y_pred, y_output, y_true, y_species = [], [], [], []
 
             for i, testloader in enumerate(testloaders):
-                y_pred_task, y_output_task, y_true_task = [], [], []
+                y_pred_task, y_output_task, y_true_task, species_task = [], [], [], []
                 for data in testloader:
                     features, labelsAll = data[0].to(device), data[1].to(device)
                     if parameters["predictSpecies"]:
@@ -468,9 +468,11 @@ def evalValidation(testloaders, net, device, val_ratio, experiment, epoch, param
                     y_pred_task.append(y_pred_batch)
                     y_output_task.append(y_output_batch)
                     y_true_task.append(labels)
+                    species_task.append(labelsAll[:,1])
                 y_pred.append(torch.cat(y_pred_task))
                 y_output.append(torch.cat(y_output_task))
                 y_true.append(torch.cat(y_true_task))
+                y_species.append(torch.cat(species_task))
             
                         
 
@@ -520,6 +522,14 @@ def evalValidation(testloaders, net, device, val_ratio, experiment, epoch, param
                 eval_metrics_total.update(eval_metrics)
                 eval_figures_total.update(eval_figures)
 
+                if parameters["specieMetrics"]:
+                    for specie in torch.unique(y_species[task]):
+                        y_output_specie = y_output[task][y_species[task] == specie] 
+                        y_true_specie = y_true[task][y_species[task] == specie]  
+                        y_pred_specie = y_pred[task][y_species[task] == specie]
+                        eval_metrics, eval_figures = get_evaluation_metrics(AA + f"(species={str(specie)})", y_true_specie.detach().cpu().numpy(), y_output_specie.detach().cpu().numpy(), y_pred_specie.detach().cpu().numpy(), figures=figures, species=species)
+                        eval_metrics_total.update(eval_metrics)
+                    
             total_loss = sum(losses)
             eval_metrics_total["Validation Loss (total)"] = total_loss.detach().item()
             

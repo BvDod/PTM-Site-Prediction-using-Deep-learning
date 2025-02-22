@@ -84,21 +84,23 @@ index_species = {
 df_index_species = pd.DataFrame(data=index_species)
 df_index_species.to_csv("SpeciesLabels.csv", index=False)
 
-input_dir = "data/processed/final_split_if_2010/train"
-output_dir = "data/learningData/balanced/train_2010_noolddata/"
+input_dir = "data/processed/final_split_noFiltering/test/"
+output_dir = "data/learningData/balanced/test_no_identity/"
 
 # %%
 
 # %%
 balance_dataset = False
 for file in os.listdir(input_dir):
-    if not file.split("_")[-4] == "pos":
+    if not file.split("_")[-1] == "pos":
         continue
 
     # check if already processed, else skip
+    """
     if os.path.exists(f"{output_dir}/{file}_oneHot"):
         continue
-
+    """
+    
     print(file)
     
     import csv
@@ -118,6 +120,7 @@ for file in os.listdir(input_dir):
 
     n = len(df_pos)
 
+    """
     column = "DateSeqModified"
 
     df_pos[column] = pd.to_datetime(df_pos[column])
@@ -129,14 +132,24 @@ for file in os.listdir(input_dir):
     df_pos= df_pos[df_pos[column] >= split_date]
     df_neg = df_neg[df_neg[column] >= split_date]
     print(f"new sample count: {len(df_pos)+len(df_neg)}")
-
+    """
 
     df_neg["TruncatedUniProtSequence"] = df_neg.dbPTMSequence
+    df_pos = df_pos[df_pos["truncateStatus"] == 0]
+
+    print(len(df_neg), len(df_pos))
+
+
     df_neg = df_neg.sample(frac=1)
     df_pos = df_pos.sample(frac=1)
 
+    df_pos = df_pos.sample(n=int(20000*(len(df_pos)/len(df_neg))))
+    df_neg = df_neg.sample(n=20000)
+    
+
     df_neg = df_neg.reset_index(drop=True)
     df_pos = df_pos.reset_index(drop=True)
+
 
 
     X_neg = []
@@ -184,6 +197,8 @@ for file in os.listdir(input_dir):
     input_ids_pos = np.array(ids['input_ids'])
 
     filename = file.split("_")[0]
+    if file.split("_")[2] == "incMusite":
+        filename = filename + "incMusite"
     file_dir = f"{output_dir}{filename}/"
 
     os.makedirs(f"{file_dir}indices", exist_ok=True)

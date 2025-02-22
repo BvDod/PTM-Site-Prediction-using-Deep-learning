@@ -3,13 +3,18 @@ import os
 import pandas as pd
 from Bio.Seq import Seq
 import string
-from PIL import Image
+from PIL import Image, ImageFile
+ImageFile.LOAD_TRUNCATED_IMAGES = True
 
+import matplotlib.pyplot as plt
+import logomaker
 import matplotlib.pyplot as plt
 
 
-source_dir = "dataset/data/processed/yearsAdded/"
-outdir = "dataset/data/motifs/"
+
+
+source_dir = "dataset/data/processed/yearsAdded1/"
+outdir = "dataset/data/motifs"
 
 df_uniprot_animals = pd.read_csv("dataset/data/uniprot_animals.csv")
 
@@ -31,13 +36,6 @@ for file in os.listdir(source_dir):
         "All Sites - positive": df_pos,
         "All Sites - negative": df_neg,
     }
-    
-    if file.split("_")[0] == "O-linked Glycosylation" or file.split("_")[0] == "Phosphorylation-['S', 'T']":
-        dfs["S - positive"] = df_pos[df_pos["ModifiedAA"] == "S"]
-        dfs["S - negative"] = df_neg[df_neg["ModifiedAA"] == "S"]
-        dfs["T - positive"] = df_pos[df_pos["ModifiedAA"] == "T"]
-        dfs["T - negative"] = df_neg[df_neg["ModifiedAA"] == "T"]
-
 
     df_human_pos = df_pos[df_pos['UniprotID'].str.split('_').str[-1] == "HUMAN"]
     df_human_neg = df_neg[df_neg['UniprotID'].str.split('_').str[-1] == "HUMAN"]
@@ -55,19 +53,49 @@ for file in os.listdir(source_dir):
     dfs["Non-Animals only - negative"] = df_non_animals_neg
     
 
+    img_list = []
+    labels = []
+    full_df = pd.concat((list(dfs.items())[0][1], list(dfs.items())[1][1]))
+    seqs = full_df["TruncatedUniProtSequence"].tolist()
+    seqs = [seq[0:16] + "." + seq[17:]  for seq in seqs]
+    df_count = logomaker.alignment_to_matrix(seqs)
+    df_background = logomaker.transform_matrix(df_count, 
+                                      from_type='counts', 
+                                      to_type='probability')
+
+    for i, (label, df) in enumerate(dfs.items()):
+        plt.figure()
+        seqs = df["TruncatedUniProtSequence"].tolist()
+        seqs = [seq[0:16] + "." + seq[17:]  for seq in seqs]
+        df_count = logomaker.alignment_to_matrix(seqs)
+        for column in list(df_background.columns):
+            if not column in list(df_count.columns):
+                df_count[column] = 0.0
+        
+        df_count = df_count[df_background.columns]
+        df_info = logomaker.transform_matrix(df_count, 
+                                      from_type='counts', 
+                                      to_type='information',
+                                      background= df_background)
+        # create Logo object
+        ww_logo = logomaker.Logo(df_info,
+                                font_name='Stencil Std',
+                                color_scheme='NajafabadiEtAl2017',)
+        plt.ylim(0, 0.1)
+        plt.savefig(f"{outdir}/temp{i}.PNG")
+        img = Image.open(f"{outdir}/temp{i}.PNG")
+        img_list.append(img)
+        labels.append(label)
+    
     fig, ax = plt.subplots(int(len(dfs)/2), 2,)
     print(file.split("_")[0])
     ax = list(ax.flatten())
     fig.suptitle(file.split("_")[0], fontsize=18)
-    for i, (label, df) in enumerate(dfs.items()):
-        seqs = df["TruncatedUniProtSequence"].tolist()
-        motif = motifs.create([Seq(sequence) for sequence in seqs], alphabet=string.ascii_uppercase + "-")
-        motif.weblogo(f"{outdir}/temp.PNG", format = "png_print", alphabet="alphabet_protein")
-        img = Image.open(f"{outdir}/temp.PNG")
+    for i, img in enumerate(img_list):
         ax[i].get_xaxis().set_visible(False)
         ax[i].get_yaxis().set_visible(False)
         ax[i].imshow(img)
-        ax[i].set_title(label, fontsize=7)
+        ax[i].set_title(labels[i], fontsize=7)
         ax[i].axis('off')
         ax[i].set_xticklabels([])
         ax[i].set_yticklabels([])
